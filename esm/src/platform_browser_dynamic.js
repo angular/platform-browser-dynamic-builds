@@ -1,10 +1,10 @@
-import { COMPILER_PROVIDERS, XHR } from '@angular/compiler';
-import { CachedXHR } from './src/xhr/xhr_cache';
-import { isPresent } from './src/facade/lang';
-import { XHRImpl } from './src/xhr/xhr_impl';
-import { BROWSER_APP_COMMON_PROVIDERS, browserPlatform } from '@angular/platform-browser';
 import { reflector, ReflectiveInjector, coreLoadAndBootstrap } from '@angular/core';
-import { ReflectionCapabilities } from './core_private';
+import { COMPILER_PROVIDERS, XHR } from '@angular/compiler';
+import { CachedXHR } from '../src/xhr/xhr_cache';
+import { isPresent } from '../src/facade/lang';
+import { XHRImpl } from '../src/xhr/xhr_impl';
+import { browserPlatform, BROWSER_APP_COMMON_PROVIDERS } from '@angular/platform-browser';
+import { ReflectionCapabilities } from '../core_private';
 export const CACHED_TEMPLATE_PROVIDER = 
 /*@ts2dart_const*/ [{ provide: XHR, useClass: CachedXHR }];
 /**

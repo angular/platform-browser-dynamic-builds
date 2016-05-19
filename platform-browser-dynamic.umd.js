@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v2.0.0-a01a54c
+ * @license AngularJS v2.0.0-6e62217
  * (c) 2010-2016 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -9,10 +9,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/compiler'), require('@angular/platform-browser'), require('@angular/core')) :
-        typeof define === 'function' && define.amd ? define(['exports', '@angular/compiler', '@angular/platform-browser', '@angular/core'], factory) :
-            (factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}), global.ng.compiler, global.ng.platformBrowser, global.ng.core));
-}(this, function (exports, _angular_compiler, _angular_platformBrowser, _angular_core) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/compiler'), require('@angular/platform-browser'), require('rxjs/Subject'), require('rxjs/observable/PromiseObservable'), require('rxjs/operator/toPromise'), require('rxjs/Observable')) :
+        typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/compiler', '@angular/platform-browser', 'rxjs/Subject', 'rxjs/observable/PromiseObservable', 'rxjs/operator/toPromise', 'rxjs/Observable'], factory) :
+            (factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}), global.ng.core, global.ng.compiler, global.ng.platformBrowser, global.Rx, global.Rx, global.Rx.Observable.prototype, global.Rx));
+}(this, function (exports, _angular_core, _angular_compiler, _angular_platformBrowser, rxjs_Subject, rxjs_observable_PromiseObservable, rxjs_operator_toPromise, rxjs_Observable) {
     'use strict';
     var globalScope;
     if (typeof window === 'undefined') {
@@ -45,6 +45,13 @@ var __extends = (this && this.__extends) || function (d, b) {
     function isArray(obj) {
         return Array.isArray(obj);
     }
+    var FunctionWrapper = (function () {
+        function FunctionWrapper() {
+        }
+        FunctionWrapper.apply = function (fn, posArgs) { return fn.apply(null, posArgs); };
+        FunctionWrapper.bind = function (fn, scope) { return fn.bind(scope); };
+        return FunctionWrapper;
+    }());
     var Map$1 = global$1.Map;
     var Set = global$1.Set;
     // Safari and Internet Explorer do not support the iterable parameter to the
@@ -468,7 +475,80 @@ var __extends = (this && this.__extends) || function (d, b) {
         var appInjector = _angular_core.ReflectiveInjector.resolveAndCreate([BROWSER_APP_DYNAMIC_PROVIDERS, isPresent(customProviders) ? customProviders : []], _angular_platformBrowser.browserPlatform().injector);
         return _angular_core.coreLoadAndBootstrap(appInjector, appComponentType);
     }
+    /**
+     * All channels used by angular's WebWorker components are listed here.
+     * You should not use these channels in your application code.
+     */
+    var XHR_CHANNEL = "ng-XHR";
+    var MessageBasedXHRImpl = (function () {
+        function MessageBasedXHRImpl(_brokerFactory, _xhr) {
+            this._brokerFactory = _brokerFactory;
+            this._xhr = _xhr;
+        }
+        MessageBasedXHRImpl.prototype.start = function () {
+            var broker = this._brokerFactory.createMessageBroker(XHR_CHANNEL);
+            broker.registerMethod("get", [_angular_platformBrowser.PRIMITIVE], FunctionWrapper.bind(this._xhr.get, this._xhr), _angular_platformBrowser.PRIMITIVE);
+        };
+        return MessageBasedXHRImpl;
+    }());
+    MessageBasedXHRImpl.decorators = [
+        { type: _angular_core.Injectable },
+    ];
+    MessageBasedXHRImpl.ctorParameters = [
+        { type: _angular_platformBrowser.ServiceMessageBrokerFactory, },
+        { type: _angular_compiler.XHR, },
+    ];
+    var WORKER_RENDER_DYNAMIC_APPLICATION_PROVIDERS = [
+        _angular_platformBrowser.WORKER_RENDER_APPLICATION_PROVIDERS,
+        /* @ts2dart_Provider */ { provide: _angular_compiler.XHR, useClass: XHRImpl },
+        MessageBasedXHRImpl,
+        /* @ts2dart_Provider */ { provide: _angular_platformBrowser.WORKER_RENDER_STARTABLE_MESSAGING_SERVICE, useExisting: MessageBasedXHRImpl, multi: true },
+    ];
+    function bootstrapRender(workerScriptUri, customProviders) {
+        var app = _angular_core.ReflectiveInjector.resolveAndCreate([
+            WORKER_RENDER_DYNAMIC_APPLICATION_PROVIDERS,
+            /* @ts2dart_Provider */ { provide: _angular_platformBrowser.WORKER_SCRIPT, useValue: workerScriptUri },
+            isPresent(customProviders) ? customProviders : []
+        ], _angular_platformBrowser.workerRenderPlatform().injector);
+        // Return a promise so that we keep the same semantics as Dart,
+        // and we might want to wait for the app side to come up
+        // in the future...
+        return PromiseWrapper.resolve(app.get(_angular_core.ApplicationRef));
+    }
+    var WebWorkerXHRImpl = (function (_super) {
+        __extends(WebWorkerXHRImpl, _super);
+        function WebWorkerXHRImpl(messageBrokerFactory) {
+            _super.call(this);
+            this._messageBroker = messageBrokerFactory.createMessageBroker(XHR_CHANNEL);
+        }
+        WebWorkerXHRImpl.prototype.get = function (url) {
+            var fnArgs = [new _angular_platformBrowser.FnArg(url, null)];
+            var args = new _angular_platformBrowser.UiArguments("get", fnArgs);
+            return this._messageBroker.runOnService(args, String);
+        };
+        return WebWorkerXHRImpl;
+    }(_angular_compiler.XHR));
+    WebWorkerXHRImpl.decorators = [
+        { type: _angular_core.Injectable },
+    ];
+    WebWorkerXHRImpl.ctorParameters = [
+        { type: _angular_platformBrowser.ClientMessageBrokerFactory, },
+    ];
+    var WORKER_APP_DYNAMIC_APPLICATION_PROVIDERS = [
+        _angular_platformBrowser.WORKER_APP_APPLICATION_PROVIDERS,
+        _angular_compiler.COMPILER_PROVIDERS,
+        WebWorkerXHRImpl,
+        /* @ts2dart_Provider */ { provide: _angular_compiler.XHR, useExisting: WebWorkerXHRImpl }
+    ];
+    function bootstrapApp(appComponentType, customProviders) {
+        var appInjector = _angular_core.ReflectiveInjector.resolveAndCreate([WORKER_APP_DYNAMIC_APPLICATION_PROVIDERS, isPresent(customProviders) ? customProviders : []], _angular_platformBrowser.workerAppPlatform().injector);
+        return _angular_core.coreLoadAndBootstrap(appInjector, appComponentType);
+    }
     exports.CACHED_TEMPLATE_PROVIDER = CACHED_TEMPLATE_PROVIDER;
     exports.BROWSER_APP_DYNAMIC_PROVIDERS = BROWSER_APP_DYNAMIC_PROVIDERS;
     exports.bootstrap = bootstrap;
+    exports.WORKER_RENDER_DYNAMIC_APPLICATION_PROVIDERS = WORKER_RENDER_DYNAMIC_APPLICATION_PROVIDERS;
+    exports.bootstrapRender = bootstrapRender;
+    exports.WORKER_APP_DYNAMIC_APPLICATION_PROVIDERS = WORKER_APP_DYNAMIC_APPLICATION_PROVIDERS;
+    exports.bootstrapApp = bootstrapApp;
 }));
