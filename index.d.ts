@@ -1,3 +1,2 @@
-export * from './src/platform_browser_dynamic';
-export * from './src/worker_render';
-export * from './src/worker_app';
+export { bootstrap, CACHED_TEMPLATE_PROVIDER } from '@angular/platform-browser';
+export declare const BROWSER_APP_DYNAMIC_PROVIDERS: Array<any>;

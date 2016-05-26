@@ -1,2 +1,1 @@
-export * from './testing/browser';
-export * from './testing/dom_test_component_renderer';
+export * from '@angular/platform-browser/testing';

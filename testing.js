@@ -2,6 +2,6 @@
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-__export(require('./testing/browser'));
-__export(require('./testing/dom_test_component_renderer'));
+__export(require('@angular/platform-browser/testing'));
+console.log("platform-browser-dynamic/testing is deprecated, use platform-browser/testing instead");
 //# sourceMappingURL=testing.js.map

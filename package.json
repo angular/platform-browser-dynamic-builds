@@ -1,6 +1,6 @@
 {
   "name": "@angular/platform-browser-dynamic",
-  "version": "2.0.0-68f9aaf",
+  "version": "2.0.0-172a566",
   "description": "",
   "main": "index.js",
   "jsnext:main": "esm/index.js",
@@ -8,13 +8,9 @@
   "author": "angular",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/core": "2.0.0-68f9aaf",
-    "@angular/common": "2.0.0-68f9aaf",
-    "@angular/compiler": "2.0.0-68f9aaf",
-    "@angular/platform-browser": "2.0.0-68f9aaf"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/angular/angular.git"
+    "@angular/core": "2.0.0-172a566",
+    "@angular/common": "2.0.0-172a566",
+    "@angular/compiler": "2.0.0-172a566",
+    "@angular/platform-browser": "2.0.0-172a566"
   }
 }

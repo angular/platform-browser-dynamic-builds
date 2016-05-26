@@ -1,3 +1,3 @@
-export * from './testing/browser';
-export * from './testing/dom_test_component_renderer';
+export * from '@angular/platform-browser/testing';
+console.log(`platform-browser-dynamic/testing is deprecated, use platform-browser/testing instead`);
 //# sourceMappingURL=testing.js.map
