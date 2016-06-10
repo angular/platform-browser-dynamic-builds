@@ -10,12 +10,9 @@
 }(this, function (exports, _angular_platformBrowser) {
     'use strict';
     /* @deprecated the platform-browser-dynamic module is deprecated. */
-    var BROWSER_APP_DYNAMIC_PROVIDERS = [
-        _angular_platformBrowser.BROWSER_APP_PROVIDERS,
-        _angular_platformBrowser.BROWSER_APP_COMPILER_PROVIDERS
-    ];
+    var BROWSER_APP_DYNAMIC_PROVIDERS = [_angular_platformBrowser.BROWSER_APP_PROVIDERS, _angular_platformBrowser.BROWSER_APP_COMPILER_PROVIDERS];
     console.log("platform-browser-dynamic is deprecated, use platform-browser instead");
     exports.BROWSER_APP_DYNAMIC_PROVIDERS = BROWSER_APP_DYNAMIC_PROVIDERS;
-    exports.bootstrap = _angular_platformBrowser.bootstrap;
     exports.CACHED_TEMPLATE_PROVIDER = _angular_platformBrowser.CACHED_TEMPLATE_PROVIDER;
+    exports.bootstrap = _angular_platformBrowser.bootstrap;
 }));
