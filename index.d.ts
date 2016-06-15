@@ -70,5 +70,5 @@ export declare const CACHED_TEMPLATE_PROVIDER: Array<any>;
  * Returns a `Promise` of {@link ComponentRef}.
  */
 export declare function bootstrap(appComponentType: Type, customProviders?: Array<any>): Promise<ComponentRef<any>>;
-export declare function bootstrapRender(workerScriptUri: string, customProviders?: Array<any>): Promise<ApplicationRef>;
-export declare function bootstrapApp(appComponentType: Type, customProviders?: Array<any>): Promise<ComponentRef<any>>;
+export declare function bootstrapWorkerUi(workerScriptUri: string, customProviders?: Array<any>): Promise<ApplicationRef>;
+export declare function bootstrapWorkerApp(appComponentType: Type, customProviders?: Array<any>): Promise<ComponentRef<any>>;

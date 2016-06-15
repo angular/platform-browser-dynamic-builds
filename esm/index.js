@@ -1,7 +1,7 @@
 import { COMMON_DIRECTIVES, COMMON_PIPES } from '@angular/common';
 import { COMPILER_PROVIDERS, CompilerConfig, XHR } from '@angular/compiler';
 import { ApplicationRef, PLATFORM_DIRECTIVES, PLATFORM_PIPES, ReflectiveInjector, coreLoadAndBootstrap } from '@angular/core';
-import { BROWSER_APP_PROVIDERS, WORKER_APP_APPLICATION_PROVIDERS, WORKER_RENDER_APPLICATION_PROVIDERS, WORKER_SCRIPT, browserPlatform, workerAppPlatform, workerRenderPlatform } from '@angular/platform-browser';
+import { BROWSER_APP_PROVIDERS, WORKER_APP_APPLICATION_PROVIDERS, WORKER_SCRIPT, WORKER_UI_APPLICATION_PROVIDERS, browserPlatform, workerAppPlatform, workerUiPlatform } from '@angular/platform-browser';
 import { ReflectionCapabilities, reflector } from './core_private';
 import { PromiseWrapper } from './src/facade/async';
 import { isPresent } from './src/facade/lang';
@@ -97,12 +97,12 @@ export function bootstrap(appComponentType, customProviders) {
     var appInjector = ReflectiveInjector.resolveAndCreate(providers, browserPlatform().injector);
     return coreLoadAndBootstrap(appComponentType, appInjector);
 }
-export function bootstrapRender(workerScriptUri, customProviders) {
+export function bootstrapWorkerUi(workerScriptUri, customProviders) {
     var app = ReflectiveInjector.resolveAndCreate([
-        WORKER_RENDER_APPLICATION_PROVIDERS, BROWSER_APP_COMPILER_PROVIDERS,
+        WORKER_UI_APPLICATION_PROVIDERS, BROWSER_APP_COMPILER_PROVIDERS,
         { provide: WORKER_SCRIPT, useValue: workerScriptUri },
         isPresent(customProviders) ? customProviders : []
-    ], workerRenderPlatform().injector);
+    ], workerUiPlatform().injector);
     // Return a promise so that we keep the same semantics as Dart,
     // and we might want to wait for the app side to come up
     // in the future...
@@ -120,7 +120,7 @@ const WORKER_APP_COMPILER_PROVIDERS = [
     { provide: PLATFORM_DIRECTIVES, useValue: COMMON_DIRECTIVES, multi: true },
     { provide: PLATFORM_PIPES, useValue: COMMON_PIPES, multi: true }
 ];
-export function bootstrapApp(appComponentType, customProviders) {
+export function bootstrapWorkerApp(appComponentType, customProviders) {
     var appInjector = ReflectiveInjector.resolveAndCreate([
         WORKER_APP_APPLICATION_PROVIDERS, WORKER_APP_COMPILER_PROVIDERS,
         isPresent(customProviders) ? customProviders : []

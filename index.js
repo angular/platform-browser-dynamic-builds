@@ -99,18 +99,18 @@ function bootstrap(appComponentType, customProviders) {
     return core_1.coreLoadAndBootstrap(appComponentType, appInjector);
 }
 exports.bootstrap = bootstrap;
-function bootstrapRender(workerScriptUri, customProviders) {
+function bootstrapWorkerUi(workerScriptUri, customProviders) {
     var app = core_1.ReflectiveInjector.resolveAndCreate([
-        platform_browser_1.WORKER_RENDER_APPLICATION_PROVIDERS, exports.BROWSER_APP_COMPILER_PROVIDERS,
+        platform_browser_1.WORKER_UI_APPLICATION_PROVIDERS, exports.BROWSER_APP_COMPILER_PROVIDERS,
         { provide: platform_browser_1.WORKER_SCRIPT, useValue: workerScriptUri },
         lang_1.isPresent(customProviders) ? customProviders : []
-    ], platform_browser_1.workerRenderPlatform().injector);
+    ], platform_browser_1.workerUiPlatform().injector);
     // Return a promise so that we keep the same semantics as Dart,
     // and we might want to wait for the app side to come up
     // in the future...
     return async_1.PromiseWrapper.resolve(app.get(core_1.ApplicationRef));
 }
-exports.bootstrapRender = bootstrapRender;
+exports.bootstrapWorkerUi = bootstrapWorkerUi;
 var WORKER_APP_COMPILER_PROVIDERS = [
     compiler_1.COMPILER_PROVIDERS, {
         provide: compiler_1.CompilerConfig,
@@ -123,12 +123,12 @@ var WORKER_APP_COMPILER_PROVIDERS = [
     { provide: core_1.PLATFORM_DIRECTIVES, useValue: common_1.COMMON_DIRECTIVES, multi: true },
     { provide: core_1.PLATFORM_PIPES, useValue: common_1.COMMON_PIPES, multi: true }
 ];
-function bootstrapApp(appComponentType, customProviders) {
+function bootstrapWorkerApp(appComponentType, customProviders) {
     var appInjector = core_1.ReflectiveInjector.resolveAndCreate([
         platform_browser_1.WORKER_APP_APPLICATION_PROVIDERS, WORKER_APP_COMPILER_PROVIDERS,
         lang_1.isPresent(customProviders) ? customProviders : []
     ], platform_browser_1.workerAppPlatform().injector);
     return core_1.coreLoadAndBootstrap(appComponentType, appInjector);
 }
-exports.bootstrapApp = bootstrapApp;
+exports.bootstrapWorkerApp = bootstrapWorkerApp;
 //# sourceMappingURL=index.js.map

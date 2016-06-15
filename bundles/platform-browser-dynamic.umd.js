@@ -478,12 +478,12 @@ var __extends = (this && this.__extends) || function (d, b) {
         var appInjector = _angular_core.ReflectiveInjector.resolveAndCreate(providers, _angular_platformBrowser.browserPlatform().injector);
         return _angular_core.coreLoadAndBootstrap(appComponentType, appInjector);
     }
-    function bootstrapRender(workerScriptUri, customProviders) {
+    function bootstrapWorkerUi(workerScriptUri, customProviders) {
         var app = _angular_core.ReflectiveInjector.resolveAndCreate([
-            _angular_platformBrowser.WORKER_RENDER_APPLICATION_PROVIDERS, BROWSER_APP_COMPILER_PROVIDERS,
+            _angular_platformBrowser.WORKER_UI_APPLICATION_PROVIDERS, BROWSER_APP_COMPILER_PROVIDERS,
             { provide: _angular_platformBrowser.WORKER_SCRIPT, useValue: workerScriptUri },
             isPresent(customProviders) ? customProviders : []
-        ], _angular_platformBrowser.workerRenderPlatform().injector);
+        ], _angular_platformBrowser.workerUiPlatform().injector);
         // Return a promise so that we keep the same semantics as Dart,
         // and we might want to wait for the app side to come up
         // in the future...
@@ -501,7 +501,7 @@ var __extends = (this && this.__extends) || function (d, b) {
         { provide: _angular_core.PLATFORM_DIRECTIVES, useValue: _angular_common.COMMON_DIRECTIVES, multi: true },
         { provide: _angular_core.PLATFORM_PIPES, useValue: _angular_common.COMMON_PIPES, multi: true }
     ];
-    function bootstrapApp(appComponentType, customProviders) {
+    function bootstrapWorkerApp(appComponentType, customProviders) {
         var appInjector = _angular_core.ReflectiveInjector.resolveAndCreate([
             _angular_platformBrowser.WORKER_APP_APPLICATION_PROVIDERS, WORKER_APP_COMPILER_PROVIDERS,
             isPresent(customProviders) ? customProviders : []
@@ -511,6 +511,6 @@ var __extends = (this && this.__extends) || function (d, b) {
     exports.BROWSER_APP_COMPILER_PROVIDERS = BROWSER_APP_COMPILER_PROVIDERS;
     exports.CACHED_TEMPLATE_PROVIDER = CACHED_TEMPLATE_PROVIDER;
     exports.bootstrap = bootstrap;
-    exports.bootstrapRender = bootstrapRender;
-    exports.bootstrapApp = bootstrapApp;
+    exports.bootstrapWorkerUi = bootstrapWorkerUi;
+    exports.bootstrapWorkerApp = bootstrapWorkerApp;
 }));
