@@ -1,6 +1,6 @@
 import { COMMON_DIRECTIVES, COMMON_PIPES } from '@angular/common';
 import { COMPILER_PROVIDERS, CompilerConfig, XHR } from '@angular/compiler';
-import { ApplicationRef, ReflectiveInjector, coreLoadAndBootstrap } from '@angular/core';
+import { ApplicationRef, PLATFORM_DIRECTIVES, PLATFORM_PIPES, ReflectiveInjector, coreLoadAndBootstrap } from '@angular/core';
 import { BROWSER_APP_PROVIDERS, WORKER_APP_APPLICATION_PROVIDERS, WORKER_RENDER_APPLICATION_PROVIDERS, WORKER_SCRIPT, browserPlatform, workerAppPlatform, workerRenderPlatform } from '@angular/platform-browser';
 import { ReflectionCapabilities, reflector } from './core_private';
 import { PromiseWrapper } from './src/facade/async';
@@ -8,12 +8,16 @@ import { isPresent } from './src/facade/lang';
 import { CachedXHR } from './src/xhr/xhr_cache';
 import { XHRImpl } from './src/xhr/xhr_impl';
 export const BROWSER_APP_COMPILER_PROVIDERS = [
-    COMPILER_PROVIDERS,
-    {
+    COMPILER_PROVIDERS, {
         provide: CompilerConfig,
-        useValue: new CompilerConfig({ platformDirectives: COMMON_DIRECTIVES, platformPipes: COMMON_PIPES })
+        useFactory: (platformDirectives, platformPipes) => {
+            return new CompilerConfig({ platformDirectives, platformPipes });
+        },
+        deps: [PLATFORM_DIRECTIVES, PLATFORM_PIPES]
     },
     { provide: XHR, useClass: XHRImpl },
+    { provide: PLATFORM_DIRECTIVES, useValue: COMMON_DIRECTIVES, multi: true },
+    { provide: PLATFORM_PIPES, useValue: COMMON_PIPES, multi: true }
 ];
 export const CACHED_TEMPLATE_PROVIDER = [{ provide: XHR, useClass: CachedXHR }];
 /**
@@ -105,12 +109,16 @@ export function bootstrapRender(workerScriptUri, customProviders) {
     return PromiseWrapper.resolve(app.get(ApplicationRef));
 }
 const WORKER_APP_COMPILER_PROVIDERS = [
-    COMPILER_PROVIDERS,
-    {
+    COMPILER_PROVIDERS, {
         provide: CompilerConfig,
-        useValue: new CompilerConfig({ platformDirectives: COMMON_DIRECTIVES, platformPipes: COMMON_PIPES })
+        useFactory: (platformDirectives, platformPipes) => {
+            return new CompilerConfig({ platformDirectives, platformPipes });
+        },
+        deps: [PLATFORM_DIRECTIVES, PLATFORM_PIPES]
     },
     { provide: XHR, useClass: XHRImpl },
+    { provide: PLATFORM_DIRECTIVES, useValue: COMMON_DIRECTIVES, multi: true },
+    { provide: PLATFORM_PIPES, useValue: COMMON_PIPES, multi: true }
 ];
 export function bootstrapApp(appComponentType, customProviders) {
     var appInjector = ReflectiveInjector.resolveAndCreate([

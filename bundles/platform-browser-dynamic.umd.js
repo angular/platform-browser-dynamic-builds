@@ -389,12 +389,16 @@ var __extends = (this && this.__extends) || function (d, b) {
         return XHRImpl;
     }(_angular_compiler.XHR));
     var BROWSER_APP_COMPILER_PROVIDERS = [
-        _angular_compiler.COMPILER_PROVIDERS,
-        {
+        _angular_compiler.COMPILER_PROVIDERS, {
             provide: _angular_compiler.CompilerConfig,
-            useValue: new _angular_compiler.CompilerConfig({ platformDirectives: _angular_common.COMMON_DIRECTIVES, platformPipes: _angular_common.COMMON_PIPES })
+            useFactory: function (platformDirectives, platformPipes) {
+                return new _angular_compiler.CompilerConfig({ platformDirectives: platformDirectives, platformPipes: platformPipes });
+            },
+            deps: [_angular_core.PLATFORM_DIRECTIVES, _angular_core.PLATFORM_PIPES]
         },
         { provide: _angular_compiler.XHR, useClass: XHRImpl },
+        { provide: _angular_core.PLATFORM_DIRECTIVES, useValue: _angular_common.COMMON_DIRECTIVES, multi: true },
+        { provide: _angular_core.PLATFORM_PIPES, useValue: _angular_common.COMMON_PIPES, multi: true }
     ];
     var CACHED_TEMPLATE_PROVIDER = [{ provide: _angular_compiler.XHR, useClass: CachedXHR }];
     /**
@@ -486,12 +490,16 @@ var __extends = (this && this.__extends) || function (d, b) {
         return PromiseWrapper.resolve(app.get(_angular_core.ApplicationRef));
     }
     var WORKER_APP_COMPILER_PROVIDERS = [
-        _angular_compiler.COMPILER_PROVIDERS,
-        {
+        _angular_compiler.COMPILER_PROVIDERS, {
             provide: _angular_compiler.CompilerConfig,
-            useValue: new _angular_compiler.CompilerConfig({ platformDirectives: _angular_common.COMMON_DIRECTIVES, platformPipes: _angular_common.COMMON_PIPES })
+            useFactory: function (platformDirectives, platformPipes) {
+                return new _angular_compiler.CompilerConfig({ platformDirectives: platformDirectives, platformPipes: platformPipes });
+            },
+            deps: [_angular_core.PLATFORM_DIRECTIVES, _angular_core.PLATFORM_PIPES]
         },
         { provide: _angular_compiler.XHR, useClass: XHRImpl },
+        { provide: _angular_core.PLATFORM_DIRECTIVES, useValue: _angular_common.COMMON_DIRECTIVES, multi: true },
+        { provide: _angular_core.PLATFORM_PIPES, useValue: _angular_common.COMMON_PIPES, multi: true }
     ];
     function bootstrapApp(appComponentType, customProviders) {
         var appInjector = _angular_core.ReflectiveInjector.resolveAndCreate([
