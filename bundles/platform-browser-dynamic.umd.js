@@ -478,6 +478,9 @@ var __extends = (this && this.__extends) || function (d, b) {
         var appInjector = _angular_core.ReflectiveInjector.resolveAndCreate(providers, _angular_platformBrowser.browserPlatform().injector);
         return _angular_core.coreLoadAndBootstrap(appComponentType, appInjector);
     }
+    /**
+     * @experimental
+     */
     function bootstrapWorkerUi(workerScriptUri, customProviders) {
         var app = _angular_core.ReflectiveInjector.resolveAndCreate([
             _angular_platformBrowser.WORKER_UI_APPLICATION_PROVIDERS, BROWSER_APP_COMPILER_PROVIDERS,
@@ -489,6 +492,9 @@ var __extends = (this && this.__extends) || function (d, b) {
         // in the future...
         return PromiseWrapper.resolve(app.get(_angular_core.ApplicationRef));
     }
+    /**
+     * @experimental
+     */
     var WORKER_APP_COMPILER_PROVIDERS = [
         _angular_compiler.COMPILER_PROVIDERS, {
             provide: _angular_compiler.CompilerConfig,
@@ -501,6 +507,9 @@ var __extends = (this && this.__extends) || function (d, b) {
         { provide: _angular_core.PLATFORM_DIRECTIVES, useValue: _angular_common.COMMON_DIRECTIVES, multi: true },
         { provide: _angular_core.PLATFORM_PIPES, useValue: _angular_common.COMMON_PIPES, multi: true }
     ];
+    /**
+     * @experimental
+     */
     function bootstrapWorkerApp(appComponentType, customProviders) {
         var appInjector = _angular_core.ReflectiveInjector.resolveAndCreate([
             _angular_platformBrowser.WORKER_APP_APPLICATION_PROVIDERS, WORKER_APP_COMPILER_PROVIDERS,
