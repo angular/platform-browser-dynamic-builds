@@ -8,7 +8,6 @@
 import { TestComponentRenderer } from '@angular/compiler/testing';
 import { Inject, Injectable } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
-import { el } from '@angular/platform-browser/testing';
 import { getDOM } from '../platform_browser_private';
 export class DOMTestComponentRenderer extends TestComponentRenderer {
     constructor(_doc /** TODO #9100 */) {
@@ -16,7 +15,7 @@ export class DOMTestComponentRenderer extends TestComponentRenderer {
         this._doc = _doc;
     }
     insertRootElement(rootElId) {
-        let rootEl = el(`<div id="${rootElId}"></div>`);
+        let rootEl = getDOM().firstChild(getDOM().content(getDOM().createTemplate(`<div id="${rootElId}"></div>`)));
         // TODO(juliemr): can/should this be optional?
         let oldRoots = getDOM().querySelectorAll(this._doc, '[id^=root]');
         for (let i = 0; i < oldRoots.length; i++) {
