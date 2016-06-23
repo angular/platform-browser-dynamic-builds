@@ -16,6 +16,13 @@ var __extends = (this && this.__extends) || function (d, b) {
     'use strict';
     var ReflectionCapabilities = _angular_core.__core_private__.ReflectionCapabilities;
     var reflector = _angular_core.__core_private__.reflector;
+    /**
+     * @license
+     * Copyright Google Inc. All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
     var globalScope;
     if (typeof window === 'undefined') {
         if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {
@@ -47,6 +54,13 @@ var __extends = (this && this.__extends) || function (d, b) {
     function isArray(obj) {
         return Array.isArray(obj);
     }
+    /**
+     * @license
+     * Copyright Google Inc. All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
     var PromiseCompleter = (function () {
         function PromiseCompleter() {
             var _this = this;

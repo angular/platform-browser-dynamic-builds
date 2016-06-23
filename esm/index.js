@@ -1,3 +1,10 @@
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 import { COMMON_DIRECTIVES, COMMON_PIPES } from '@angular/common';
 import { COMPILER_PROVIDERS, CompilerConfig, XHR } from '@angular/compiler';
 import { ApplicationRef, PLATFORM_DIRECTIVES, PLATFORM_PIPES, ReflectiveInjector, coreLoadAndBootstrap } from '@angular/core';
