@@ -14,10 +14,14 @@ import { DOMTestComponentRenderer } from './testing/dom_test_component_renderer'
 export * from './private_export_testing';
 /**
  * Default platform providers for testing.
+ *
+ * @stable
  */
 export const TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [TEST_BROWSER_PLATFORM_PROVIDERS];
 /**
  * Default application providers for testing.
+ *
+ * @stable
  */
 export const TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS = [
     TEST_BROWSER_APPLICATION_PROVIDERS, BROWSER_APP_COMPILER_PROVIDERS,
