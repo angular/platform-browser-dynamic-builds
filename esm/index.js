@@ -14,9 +14,6 @@ import { PromiseWrapper } from './src/facade/async';
 import { isPresent } from './src/facade/lang';
 import { CachedXHR } from './src/xhr/xhr_cache';
 import { XHRImpl } from './src/xhr/xhr_impl';
-/**
- * @experimental
- */
 export const BROWSER_APP_COMPILER_PROVIDERS = [
     COMPILER_PROVIDERS, {
         provide: CompilerConfig,
@@ -29,9 +26,6 @@ export const BROWSER_APP_COMPILER_PROVIDERS = [
     { provide: PLATFORM_DIRECTIVES, useValue: COMMON_DIRECTIVES, multi: true },
     { provide: PLATFORM_PIPES, useValue: COMMON_PIPES, multi: true }
 ];
-/**
- * @experimental
- */
 export const CACHED_TEMPLATE_PROVIDER = [{ provide: XHR, useClass: CachedXHR }];
 /**
  * Bootstrapping for Angular applications.
@@ -100,9 +94,6 @@ export const CACHED_TEMPLATE_PROVIDER = [{ provide: XHR, useClass: CachedXHR }];
  *   app injector to override default injection behavior.
  *
  * Returns a `Promise` of {@link ComponentRef}.
- *
- * @experimental This api cannot be used with the offline compiler and thus is still subject to
- * change.
  */
 export function bootstrap(appComponentType, customProviders) {
     reflector.reflectionCapabilities = new ReflectionCapabilities();

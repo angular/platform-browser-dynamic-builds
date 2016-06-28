@@ -18,14 +18,10 @@ var dom_test_component_renderer_1 = require('./testing/dom_test_component_render
 __export(require('./private_export_testing'));
 /**
  * Default platform providers for testing.
- *
- * @stable
  */
 exports.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [testing_3.TEST_BROWSER_PLATFORM_PROVIDERS];
 /**
  * Default application providers for testing.
- *
- * @stable
  */
 exports.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS = [
     testing_3.TEST_BROWSER_APPLICATION_PROVIDERS, index_1.BROWSER_APP_COMPILER_PROVIDERS,
