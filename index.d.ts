@@ -1,4 +1,5 @@
-import { ApplicationRef, ComponentRef, Type } from '@angular/core';
+import { AppModuleRef, ApplicationRef, Compiler, ComponentRef, Type } from '@angular/core';
+import { ConcreteType } from './src/facade/lang';
 /**
  * @experimental
  */
@@ -7,6 +8,32 @@ export declare const BROWSER_APP_COMPILER_PROVIDERS: Array<any>;
  * @experimental
  */
 export declare const CACHED_TEMPLATE_PROVIDER: Array<any>;
+/**
+ * Creates the runtime compiler for the browser.
+ *
+ * @stable
+ */
+export declare function browserCompiler({useDebug, useJit, providers}?: {
+    useDebug?: boolean;
+    useJit?: boolean;
+    providers?: Array<any>;
+}): Compiler;
+/**
+ * Creates an instance of an `@AppModule` for the browser platform.
+ *
+ * ## Simple Example
+ *
+ * ```typescript
+ * @AppModule({
+ *   modules: [BrowserModule]
+ * })
+ * class MyModule {}
+ *
+ * let moduleRef = bootstrapModule(MyModule);
+ * ```
+ * @stable
+ */
+export declare function bootstrapModule<M>(moduleType: ConcreteType<M>, compiler?: Compiler): Promise<AppModuleRef<M>>;
 /**
  * Bootstrapping for Angular applications.
  *
@@ -66,19 +93,33 @@ export declare const CACHED_TEMPLATE_PROVIDER: Array<any>;
  * applications on a page, Angular treats each application injector's services as private
  * to that application.
  *
- * ## API
+ * ## API (version 1)
  *
  * - `appComponentType`: The root component which should act as the application. This is
  *   a reference to a `Type` which is annotated with `@Component(...)`.
  * - `customProviders`: An additional set of providers that can be added to the
  *   app injector to override default injection behavior.
  *
+ * ## API (version 2)
+ * - `appComponentType`: The root component which should act as the application. This is
+ *   a reference to a `Type` which is annotated with `@Component(...)`.
+ * - `providers`, `directives`, `pipes`, `modules`, `precompile`: Defines the properties
+ *   of the dynamically created module that is used to bootstrap the module.
+ *
  * Returns a `Promise` of {@link ComponentRef}.
  *
  * @experimental This api cannot be used with the offline compiler and thus is still subject to
  * change.
  */
-export declare function bootstrap(appComponentType: Type, customProviders?: Array<any>): Promise<ComponentRef<any>>;
+export declare function bootstrap<C>(appComponentType: ConcreteType<C>, customProviders?: Array<any>): Promise<ComponentRef<C>>;
+export declare function bootstrap<C>(appComponentType: ConcreteType<C>, {providers, directives, pipes, modules, precompile, compiler}?: {
+    providers?: Array<any>;
+    directives?: any[];
+    pipes?: any[];
+    modules?: any[];
+    precompile?: any[];
+    compiler?: Compiler;
+}): Promise<ComponentRef<C>>;
 /**
  * @experimental
  */
