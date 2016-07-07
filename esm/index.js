@@ -7,9 +7,9 @@
  */
 import { COMMON_DIRECTIVES, COMMON_PIPES } from '@angular/common';
 import { COMPILER_PROVIDERS, CompilerConfig, XHR } from '@angular/compiler';
-import { AppModule, ApplicationRef, Compiler, PLATFORM_DIRECTIVES, PLATFORM_PIPES, ReflectiveInjector, coreLoadAndBootstrap, isDevMode, lockRunMode } from '@angular/core';
+import { AppModule, ApplicationRef, Compiler, PLATFORM_DIRECTIVES, PLATFORM_PIPES, ReflectiveInjector, coreLoadAndBootstrap, isDevMode } from '@angular/core';
 import { BrowserModule, WORKER_APP_APPLICATION_PROVIDERS, WORKER_SCRIPT, WORKER_UI_APPLICATION_PROVIDERS, bootstrapModuleFactory, workerAppPlatform, workerUiPlatform } from '@angular/platform-browser';
-import { ReflectionCapabilities, reflector } from './core_private';
+import { Console, ReflectionCapabilities, reflector } from './core_private';
 import { initDomAdapter } from './platform_browser_private';
 import { PromiseWrapper } from './src/facade/async';
 import { isPresent } from './src/facade/lang';
@@ -35,7 +35,6 @@ export const BROWSER_APP_COMPILER_PROVIDERS = [
  */
 export const CACHED_TEMPLATE_PROVIDER = [{ provide: XHR, useClass: CachedXHR }];
 function _initGlobals() {
-    lockRunMode();
     initDomAdapter();
     reflector.reflectionCapabilities = new ReflectionCapabilities();
 }
@@ -96,32 +95,51 @@ export function bootstrap(appComponentType, customProvidersOrDynamicModule) {
         precompile = normalizeArray(customProvidersOrDynamicModule.precompile);
         compiler = customProvidersOrDynamicModule.compiler;
     }
+    const deprecationMessages = [];
     if (providers && providers.length > 0) {
         // Note: This is a hack to still support the old way
         // of configuring platform directives / pipes and the compiler xhr.
         // This will soon be deprecated!
-        let inj = ReflectiveInjector.resolveAndCreate(providers);
-        let compilerConfig = inj.get(CompilerConfig, null);
+        const inj = ReflectiveInjector.resolveAndCreate(providers);
+        const compilerConfig = inj.get(CompilerConfig, null);
         if (compilerConfig) {
             // Note: forms read the platform directives / pipes, modify them
             // and provide a CompilerConfig out of it
             directives = directives.concat(compilerConfig.platformDirectives);
             pipes = pipes.concat(compilerConfig.platformPipes);
+            deprecationMessages.push(`Passing a CompilerConfig to "bootstrap()" as provider is deprecated. Pass the provider to "createCompiler()" and call "bootstrap()" with the created compiler instead.`);
         }
         else {
             // If nobody provided a CompilerConfig, use the
             // PLATFORM_DIRECTIVES / PLATFORM_PIPES values directly.
-            directives = directives.concat(inj.get(PLATFORM_DIRECTIVES, []));
-            pipes = pipes.concat(inj.get(PLATFORM_PIPES, []));
+            const platformDirectives = inj.get(PLATFORM_DIRECTIVES, []);
+            if (platformDirectives.length > 0) {
+                deprecationMessages.push(`Passing PLATFORM_DIRECTIVES to "bootstrap()" as provider is deprecated. Use the new parameter "directives" of "bootstrap()" instead.`);
+            }
+            directives = directives.concat(platformDirectives);
+            const platformPipes = inj.get(PLATFORM_PIPES, []);
+            if (platformPipes.length > 0) {
+                deprecationMessages.push(`Passing PLATFORM_PIPES to "bootstrap()" as provider is deprecated. Use the new parameter "pipes" of "bootstrap()" instead.`);
+            }
+            pipes = pipes.concat(platformPipes);
         }
-        let xhr = inj.get(XHR, null);
+        const xhr = inj.get(XHR, null);
         if (xhr) {
             compilerProviders.push([{ provide: XHR, useValue: xhr }]);
+            deprecationMessages.push(`Passing an instance of XHR to "bootstrap()" as provider is deprecated. Pass the provider to "createCompiler()" and call "bootstrap()" with the created compiler instead.`);
+        }
+        // Need to copy console from providers to compiler
+        // as well so that we can test the above deprecation messages!
+        const console = inj.get(Console, null);
+        if (console) {
+            compilerProviders.push([{ provide: Console, useValue: console }]);
         }
     }
     if (!compiler) {
         compiler = browserCompiler({ providers: compilerProviders });
     }
+    const console = compiler.injector.get(Console);
+    deprecationMessages.forEach((msg) => { console.warn(msg); });
     class DynamicModule {
         constructor(appRef) {
             this.appRef = appRef;

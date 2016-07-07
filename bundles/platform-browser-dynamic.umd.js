@@ -16,6 +16,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     'use strict';
     var ReflectionCapabilities = _angular_core.__core_private__.ReflectionCapabilities;
     var reflector = _angular_core.__core_private__.reflector;
+    var Console = _angular_core.__core_private__.Console;
     var initDomAdapter = _angular_platformBrowser.__platform_browser_private__.initDomAdapter;
     /**
      * @license
@@ -422,7 +423,6 @@ var __extends = (this && this.__extends) || function (d, b) {
      */
     var CACHED_TEMPLATE_PROVIDER = [{ provide: _angular_compiler.XHR, useClass: CachedXHR }];
     function _initGlobals() {
-        _angular_core.lockRunMode();
         initDomAdapter();
         reflector.reflectionCapabilities = new ReflectionCapabilities();
     }
@@ -485,6 +485,7 @@ var __extends = (this && this.__extends) || function (d, b) {
             precompile = normalizeArray(customProvidersOrDynamicModule.precompile);
             compiler = customProvidersOrDynamicModule.compiler;
         }
+        var deprecationMessages = [];
         if (providers && providers.length > 0) {
             // Note: This is a hack to still support the old way
             // of configuring platform directives / pipes and the compiler xhr.
@@ -496,21 +497,39 @@ var __extends = (this && this.__extends) || function (d, b) {
                 // and provide a CompilerConfig out of it
                 directives = directives.concat(compilerConfig.platformDirectives);
                 pipes = pipes.concat(compilerConfig.platformPipes);
+                deprecationMessages.push("Passing a CompilerConfig to \"bootstrap()\" as provider is deprecated. Pass the provider to \"createCompiler()\" and call \"bootstrap()\" with the created compiler instead.");
             }
             else {
                 // If nobody provided a CompilerConfig, use the
                 // PLATFORM_DIRECTIVES / PLATFORM_PIPES values directly.
-                directives = directives.concat(inj.get(_angular_core.PLATFORM_DIRECTIVES, []));
-                pipes = pipes.concat(inj.get(_angular_core.PLATFORM_PIPES, []));
+                var platformDirectives = inj.get(_angular_core.PLATFORM_DIRECTIVES, []);
+                if (platformDirectives.length > 0) {
+                    deprecationMessages.push("Passing PLATFORM_DIRECTIVES to \"bootstrap()\" as provider is deprecated. Use the new parameter \"directives\" of \"bootstrap()\" instead.");
+                }
+                directives = directives.concat(platformDirectives);
+                var platformPipes = inj.get(_angular_core.PLATFORM_PIPES, []);
+                if (platformPipes.length > 0) {
+                    deprecationMessages.push("Passing PLATFORM_PIPES to \"bootstrap()\" as provider is deprecated. Use the new parameter \"pipes\" of \"bootstrap()\" instead.");
+                }
+                pipes = pipes.concat(platformPipes);
             }
             var xhr = inj.get(_angular_compiler.XHR, null);
             if (xhr) {
                 compilerProviders.push([{ provide: _angular_compiler.XHR, useValue: xhr }]);
+                deprecationMessages.push("Passing an instance of XHR to \"bootstrap()\" as provider is deprecated. Pass the provider to \"createCompiler()\" and call \"bootstrap()\" with the created compiler instead.");
+            }
+            // Need to copy console from providers to compiler
+            // as well so that we can test the above deprecation messages!
+            var console_1 = inj.get(Console, null);
+            if (console_1) {
+                compilerProviders.push([{ provide: Console, useValue: console_1 }]);
             }
         }
         if (!compiler) {
             compiler = browserCompiler({ providers: compilerProviders });
         }
+        var console = compiler.injector.get(Console);
+        deprecationMessages.forEach(function (msg) { console.warn(msg); });
         var DynamicModule = (function () {
             function DynamicModule(appRef) {
                 this.appRef = appRef;

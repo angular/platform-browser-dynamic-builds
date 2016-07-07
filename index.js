@@ -36,7 +36,6 @@ exports.BROWSER_APP_COMPILER_PROVIDERS = [
  */
 exports.CACHED_TEMPLATE_PROVIDER = [{ provide: compiler_1.XHR, useClass: xhr_cache_1.CachedXHR }];
 function _initGlobals() {
-    core_1.lockRunMode();
     platform_browser_private_1.initDomAdapter();
     core_private_1.reflector.reflectionCapabilities = new core_private_1.ReflectionCapabilities();
 }
@@ -101,6 +100,7 @@ function bootstrap(appComponentType, customProvidersOrDynamicModule) {
         precompile = normalizeArray(customProvidersOrDynamicModule.precompile);
         compiler = customProvidersOrDynamicModule.compiler;
     }
+    var deprecationMessages = [];
     if (providers && providers.length > 0) {
         // Note: This is a hack to still support the old way
         // of configuring platform directives / pipes and the compiler xhr.
@@ -112,21 +112,39 @@ function bootstrap(appComponentType, customProvidersOrDynamicModule) {
             // and provide a CompilerConfig out of it
             directives = directives.concat(compilerConfig.platformDirectives);
             pipes = pipes.concat(compilerConfig.platformPipes);
+            deprecationMessages.push("Passing a CompilerConfig to \"bootstrap()\" as provider is deprecated. Pass the provider to \"createCompiler()\" and call \"bootstrap()\" with the created compiler instead.");
         }
         else {
             // If nobody provided a CompilerConfig, use the
             // PLATFORM_DIRECTIVES / PLATFORM_PIPES values directly.
-            directives = directives.concat(inj.get(core_1.PLATFORM_DIRECTIVES, []));
-            pipes = pipes.concat(inj.get(core_1.PLATFORM_PIPES, []));
+            var platformDirectives = inj.get(core_1.PLATFORM_DIRECTIVES, []);
+            if (platformDirectives.length > 0) {
+                deprecationMessages.push("Passing PLATFORM_DIRECTIVES to \"bootstrap()\" as provider is deprecated. Use the new parameter \"directives\" of \"bootstrap()\" instead.");
+            }
+            directives = directives.concat(platformDirectives);
+            var platformPipes = inj.get(core_1.PLATFORM_PIPES, []);
+            if (platformPipes.length > 0) {
+                deprecationMessages.push("Passing PLATFORM_PIPES to \"bootstrap()\" as provider is deprecated. Use the new parameter \"pipes\" of \"bootstrap()\" instead.");
+            }
+            pipes = pipes.concat(platformPipes);
         }
         var xhr = inj.get(compiler_1.XHR, null);
         if (xhr) {
             compilerProviders.push([{ provide: compiler_1.XHR, useValue: xhr }]);
+            deprecationMessages.push("Passing an instance of XHR to \"bootstrap()\" as provider is deprecated. Pass the provider to \"createCompiler()\" and call \"bootstrap()\" with the created compiler instead.");
+        }
+        // Need to copy console from providers to compiler
+        // as well so that we can test the above deprecation messages!
+        var console_1 = inj.get(core_private_1.Console, null);
+        if (console_1) {
+            compilerProviders.push([{ provide: core_private_1.Console, useValue: console_1 }]);
         }
     }
     if (!compiler) {
         compiler = browserCompiler({ providers: compilerProviders });
     }
+    var console = compiler.injector.get(core_private_1.Console);
+    deprecationMessages.forEach(function (msg) { console.warn(msg); });
     var DynamicModule = (function () {
         function DynamicModule(appRef) {
             this.appRef = appRef;
