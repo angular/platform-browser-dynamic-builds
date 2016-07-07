@@ -1,13 +1,25 @@
+import { Compiler, Provider, Type } from '@angular/core';
+import { browserTestPlatform } from '@angular/platform-browser/testing';
 export * from './private_export_testing';
 /**
- * Default platform providers for testing.
+ * Creates a compiler for testing
  *
  * @stable
  */
-export declare const TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: Array<any>;
+export declare function browserTestCompiler({providers, useJit}?: {
+    providers?: Array<Type | Provider | any[]>;
+    useJit?: boolean;
+}): Compiler;
 /**
- * Default application providers for testing.
+ * Platform for testing.
+ *
+ * @experimental API related to bootstrapping are still under review.
+ */
+export declare const browserDynamicTestPlatform: typeof browserTestPlatform;
+/**
+ * AppModule for testing.
  *
  * @stable
  */
-export declare const TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS: Array<any>;
+export declare class BrowserDynamicTestModule {
+}
