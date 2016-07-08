@@ -1,4 +1,4 @@
-import { AppModuleRef, ApplicationRef, Compiler, ComponentRef, Type } from '@angular/core';
+import { ApplicationRef, ComponentRef, Type, PlatformRef, CompilerOptions, CompilerFactory } from '@angular/core';
 import { ConcreteType } from './src/facade/lang';
 /**
  * @experimental
@@ -9,31 +9,21 @@ export declare const BROWSER_APP_COMPILER_PROVIDERS: Array<any>;
  */
 export declare const CACHED_TEMPLATE_PROVIDER: Array<any>;
 /**
- * Creates the runtime compiler for the browser.
+ * CompilerFactory for the browser dynamic platform
  *
- * @stable
+ * @experimental
  */
-export declare function browserCompiler({useDebug, useJit, providers}?: {
-    useDebug?: boolean;
-    useJit?: boolean;
-    providers?: Array<any>;
-}): Compiler;
+export declare const BROWSER_DYNAMIC_COMPILER_FACTORY: CompilerFactory;
 /**
- * Creates an instance of an `@AppModule` for the browser platform.
+ * Providers for the browser dynamic platform
  *
- * ## Simple Example
- *
- * ```typescript
- * @AppModule({
- *   modules: [BrowserModule]
- * })
- * class MyModule {}
- *
- * let moduleRef = bootstrapModule(MyModule);
- * ```
- * @stable
+ * @experimental
  */
-export declare function bootstrapModule<M>(moduleType: ConcreteType<M>, compiler?: Compiler): Promise<AppModuleRef<M>>;
+export declare const BROWSER_DYNAMIC_PLATFORM_PROVIDERS: Array<any>;
+/**
+ * @experimental API related to bootstrapping are still under review.
+ */
+export declare const browserDynamicPlatform: () => PlatformRef;
 /**
  * Bootstrapping for Angular applications.
  *
@@ -112,13 +102,13 @@ export declare function bootstrapModule<M>(moduleType: ConcreteType<M>, compiler
  * change.
  */
 export declare function bootstrap<C>(appComponentType: ConcreteType<C>, customProviders?: Array<any>): Promise<ComponentRef<C>>;
-export declare function bootstrap<C>(appComponentType: ConcreteType<C>, {providers, directives, pipes, modules, precompile, compiler}?: {
+export declare function bootstrap<C>(appComponentType: ConcreteType<C>, {providers, directives, pipes, modules, precompile, compilerOptions}?: {
     providers?: Array<any>;
     directives?: any[];
     pipes?: any[];
     modules?: any[];
     precompile?: any[];
-    compiler?: Compiler;
+    compilerOptions?: CompilerOptions;
 }): Promise<ComponentRef<C>>;
 /**
  * @experimental

@@ -17,36 +17,31 @@ var testing_3 = require('@angular/platform-browser/testing');
 var index_1 = require('./index');
 var dom_test_component_renderer_1 = require('./testing/dom_test_component_renderer');
 __export(require('./private_export_testing'));
-var TEST_BROWSER_DYNAMIC_COMPILER_PROVIDERS = [
-    index_1.BROWSER_APP_COMPILER_PROVIDERS,
-    [
-        { provide: compiler_1.DirectiveResolver,
-            useClass: testing_1.MockDirectiveResolver },
-        { provide: compiler_1.ViewResolver,
-            useClass: testing_1.MockViewResolver }
+/**
+ * CompilerFactory for browser dynamic test platform
+ *
+ * @experimental
+ */
+exports.BROWSER_DYNAMIC_TEST_COMPILER_FACTORY = index_1.BROWSER_DYNAMIC_COMPILER_FACTORY.withDefaults({
+    providers: [
+        { provide: compiler_1.DirectiveResolver, useClass: testing_1.MockDirectiveResolver },
+        { provide: compiler_1.ViewResolver, useClass: testing_1.MockViewResolver }
     ]
+});
+/**
+ * Providers for the browser dynamic platform
+ *
+ * @experimental
+ */
+var BROWSER_DYNAMIC_TEST_PLATFORM_PROVIDERS = [
+    testing_3.TEST_BROWSER_PLATFORM_PROVIDERS,
+    index_1.BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+    { provide: core_1.CompilerFactory, useValue: exports.BROWSER_DYNAMIC_TEST_COMPILER_FACTORY },
 ];
 /**
- * Creates a compiler for testing
- *
- * @stable
- */
-function browserTestCompiler(_a) {
-    var _b = _a === void 0 ? {} : _a, _c = _b.providers, providers = _c === void 0 ? [] : _c, _d = _b.useJit, useJit = _d === void 0 ? true : _d;
-    var injector = core_1.ReflectiveInjector.resolveAndCreate([
-        TEST_BROWSER_DYNAMIC_COMPILER_PROVIDERS,
-        { provide: compiler_1.CompilerConfig, useValue: new compiler_1.CompilerConfig({ genDebugInfo: true, useJit: useJit }) },
-        providers ? providers : []
-    ]);
-    return injector.get(core_1.Compiler);
-}
-exports.browserTestCompiler = browserTestCompiler;
-/**
- * Platform for testing.
- *
  * @experimental API related to bootstrapping are still under review.
  */
-exports.browserDynamicTestPlatform = testing_3.browserTestPlatform;
+exports.browserDynamicTestPlatform = core_1.createPlatformFactory('browserDynamicTest', BROWSER_DYNAMIC_TEST_PLATFORM_PROVIDERS);
 var BrowserDynamicTestModule = (function () {
     function BrowserDynamicTestModule() {
     }

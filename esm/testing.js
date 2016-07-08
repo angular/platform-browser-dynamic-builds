@@ -5,42 +5,39 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { CompilerConfig, DirectiveResolver, ViewResolver } from '@angular/compiler';
+import { DirectiveResolver, ViewResolver } from '@angular/compiler';
 import { MockDirectiveResolver, MockViewResolver, OverridingTestComponentBuilder } from '@angular/compiler/testing';
-import { AppModule, Compiler, ReflectiveInjector } from '@angular/core';
+import { AppModule, CompilerFactory, createPlatformFactory } from '@angular/core';
 import { TestComponentBuilder, TestComponentRenderer } from '@angular/core/testing';
-import { BrowserTestModule, browserTestPlatform } from '@angular/platform-browser/testing';
-import { BROWSER_APP_COMPILER_PROVIDERS } from './index';
+import { BrowserTestModule, TEST_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser/testing';
+import { BROWSER_DYNAMIC_COMPILER_FACTORY, BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from './index';
 import { DOMTestComponentRenderer } from './testing/dom_test_component_renderer';
 export * from './private_export_testing';
-const TEST_BROWSER_DYNAMIC_COMPILER_PROVIDERS = [
-    BROWSER_APP_COMPILER_PROVIDERS,
-    [
-        { provide: DirectiveResolver,
-            useClass: MockDirectiveResolver },
-        { provide: ViewResolver,
-            useClass: MockViewResolver }
+/**
+ * CompilerFactory for browser dynamic test platform
+ *
+ * @experimental
+ */
+export const BROWSER_DYNAMIC_TEST_COMPILER_FACTORY = BROWSER_DYNAMIC_COMPILER_FACTORY.withDefaults({
+    providers: [
+        { provide: DirectiveResolver, useClass: MockDirectiveResolver },
+        { provide: ViewResolver, useClass: MockViewResolver }
     ]
+});
+/**
+ * Providers for the browser dynamic platform
+ *
+ * @experimental
+ */
+const BROWSER_DYNAMIC_TEST_PLATFORM_PROVIDERS = [
+    TEST_BROWSER_PLATFORM_PROVIDERS,
+    BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+    { provide: CompilerFactory, useValue: BROWSER_DYNAMIC_TEST_COMPILER_FACTORY },
 ];
 /**
- * Creates a compiler for testing
- *
- * @stable
- */
-export function browserTestCompiler({ providers = [], useJit = true } = {}) {
-    const injector = ReflectiveInjector.resolveAndCreate([
-        TEST_BROWSER_DYNAMIC_COMPILER_PROVIDERS,
-        { provide: CompilerConfig, useValue: new CompilerConfig({ genDebugInfo: true, useJit: useJit }) },
-        providers ? providers : []
-    ]);
-    return injector.get(Compiler);
-}
-/**
- * Platform for testing.
- *
  * @experimental API related to bootstrapping are still under review.
  */
-export const browserDynamicTestPlatform = browserTestPlatform;
+export const browserDynamicTestPlatform = createPlatformFactory('browserDynamicTest', BROWSER_DYNAMIC_TEST_PLATFORM_PROVIDERS);
 export class BrowserDynamicTestModule {
 }
 /** @nocollapse */
