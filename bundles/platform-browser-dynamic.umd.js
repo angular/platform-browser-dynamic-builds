@@ -402,13 +402,17 @@ var __extends = (this && this.__extends) || function (d, b) {
         return XHRImpl;
     }(_angular_compiler.XHR));
     /**
-     * @experimental
+     * @deprecated The compiler providers are already included in the {@link CompilerFactory} that is
+     * contained the {@link browserDynamicPlatform}()`.
      */
     var BROWSER_APP_COMPILER_PROVIDERS = [
         _angular_compiler.COMPILER_PROVIDERS, {
             provide: _angular_compiler.CompilerConfig,
             useFactory: function (platformDirectives, platformPipes) {
-                return new _angular_compiler.CompilerConfig({ platformDirectives: platformDirectives, platformPipes: platformPipes });
+                return new _angular_compiler.CompilerConfig({
+                    deprecatedPlatformDirectives: platformDirectives,
+                    deprecatedPlatformPipes: platformPipes
+                });
             },
             deps: [_angular_core.PLATFORM_DIRECTIVES, _angular_core.PLATFORM_PIPES]
         },
@@ -484,9 +488,12 @@ var __extends = (this && this.__extends) || function (d, b) {
         });
     }
     /**
-     * @experimental
+     * @deprecated Create an {@link AppModule} that includes the {@link WorkerUiModule} and use {@link
+     * bootstrapModule}
+     * with the {@link workerUiPlatform}() instead.
      */
     function bootstrapWorkerUi(workerScriptUri, customProviders) {
+        console.warn('bootstrapWorkerUi is deprecated. Create an @AppModule that includes the `WorkerUiModule` and use `bootstrapModule` with the `workerUiPlatform()` instead.');
         var app = _angular_core.ReflectiveInjector.resolveAndCreate([
             _angular_platformBrowser.WORKER_UI_APPLICATION_PROVIDERS, BROWSER_APP_COMPILER_PROVIDERS,
             { provide: _angular_platformBrowser.WORKER_SCRIPT, useValue: workerScriptUri },
@@ -498,13 +505,17 @@ var __extends = (this && this.__extends) || function (d, b) {
         return PromiseWrapper.resolve(app.get(_angular_core.ApplicationRef));
     }
     /**
-     * @experimental
+     * @deprecated The compiler providers are already included in the {@link CompilerFactory} that is
+     * contained the {@link workerAppPlatform}().
      */
     var WORKER_APP_COMPILER_PROVIDERS = [
         _angular_compiler.COMPILER_PROVIDERS, {
             provide: _angular_compiler.CompilerConfig,
             useFactory: function (platformDirectives, platformPipes) {
-                return new _angular_compiler.CompilerConfig({ platformDirectives: platformDirectives, platformPipes: platformPipes });
+                return new _angular_compiler.CompilerConfig({
+                    deprecatedPlatformDirectives: platformDirectives,
+                    deprecatedPlatformPipes: platformPipes
+                });
             },
             deps: [_angular_core.PLATFORM_DIRECTIVES, _angular_core.PLATFORM_PIPES]
         },
@@ -513,9 +524,12 @@ var __extends = (this && this.__extends) || function (d, b) {
         { provide: _angular_core.PLATFORM_PIPES, useValue: _angular_common.COMMON_PIPES, multi: true }
     ];
     /**
-     * @experimental
+     * @deprecated Create an {@link AppModule} that includes the {@link WorkerAppModule} and use {@link
+     * bootstrapModule}
+     * with the {@link workerAppPlatform}() instead.
      */
     function bootstrapWorkerApp(appComponentType, customProviders) {
+        console.warn('bootstrapWorkerApp is deprecated. Create an @AppModule that includes the `WorkerAppModule` and use `bootstrapModule` with the `workerAppPlatform()` instead.');
         var appInjector = _angular_core.ReflectiveInjector.resolveAndCreate([
             _angular_platformBrowser.WORKER_APP_APPLICATION_PROVIDERS, WORKER_APP_COMPILER_PROVIDERS,
             isPresent(customProviders) ? customProviders : []

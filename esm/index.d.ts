@@ -1,7 +1,8 @@
 import { ApplicationRef, ComponentRef, Type, PlatformRef, CompilerOptions, CompilerFactory } from '@angular/core';
 import { ConcreteType } from './src/facade/lang';
 /**
- * @experimental
+ * @deprecated The compiler providers are already included in the {@link CompilerFactory} that is
+ * contained the {@link browserDynamicPlatform}()`.
  */
 export declare const BROWSER_APP_COMPILER_PROVIDERS: Array<any>;
 /**
@@ -111,10 +112,14 @@ export declare function bootstrap<C>(appComponentType: ConcreteType<C>, {provide
     compilerOptions?: CompilerOptions;
 }): Promise<ComponentRef<C>>;
 /**
- * @experimental
+ * @deprecated Create an {@link AppModule} that includes the {@link WorkerUiModule} and use {@link
+ * bootstrapModule}
+ * with the {@link workerUiPlatform}() instead.
  */
 export declare function bootstrapWorkerUi(workerScriptUri: string, customProviders?: Array<any>): Promise<ApplicationRef>;
 /**
- * @experimental
+ * @deprecated Create an {@link AppModule} that includes the {@link WorkerAppModule} and use {@link
+ * bootstrapModule}
+ * with the {@link workerAppPlatform}() instead.
  */
 export declare function bootstrapWorkerApp(appComponentType: Type, customProviders?: Array<any>): Promise<ComponentRef<any>>;

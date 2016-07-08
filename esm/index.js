@@ -15,13 +15,17 @@ import { isPresent } from './src/facade/lang';
 import { CachedXHR } from './src/xhr/xhr_cache';
 import { XHRImpl } from './src/xhr/xhr_impl';
 /**
- * @experimental
+ * @deprecated The compiler providers are already included in the {@link CompilerFactory} that is
+ * contained the {@link browserDynamicPlatform}()`.
  */
 export const BROWSER_APP_COMPILER_PROVIDERS = [
     COMPILER_PROVIDERS, {
         provide: CompilerConfig,
         useFactory: (platformDirectives, platformPipes) => {
-            return new CompilerConfig({ platformDirectives, platformPipes });
+            return new CompilerConfig({
+                deprecatedPlatformDirectives: platformDirectives,
+                deprecatedPlatformPipes: platformPipes
+            });
         },
         deps: [PLATFORM_DIRECTIVES, PLATFORM_PIPES]
     },
@@ -94,9 +98,12 @@ export function bootstrap(appComponentType, customProvidersOrDynamicModule) {
     });
 }
 /**
- * @experimental
+ * @deprecated Create an {@link AppModule} that includes the {@link WorkerUiModule} and use {@link
+ * bootstrapModule}
+ * with the {@link workerUiPlatform}() instead.
  */
 export function bootstrapWorkerUi(workerScriptUri, customProviders) {
+    console.warn('bootstrapWorkerUi is deprecated. Create an @AppModule that includes the `WorkerUiModule` and use `bootstrapModule` with the `workerUiPlatform()` instead.');
     var app = ReflectiveInjector.resolveAndCreate([
         WORKER_UI_APPLICATION_PROVIDERS, BROWSER_APP_COMPILER_PROVIDERS,
         { provide: WORKER_SCRIPT, useValue: workerScriptUri },
@@ -108,13 +115,17 @@ export function bootstrapWorkerUi(workerScriptUri, customProviders) {
     return PromiseWrapper.resolve(app.get(ApplicationRef));
 }
 /**
- * @experimental
+ * @deprecated The compiler providers are already included in the {@link CompilerFactory} that is
+ * contained the {@link workerAppPlatform}().
  */
 const WORKER_APP_COMPILER_PROVIDERS = [
     COMPILER_PROVIDERS, {
         provide: CompilerConfig,
         useFactory: (platformDirectives, platformPipes) => {
-            return new CompilerConfig({ platformDirectives, platformPipes });
+            return new CompilerConfig({
+                deprecatedPlatformDirectives: platformDirectives,
+                deprecatedPlatformPipes: platformPipes
+            });
         },
         deps: [PLATFORM_DIRECTIVES, PLATFORM_PIPES]
     },
@@ -123,9 +134,12 @@ const WORKER_APP_COMPILER_PROVIDERS = [
     { provide: PLATFORM_PIPES, useValue: COMMON_PIPES, multi: true }
 ];
 /**
- * @experimental
+ * @deprecated Create an {@link AppModule} that includes the {@link WorkerAppModule} and use {@link
+ * bootstrapModule}
+ * with the {@link workerAppPlatform}() instead.
  */
 export function bootstrapWorkerApp(appComponentType, customProviders) {
+    console.warn('bootstrapWorkerApp is deprecated. Create an @AppModule that includes the `WorkerAppModule` and use `bootstrapModule` with the `workerAppPlatform()` instead.');
     var appInjector = ReflectiveInjector.resolveAndCreate([
         WORKER_APP_APPLICATION_PROVIDERS, WORKER_APP_COMPILER_PROVIDERS,
         isPresent(customProviders) ? customProviders : []
