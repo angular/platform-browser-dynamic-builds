@@ -58,4 +58,16 @@ var BrowserDynamicTestModule = (function () {
     return BrowserDynamicTestModule;
 }());
 exports.BrowserDynamicTestModule = BrowserDynamicTestModule;
+/**
+ * @deprecated Use initTestEnvironment with browserDynamicTestPlatform instead.
+ */
+exports.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = BROWSER_DYNAMIC_TEST_PLATFORM_PROVIDERS;
+/**
+ * @deprecated Use initTestEnvironment with BrowserDynamicTestModule instead.
+ */
+exports.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS = [
+    testing_3.TEST_BROWSER_APPLICATION_PROVIDERS,
+    { provide: testing_2.TestComponentBuilder, useClass: testing_1.OverridingTestComponentBuilder },
+    { provide: testing_2.TestComponentRenderer, useClass: dom_test_component_renderer_1.DOMTestComponentRenderer },
+];
 //# sourceMappingURL=testing.js.map

@@ -9,7 +9,7 @@ import { DirectiveResolver, ViewResolver } from '@angular/compiler';
 import { MockDirectiveResolver, MockViewResolver, OverridingTestComponentBuilder } from '@angular/compiler/testing';
 import { AppModule, CompilerFactory, createPlatformFactory } from '@angular/core';
 import { TestComponentBuilder, TestComponentRenderer } from '@angular/core/testing';
-import { BrowserTestModule, TEST_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser/testing';
+import { BrowserTestModule, TEST_BROWSER_APPLICATION_PROVIDERS, TEST_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser/testing';
 import { BROWSER_DYNAMIC_COMPILER_FACTORY, BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from './index';
 import { DOMTestComponentRenderer } from './testing/dom_test_component_renderer';
 export * from './private_export_testing';
@@ -49,5 +49,17 @@ BrowserDynamicTestModule.decorators = [
                     { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
                 ]
             },] },
+];
+/**
+ * @deprecated Use initTestEnvironment with browserDynamicTestPlatform instead.
+ */
+export const TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = BROWSER_DYNAMIC_TEST_PLATFORM_PROVIDERS;
+/**
+ * @deprecated Use initTestEnvironment with BrowserDynamicTestModule instead.
+ */
+export const TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS = [
+    TEST_BROWSER_APPLICATION_PROVIDERS,
+    { provide: TestComponentBuilder, useClass: OverridingTestComponentBuilder },
+    { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
 ];
 //# sourceMappingURL=testing.js.map

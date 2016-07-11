@@ -17,3 +17,11 @@ export declare const browserDynamicTestPlatform: () => PlatformRef;
  */
 export declare class BrowserDynamicTestModule {
 }
+/**
+ * @deprecated Use initTestEnvironment with browserDynamicTestPlatform instead.
+ */
+export declare const TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: Array<any>;
+/**
+ * @deprecated Use initTestEnvironment with BrowserDynamicTestModule instead.
+ */
+export declare const TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS: Array<any>;
