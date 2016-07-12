@@ -401,6 +401,10 @@ var __extends = (this && this.__extends) || function (d, b) {
         };
         return XHRImpl;
     }(_angular_compiler.XHR));
+    /** @nocollapse */
+    XHRImpl.decorators = [
+        { type: _angular_core.Injectable },
+    ];
     /**
      * @deprecated The compiler providers are already included in the {@link CompilerFactory} that is
      * contained the {@link browserDynamicPlatform}()`.

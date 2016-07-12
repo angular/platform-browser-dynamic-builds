@@ -1,11 +1,5 @@
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 import { XHR } from '@angular/compiler';
+import { Injectable } from '@angular/core';
 import { isPresent } from '../facade/lang';
 import { PromiseWrapper } from '../facade/promise';
 export class XHRImpl extends XHR {
@@ -38,4 +32,8 @@ export class XHRImpl extends XHR {
         return completer.promise;
     }
 }
+/** @nocollapse */
+XHRImpl.decorators = [
+    { type: Injectable },
+];
 //# sourceMappingURL=xhr_impl.js.map
