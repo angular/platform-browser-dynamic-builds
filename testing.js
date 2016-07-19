@@ -9,6 +9,7 @@
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
+var common_1 = require('@angular/common');
 var compiler_1 = require('@angular/compiler');
 var testing_1 = require('@angular/compiler/testing');
 var core_1 = require('@angular/core');
@@ -58,10 +59,25 @@ var BrowserDynamicTestModule = (function () {
     return BrowserDynamicTestModule;
 }());
 exports.BrowserDynamicTestModule = BrowserDynamicTestModule;
+// Used only as a shim until TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS is deprecated.
+var BROWSER_DYNAMIC_TEST_COMPILER_FACTORY_OLD = index_1.BROWSER_DYNAMIC_COMPILER_FACTORY.withDefaults({
+    providers: [
+        { provide: compiler_1.DirectiveResolver, useClass: testing_1.MockDirectiveResolver },
+        { provide: compiler_1.ViewResolver, useClass: testing_1.MockViewResolver }
+    ],
+    deprecatedAppProviders: [
+        { provide: core_1.PLATFORM_DIRECTIVES, useValue: common_1.COMMON_DIRECTIVES, multi: true },
+        { provide: core_1.PLATFORM_PIPES, useValue: common_1.COMMON_PIPES, multi: true }
+    ]
+});
 /**
  * @deprecated Use initTestEnvironment with browserDynamicTestPlatform instead.
  */
-exports.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = BROWSER_DYNAMIC_TEST_PLATFORM_PROVIDERS;
+exports.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
+    testing_3.TEST_BROWSER_PLATFORM_PROVIDERS,
+    index_1.BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+    { provide: core_1.CompilerFactory, useValue: BROWSER_DYNAMIC_TEST_COMPILER_FACTORY_OLD },
+];
 /**
  * @deprecated Use initTestEnvironment with BrowserDynamicTestModule instead.
  */
