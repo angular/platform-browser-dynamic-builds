@@ -5,9 +5,9 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { XHR, analyzeAppProvidersForDeprecatedConfiguration, coreDynamicPlatform } from '@angular/compiler';
-import { ApplicationRef, CompilerOptions, NgModule, bootstrapModule, createPlatformFactory } from '@angular/core';
-import { BrowserModule, WORKER_SCRIPT, WorkerAppModule, workerUiPlatform } from '@angular/platform-browser';
+import { XHR, analyzeAppProvidersForDeprecatedConfiguration, platformCoreDynamic } from '@angular/compiler';
+import { ApplicationRef, CompilerOptions, NgModule, createPlatformFactory } from '@angular/core';
+import { BrowserModule, WORKER_SCRIPT, WorkerAppModule, platformWorkerUi } from '@angular/platform-browser';
 import { Console } from './core_private';
 import { INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from './src/platform_providers';
 import { CachedXHR } from './src/xhr/xhr_cache';
@@ -24,14 +24,19 @@ export const CACHED_TEMPLATE_PROVIDER = [{ provide: XHR, useClass: CachedXHR }];
 /**
  * @experimental API related to bootstrapping are still under review.
  */
-export const browserDynamicPlatform = createPlatformFactory(coreDynamicPlatform, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
+export const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
+/**
+ * @deprecated Use {@link platformBrowserDynamic} instead
+ */
+export const browserDynamicPlatform = platformBrowserDynamic;
 export function bootstrap(appComponentType, customProvidersOrDynamicModule) {
     let compilerOptions;
     let providers = [];
     let declarations = [];
     let imports = [];
-    let precompile = [];
+    let entryComponents = [];
     let deprecationMessages = [];
+    let schemas = [];
     if (customProvidersOrDynamicModule instanceof Array) {
         providers = customProvidersOrDynamicModule;
         const deprecatedConfiguration = analyzeAppProvidersForDeprecatedConfiguration(providers);
@@ -43,7 +48,8 @@ export function bootstrap(appComponentType, customProvidersOrDynamicModule) {
         providers = normalizeArray(customProvidersOrDynamicModule.providers);
         declarations = normalizeArray(customProvidersOrDynamicModule.declarations);
         imports = normalizeArray(customProvidersOrDynamicModule.imports);
-        precompile = normalizeArray(customProvidersOrDynamicModule.precompile);
+        entryComponents = normalizeArray(customProvidersOrDynamicModule.entryComponents);
+        schemas = normalizeArray(customProvidersOrDynamicModule.schemas);
         compilerOptions = customProvidersOrDynamicModule.compilerOptions;
     }
     class DynamicModule {
@@ -54,10 +60,12 @@ export function bootstrap(appComponentType, customProvidersOrDynamicModule) {
                     providers: providers,
                     declarations: declarations.concat([appComponentType]),
                     imports: [BrowserModule, imports],
-                    precompile: precompile.concat([appComponentType])
+                    entryComponents: entryComponents.concat([appComponentType]),
+                    schemas: schemas
                 },] },
     ];
-    return bootstrapModule(DynamicModule, browserDynamicPlatform(), compilerOptions)
+    return platformBrowserDynamic()
+        .bootstrapModule(DynamicModule, compilerOptions)
         .then((moduleRef) => {
         const console = moduleRef.injector.get(Console);
         deprecationMessages.forEach((msg) => console.warn(msg));
@@ -72,7 +80,7 @@ export function bootstrap(appComponentType, customProvidersOrDynamicModule) {
  */
 export function bootstrapWorkerUi(workerScriptUri, customProviders = []) {
     // For now, just creates the worker ui platform...
-    return Promise.resolve(workerUiPlatform([{
+    return Promise.resolve(platformWorkerUi([{
             provide: WORKER_SCRIPT,
             useValue: workerScriptUri,
         }].concat(customProviders)));
@@ -80,11 +88,15 @@ export function bootstrapWorkerUi(workerScriptUri, customProviders = []) {
 /**
  * @experimental API related to bootstrapping are still under review.
  */
-export const workerAppDynamicPlatform = createPlatformFactory(coreDynamicPlatform, 'workerAppDynamic', [{
+export const platformWorkerAppDynamic = createPlatformFactory(platformCoreDynamic, 'workerAppDynamic', [{
         provide: CompilerOptions,
         useValue: { providers: [{ provide: XHR, useClass: XHRImpl }] },
         multi: true
     }]);
+/**
+ * @deprecated Use {@link platformWorkerAppDynamic} instead
+ */
+export const workerAppDynamicPlatform = platformWorkerAppDynamic;
 /**
  * @deprecated Create an {@link NgModule} that includes the {@link WorkerAppModule} and use {@link
  * bootstrapModule}
@@ -102,10 +114,11 @@ export function bootstrapWorkerApp(appComponentType, customProviders) {
                     providers: customProviders,
                     declarations: declarations,
                     imports: [WorkerAppModule],
-                    precompile: [appComponentType]
+                    entryComponents: [appComponentType]
                 },] },
     ];
-    return bootstrapModule(DynamicModule, workerAppDynamicPlatform(), deprecatedConfiguration.compilerOptions)
+    return platformWorkerAppDynamic()
+        .bootstrapModule(DynamicModule, deprecatedConfiguration.compilerOptions)
         .then((moduleRef) => {
         const console = moduleRef.injector.get(Console);
         deprecatedConfiguration.deprecationMessages.forEach((msg) => console.warn(msg));

@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { analyzeAppProvidersForDeprecatedConfiguration } from '@angular/compiler';
-import { OverridingTestComponentBuilder, coreDynamicTestingPlatform } from '@angular/compiler/testing';
+import { OverridingTestComponentBuilder, platformCoreDynamicTesting } from '@angular/compiler/testing';
 import { CompilerOptions, NgModule, createPlatformFactory } from '@angular/core';
 import { TestComponentBuilder, TestComponentRenderer, initTestEnvironment } from '@angular/core/testing';
 import { BrowserTestingModule } from '@angular/platform-browser/testing';
@@ -17,7 +17,11 @@ export * from './private_export_testing';
 /**
  * @experimental API related to bootstrapping are still under review.
  */
-export const browserDynamicTestingPlatform = createPlatformFactory(coreDynamicTestingPlatform, 'browserDynamicTesting', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
+export const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
+/**
+ * @deprecated Use {@link platformBrowserDynamicTesting} instead
+ */
+export const browserDynamicTestingPlatform = platformBrowserDynamicTesting;
 export class BrowserDynamicTestingModule {
 }
 /** @nocollapse */
@@ -38,7 +42,7 @@ export const TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS =
 // `setBaseTestProviders` method!
 [(appProviders) => {
         const deprecatedConfiguration = analyzeAppProvidersForDeprecatedConfiguration(appProviders);
-        const platformRef = createPlatformFactory(browserDynamicTestingPlatform, 'browserDynamicTestingDeprecated', [{
+        const platformRef = createPlatformFactory(platformBrowserDynamicTesting, 'browserDynamicTestingDeprecated', [{
                 provide: CompilerOptions,
                 useValue: deprecatedConfiguration.compilerOptions,
                 multi: true

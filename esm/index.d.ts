@@ -1,4 +1,4 @@
-import { CompilerOptions, ComponentRef, PlatformRef } from '@angular/core';
+import { CompilerOptions, ComponentRef, PlatformRef, SchemaMetadata } from '@angular/core';
 import { ConcreteType } from './src/facade/lang';
 /**
  * @deprecated The compiler providers are already included in the {@link CompilerFactory} that is
@@ -11,6 +11,10 @@ export declare const BROWSER_APP_COMPILER_PROVIDERS: Array<any>;
 export declare const CACHED_TEMPLATE_PROVIDER: Array<any>;
 /**
  * @experimental API related to bootstrapping are still under review.
+ */
+export declare const platformBrowserDynamic: (extraProviders?: any[]) => PlatformRef;
+/**
+ * @deprecated Use {@link platformBrowserDynamic} instead
  */
 export declare const browserDynamicPlatform: (extraProviders?: any[]) => PlatformRef;
 /**
@@ -82,7 +86,7 @@ export declare const browserDynamicPlatform: (extraProviders?: any[]) => Platfor
  * ## API (version 2)
  * - `appComponentType`: The root component which should act as the application. This is
  *   a reference to a `Type` which is annotated with `@Component(...)`.
- * - `providers`, `declarations`, `imports`, `precompile`: Defines the properties
+ * - `providers`, `declarations`, `imports`, `entryComponents`: Defines the properties
  *   of the dynamically created module that is used to bootstrap the module.
  * - to configure the compiler, use the `compilerOptions` parameter.
  *
@@ -92,11 +96,12 @@ export declare const browserDynamicPlatform: (extraProviders?: any[]) => Platfor
  * change.
  */
 export declare function bootstrap<C>(appComponentType: ConcreteType<C>, customProviders?: Array<any>): Promise<ComponentRef<C>>;
-export declare function bootstrap<C>(appComponentType: ConcreteType<C>, {providers, imports, declarations, precompile, compilerOptions}?: {
+export declare function bootstrap<C>(appComponentType: ConcreteType<C>, {providers, imports, declarations, entryComponents, schemas, compilerOptions}?: {
     providers?: Array<any>;
     declarations?: any[];
     imports?: any[];
-    precompile?: any[];
+    entryComponents?: any[];
+    schemas?: Array<SchemaMetadata | any[]>;
     compilerOptions?: CompilerOptions;
 }): Promise<ComponentRef<C>>;
 /**
@@ -107,6 +112,10 @@ export declare function bootstrap<C>(appComponentType: ConcreteType<C>, {provide
 export declare function bootstrapWorkerUi(workerScriptUri: string, customProviders?: Array<any>): Promise<PlatformRef>;
 /**
  * @experimental API related to bootstrapping are still under review.
+ */
+export declare const platformWorkerAppDynamic: (extraProviders?: any[]) => PlatformRef;
+/**
+ * @deprecated Use {@link platformWorkerAppDynamic} instead
  */
 export declare const workerAppDynamicPlatform: (extraProviders?: any[]) => PlatformRef;
 /**

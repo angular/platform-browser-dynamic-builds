@@ -3,6 +3,10 @@ export * from './private_export_testing';
 /**
  * @experimental API related to bootstrapping are still under review.
  */
+export declare const platformBrowserDynamicTesting: (extraProviders?: any[]) => PlatformRef;
+/**
+ * @deprecated Use {@link platformBrowserDynamicTesting} instead
+ */
 export declare const browserDynamicTestingPlatform: (extraProviders?: any[]) => PlatformRef;
 /**
  * NgModule for testing.

@@ -21,7 +21,11 @@ __export(require('./private_export_testing'));
 /**
  * @experimental API related to bootstrapping are still under review.
  */
-exports.browserDynamicTestingPlatform = core_1.createPlatformFactory(testing_1.coreDynamicTestingPlatform, 'browserDynamicTesting', platform_providers_1.INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
+exports.platformBrowserDynamicTesting = core_1.createPlatformFactory(testing_1.platformCoreDynamicTesting, 'browserDynamicTesting', platform_providers_1.INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
+/**
+ * @deprecated Use {@link platformBrowserDynamicTesting} instead
+ */
+exports.browserDynamicTestingPlatform = exports.platformBrowserDynamicTesting;
 var BrowserDynamicTestingModule = (function () {
     function BrowserDynamicTestingModule() {
     }
@@ -46,7 +50,7 @@ exports.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS =
 // `setBaseTestProviders` method!
 [function (appProviders) {
         var deprecatedConfiguration = compiler_1.analyzeAppProvidersForDeprecatedConfiguration(appProviders);
-        var platformRef = core_1.createPlatformFactory(exports.browserDynamicTestingPlatform, 'browserDynamicTestingDeprecated', [{
+        var platformRef = core_1.createPlatformFactory(exports.platformBrowserDynamicTesting, 'browserDynamicTestingDeprecated', [{
                 provide: core_1.CompilerOptions,
                 useValue: deprecatedConfiguration.compilerOptions,
                 multi: true
