@@ -1,4 +1,4 @@
-import { ApplicationRef, ComponentRef, Type, PlatformRef, CompilerOptions, CompilerFactory } from '@angular/core';
+import { CompilerOptions, ComponentRef, PlatformRef } from '@angular/core';
 import { ConcreteType } from './src/facade/lang';
 /**
  * @deprecated The compiler providers are already included in the {@link CompilerFactory} that is
@@ -10,21 +10,9 @@ export declare const BROWSER_APP_COMPILER_PROVIDERS: Array<any>;
  */
 export declare const CACHED_TEMPLATE_PROVIDER: Array<any>;
 /**
- * CompilerFactory for the browser dynamic platform
- *
- * @experimental
- */
-export declare const BROWSER_DYNAMIC_COMPILER_FACTORY: CompilerFactory;
-/**
- * Providers for the browser dynamic platform
- *
- * @experimental
- */
-export declare const BROWSER_DYNAMIC_PLATFORM_PROVIDERS: Array<any>;
-/**
  * @experimental API related to bootstrapping are still under review.
  */
-export declare const browserDynamicPlatform: () => PlatformRef;
+export declare const browserDynamicPlatform: (extraProviders?: any[]) => PlatformRef;
 /**
  * Bootstrapping for Angular applications.
  *
@@ -94,8 +82,9 @@ export declare const browserDynamicPlatform: () => PlatformRef;
  * ## API (version 2)
  * - `appComponentType`: The root component which should act as the application. This is
  *   a reference to a `Type` which is annotated with `@Component(...)`.
- * - `providers`, `directives`, `pipes`, `modules`, `precompile`: Defines the properties
+ * - `providers`, `declarations`, `imports`, `precompile`: Defines the properties
  *   of the dynamically created module that is used to bootstrap the module.
+ * - to configure the compiler, use the `compilerOptions` parameter.
  *
  * Returns a `Promise` of {@link ComponentRef}.
  *
@@ -103,23 +92,26 @@ export declare const browserDynamicPlatform: () => PlatformRef;
  * change.
  */
 export declare function bootstrap<C>(appComponentType: ConcreteType<C>, customProviders?: Array<any>): Promise<ComponentRef<C>>;
-export declare function bootstrap<C>(appComponentType: ConcreteType<C>, {providers, directives, pipes, modules, precompile, compilerOptions}?: {
+export declare function bootstrap<C>(appComponentType: ConcreteType<C>, {providers, imports, declarations, precompile, compilerOptions}?: {
     providers?: Array<any>;
-    directives?: any[];
-    pipes?: any[];
-    modules?: any[];
+    declarations?: any[];
+    imports?: any[];
     precompile?: any[];
     compilerOptions?: CompilerOptions;
 }): Promise<ComponentRef<C>>;
 /**
- * @deprecated Create an {@link AppModule} that includes the {@link WorkerUiModule} and use {@link
- * bootstrapModule}
- * with the {@link workerUiPlatform}() instead.
+ * Bootstraps the worker ui.
+ *
+ * @experimental
  */
-export declare function bootstrapWorkerUi(workerScriptUri: string, customProviders?: Array<any>): Promise<ApplicationRef>;
+export declare function bootstrapWorkerUi(workerScriptUri: string, customProviders?: Array<any>): Promise<PlatformRef>;
 /**
- * @deprecated Create an {@link AppModule} that includes the {@link WorkerAppModule} and use {@link
- * bootstrapModule}
- * with the {@link workerAppPlatform}() instead.
+ * @experimental API related to bootstrapping are still under review.
  */
-export declare function bootstrapWorkerApp(appComponentType: Type, customProviders?: Array<any>): Promise<ComponentRef<any>>;
+export declare const workerAppDynamicPlatform: (extraProviders?: any[]) => PlatformRef;
+/**
+ * @deprecated Create an {@link NgModule} that includes the {@link WorkerAppModule} and use {@link
+ * bootstrapModule}
+ * with the {@link workerAppDynamicPlatform}() instead.
+ */
+export declare function bootstrapWorkerApp<T>(appComponentType: ConcreteType<T>, customProviders?: Array<any>): Promise<ComponentRef<T>>;
