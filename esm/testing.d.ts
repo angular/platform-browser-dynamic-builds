@@ -5,10 +5,6 @@ export * from './private_export_testing';
  */
 export declare const platformBrowserDynamicTesting: (extraProviders?: any[]) => PlatformRef;
 /**
- * @deprecated Use {@link platformBrowserDynamicTesting} instead
- */
-export declare const browserDynamicTestingPlatform: (extraProviders?: any[]) => PlatformRef;
-/**
  * NgModule for testing.
  *
  * @stable
@@ -16,7 +12,7 @@ export declare const browserDynamicTestingPlatform: (extraProviders?: any[]) => 
 export declare class BrowserDynamicTestingModule {
 }
 /**
- * @deprecated Use initTestEnvironment with browserDynamicTestingPlatform instead.
+ * @deprecated Use initTestEnvironment with platformBrowserDynamicTesting instead.
  */
 export declare const TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: Array<any>;
 /**

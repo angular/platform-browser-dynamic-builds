@@ -18,10 +18,6 @@ export * from './private_export_testing';
  * @experimental API related to bootstrapping are still under review.
  */
 export const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
-/**
- * @deprecated Use {@link platformBrowserDynamicTesting} instead
- */
-export const browserDynamicTestingPlatform = platformBrowserDynamicTesting;
 export class BrowserDynamicTestingModule {
 }
 /** @nocollapse */
@@ -35,7 +31,7 @@ BrowserDynamicTestingModule.decorators = [
             },] },
 ];
 /**
- * @deprecated Use initTestEnvironment with browserDynamicTestingPlatform instead.
+ * @deprecated Use initTestEnvironment with platformBrowserDynamicTesting instead.
  */
 export const TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = 
 // Note: This is not a real provider but a hack to still support the deprecated
