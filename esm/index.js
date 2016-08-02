@@ -60,7 +60,8 @@ export function bootstrap(appComponentType, customProvidersOrDynamicModule) {
                     providers: providers,
                     declarations: declarations.concat([appComponentType]),
                     imports: [BrowserModule, imports],
-                    entryComponents: entryComponents.concat([appComponentType]),
+                    entryComponents: entryComponents,
+                    bootstrap: [appComponentType],
                     schemas: schemas
                 },] },
     ];
@@ -70,7 +71,7 @@ export function bootstrap(appComponentType, customProvidersOrDynamicModule) {
         const console = moduleRef.injector.get(Console);
         deprecationMessages.forEach((msg) => console.warn(msg));
         const appRef = moduleRef.injector.get(ApplicationRef);
-        return appRef.bootstrap(appComponentType);
+        return appRef.components[0];
     });
 }
 /**
@@ -114,7 +115,7 @@ export function bootstrapWorkerApp(appComponentType, customProviders) {
                     providers: customProviders,
                     declarations: declarations,
                     imports: [WorkerAppModule],
-                    entryComponents: [appComponentType]
+                    bootstrap: [appComponentType]
                 },] },
     ];
     return platformWorkerAppDynamic()
@@ -123,7 +124,7 @@ export function bootstrapWorkerApp(appComponentType, customProviders) {
         const console = moduleRef.injector.get(Console);
         deprecatedConfiguration.deprecationMessages.forEach((msg) => console.warn(msg));
         const appRef = moduleRef.injector.get(ApplicationRef);
-        return appRef.bootstrap(appComponentType);
+        return appRef.components[0];
     });
 }
 function normalizeArray(arr) {

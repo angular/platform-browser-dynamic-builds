@@ -464,7 +464,8 @@ var __extends = (this && this.__extends) || function (d, b) {
                         providers: providers,
                         declarations: declarations.concat([appComponentType]),
                         imports: [_angular_platformBrowser.BrowserModule, imports],
-                        entryComponents: entryComponents.concat([appComponentType]),
+                        entryComponents: entryComponents,
+                        bootstrap: [appComponentType],
                         schemas: schemas
                     },] },
         ];
@@ -474,7 +475,7 @@ var __extends = (this && this.__extends) || function (d, b) {
             var console = moduleRef.injector.get(Console);
             deprecationMessages.forEach(function (msg) { return console.warn(msg); });
             var appRef = moduleRef.injector.get(_angular_core.ApplicationRef);
-            return appRef.bootstrap(appComponentType);
+            return appRef.components[0];
         });
     }
     /**
@@ -522,7 +523,7 @@ var __extends = (this && this.__extends) || function (d, b) {
                         providers: customProviders,
                         declarations: declarations,
                         imports: [_angular_platformBrowser.WorkerAppModule],
-                        entryComponents: [appComponentType]
+                        bootstrap: [appComponentType]
                     },] },
         ];
         return platformWorkerAppDynamic()
@@ -531,7 +532,7 @@ var __extends = (this && this.__extends) || function (d, b) {
             var console = moduleRef.injector.get(Console);
             deprecatedConfiguration.deprecationMessages.forEach(function (msg) { return console.warn(msg); });
             var appRef = moduleRef.injector.get(_angular_core.ApplicationRef);
-            return appRef.bootstrap(appComponentType);
+            return appRef.components[0];
         });
     }
     function normalizeArray(arr) {
