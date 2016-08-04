@@ -47,7 +47,7 @@ exports.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS =
 [function (appProviders) {
         var deprecatedConfiguration = compiler_1.analyzeAppProvidersForDeprecatedConfiguration(appProviders);
         var platformRef = core_1.createPlatformFactory(exports.platformBrowserDynamicTesting, 'browserDynamicTestingDeprecated', [{
-                provide: core_1.CompilerOptions,
+                provide: core_1.COMPILER_OPTIONS,
                 useValue: deprecatedConfiguration.compilerOptions,
                 multi: true
             }])();

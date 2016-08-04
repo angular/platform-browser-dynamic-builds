@@ -97,7 +97,7 @@ exports.bootstrapWorkerUi = bootstrapWorkerUi;
  * @experimental API related to bootstrapping are still under review.
  */
 exports.platformWorkerAppDynamic = core_1.createPlatformFactory(compiler_1.platformCoreDynamic, 'workerAppDynamic', [{
-        provide: core_1.CompilerOptions,
+        provide: core_1.COMPILER_OPTIONS,
         useValue: { providers: [{ provide: compiler_1.XHR, useClass: xhr_impl_1.XHRImpl }] },
         multi: true
     }]);

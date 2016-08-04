@@ -147,7 +147,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
         INTERNAL_BROWSER_PLATFORM_PROVIDERS,
         {
-            provide: _angular_core.CompilerOptions,
+            provide: _angular_core.COMPILER_OPTIONS,
             useValue: { providers: [{ provide: _angular_compiler.XHR, useClass: XHRImpl }] },
             multi: true
         },
@@ -495,7 +495,7 @@ var __extends = (this && this.__extends) || function (d, b) {
      * @experimental API related to bootstrapping are still under review.
      */
     var platformWorkerAppDynamic = _angular_core.createPlatformFactory(_angular_compiler.platformCoreDynamic, 'workerAppDynamic', [{
-            provide: _angular_core.CompilerOptions,
+            provide: _angular_core.COMPILER_OPTIONS,
             useValue: { providers: [{ provide: _angular_compiler.XHR, useClass: XHRImpl }] },
             multi: true
         }]);

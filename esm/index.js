@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { XHR, analyzeAppProvidersForDeprecatedConfiguration, platformCoreDynamic } from '@angular/compiler';
-import { ApplicationRef, CompilerOptions, NgModule, createPlatformFactory } from '@angular/core';
+import { ApplicationRef, COMPILER_OPTIONS, NgModule, createPlatformFactory } from '@angular/core';
 import { BrowserModule, WORKER_SCRIPT, WorkerAppModule, platformWorkerUi } from '@angular/platform-browser';
 import { Console } from './core_private';
 import { INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from './src/platform_providers';
@@ -90,7 +90,7 @@ export function bootstrapWorkerUi(workerScriptUri, customProviders = []) {
  * @experimental API related to bootstrapping are still under review.
  */
 export const platformWorkerAppDynamic = createPlatformFactory(platformCoreDynamic, 'workerAppDynamic', [{
-        provide: CompilerOptions,
+        provide: COMPILER_OPTIONS,
         useValue: { providers: [{ provide: XHR, useClass: XHRImpl }] },
         multi: true
     }]);

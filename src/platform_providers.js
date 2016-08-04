@@ -13,7 +13,7 @@ var xhr_impl_1 = require('./xhr/xhr_impl');
 exports.INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
     platform_browser_private_1.INTERNAL_BROWSER_PLATFORM_PROVIDERS,
     {
-        provide: core_1.CompilerOptions,
+        provide: core_1.COMPILER_OPTIONS,
         useValue: { providers: [{ provide: compiler_1.XHR, useClass: xhr_impl_1.XHRImpl }] },
         multi: true
     },
