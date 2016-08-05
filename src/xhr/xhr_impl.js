@@ -14,14 +14,18 @@ var __extends = (this && this.__extends) || function (d, b) {
 var compiler_1 = require('@angular/compiler');
 var core_1 = require('@angular/core');
 var lang_1 = require('../facade/lang');
-var promise_1 = require('../facade/promise');
 var XHRImpl = (function (_super) {
     __extends(XHRImpl, _super);
     function XHRImpl() {
         _super.apply(this, arguments);
     }
     XHRImpl.prototype.get = function (url) {
-        var completer = promise_1.PromiseWrapper.completer();
+        var resolve;
+        var reject;
+        var promise = new Promise(function (res, rej) {
+            resolve = res;
+            reject = rej;
+        });
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'text';
@@ -38,15 +42,15 @@ var XHRImpl = (function (_super) {
                 status = response ? 200 : 0;
             }
             if (200 <= status && status <= 300) {
-                completer.resolve(response);
+                resolve(response);
             }
             else {
-                completer.reject("Failed to load " + url, null);
+                reject("Failed to load " + url);
             }
         };
-        xhr.onerror = function () { completer.reject("Failed to load " + url, null); };
+        xhr.onerror = function () { reject("Failed to load " + url); };
         xhr.send();
-        return completer.promise;
+        return promise;
     };
     /** @nocollapse */
     XHRImpl.decorators = [

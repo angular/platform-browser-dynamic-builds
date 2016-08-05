@@ -54,64 +54,18 @@ var __extends = (this && this.__extends) || function (d, b) {
     function isArray(obj) {
         return Array.isArray(obj);
     }
-    /**
-     * @license
-     * Copyright Google Inc. All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-    var PromiseCompleter = (function () {
-        function PromiseCompleter() {
-            var _this = this;
-            this.promise = new Promise(function (res, rej) {
-                _this.resolve = res;
-                _this.reject = rej;
-            });
-        }
-        return PromiseCompleter;
-    }());
-    var PromiseWrapper = (function () {
-        function PromiseWrapper() {
-        }
-        PromiseWrapper.resolve = function (obj) { return Promise.resolve(obj); };
-        PromiseWrapper.reject = function (obj, _) { return Promise.reject(obj); };
-        // Note: We can't rename this method into `catch`, as this is not a valid
-        // method name in Dart.
-        PromiseWrapper.catchError = function (promise, onError) {
-            return promise.catch(onError);
-        };
-        PromiseWrapper.all = function (promises) {
-            if (promises.length == 0)
-                return Promise.resolve([]);
-            return Promise.all(promises);
-        };
-        PromiseWrapper.then = function (promise, success, rejection) {
-            return promise.then(success, rejection);
-        };
-        PromiseWrapper.wrap = function (computation) {
-            return new Promise(function (res, rej) {
-                try {
-                    res(computation());
-                }
-                catch (e) {
-                    rej(e);
-                }
-            });
-        };
-        PromiseWrapper.scheduleMicrotask = function (computation) {
-            PromiseWrapper.then(PromiseWrapper.resolve(null), computation, function (_) { });
-        };
-        PromiseWrapper.completer = function () { return new PromiseCompleter(); };
-        return PromiseWrapper;
-    }());
     var XHRImpl = (function (_super) {
         __extends(XHRImpl, _super);
         function XHRImpl() {
             _super.apply(this, arguments);
         }
         XHRImpl.prototype.get = function (url) {
-            var completer = PromiseWrapper.completer();
+            var resolve;
+            var reject;
+            var promise = new Promise(function (res, rej) {
+                resolve = res;
+                reject = rej;
+            });
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.responseType = 'text';
@@ -128,15 +82,15 @@ var __extends = (this && this.__extends) || function (d, b) {
                     status = response ? 200 : 0;
                 }
                 if (200 <= status && status <= 300) {
-                    completer.resolve(response);
+                    resolve(response);
                 }
                 else {
-                    completer.reject("Failed to load " + url, null);
+                    reject("Failed to load " + url);
                 }
             };
-            xhr.onerror = function () { completer.reject("Failed to load " + url, null); };
+            xhr.onerror = function () { reject("Failed to load " + url); };
             xhr.send();
-            return completer.promise;
+            return promise;
         };
         return XHRImpl;
     }(_angular_compiler.XHR));
@@ -405,10 +359,10 @@ var __extends = (this && this.__extends) || function (d, b) {
         }
         CachedXHR.prototype.get = function (url) {
             if (this._cache.hasOwnProperty(url)) {
-                return PromiseWrapper.resolve(this._cache[url]);
+                return Promise.resolve(this._cache[url]);
             }
             else {
-                return PromiseWrapper.reject('CachedXHR: Did not find cached template for ' + url, null);
+                return Promise.reject('CachedXHR: Did not find cached template for ' + url);
             }
         };
         return CachedXHR;
