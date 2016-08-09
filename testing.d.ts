@@ -11,11 +11,3 @@ export declare const platformBrowserDynamicTesting: (extraProviders?: any[]) => 
  */
 export declare class BrowserDynamicTestingModule {
 }
-/**
- * @deprecated Use initTestEnvironment with platformBrowserDynamicTesting instead.
- */
-export declare const TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: Array<any>;
-/**
- * @deprecated Use initTestEnvironment with BrowserDynamicTestingModule instead.
- */
-export declare const TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS: Array<any>;
