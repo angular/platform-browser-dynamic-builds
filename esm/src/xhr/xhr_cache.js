@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { XHR } from '@angular/compiler';
-import { BaseException } from '../facade/exceptions';
+import { BaseException } from '@angular/core';
 import { global } from '../facade/lang';
 /**
  * An implementation of XHR that uses a template cache to avoid doing an actual
