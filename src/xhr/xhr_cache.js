@@ -12,7 +12,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var compiler_1 = require('@angular/compiler');
-var exceptions_1 = require('../facade/exceptions');
+var core_1 = require('@angular/core');
 var lang_1 = require('../facade/lang');
 /**
  * An implementation of XHR that uses a template cache to avoid doing an actual
@@ -27,7 +27,7 @@ var CachedXHR = (function (_super) {
         _super.call(this);
         this._cache = lang_1.global.$templateCache;
         if (this._cache == null) {
-            throw new exceptions_1.BaseException('CachedXHR: Template cache was not found in $templateCache.');
+            throw new core_1.BaseException('CachedXHR: Template cache was not found in $templateCache.');
         }
     }
     CachedXHR.prototype.get = function (url) {
