@@ -1,4 +1,5 @@
-import { ComponentRef, PlatformRef, Type } from '@angular/core';
+import { ComponentRef, PlatformRef } from '@angular/core';
+import { ConcreteType } from './src/facade/lang';
 /**
  * @deprecated The compiler providers are already included in the {@link CompilerFactory} that is
  * contained the {@link browserDynamicPlatform}()`.
@@ -94,7 +95,7 @@ export declare const browserDynamicPlatform: (extraProviders?: any[]) => Platfor
  * @deprecated This api cannot be used with the offline compiler. Use
  * `PlatformRef.boostrapModule()` instead.
  */
-export declare function bootstrap<C>(appComponentType: Type<C>, customProviders?: Array<any>): Promise<ComponentRef<C>>;
+export declare function bootstrap<C>(appComponentType: ConcreteType<C>, customProviders?: Array<any>): Promise<ComponentRef<C>>;
 /**
  * Bootstraps the worker ui.
  *
@@ -114,4 +115,4 @@ export declare const workerAppDynamicPlatform: (extraProviders?: any[]) => Platf
  * bootstrapModule}
  * with the {@link workerAppDynamicPlatform}() instead.
  */
-export declare function bootstrapWorkerApp<T>(appComponentType: Type<T>, customProviders?: Array<any>): Promise<ComponentRef<T>>;
+export declare function bootstrapWorkerApp<T>(appComponentType: ConcreteType<T>, customProviders?: Array<any>): Promise<ComponentRef<T>>;
