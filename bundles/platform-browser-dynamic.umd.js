@@ -127,11 +127,6 @@ var __extends = (this && this.__extends) || function (d, b) {
         return CachedXHR;
     }(_angular_compiler.XHR));
     /**
-     * @deprecated The compiler providers are already included in the {@link CompilerFactory} that is
-     * contained the {@link browserDynamicPlatform}()`.
-     */
-    var BROWSER_APP_COMPILER_PROVIDERS = [];
-    /**
      * @experimental
      */
     var CACHED_TEMPLATE_PROVIDER = [{ provide: _angular_compiler.XHR, useClass: CachedXHR }];
@@ -139,10 +134,6 @@ var __extends = (this && this.__extends) || function (d, b) {
      * @experimental API related to bootstrapping are still under review.
      */
     var platformBrowserDynamic = _angular_core.createPlatformFactory(_angular_compiler.platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
-    /**
-     * @deprecated Use {@link platformBrowserDynamic} instead
-     */
-    var browserDynamicPlatform = platformBrowserDynamic;
     /**
      * Bootstrapping for Angular applications.
      *
@@ -277,49 +268,9 @@ var __extends = (this && this.__extends) || function (d, b) {
             useValue: { providers: [{ provide: _angular_compiler.XHR, useClass: XHRImpl }] },
             multi: true
         }]);
-    /**
-     * @deprecated Use {@link platformWorkerAppDynamic} instead
-     */
-    var workerAppDynamicPlatform = platformWorkerAppDynamic;
-    /**
-     * @deprecated Create an {@link NgModule} that includes the {@link WorkerAppModule} and use {@link
-     * bootstrapModule}
-     * with the {@link workerAppDynamicPlatform}() instead.
-     */
-    function bootstrapWorkerApp(appComponentType, customProviders) {
-        console.warn('bootstrapWorkerApp is deprecated. Create an @NgModule that includes the `WorkerAppModule` and use `bootstrapModule` with the `workerAppDynamicPlatform()` instead.');
-        var deprecatedConfiguration = _angular_compiler.analyzeAppProvidersForDeprecatedConfiguration(customProviders);
-        var declarations = [deprecatedConfiguration.moduleDeclarations.concat([appComponentType])];
-        var DynamicModule = (function () {
-            function DynamicModule() {
-            }
-            return DynamicModule;
-        }());
-        /** @nocollapse */
-        DynamicModule.decorators = [
-            { type: _angular_core.NgModule, args: [{
-                        providers: customProviders,
-                        declarations: declarations,
-                        imports: [_angular_platformBrowser.WorkerAppModule],
-                        bootstrap: [appComponentType]
-                    },] },
-        ];
-        return platformWorkerAppDynamic()
-            .bootstrapModule(DynamicModule, deprecatedConfiguration.compilerOptions)
-            .then(function (moduleRef) {
-            var console = moduleRef.injector.get(Console);
-            deprecatedConfiguration.deprecationMessages.forEach(function (msg) { return console.warn(msg); });
-            var appRef = moduleRef.injector.get(_angular_core.ApplicationRef);
-            return appRef.components[0];
-        });
-    }
-    exports.BROWSER_APP_COMPILER_PROVIDERS = BROWSER_APP_COMPILER_PROVIDERS;
     exports.CACHED_TEMPLATE_PROVIDER = CACHED_TEMPLATE_PROVIDER;
     exports.platformBrowserDynamic = platformBrowserDynamic;
-    exports.browserDynamicPlatform = browserDynamicPlatform;
     exports.bootstrap = bootstrap;
     exports.bootstrapWorkerUi = bootstrapWorkerUi;
     exports.platformWorkerAppDynamic = platformWorkerAppDynamic;
-    exports.workerAppDynamicPlatform = workerAppDynamicPlatform;
-    exports.bootstrapWorkerApp = bootstrapWorkerApp;
 }));

@@ -1,10 +1,5 @@
 import { ComponentRef, PlatformRef, Type } from '@angular/core';
 /**
- * @deprecated The compiler providers are already included in the {@link CompilerFactory} that is
- * contained the {@link browserDynamicPlatform}()`.
- */
-export declare const BROWSER_APP_COMPILER_PROVIDERS: Array<any>;
-/**
  * @experimental
  */
 export declare const CACHED_TEMPLATE_PROVIDER: Array<any>;
@@ -12,10 +7,6 @@ export declare const CACHED_TEMPLATE_PROVIDER: Array<any>;
  * @experimental API related to bootstrapping are still under review.
  */
 export declare const platformBrowserDynamic: (extraProviders?: any[]) => PlatformRef;
-/**
- * @deprecated Use {@link platformBrowserDynamic} instead
- */
-export declare const browserDynamicPlatform: (extraProviders?: any[]) => PlatformRef;
 /**
  * Bootstrapping for Angular applications.
  *
@@ -105,13 +96,3 @@ export declare function bootstrapWorkerUi(workerScriptUri: string, customProvide
  * @experimental API related to bootstrapping are still under review.
  */
 export declare const platformWorkerAppDynamic: (extraProviders?: any[]) => PlatformRef;
-/**
- * @deprecated Use {@link platformWorkerAppDynamic} instead
- */
-export declare const workerAppDynamicPlatform: (extraProviders?: any[]) => PlatformRef;
-/**
- * @deprecated Create an {@link NgModule} that includes the {@link WorkerAppModule} and use {@link
- * bootstrapModule}
- * with the {@link workerAppDynamicPlatform}() instead.
- */
-export declare function bootstrapWorkerApp<T>(appComponentType: Type<T>, customProviders?: Array<any>): Promise<ComponentRef<T>>;

@@ -7,16 +7,11 @@
  */
 import { XHR, analyzeAppProvidersForDeprecatedConfiguration, platformCoreDynamic } from '@angular/compiler';
 import { ApplicationRef, COMPILER_OPTIONS, CUSTOM_ELEMENTS_SCHEMA, NgModule, createPlatformFactory } from '@angular/core';
-import { BrowserModule, WORKER_SCRIPT, WorkerAppModule, platformWorkerUi } from '@angular/platform-browser';
+import { BrowserModule, WORKER_SCRIPT, platformWorkerUi } from '@angular/platform-browser';
 import { Console } from './core_private';
 import { INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from './src/platform_providers';
 import { CachedXHR } from './src/xhr/xhr_cache';
 import { XHRImpl } from './src/xhr/xhr_impl';
-/**
- * @deprecated The compiler providers are already included in the {@link CompilerFactory} that is
- * contained the {@link browserDynamicPlatform}()`.
- */
-export const BROWSER_APP_COMPILER_PROVIDERS = [];
 /**
  * @experimental
  */
@@ -25,10 +20,6 @@ export const CACHED_TEMPLATE_PROVIDER = [{ provide: XHR, useClass: CachedXHR }];
  * @experimental API related to bootstrapping are still under review.
  */
 export const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
-/**
- * @deprecated Use {@link platformBrowserDynamic} instead
- */
-export const browserDynamicPlatform = platformBrowserDynamic;
 /**
  * Bootstrapping for Angular applications.
  *
@@ -159,39 +150,6 @@ export const platformWorkerAppDynamic = createPlatformFactory(platformCoreDynami
         useValue: { providers: [{ provide: XHR, useClass: XHRImpl }] },
         multi: true
     }]);
-/**
- * @deprecated Use {@link platformWorkerAppDynamic} instead
- */
-export const workerAppDynamicPlatform = platformWorkerAppDynamic;
-/**
- * @deprecated Create an {@link NgModule} that includes the {@link WorkerAppModule} and use {@link
- * bootstrapModule}
- * with the {@link workerAppDynamicPlatform}() instead.
- */
-export function bootstrapWorkerApp(appComponentType, customProviders) {
-    console.warn('bootstrapWorkerApp is deprecated. Create an @NgModule that includes the `WorkerAppModule` and use `bootstrapModule` with the `workerAppDynamicPlatform()` instead.');
-    const deprecatedConfiguration = analyzeAppProvidersForDeprecatedConfiguration(customProviders);
-    const declarations = [deprecatedConfiguration.moduleDeclarations.concat([appComponentType])];
-    class DynamicModule {
-    }
-    /** @nocollapse */
-    DynamicModule.decorators = [
-        { type: NgModule, args: [{
-                    providers: customProviders,
-                    declarations: declarations,
-                    imports: [WorkerAppModule],
-                    bootstrap: [appComponentType]
-                },] },
-    ];
-    return platformWorkerAppDynamic()
-        .bootstrapModule(DynamicModule, deprecatedConfiguration.compilerOptions)
-        .then((moduleRef) => {
-        const console = moduleRef.injector.get(Console);
-        deprecatedConfiguration.deprecationMessages.forEach((msg) => console.warn(msg));
-        const appRef = moduleRef.injector.get(ApplicationRef);
-        return appRef.components[0];
-    });
-}
 function normalizeArray(arr) {
     return arr ? arr : [];
 }
