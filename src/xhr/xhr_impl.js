@@ -14,20 +14,24 @@ var __extends = (this && this.__extends) || function (d, b) {
 var compiler_1 = require('@angular/compiler');
 var core_1 = require('@angular/core');
 var lang_1 = require('../facade/lang');
-var promise_1 = require('../facade/promise');
-var TemplateLoaderImpl = (function (_super) {
-    __extends(TemplateLoaderImpl, _super);
-    function TemplateLoaderImpl() {
+var XHRImpl = (function (_super) {
+    __extends(XHRImpl, _super);
+    function XHRImpl() {
         _super.apply(this, arguments);
     }
-    TemplateLoaderImpl.prototype.get = function (url) {
-        var completer = promise_1.PromiseWrapper.completer();
+    XHRImpl.prototype.get = function (url) {
+        var resolve;
+        var reject;
+        var promise = new Promise(function (res, rej) {
+            resolve = res;
+            reject = rej;
+        });
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'text';
         xhr.onload = function () {
             // responseText is the old-school way of retrieving response (supported by IE8 & 9)
-            // response/responseType properties were introduced in ResourceLoader Level2 spec (supported by IE10)
+            // response/responseType properties were introduced in XHR Level2 spec (supported by IE10)
             var response = lang_1.isPresent(xhr.response) ? xhr.response : xhr.responseText;
             // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
             var status = xhr.status === 1223 ? 204 : xhr.status;
@@ -38,21 +42,21 @@ var TemplateLoaderImpl = (function (_super) {
                 status = response ? 200 : 0;
             }
             if (200 <= status && status <= 300) {
-                completer.resolve(response);
+                resolve(response);
             }
             else {
-                completer.reject("Failed to load " + url, null);
+                reject("Failed to load " + url);
             }
         };
-        xhr.onerror = function () { completer.reject("Failed to load " + url, null); };
+        xhr.onerror = function () { reject("Failed to load " + url); };
         xhr.send();
-        return completer.promise;
+        return promise;
     };
     /** @nocollapse */
-    TemplateLoaderImpl.decorators = [
+    XHRImpl.decorators = [
         { type: core_1.Injectable },
     ];
-    return TemplateLoaderImpl;
-}(compiler_1.ResourceLoader));
-exports.TemplateLoaderImpl = TemplateLoaderImpl;
+    return XHRImpl;
+}(compiler_1.XHR));
+exports.XHRImpl = XHRImpl;
 //# sourceMappingURL=xhr_impl.js.map

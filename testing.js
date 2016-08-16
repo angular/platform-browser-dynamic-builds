@@ -9,81 +9,31 @@
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-var common_1 = require('@angular/common');
-var compiler_1 = require('@angular/compiler');
 var testing_1 = require('@angular/compiler/testing');
 var core_1 = require('@angular/core');
 var testing_2 = require('@angular/core/testing');
 var testing_3 = require('@angular/platform-browser/testing');
-var index_1 = require('./index');
+var platform_providers_1 = require('./src/platform_providers');
 var dom_test_component_renderer_1 = require('./testing/dom_test_component_renderer');
 __export(require('./private_export_testing'));
 /**
- * CompilerFactory for browser dynamic test platform
- *
- * @experimental
- */
-exports.BROWSER_DYNAMIC_TEST_COMPILER_FACTORY = index_1.BROWSER_DYNAMIC_COMPILER_FACTORY.withDefaults({
-    providers: [
-        { provide: compiler_1.DirectiveResolver, useClass: testing_1.MockDirectiveResolver },
-        { provide: compiler_1.ViewResolver, useClass: testing_1.MockViewResolver }
-    ]
-});
-/**
- * Providers for the browser dynamic platform
- *
- * @experimental
- */
-var BROWSER_DYNAMIC_TEST_PLATFORM_PROVIDERS = [
-    testing_3.TEST_BROWSER_PLATFORM_PROVIDERS,
-    index_1.BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
-    { provide: core_1.CompilerFactory, useValue: exports.BROWSER_DYNAMIC_TEST_COMPILER_FACTORY },
-];
-/**
  * @experimental API related to bootstrapping are still under review.
  */
-exports.browserDynamicTestPlatform = core_1.createPlatformFactory('browserDynamicTest', BROWSER_DYNAMIC_TEST_PLATFORM_PROVIDERS);
-var BrowserDynamicTestModule = (function () {
-    function BrowserDynamicTestModule() {
+exports.platformBrowserDynamicTesting = core_1.createPlatformFactory(testing_1.platformCoreDynamicTesting, 'browserDynamicTesting', platform_providers_1.INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
+var BrowserDynamicTestingModule = (function () {
+    function BrowserDynamicTestingModule() {
     }
     /** @nocollapse */
-    BrowserDynamicTestModule.decorators = [
-        { type: core_1.AppModule, args: [{
-                    modules: [testing_3.BrowserTestModule],
+    BrowserDynamicTestingModule.decorators = [
+        { type: core_1.NgModule, args: [{
+                    exports: [testing_3.BrowserTestingModule],
                     providers: [
-                        { provide: testing_2.TestComponentBuilder, useClass: testing_1.OverridingTestComponentBuilder },
+                        { provide: testing_2.__core_private_testing__.TestComponentBuilder, useClass: testing_1.OverridingTestComponentBuilder },
                         { provide: testing_2.TestComponentRenderer, useClass: dom_test_component_renderer_1.DOMTestComponentRenderer },
                     ]
                 },] },
     ];
-    return BrowserDynamicTestModule;
+    return BrowserDynamicTestingModule;
 }());
-exports.BrowserDynamicTestModule = BrowserDynamicTestModule;
-// Used only as a shim until TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS is deprecated.
-var BROWSER_DYNAMIC_TEST_COMPILER_FACTORY_OLD = index_1.BROWSER_DYNAMIC_COMPILER_FACTORY.withDefaults({
-    providers: [
-        { provide: compiler_1.DirectiveResolver, useClass: testing_1.MockDirectiveResolver },
-        { provide: compiler_1.ViewResolver, useClass: testing_1.MockViewResolver }
-    ],
-    deprecatedAppProviders: [
-        { provide: core_1.PLATFORM_DIRECTIVES, useValue: common_1.COMMON_DIRECTIVES, multi: true },
-        { provide: core_1.PLATFORM_PIPES, useValue: common_1.COMMON_PIPES, multi: true }
-    ]
-});
-/**
- * @deprecated Use initTestEnvironment with browserDynamicTestPlatform instead.
- */
-exports.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
-    testing_3.TEST_BROWSER_PLATFORM_PROVIDERS,
-    index_1.BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
-    { provide: core_1.CompilerFactory, useValue: BROWSER_DYNAMIC_TEST_COMPILER_FACTORY_OLD },
-];
-/**
- * @deprecated Use initTestEnvironment with BrowserDynamicTestModule instead.
- */
-exports.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS = [
-    testing_3.TEST_BROWSER_APPLICATION_PROVIDERS,
-    { provide: testing_2.TestComponentBuilder, useClass: testing_1.OverridingTestComponentBuilder },
-    { provide: testing_2.TestComponentRenderer, useClass: dom_test_component_renderer_1.DOMTestComponentRenderer },
-];
+exports.BrowserDynamicTestingModule = BrowserDynamicTestingModule;
 //# sourceMappingURL=testing.js.map

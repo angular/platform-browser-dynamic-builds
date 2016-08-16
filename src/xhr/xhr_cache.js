@@ -12,34 +12,33 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var compiler_1 = require('@angular/compiler');
-var exceptions_1 = require('../facade/exceptions');
+var core_1 = require('@angular/core');
 var lang_1 = require('../facade/lang');
-var promise_1 = require('../facade/promise');
 /**
- * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
- * ResourceLoader.
+ * An implementation of XHR that uses a template cache to avoid doing an actual
+ * XHR.
  *
  * The template cache needs to be built and loaded into window.$templateCache
  * via a separate mechanism.
  */
-var CachedResourceLoader = (function (_super) {
-    __extends(CachedResourceLoader, _super);
-    function CachedResourceLoader() {
+var CachedXHR = (function (_super) {
+    __extends(CachedXHR, _super);
+    function CachedXHR() {
         _super.call(this);
         this._cache = lang_1.global.$templateCache;
         if (this._cache == null) {
-            throw new exceptions_1.BaseException('CachedXHR: Template cache was not found in $templateCache.');
+            throw new core_1.BaseException('CachedXHR: Template cache was not found in $templateCache.');
         }
     }
-    CachedResourceLoader.prototype.get = function (url) {
+    CachedXHR.prototype.get = function (url) {
         if (this._cache.hasOwnProperty(url)) {
-            return promise_1.PromiseWrapper.resolve(this._cache[url]);
+            return Promise.resolve(this._cache[url]);
         }
         else {
-            return promise_1.PromiseWrapper.reject('CachedXHR: Did not find cached template for ' + url, null);
+            return Promise.reject('CachedXHR: Did not find cached template for ' + url);
         }
     };
-    return CachedResourceLoader;
-}(compiler_1.ResourceLoader));
-exports.CachedResourceLoader = CachedResourceLoader;
+    return CachedXHR;
+}(compiler_1.XHR));
+exports.CachedXHR = CachedXHR;
 //# sourceMappingURL=xhr_cache.js.map
