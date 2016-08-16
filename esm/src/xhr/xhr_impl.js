@@ -1,20 +1,16 @@
-import { XHR } from '@angular/compiler';
+import { ResourceLoader } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { isPresent } from '../facade/lang';
-export class XHRImpl extends XHR {
+import { PromiseWrapper } from '../facade/promise';
+export class TemplateLoaderImpl extends ResourceLoader {
     get(url) {
-        var resolve;
-        var reject;
-        const promise = new Promise((res, rej) => {
-            resolve = res;
-            reject = rej;
-        });
+        var completer = PromiseWrapper.completer();
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'text';
         xhr.onload = function () {
             // responseText is the old-school way of retrieving response (supported by IE8 & 9)
-            // response/responseType properties were introduced in XHR Level2 spec (supported by IE10)
+            // response/responseType properties were introduced in ResourceLoader Level2 spec (supported by IE10)
             var response = isPresent(xhr.response) ? xhr.response : xhr.responseText;
             // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
             var status = xhr.status === 1223 ? 204 : xhr.status;
@@ -25,19 +21,19 @@ export class XHRImpl extends XHR {
                 status = response ? 200 : 0;
             }
             if (200 <= status && status <= 300) {
-                resolve(response);
+                completer.resolve(response);
             }
             else {
-                reject(`Failed to load ${url}`);
+                completer.reject(`Failed to load ${url}`, null);
             }
         };
-        xhr.onerror = function () { reject(`Failed to load ${url}`); };
+        xhr.onerror = function () { completer.reject(`Failed to load ${url}`, null); };
         xhr.send();
-        return promise;
+        return completer.promise;
     }
 }
 /** @nocollapse */
-XHRImpl.decorators = [
+TemplateLoaderImpl.decorators = [
     { type: Injectable },
 ];
 //# sourceMappingURL=xhr_impl.js.map
