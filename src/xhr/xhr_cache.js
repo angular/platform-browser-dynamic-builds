@@ -15,30 +15,30 @@ var compiler_1 = require('@angular/compiler');
 var core_1 = require('@angular/core');
 var lang_1 = require('../facade/lang');
 /**
- * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
- * ResourceLoader.
+ * An implementation of XHR that uses a template cache to avoid doing an actual
+ * XHR.
  *
  * The template cache needs to be built and loaded into window.$templateCache
  * via a separate mechanism.
  */
-var CachedResourceLoader = (function (_super) {
-    __extends(CachedResourceLoader, _super);
-    function CachedResourceLoader() {
+var CachedXHR = (function (_super) {
+    __extends(CachedXHR, _super);
+    function CachedXHR() {
         _super.call(this);
         this._cache = lang_1.global.$templateCache;
         if (this._cache == null) {
-            throw new core_1.BaseException('CachedResourceLoader: Template cache was not found in $templateCache.');
+            throw new core_1.BaseException('CachedXHR: Template cache was not found in $templateCache.');
         }
     }
-    CachedResourceLoader.prototype.get = function (url) {
+    CachedXHR.prototype.get = function (url) {
         if (this._cache.hasOwnProperty(url)) {
             return Promise.resolve(this._cache[url]);
         }
         else {
-            return Promise.reject('CachedResourceLoader: Did not find cached template for ' + url);
+            return Promise.reject('CachedXHR: Did not find cached template for ' + url);
         }
     };
-    return CachedResourceLoader;
-}(compiler_1.ResourceLoader));
-exports.CachedResourceLoader = CachedResourceLoader;
-//# sourceMappingURL=resource_loader_cache.js.map
+    return CachedXHR;
+}(compiler_1.XHR));
+exports.CachedXHR = CachedXHR;
+//# sourceMappingURL=xhr_cache.js.map

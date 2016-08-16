@@ -5,16 +5,16 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { ResourceLoader, platformCoreDynamic } from '@angular/compiler';
+import { XHR, platformCoreDynamic } from '@angular/compiler';
 import { COMPILER_OPTIONS, createPlatformFactory } from '@angular/core';
 import { WORKER_SCRIPT, platformWorkerUi } from '@angular/platform-browser';
 import { INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from './src/platform_providers';
-import { CachedResourceLoader } from './src/resource_loader/resource_loader_cache';
-import { ResourceLoaderImpl } from './src/resource_loader/resource_loader_impl';
+import { CachedXHR } from './src/xhr/xhr_cache';
+import { XHRImpl } from './src/xhr/xhr_impl';
 /**
  * @experimental
  */
-export const RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedResourceLoader }];
+export const CACHED_TEMPLATE_PROVIDER = [{ provide: XHR, useClass: CachedXHR }];
 /**
  * @experimental API related to bootstrapping are still under review.
  */
@@ -37,7 +37,7 @@ export function bootstrapWorkerUi(workerScriptUri, customProviders = []) {
  */
 export const platformWorkerAppDynamic = createPlatformFactory(platformCoreDynamic, 'workerAppDynamic', [{
         provide: COMPILER_OPTIONS,
-        useValue: { providers: [{ provide: ResourceLoader, useClass: ResourceLoaderImpl }] },
+        useValue: { providers: [{ provide: XHR, useClass: XHRImpl }] },
         multi: true
     }]);
 function normalizeArray(arr) {

@@ -47,12 +47,12 @@ var __extends = (this && this.__extends) || function (d, b) {
     function isPresent(obj) {
         return obj !== undefined && obj !== null;
     }
-    var ResourceLoaderImpl = (function (_super) {
-        __extends(ResourceLoaderImpl, _super);
-        function ResourceLoaderImpl() {
+    var XHRImpl = (function (_super) {
+        __extends(XHRImpl, _super);
+        function XHRImpl() {
             _super.apply(this, arguments);
         }
-        ResourceLoaderImpl.prototype.get = function (url) {
+        XHRImpl.prototype.get = function (url) {
             var resolve;
             var reject;
             var promise = new Promise(function (res, rej) {
@@ -64,8 +64,7 @@ var __extends = (this && this.__extends) || function (d, b) {
             xhr.responseType = 'text';
             xhr.onload = function () {
                 // responseText is the old-school way of retrieving response (supported by IE8 & 9)
-                // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
-                // by IE10)
+                // response/responseType properties were introduced in XHR Level2 spec (supported by IE10)
                 var response = isPresent(xhr.response) ? xhr.response : xhr.responseText;
                 // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
                 var status = xhr.status === 1223 ? 204 : xhr.status;
@@ -86,50 +85,50 @@ var __extends = (this && this.__extends) || function (d, b) {
             xhr.send();
             return promise;
         };
-        return ResourceLoaderImpl;
-    }(_angular_compiler.ResourceLoader));
+        return XHRImpl;
+    }(_angular_compiler.XHR));
     /** @nocollapse */
-    ResourceLoaderImpl.decorators = [
+    XHRImpl.decorators = [
         { type: _angular_core.Injectable },
     ];
     var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
         INTERNAL_BROWSER_PLATFORM_PROVIDERS,
         {
             provide: _angular_core.COMPILER_OPTIONS,
-            useValue: { providers: [{ provide: _angular_compiler.ResourceLoader, useClass: ResourceLoaderImpl }] },
+            useValue: { providers: [{ provide: _angular_compiler.XHR, useClass: XHRImpl }] },
             multi: true
         },
     ];
     /**
-     * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
-     * ResourceLoader.
+     * An implementation of XHR that uses a template cache to avoid doing an actual
+     * XHR.
      *
      * The template cache needs to be built and loaded into window.$templateCache
      * via a separate mechanism.
      */
-    var CachedResourceLoader = (function (_super) {
-        __extends(CachedResourceLoader, _super);
-        function CachedResourceLoader() {
+    var CachedXHR = (function (_super) {
+        __extends(CachedXHR, _super);
+        function CachedXHR() {
             _super.call(this);
             this._cache = global$1.$templateCache;
             if (this._cache == null) {
-                throw new _angular_core.BaseException('CachedResourceLoader: Template cache was not found in $templateCache.');
+                throw new _angular_core.BaseException('CachedXHR: Template cache was not found in $templateCache.');
             }
         }
-        CachedResourceLoader.prototype.get = function (url) {
+        CachedXHR.prototype.get = function (url) {
             if (this._cache.hasOwnProperty(url)) {
                 return Promise.resolve(this._cache[url]);
             }
             else {
-                return Promise.reject('CachedResourceLoader: Did not find cached template for ' + url);
+                return Promise.reject('CachedXHR: Did not find cached template for ' + url);
             }
         };
-        return CachedResourceLoader;
-    }(_angular_compiler.ResourceLoader));
+        return CachedXHR;
+    }(_angular_compiler.XHR));
     /**
      * @experimental
      */
-    var RESOURCE_CACHE_PROVIDER = [{ provide: _angular_compiler.ResourceLoader, useClass: CachedResourceLoader }];
+    var CACHED_TEMPLATE_PROVIDER = [{ provide: _angular_compiler.XHR, useClass: CachedXHR }];
     /**
      * @experimental API related to bootstrapping are still under review.
      */
@@ -153,10 +152,10 @@ var __extends = (this && this.__extends) || function (d, b) {
      */
     var platformWorkerAppDynamic = _angular_core.createPlatformFactory(_angular_compiler.platformCoreDynamic, 'workerAppDynamic', [{
             provide: _angular_core.COMPILER_OPTIONS,
-            useValue: { providers: [{ provide: _angular_compiler.ResourceLoader, useClass: ResourceLoaderImpl }] },
+            useValue: { providers: [{ provide: _angular_compiler.XHR, useClass: XHRImpl }] },
             multi: true
         }]);
-    exports.RESOURCE_CACHE_PROVIDER = RESOURCE_CACHE_PROVIDER;
+    exports.CACHED_TEMPLATE_PROVIDER = CACHED_TEMPLATE_PROVIDER;
     exports.platformBrowserDynamic = platformBrowserDynamic;
     exports.bootstrapWorkerUi = bootstrapWorkerUi;
     exports.platformWorkerAppDynamic = platformWorkerAppDynamic;
