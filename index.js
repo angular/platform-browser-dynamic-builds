@@ -146,7 +146,8 @@ function bootstrapWorkerUi(workerScriptUri, customProviders) {
     return Promise.resolve(platform_browser_1.platformWorkerUi([{
             provide: platform_browser_1.WORKER_SCRIPT,
             useValue: workerScriptUri,
-        }].concat(customProviders)));
+        }]
+        .concat(customProviders)));
 }
 exports.bootstrapWorkerUi = bootstrapWorkerUi;
 /**

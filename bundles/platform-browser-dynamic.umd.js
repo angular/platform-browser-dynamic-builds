@@ -258,7 +258,8 @@ var __extends = (this && this.__extends) || function (d, b) {
         return Promise.resolve(_angular_platformBrowser.platformWorkerUi([{
                 provide: _angular_platformBrowser.WORKER_SCRIPT,
                 useValue: workerScriptUri,
-            }].concat(customProviders)));
+            }]
+            .concat(customProviders)));
     }
     /**
      * @experimental API related to bootstrapping are still under review.

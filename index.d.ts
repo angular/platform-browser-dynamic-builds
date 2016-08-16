@@ -1,8 +1,8 @@
-import { ComponentRef, PlatformRef, Type } from '@angular/core';
+import { ComponentRef, PlatformRef, Provider, Type } from '@angular/core';
 /**
  * @experimental
  */
-export declare const CACHED_TEMPLATE_PROVIDER: Array<any>;
+export declare const CACHED_TEMPLATE_PROVIDER: Provider[];
 /**
  * @experimental API related to bootstrapping are still under review.
  */
@@ -85,13 +85,13 @@ export declare const platformBrowserDynamic: (extraProviders?: any[]) => Platfor
  * @deprecated This api cannot be used with the offline compiler. Use
  * `PlatformRef.boostrapModule()` instead.
  */
-export declare function bootstrap<C>(appComponentType: Type<C>, customProviders?: Array<any>): Promise<ComponentRef<C>>;
+export declare function bootstrap<C>(appComponentType: Type<C>, customProviders?: Provider[]): Promise<ComponentRef<C>>;
 /**
  * Bootstraps the worker ui.
  *
  * @experimental
  */
-export declare function bootstrapWorkerUi(workerScriptUri: string, customProviders?: Array<any>): Promise<PlatformRef>;
+export declare function bootstrapWorkerUi(workerScriptUri: string, customProviders?: Provider[]): Promise<PlatformRef>;
 /**
  * @experimental API related to bootstrapping are still under review.
  */

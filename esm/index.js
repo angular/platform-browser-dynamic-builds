@@ -140,7 +140,8 @@ export function bootstrapWorkerUi(workerScriptUri, customProviders = []) {
     return Promise.resolve(platformWorkerUi([{
             provide: WORKER_SCRIPT,
             useValue: workerScriptUri,
-        }].concat(customProviders)));
+        }]
+        .concat(customProviders)));
 }
 /**
  * @experimental API related to bootstrapping are still under review.
