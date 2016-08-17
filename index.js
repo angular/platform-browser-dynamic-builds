@@ -10,12 +10,12 @@ var compiler_1 = require('@angular/compiler');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var platform_providers_1 = require('./src/platform_providers');
-var xhr_cache_1 = require('./src/xhr/xhr_cache');
-var xhr_impl_1 = require('./src/xhr/xhr_impl');
+var resource_loader_cache_1 = require('./src/resource_loader/resource_loader_cache');
+var resource_loader_impl_1 = require('./src/resource_loader/resource_loader_impl');
 /**
  * @experimental
  */
-exports.CACHED_TEMPLATE_PROVIDER = [{ provide: compiler_1.XHR, useClass: xhr_cache_1.CachedXHR }];
+exports.RESOURCE_CACHE_PROVIDER = [{ provide: compiler_1.ResourceLoader, useClass: resource_loader_cache_1.CachedResourceLoader }];
 /**
  * @experimental API related to bootstrapping are still under review.
  */
@@ -40,7 +40,7 @@ exports.bootstrapWorkerUi = bootstrapWorkerUi;
  */
 exports.platformWorkerAppDynamic = core_1.createPlatformFactory(compiler_1.platformCoreDynamic, 'workerAppDynamic', [{
         provide: core_1.COMPILER_OPTIONS,
-        useValue: { providers: [{ provide: compiler_1.XHR, useClass: xhr_impl_1.XHRImpl }] },
+        useValue: { providers: [{ provide: compiler_1.ResourceLoader, useClass: resource_loader_impl_1.ResourceLoaderImpl }] },
         multi: true
     }]);
 function normalizeArray(arr) {

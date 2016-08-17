@@ -14,12 +14,12 @@ var __extends = (this && this.__extends) || function (d, b) {
 var compiler_1 = require('@angular/compiler');
 var core_1 = require('@angular/core');
 var lang_1 = require('../facade/lang');
-var XHRImpl = (function (_super) {
-    __extends(XHRImpl, _super);
-    function XHRImpl() {
+var ResourceLoaderImpl = (function (_super) {
+    __extends(ResourceLoaderImpl, _super);
+    function ResourceLoaderImpl() {
         _super.apply(this, arguments);
     }
-    XHRImpl.prototype.get = function (url) {
+    ResourceLoaderImpl.prototype.get = function (url) {
         var resolve;
         var reject;
         var promise = new Promise(function (res, rej) {
@@ -31,7 +31,8 @@ var XHRImpl = (function (_super) {
         xhr.responseType = 'text';
         xhr.onload = function () {
             // responseText is the old-school way of retrieving response (supported by IE8 & 9)
-            // response/responseType properties were introduced in XHR Level2 spec (supported by IE10)
+            // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
+            // by IE10)
             var response = lang_1.isPresent(xhr.response) ? xhr.response : xhr.responseText;
             // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
             var status = xhr.status === 1223 ? 204 : xhr.status;
@@ -53,10 +54,10 @@ var XHRImpl = (function (_super) {
         return promise;
     };
     /** @nocollapse */
-    XHRImpl.decorators = [
+    ResourceLoaderImpl.decorators = [
         { type: core_1.Injectable },
     ];
-    return XHRImpl;
-}(compiler_1.XHR));
-exports.XHRImpl = XHRImpl;
-//# sourceMappingURL=xhr_impl.js.map
+    return ResourceLoaderImpl;
+}(compiler_1.ResourceLoader));
+exports.ResourceLoaderImpl = ResourceLoaderImpl;
+//# sourceMappingURL=resource_loader_impl.js.map

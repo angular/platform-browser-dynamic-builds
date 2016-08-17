@@ -2,7 +2,7 @@ import { PlatformRef, Provider } from '@angular/core';
 /**
  * @experimental
  */
-export declare const CACHED_TEMPLATE_PROVIDER: Provider[];
+export declare const RESOURCE_CACHE_PROVIDER: Provider[];
 /**
  * @experimental API related to bootstrapping are still under review.
  */

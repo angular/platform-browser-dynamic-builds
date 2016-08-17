@@ -1,7 +1,7 @@
-import { XHR } from '@angular/compiler';
+import { ResourceLoader } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { isPresent } from '../facade/lang';
-export class XHRImpl extends XHR {
+export class ResourceLoaderImpl extends ResourceLoader {
     get(url) {
         var resolve;
         var reject;
@@ -14,7 +14,8 @@ export class XHRImpl extends XHR {
         xhr.responseType = 'text';
         xhr.onload = function () {
             // responseText is the old-school way of retrieving response (supported by IE8 & 9)
-            // response/responseType properties were introduced in XHR Level2 spec (supported by IE10)
+            // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
+            // by IE10)
             var response = isPresent(xhr.response) ? xhr.response : xhr.responseText;
             // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
             var status = xhr.status === 1223 ? 204 : xhr.status;
@@ -37,7 +38,7 @@ export class XHRImpl extends XHR {
     }
 }
 /** @nocollapse */
-XHRImpl.decorators = [
+ResourceLoaderImpl.decorators = [
     { type: Injectable },
 ];
-//# sourceMappingURL=xhr_impl.js.map
+//# sourceMappingURL=resource_loader_impl.js.map
