@@ -28,7 +28,6 @@ var BrowserDynamicTestingModule = (function () {
         { type: core_1.NgModule, args: [{
                     exports: [testing_3.BrowserTestingModule],
                     providers: [
-                        { provide: testing_2.__core_private_testing__.TestComponentBuilder, useClass: testing_1.OverridingTestComponentBuilder },
                         { provide: testing_2.TestComponentRenderer, useClass: dom_test_component_renderer_1.DOMTestComponentRenderer },
                     ]
                 },] },
