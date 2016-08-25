@@ -13,7 +13,7 @@ import { INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from './src/platform_prov
 import { DOMTestComponentRenderer } from './testing/dom_test_component_renderer';
 export * from './private_export_testing';
 /**
- * @experimental API related to bootstrapping are still under review.
+ * @stable
  */
 export const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 export class BrowserDynamicTestingModule {

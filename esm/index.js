@@ -16,13 +16,13 @@ import { ResourceLoaderImpl } from './src/resource_loader/resource_loader_impl';
  */
 export const RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedResourceLoader }];
 /**
- * @experimental API related to bootstrapping are still under review.
+ * @stable
  */
 export const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 /**
  * Bootstraps the worker ui.
  *
- * @experimental
+ * @experimental WebWorker support is currently experimental
  */
 export function bootstrapWorkerUi(workerScriptUri, customProviders = []) {
     // For now, just creates the worker ui platform...
@@ -33,7 +33,7 @@ export function bootstrapWorkerUi(workerScriptUri, customProviders = []) {
         .concat(customProviders)));
 }
 /**
- * @experimental API related to bootstrapping are still under review.
+ * @experimental WebWorker support is currently experimental
  */
 export const platformWorkerAppDynamic = createPlatformFactory(platformCoreDynamic, 'workerAppDynamic', [{
         provide: COMPILER_OPTIONS,

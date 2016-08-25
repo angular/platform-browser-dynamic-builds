@@ -1,19 +1,19 @@
-import { PlatformRef, Provider } from '@angular/core';
+import { ClassProvider, ExistingProvider, FactoryProvider, PlatformRef, Provider, TypeProvider, ValueProvider } from '@angular/core';
 /**
  * @experimental
  */
 export declare const RESOURCE_CACHE_PROVIDER: Provider[];
 /**
- * @experimental API related to bootstrapping are still under review.
+ * @stable
  */
-export declare const platformBrowserDynamic: (extraProviders?: any[]) => PlatformRef;
+export declare const platformBrowserDynamic: (extraProviders?: (TypeProvider | ValueProvider | ClassProvider | ExistingProvider | FactoryProvider | any[])[]) => PlatformRef;
 /**
  * Bootstraps the worker ui.
  *
- * @experimental
+ * @experimental WebWorker support is currently experimental
  */
 export declare function bootstrapWorkerUi(workerScriptUri: string, customProviders?: Provider[]): Promise<PlatformRef>;
 /**
- * @experimental API related to bootstrapping are still under review.
+ * @experimental WebWorker support is currently experimental
  */
-export declare const platformWorkerAppDynamic: (extraProviders?: any[]) => PlatformRef;
+export declare const platformWorkerAppDynamic: (extraProviders?: (TypeProvider | ValueProvider | ClassProvider | ExistingProvider | FactoryProvider | any[])[]) => PlatformRef;

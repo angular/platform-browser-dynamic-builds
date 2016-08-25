@@ -17,13 +17,13 @@ var resource_loader_impl_1 = require('./src/resource_loader/resource_loader_impl
  */
 exports.RESOURCE_CACHE_PROVIDER = [{ provide: compiler_1.ResourceLoader, useClass: resource_loader_cache_1.CachedResourceLoader }];
 /**
- * @experimental API related to bootstrapping are still under review.
+ * @stable
  */
 exports.platformBrowserDynamic = core_1.createPlatformFactory(compiler_1.platformCoreDynamic, 'browserDynamic', platform_providers_1.INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 /**
  * Bootstraps the worker ui.
  *
- * @experimental
+ * @experimental WebWorker support is currently experimental
  */
 function bootstrapWorkerUi(workerScriptUri, customProviders) {
     if (customProviders === void 0) { customProviders = []; }
@@ -36,7 +36,7 @@ function bootstrapWorkerUi(workerScriptUri, customProviders) {
 }
 exports.bootstrapWorkerUi = bootstrapWorkerUi;
 /**
- * @experimental API related to bootstrapping are still under review.
+ * @experimental WebWorker support is currently experimental
  */
 exports.platformWorkerAppDynamic = core_1.createPlatformFactory(compiler_1.platformCoreDynamic, 'workerAppDynamic', [{
         provide: core_1.COMPILER_OPTIONS,

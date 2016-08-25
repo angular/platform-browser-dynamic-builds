@@ -131,13 +131,13 @@ var __extends = (this && this.__extends) || function (d, b) {
      */
     var RESOURCE_CACHE_PROVIDER = [{ provide: _angular_compiler.ResourceLoader, useClass: CachedResourceLoader }];
     /**
-     * @experimental API related to bootstrapping are still under review.
+     * @stable
      */
     var platformBrowserDynamic = _angular_core.createPlatformFactory(_angular_compiler.platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
     /**
      * Bootstraps the worker ui.
      *
-     * @experimental
+     * @experimental WebWorker support is currently experimental
      */
     function bootstrapWorkerUi(workerScriptUri, customProviders) {
         if (customProviders === void 0) { customProviders = []; }
@@ -149,7 +149,7 @@ var __extends = (this && this.__extends) || function (d, b) {
             .concat(customProviders)));
     }
     /**
-     * @experimental API related to bootstrapping are still under review.
+     * @experimental WebWorker support is currently experimental
      */
     var platformWorkerAppDynamic = _angular_core.createPlatformFactory(_angular_compiler.platformCoreDynamic, 'workerAppDynamic', [{
             provide: _angular_core.COMPILER_OPTIONS,

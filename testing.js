@@ -17,7 +17,7 @@ var platform_providers_1 = require('./src/platform_providers');
 var dom_test_component_renderer_1 = require('./testing/dom_test_component_renderer');
 __export(require('./private_export_testing'));
 /**
- * @experimental API related to bootstrapping are still under review.
+ * @stable
  */
 exports.platformBrowserDynamicTesting = core_1.createPlatformFactory(testing_1.platformCoreDynamicTesting, 'browserDynamicTesting', platform_providers_1.INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 var BrowserDynamicTestingModule = (function () {

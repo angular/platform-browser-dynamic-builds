@@ -1,9 +1,9 @@
-import { PlatformRef } from '@angular/core';
+import { ClassProvider, ExistingProvider, FactoryProvider, PlatformRef, TypeProvider, ValueProvider } from '@angular/core';
 export * from './private_export_testing';
 /**
- * @experimental API related to bootstrapping are still under review.
+ * @stable
  */
-export declare const platformBrowserDynamicTesting: (extraProviders?: any[]) => PlatformRef;
+export declare const platformBrowserDynamicTesting: (extraProviders?: (TypeProvider | ValueProvider | ClassProvider | ExistingProvider | FactoryProvider | any[])[]) => PlatformRef;
 /**
  * NgModule for testing.
  *
