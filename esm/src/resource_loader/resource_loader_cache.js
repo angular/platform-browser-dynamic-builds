@@ -6,7 +6,6 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { ResourceLoader } from '@angular/compiler';
-import { BaseException } from '@angular/core';
 import { global } from '../facade/lang';
 /**
  * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
@@ -20,7 +19,7 @@ export class CachedResourceLoader extends ResourceLoader {
         super();
         this._cache = global.$templateCache;
         if (this._cache == null) {
-            throw new BaseException('CachedResourceLoader: Template cache was not found in $templateCache.');
+            throw new Error('CachedResourceLoader: Template cache was not found in $templateCache.');
         }
     }
     get(url) {

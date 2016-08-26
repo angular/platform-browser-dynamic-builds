@@ -12,7 +12,6 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var compiler_1 = require('@angular/compiler');
-var core_1 = require('@angular/core');
 var lang_1 = require('../facade/lang');
 /**
  * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
@@ -27,7 +26,7 @@ var CachedResourceLoader = (function (_super) {
         _super.call(this);
         this._cache = lang_1.global.$templateCache;
         if (this._cache == null) {
-            throw new core_1.BaseException('CachedResourceLoader: Template cache was not found in $templateCache.');
+            throw new Error('CachedResourceLoader: Template cache was not found in $templateCache.');
         }
     }
     CachedResourceLoader.prototype.get = function (url) {

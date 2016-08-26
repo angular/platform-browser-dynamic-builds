@@ -113,7 +113,7 @@ var __extends = (this && this.__extends) || function (d, b) {
             _super.call(this);
             this._cache = global$1.$templateCache;
             if (this._cache == null) {
-                throw new _angular_core.BaseException('CachedResourceLoader: Template cache was not found in $templateCache.');
+                throw new Error('CachedResourceLoader: Template cache was not found in $templateCache.');
             }
         }
         CachedResourceLoader.prototype.get = function (url) {
