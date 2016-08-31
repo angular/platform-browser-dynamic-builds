@@ -188,7 +188,8 @@
     }(_angular_compiler.ResourceLoader));
 
     var __platform_browser_dynamic_private__ = {
-        INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS
+        INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+        ResourceLoaderImpl: ResourceLoaderImpl
     };
 
     /**
@@ -199,33 +200,9 @@
      * @experimental API related to bootstrapping are still under review.
      */
     var platformBrowserDynamic = _angular_core.createPlatformFactory(_angular_compiler.platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
-    /**
-     * Bootstraps the worker ui.
-     *
-     * @experimental
-     */
-    function bootstrapWorkerUi(workerScriptUri, customProviders) {
-        if (customProviders === void 0) { customProviders = []; }
-        // For now, just creates the worker ui platform...
-        return Promise.resolve(_angular_platformBrowser.platformWorkerUi([{
-                provide: _angular_platformBrowser.WORKER_SCRIPT,
-                useValue: workerScriptUri,
-            }]
-            .concat(customProviders)));
-    }
-    /**
-     * @experimental API related to bootstrapping are still under review.
-     */
-    var platformWorkerAppDynamic = _angular_core.createPlatformFactory(_angular_compiler.platformCoreDynamic, 'workerAppDynamic', [{
-            provide: _angular_core.COMPILER_OPTIONS,
-            useValue: { providers: [{ provide: _angular_compiler.ResourceLoader, useClass: ResourceLoaderImpl }] },
-            multi: true
-        }]);
 
     exports.RESOURCE_CACHE_PROVIDER = RESOURCE_CACHE_PROVIDER;
     exports.platformBrowserDynamic = platformBrowserDynamic;
-    exports.bootstrapWorkerUi = bootstrapWorkerUi;
-    exports.platformWorkerAppDynamic = platformWorkerAppDynamic;
     exports.__platform_browser_dynamic_private__ = __platform_browser_dynamic_private__;
 
 }));
