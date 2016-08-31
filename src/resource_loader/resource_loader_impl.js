@@ -1,20 +1,12 @@
-"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-var compiler_1 = require('@angular/compiler');
-var core_1 = require('@angular/core');
-var lang_1 = require('../facade/lang');
-var ResourceLoaderImpl = (function (_super) {
+import { ResourceLoader } from '@angular/compiler';
+import { Injectable } from '@angular/core';
+import { isPresent } from '../facade/lang';
+export var ResourceLoaderImpl = (function (_super) {
     __extends(ResourceLoaderImpl, _super);
     function ResourceLoaderImpl() {
         _super.apply(this, arguments);
@@ -33,7 +25,7 @@ var ResourceLoaderImpl = (function (_super) {
             // responseText is the old-school way of retrieving response (supported by IE8 & 9)
             // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
             // by IE10)
-            var response = lang_1.isPresent(xhr.response) ? xhr.response : xhr.responseText;
+            var response = isPresent(xhr.response) ? xhr.response : xhr.responseText;
             // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
             var status = xhr.status === 1223 ? 204 : xhr.status;
             // fix status code when it is 0 (0 status is undocumented).
@@ -53,11 +45,11 @@ var ResourceLoaderImpl = (function (_super) {
         xhr.send();
         return promise;
     };
-    /** @nocollapse */
     ResourceLoaderImpl.decorators = [
-        { type: core_1.Injectable },
+        { type: Injectable },
     ];
+    /** @nocollapse */
+    ResourceLoaderImpl.ctorParameters = [];
     return ResourceLoaderImpl;
-}(compiler_1.ResourceLoader));
-exports.ResourceLoaderImpl = ResourceLoaderImpl;
+}(ResourceLoader));
 //# sourceMappingURL=resource_loader_impl.js.map

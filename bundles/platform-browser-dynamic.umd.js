@@ -3,18 +3,14 @@
  * (c) 2010-2016 Google, Inc. https://angular.io/
  * License: MIT
  */
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/compiler'), require('@angular/core'), require('@angular/platform-browser')) :
-        typeof define === 'function' && define.amd ? define(['exports', '@angular/compiler', '@angular/core', '@angular/platform-browser'], factory) :
-            (factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}), global.ng.compiler, global.ng.core, global.ng.platformBrowser));
-}(this, function (exports, _angular_compiler, _angular_core, _angular_platformBrowser) {
-    'use strict';
+    typeof define === 'function' && define.amd ? define(['exports', '@angular/compiler', '@angular/core', '@angular/platform-browser'], factory) :
+    (factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}),global.ng.compiler,global.ng.core,global.ng.platformBrowser));
+}(this, function (exports,_angular_compiler,_angular_core,_angular_platformBrowser) { 'use strict';
+
     var INTERNAL_BROWSER_PLATFORM_PROVIDERS = _angular_platformBrowser.__platform_browser_private__.INTERNAL_BROWSER_PLATFORM_PROVIDERS;
+
     /**
      * @license
      * Copyright Google Inc. All Rights Reserved.
@@ -47,6 +43,55 @@ var __extends = (this && this.__extends) || function (d, b) {
     function isPresent(obj) {
         return obj !== undefined && obj !== null;
     }
+    var NumberWrapper = (function () {
+        function NumberWrapper() {
+        }
+        NumberWrapper.toFixed = function (n, fractionDigits) { return n.toFixed(fractionDigits); };
+        NumberWrapper.equal = function (a, b) { return a === b; };
+        NumberWrapper.parseIntAutoRadix = function (text) {
+            var result = parseInt(text);
+            if (isNaN(result)) {
+                throw new Error('Invalid integer literal when parsing ' + text);
+            }
+            return result;
+        };
+        NumberWrapper.parseInt = function (text, radix) {
+            if (radix == 10) {
+                if (/^(\-|\+)?[0-9]+$/.test(text)) {
+                    return parseInt(text, radix);
+                }
+            }
+            else if (radix == 16) {
+                if (/^(\-|\+)?[0-9ABCDEFabcdef]+$/.test(text)) {
+                    return parseInt(text, radix);
+                }
+            }
+            else {
+                var result = parseInt(text, radix);
+                if (!isNaN(result)) {
+                    return result;
+                }
+            }
+            throw new Error('Invalid integer literal when parsing ' + text + ' in base ' + radix);
+        };
+        // TODO: NaN is a valid literal but is returned by parseFloat to indicate an error.
+        NumberWrapper.parseFloat = function (text) { return parseFloat(text); };
+        Object.defineProperty(NumberWrapper, "NaN", {
+            get: function () { return NaN; },
+            enumerable: true,
+            configurable: true
+        });
+        NumberWrapper.isNumeric = function (value) { return !isNaN(value - parseFloat(value)); };
+        NumberWrapper.isNaN = function (value) { return isNaN(value); };
+        NumberWrapper.isInteger = function (value) { return Number.isInteger(value); };
+        return NumberWrapper;
+    }());
+
+    var __extends = (this && this.__extends) || function (d, b) {
+        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
     var ResourceLoaderImpl = (function (_super) {
         __extends(ResourceLoaderImpl, _super);
         function ResourceLoaderImpl() {
@@ -86,12 +131,14 @@ var __extends = (this && this.__extends) || function (d, b) {
             xhr.send();
             return promise;
         };
+        ResourceLoaderImpl.decorators = [
+            { type: _angular_core.Injectable },
+        ];
+        /** @nocollapse */
+        ResourceLoaderImpl.ctorParameters = [];
         return ResourceLoaderImpl;
     }(_angular_compiler.ResourceLoader));
-    /** @nocollapse */
-    ResourceLoaderImpl.decorators = [
-        { type: _angular_core.Injectable },
-    ];
+
     var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
         INTERNAL_BROWSER_PLATFORM_PROVIDERS,
         {
@@ -100,6 +147,19 @@ var __extends = (this && this.__extends) || function (d, b) {
             multi: true
         },
     ];
+
+    /**
+     * @license
+     * Copyright Google Inc. All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
+    var __extends$1 = (this && this.__extends) || function (d, b) {
+        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
     /**
      * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
      * ResourceLoader.
@@ -108,7 +168,7 @@ var __extends = (this && this.__extends) || function (d, b) {
      * via a separate mechanism.
      */
     var CachedResourceLoader = (function (_super) {
-        __extends(CachedResourceLoader, _super);
+        __extends$1(CachedResourceLoader, _super);
         function CachedResourceLoader() {
             _super.call(this);
             this._cache = global$1.$templateCache;
@@ -126,18 +186,23 @@ var __extends = (this && this.__extends) || function (d, b) {
         };
         return CachedResourceLoader;
     }(_angular_compiler.ResourceLoader));
+
+    var __platform_browser_dynamic_private__ = {
+        INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS
+    };
+
     /**
      * @experimental
      */
     var RESOURCE_CACHE_PROVIDER = [{ provide: _angular_compiler.ResourceLoader, useClass: CachedResourceLoader }];
     /**
-     * @stable
+     * @experimental API related to bootstrapping are still under review.
      */
     var platformBrowserDynamic = _angular_core.createPlatformFactory(_angular_compiler.platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
     /**
      * Bootstraps the worker ui.
      *
-     * @experimental WebWorker support is currently experimental
+     * @experimental
      */
     function bootstrapWorkerUi(workerScriptUri, customProviders) {
         if (customProviders === void 0) { customProviders = []; }
@@ -149,15 +214,18 @@ var __extends = (this && this.__extends) || function (d, b) {
             .concat(customProviders)));
     }
     /**
-     * @experimental WebWorker support is currently experimental
+     * @experimental API related to bootstrapping are still under review.
      */
     var platformWorkerAppDynamic = _angular_core.createPlatformFactory(_angular_compiler.platformCoreDynamic, 'workerAppDynamic', [{
             provide: _angular_core.COMPILER_OPTIONS,
             useValue: { providers: [{ provide: _angular_compiler.ResourceLoader, useClass: ResourceLoaderImpl }] },
             multi: true
         }]);
+
     exports.RESOURCE_CACHE_PROVIDER = RESOURCE_CACHE_PROVIDER;
     exports.platformBrowserDynamic = platformBrowserDynamic;
     exports.bootstrapWorkerUi = bootstrapWorkerUi;
     exports.platformWorkerAppDynamic = platformWorkerAppDynamic;
+    exports.__platform_browser_dynamic_private__ = __platform_browser_dynamic_private__;
+
 }));
