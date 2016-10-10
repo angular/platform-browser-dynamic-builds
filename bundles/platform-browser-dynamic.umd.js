@@ -11,80 +11,6 @@
 
     var INTERNAL_BROWSER_PLATFORM_PROVIDERS = _angular_platformBrowser.__platform_browser_private__.INTERNAL_BROWSER_PLATFORM_PROVIDERS;
 
-    /**
-     * @license
-     * Copyright Google Inc. All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-    var globalScope;
-    if (typeof window === 'undefined') {
-        if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {
-            // TODO: Replace any with WorkerGlobalScope from lib.webworker.d.ts #3492
-            globalScope = self;
-        }
-        else {
-            globalScope = global;
-        }
-    }
-    else {
-        globalScope = window;
-    }
-    // Need to declare a new variable for global here since TypeScript
-    // exports the original value of the symbol.
-    var global$1 = globalScope;
-    // TODO: remove calls to assert in production environment
-    // Note: Can't just export this and import in in other files
-    // as `assert` is a reserved keyword in Dart
-    global$1.assert = function assert(condition) {
-        // TODO: to be fixed properly via #2830, noop for now
-    };
-    function isPresent(obj) {
-        return obj !== undefined && obj !== null;
-    }
-    var NumberWrapper = (function () {
-        function NumberWrapper() {
-        }
-        NumberWrapper.toFixed = function (n, fractionDigits) { return n.toFixed(fractionDigits); };
-        NumberWrapper.equal = function (a, b) { return a === b; };
-        NumberWrapper.parseIntAutoRadix = function (text) {
-            var result = parseInt(text);
-            if (isNaN(result)) {
-                throw new Error('Invalid integer literal when parsing ' + text);
-            }
-            return result;
-        };
-        NumberWrapper.parseInt = function (text, radix) {
-            if (radix == 10) {
-                if (/^(\-|\+)?[0-9]+$/.test(text)) {
-                    return parseInt(text, radix);
-                }
-            }
-            else if (radix == 16) {
-                if (/^(\-|\+)?[0-9ABCDEFabcdef]+$/.test(text)) {
-                    return parseInt(text, radix);
-                }
-            }
-            else {
-                var result = parseInt(text, radix);
-                if (!isNaN(result)) {
-                    return result;
-                }
-            }
-            throw new Error('Invalid integer literal when parsing ' + text + ' in base ' + radix);
-        };
-        Object.defineProperty(NumberWrapper, "NaN", {
-            get: function () { return NaN; },
-            enumerable: true,
-            configurable: true
-        });
-        NumberWrapper.isNumeric = function (value) { return !isNaN(value - parseFloat(value)); };
-        NumberWrapper.isNaN = function (value) { return isNaN(value); };
-        NumberWrapper.isInteger = function (value) { return Number.isInteger(value); };
-        return NumberWrapper;
-    }());
-
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -109,7 +35,7 @@
                 // responseText is the old-school way of retrieving response (supported by IE8 & 9)
                 // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
                 // by IE10)
-                var response = isPresent(xhr.response) ? xhr.response : xhr.responseText;
+                var response = xhr.response || xhr.responseText;
                 // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
                 var status = xhr.status === 1223 ? 204 : xhr.status;
                 // fix status code when it is 0 (0 status is undocumented).
@@ -153,6 +79,77 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
+    var globalScope;
+    if (typeof window === 'undefined') {
+        if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {
+            // TODO: Replace any with WorkerGlobalScope from lib.webworker.d.ts #3492
+            globalScope = self;
+        }
+        else {
+            globalScope = global;
+        }
+    }
+    else {
+        globalScope = window;
+    }
+    // Need to declare a new variable for global here since TypeScript
+    // exports the original value of the symbol.
+    var _global = globalScope;
+    // TODO: remove calls to assert in production environment
+    // Note: Can't just export this and import in in other files
+    // as `assert` is a reserved keyword in Dart
+    _global.assert = function assert(condition) {
+        // TODO: to be fixed properly via #2830, noop for now
+    };
+    var NumberWrapper = (function () {
+        function NumberWrapper() {
+        }
+        NumberWrapper.toFixed = function (n, fractionDigits) { return n.toFixed(fractionDigits); };
+        NumberWrapper.equal = function (a, b) { return a === b; };
+        NumberWrapper.parseIntAutoRadix = function (text) {
+            var result = parseInt(text);
+            if (isNaN(result)) {
+                throw new Error('Invalid integer literal when parsing ' + text);
+            }
+            return result;
+        };
+        NumberWrapper.parseInt = function (text, radix) {
+            if (radix == 10) {
+                if (/^(\-|\+)?[0-9]+$/.test(text)) {
+                    return parseInt(text, radix);
+                }
+            }
+            else if (radix == 16) {
+                if (/^(\-|\+)?[0-9ABCDEFabcdef]+$/.test(text)) {
+                    return parseInt(text, radix);
+                }
+            }
+            else {
+                var result = parseInt(text, radix);
+                if (!isNaN(result)) {
+                    return result;
+                }
+            }
+            throw new Error('Invalid integer literal when parsing ' + text + ' in base ' + radix);
+        };
+        Object.defineProperty(NumberWrapper, "NaN", {
+            get: function () { return NaN; },
+            enumerable: true,
+            configurable: true
+        });
+        NumberWrapper.isNumeric = function (value) { return !isNaN(value - parseFloat(value)); };
+        NumberWrapper.isNaN = function (value) { return isNaN(value); };
+        NumberWrapper.isInteger = function (value) { return Number.isInteger(value); };
+        return NumberWrapper;
+    }());
+
+    /**
+     * @license
+     * Copyright Google Inc. All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
     var __extends$1 = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -169,7 +166,7 @@
         __extends$1(CachedResourceLoader, _super);
         function CachedResourceLoader() {
             _super.call(this);
-            this._cache = global$1.$templateCache;
+            this._cache = _global.$templateCache;
             if (this._cache == null) {
                 throw new Error('CachedResourceLoader: Template cache was not found in $templateCache.');
             }
