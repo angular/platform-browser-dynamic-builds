@@ -45,9 +45,9 @@
             { type: _angular_core.Injectable },
         ];
         /** @nocollapse */
-        DOMTestComponentRenderer.ctorParameters = [
+        DOMTestComponentRenderer.ctorParameters = function () { return [
             { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_platformBrowser.DOCUMENT,] },] },
-        ];
+        ]; };
         return DOMTestComponentRenderer;
     }(_angular_core_testing.TestComponentRenderer));
 
@@ -78,7 +78,7 @@
                     },] },
         ];
         /** @nocollapse */
-        BrowserDynamicTestingModule.ctorParameters = [];
+        BrowserDynamicTestingModule.ctorParameters = function () { return []; };
         return BrowserDynamicTestingModule;
     }());
 

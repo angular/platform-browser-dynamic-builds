@@ -59,7 +59,7 @@
             { type: _angular_core.Injectable },
         ];
         /** @nocollapse */
-        ResourceLoaderImpl.ctorParameters = [];
+        ResourceLoaderImpl.ctorParameters = function () { return []; };
         return ResourceLoaderImpl;
     }(_angular_compiler.ResourceLoader));
 
