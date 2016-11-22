@@ -1,5 +1,5 @@
 /**
- * @license Angular v0.0.0-PLACEHOLDER
+ * @license Angular v2.2.2-11ed8f5
  * (c) 2010-2016 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -45,9 +45,9 @@
             { type: _angular_core.Injectable },
         ];
         /** @nocollapse */
-        DOMTestComponentRenderer.ctorParameters = function () { return [
+        DOMTestComponentRenderer.ctorParameters = [
             { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_platformBrowser.DOCUMENT,] },] },
-        ]; };
+        ];
         return DOMTestComponentRenderer;
     }(_angular_core_testing.TestComponentRenderer));
 
@@ -78,7 +78,7 @@
                     },] },
         ];
         /** @nocollapse */
-        BrowserDynamicTestingModule.ctorParameters = function () { return []; };
+        BrowserDynamicTestingModule.ctorParameters = [];
         return BrowserDynamicTestingModule;
     }());
 

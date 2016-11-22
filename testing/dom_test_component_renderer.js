@@ -36,9 +36,9 @@ export var DOMTestComponentRenderer = (function (_super) {
         { type: Injectable },
     ];
     /** @nocollapse */
-    DOMTestComponentRenderer.ctorParameters = function () { return [
+    DOMTestComponentRenderer.ctorParameters = [
         { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] },] },
-    ]; };
+    ];
     return DOMTestComponentRenderer;
 }(TestComponentRenderer));
 //# sourceMappingURL=dom_test_component_renderer.js.map

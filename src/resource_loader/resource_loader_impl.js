@@ -48,7 +48,7 @@ export var ResourceLoaderImpl = (function (_super) {
         { type: Injectable },
     ];
     /** @nocollapse */
-    ResourceLoaderImpl.ctorParameters = function () { return []; };
+    ResourceLoaderImpl.ctorParameters = [];
     return ResourceLoaderImpl;
 }(ResourceLoader));
 //# sourceMappingURL=resource_loader_impl.js.map
