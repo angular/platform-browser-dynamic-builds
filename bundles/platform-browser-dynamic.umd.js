@@ -1,5 +1,5 @@
 /**
- * @license Angular v2.3.0-beta.1-4553948
+ * @license Angular v2.2.2-69572ac
  * (c) 2010-2016 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -59,7 +59,7 @@
             { type: _angular_core.Injectable },
         ];
         /** @nocollapse */
-        ResourceLoaderImpl.ctorParameters = function () { return []; };
+        ResourceLoaderImpl.ctorParameters = [];
         return ResourceLoaderImpl;
     }(_angular_compiler.ResourceLoader));
 
