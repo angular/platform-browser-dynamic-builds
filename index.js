@@ -5,10 +5,10 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+import { Version } from '@angular/core';
 /**
- * @module
- * @description
- * Entry point for all public APIs of the platform-browser-dynamic package.
+ * @stable
  */
+export var VERSION = new Version('2.3.0-beta.0-e628b66');
 export * from './src/platform-browser-dynamic';
 //# sourceMappingURL=index.js.map
