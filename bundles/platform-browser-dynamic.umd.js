@@ -1,5 +1,5 @@
 /**
- * @license Angular v2.3.0-beta.0-f275f36
+ * @license Angular v2.3.0-beta.0-2975d89
  * (c) 2010-2016 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -158,7 +158,7 @@
     /**
      * @stable
      */
-    var VERSION = new _angular_core.Version('2.3.0-beta.0-f275f36');
+    var VERSION = new _angular_core.Version('2.3.0-beta.0-2975d89');
 
     exports.VERSION = VERSION;
     exports.RESOURCE_CACHE_PROVIDER = RESOURCE_CACHE_PROVIDER;
