@@ -33,7 +33,7 @@ export var BrowserDynamicTestingModule = (function () {
                 },] },
     ];
     /** @nocollapse */
-    BrowserDynamicTestingModule.ctorParameters = function () { return []; };
+    BrowserDynamicTestingModule.ctorParameters = [];
     return BrowserDynamicTestingModule;
 }());
 //# sourceMappingURL=index.js.map
