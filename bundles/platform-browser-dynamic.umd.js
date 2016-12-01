@@ -1,13 +1,13 @@
 /**
- * @license Angular v2.2.4-9a9a7ac
+ * @license Angular v2.3.0-rc.0-c066281
  * (c) 2010-2016 Google, Inc. https://angular.io/
  * License: MIT
  */
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/compiler'), require('@angular/core'), require('@angular/platform-browser')) :
-    typeof define === 'function' && define.amd ? define(['exports', '@angular/compiler', '@angular/core', '@angular/platform-browser'], factory) :
-    (factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}),global.ng.compiler,global.ng.core,global.ng.platformBrowser));
-}(this, function (exports,_angular_compiler,_angular_core,_angular_platformBrowser) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/compiler'), require('@angular/platform-browser')) :
+    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/compiler', '@angular/platform-browser'], factory) :
+    (factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}),global.ng.core,global.ng.compiler,global.ng.platformBrowser));
+}(this, function (exports,_angular_core,_angular_compiler,_angular_platformBrowser) { 'use strict';
 
     var INTERNAL_BROWSER_PLATFORM_PROVIDERS = _angular_platformBrowser.__platform_browser_private__.INTERNAL_BROWSER_PLATFORM_PROVIDERS;
 
@@ -59,7 +59,7 @@
             { type: _angular_core.Injectable },
         ];
         /** @nocollapse */
-        ResourceLoaderImpl.ctorParameters = [];
+        ResourceLoaderImpl.ctorParameters = function () { return []; };
         return ResourceLoaderImpl;
     }(_angular_compiler.ResourceLoader));
 
@@ -155,6 +155,12 @@
      */
     var platformBrowserDynamic = _angular_core.createPlatformFactory(_angular_compiler.platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 
+    /**
+     * @stable
+     */
+    var VERSION = new _angular_core.Version('2.3.0-rc.0-c066281');
+
+    exports.VERSION = VERSION;
     exports.RESOURCE_CACHE_PROVIDER = RESOURCE_CACHE_PROVIDER;
     exports.platformBrowserDynamic = platformBrowserDynamic;
     exports.__platform_browser_dynamic_private__ = __platform_browser_dynamic_private__;
