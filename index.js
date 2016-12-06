@@ -9,6 +9,6 @@ import { Version } from '@angular/core';
 /**
  * @stable
  */
-export var VERSION = new Version('2.3.0-rc.0-4bd8f58');
+export var VERSION = new Version('2.3.0-rc.0-f31c947');
 export * from './src/platform-browser-dynamic';
 //# sourceMappingURL=index.js.map
