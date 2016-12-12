@@ -1,5 +1,5 @@
 /**
- * @license Angular v2.3.0-e9f307f
+ * @license Angular v2.3.0-4c35be3
  * (c) 2010-2016 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -149,7 +149,7 @@
     /**
      * @stable
      */
-    var VERSION = new _angular_core.Version('2.3.0-e9f307f');
+    var VERSION = new _angular_core.Version('2.3.0-4c35be3');
 
     /**
      * @experimental
