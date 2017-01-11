@@ -9,5 +9,5 @@ import { Version } from '@angular/core';
 /**
  * @stable
  */
-export var VERSION = new Version('2.4.2-d7f2a3c');
+export var VERSION = new Version('2.4.2-4b56f79');
 //# sourceMappingURL=version.js.map
