@@ -5,9 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { Version } from '@angular/core';
-/**
- * @stable
- */
-export var VERSION = new Version('4.0.0-beta.4-9d8c467');
-//# sourceMappingURL=version.js.map
+import * as testing from './dom_test_component_renderer';
+export declare const __platform_browser_dynamic_private__: {
+    DOMTestComponentRenderer: typeof testing.DOMTestComponentRenderer;
+};

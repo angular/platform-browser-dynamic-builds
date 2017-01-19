@@ -1,5 +1,5 @@
 /**
- * @license Angular v0.0.0-PLACEHOLDER
+ * @license Angular v4.0.0-beta.4-9d8c467
  * (c) 2010-2016 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -149,7 +149,7 @@
     /**
      * @stable
      */
-    var VERSION = new _angular_core.Version('0.0.0-PLACEHOLDER');
+    var VERSION = new _angular_core.Version('4.0.0-beta.4-9d8c467');
 
     /**
      * @experimental
