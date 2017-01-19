@@ -9,7 +9,7 @@ import { ResourceLoader } from '@angular/compiler';
 import { COMPILER_OPTIONS } from '@angular/core';
 import { INTERNAL_BROWSER_PLATFORM_PROVIDERS } from './private_import_platform-browser';
 import { ResourceLoaderImpl } from './resource_loader/resource_loader_impl';
-export var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
+export const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
     INTERNAL_BROWSER_PLATFORM_PROVIDERS,
     {
         provide: COMPILER_OPTIONS,
