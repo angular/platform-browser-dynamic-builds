@@ -15,7 +15,7 @@ import { getDOM } from './private_import_platform-browser';
 export class DOMTestComponentRenderer extends TestComponentRenderer {
     constructor(_doc /** TODO #9100 */) {
         super();
-        this._doc = _doc;
+        this._doc = _doc; /** TODO #9100 */
     }
     insertRootElement(rootElId) {
         const rootEl = getDOM().firstChild(getDOM().content(getDOM().createTemplate(`<div id="${rootElId}"></div>`)));
