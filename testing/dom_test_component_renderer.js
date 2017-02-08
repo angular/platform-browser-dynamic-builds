@@ -17,11 +17,12 @@ import { getDOM } from './private_import_platform-browser';
 /**
  * A DOM based implementation of the TestComponentRenderer.
  */
-export var DOMTestComponentRenderer = (function (_super) {
+var DOMTestComponentRenderer = (function (_super) {
     __extends(DOMTestComponentRenderer, _super);
     function DOMTestComponentRenderer(_doc /** TODO #9100 */) {
-        _super.call(this);
-        this._doc = _doc;
+        var _this = _super.call(this) || this;
+        _this._doc = _doc; /** TODO #9100 */
+        return _this;
     }
     DOMTestComponentRenderer.prototype.insertRootElement = function (rootElId) {
         var rootEl = getDOM().firstChild(getDOM().content(getDOM().createTemplate("<div id=\"" + rootElId + "\"></div>")));
@@ -32,13 +33,14 @@ export var DOMTestComponentRenderer = (function (_super) {
         }
         getDOM().appendChild(this._doc.body, rootEl);
     };
-    DOMTestComponentRenderer.decorators = [
-        { type: Injectable },
-    ];
-    /** @nocollapse */
-    DOMTestComponentRenderer.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] },] },
-    ]; };
     return DOMTestComponentRenderer;
 }(TestComponentRenderer));
+export { DOMTestComponentRenderer };
+DOMTestComponentRenderer.decorators = [
+    { type: Injectable },
+];
+/** @nocollapse */
+DOMTestComponentRenderer.ctorParameters = function () { return [
+    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] },] },
+]; };
 //# sourceMappingURL=dom_test_component_renderer.js.map

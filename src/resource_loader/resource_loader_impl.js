@@ -3,12 +3,19 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 import { ResourceLoader } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-export var ResourceLoaderImpl = (function (_super) {
+var ResourceLoaderImpl = (function (_super) {
     __extends(ResourceLoaderImpl, _super);
     function ResourceLoaderImpl() {
-        _super.apply(this, arguments);
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     ResourceLoaderImpl.prototype.get = function (url) {
         var resolve;
@@ -44,11 +51,12 @@ export var ResourceLoaderImpl = (function (_super) {
         xhr.send();
         return promise;
     };
-    ResourceLoaderImpl.decorators = [
-        { type: Injectable },
-    ];
-    /** @nocollapse */
-    ResourceLoaderImpl.ctorParameters = function () { return []; };
     return ResourceLoaderImpl;
 }(ResourceLoader));
+export { ResourceLoaderImpl };
+ResourceLoaderImpl.decorators = [
+    { type: Injectable },
+];
+/** @nocollapse */
+ResourceLoaderImpl.ctorParameters = function () { return []; };
 //# sourceMappingURL=resource_loader_impl.js.map

@@ -19,14 +19,15 @@ import { global } from '../facade/lang';
  * The template cache needs to be built and loaded into window.$templateCache
  * via a separate mechanism.
  */
-export var CachedResourceLoader = (function (_super) {
+var CachedResourceLoader = (function (_super) {
     __extends(CachedResourceLoader, _super);
     function CachedResourceLoader() {
-        _super.call(this);
-        this._cache = global.$templateCache;
-        if (this._cache == null) {
+        var _this = _super.call(this) || this;
+        _this._cache = global.$templateCache;
+        if (_this._cache == null) {
             throw new Error('CachedResourceLoader: Template cache was not found in $templateCache.');
         }
+        return _this;
     }
     CachedResourceLoader.prototype.get = function (url) {
         if (this._cache.hasOwnProperty(url)) {
@@ -38,4 +39,5 @@ export var CachedResourceLoader = (function (_super) {
     };
     return CachedResourceLoader;
 }(ResourceLoader));
+export { CachedResourceLoader };
 //# sourceMappingURL=resource_loader_cache.js.map

@@ -1,5 +1,5 @@
 /**
- * @license Angular v4.0.0-beta.6-c33fda2
+ * @license Angular v4.0.0-beta.6-7a4c255
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -19,7 +19,7 @@
     var ResourceLoaderImpl = (function (_super) {
         __extends(ResourceLoaderImpl, _super);
         function ResourceLoaderImpl() {
-            _super.apply(this, arguments);
+            return _super !== null && _super.apply(this, arguments) || this;
         }
         ResourceLoaderImpl.prototype.get = function (url) {
             var resolve;
@@ -55,13 +55,13 @@
             xhr.send();
             return promise;
         };
-        ResourceLoaderImpl.decorators = [
-            { type: _angular_core.Injectable },
-        ];
-        /** @nocollapse */
-        ResourceLoaderImpl.ctorParameters = function () { return []; };
         return ResourceLoaderImpl;
     }(_angular_compiler.ResourceLoader));
+    ResourceLoaderImpl.decorators = [
+        { type: _angular_core.Injectable },
+    ];
+    /** @nocollapse */
+    ResourceLoaderImpl.ctorParameters = function () { return []; };
 
     var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
         INTERNAL_BROWSER_PLATFORM_PROVIDERS,
@@ -124,11 +124,12 @@
     var CachedResourceLoader = (function (_super) {
         __extends$1(CachedResourceLoader, _super);
         function CachedResourceLoader() {
-            _super.call(this);
-            this._cache = _global.$templateCache;
-            if (this._cache == null) {
+            var _this = _super.call(this) || this;
+            _this._cache = _global.$templateCache;
+            if (_this._cache == null) {
                 throw new Error('CachedResourceLoader: Template cache was not found in $templateCache.');
             }
+            return _this;
         }
         CachedResourceLoader.prototype.get = function (url) {
             if (this._cache.hasOwnProperty(url)) {
@@ -149,7 +150,7 @@
     /**
      * @stable
      */
-    var VERSION = new _angular_core.Version('4.0.0-beta.6-c33fda2');
+    var VERSION = new _angular_core.Version('4.0.0-beta.6-7a4c255');
 
     /**
      * @experimental

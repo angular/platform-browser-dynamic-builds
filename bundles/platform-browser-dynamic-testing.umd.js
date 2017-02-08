@@ -1,5 +1,5 @@
 /**
- * @license Angular v4.0.0-beta.6-c33fda2
+ * @license Angular v4.0.0-beta.6-7a4c255
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -29,8 +29,9 @@
     var DOMTestComponentRenderer = (function (_super) {
         __extends(DOMTestComponentRenderer, _super);
         function DOMTestComponentRenderer(_doc /** TODO #9100 */) {
-            _super.call(this);
-            this._doc = _doc;
+            var _this = _super.call(this) || this;
+            _this._doc = _doc; /** TODO #9100 */
+            return _this;
         }
         DOMTestComponentRenderer.prototype.insertRootElement = function (rootElId) {
             var rootEl = getDOM().firstChild(getDOM().content(getDOM().createTemplate("<div id=\"" + rootElId + "\"></div>")));
@@ -41,15 +42,15 @@
             }
             getDOM().appendChild(this._doc.body, rootEl);
         };
-        DOMTestComponentRenderer.decorators = [
-            { type: _angular_core.Injectable },
-        ];
-        /** @nocollapse */
-        DOMTestComponentRenderer.ctorParameters = function () { return [
-            { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_platformBrowser.DOCUMENT,] },] },
-        ]; };
         return DOMTestComponentRenderer;
     }(_angular_core_testing.TestComponentRenderer));
+    DOMTestComponentRenderer.decorators = [
+        { type: _angular_core.Injectable },
+    ];
+    /** @nocollapse */
+    DOMTestComponentRenderer.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_platformBrowser.DOCUMENT,] },] },
+    ]; };
 
     var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = _angular_platformBrowserDynamic.__platform_browser_dynamic_private__.INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS;
 
@@ -69,18 +70,18 @@
     var BrowserDynamicTestingModule = (function () {
         function BrowserDynamicTestingModule() {
         }
-        BrowserDynamicTestingModule.decorators = [
-            { type: _angular_core.NgModule, args: [{
-                        exports: [_angular_platformBrowser_testing.BrowserTestingModule],
-                        providers: [
-                            { provide: _angular_core_testing.TestComponentRenderer, useClass: DOMTestComponentRenderer },
-                        ]
-                    },] },
-        ];
-        /** @nocollapse */
-        BrowserDynamicTestingModule.ctorParameters = function () { return []; };
         return BrowserDynamicTestingModule;
     }());
+    BrowserDynamicTestingModule.decorators = [
+        { type: _angular_core.NgModule, args: [{
+                    exports: [_angular_platformBrowser_testing.BrowserTestingModule],
+                    providers: [
+                        { provide: _angular_core_testing.TestComponentRenderer, useClass: DOMTestComponentRenderer },
+                    ]
+                },] },
+    ];
+    /** @nocollapse */
+    BrowserDynamicTestingModule.ctorParameters = function () { return []; };
 
     exports.platformBrowserDynamicTesting = platformBrowserDynamicTesting;
     exports.BrowserDynamicTestingModule = BrowserDynamicTestingModule;

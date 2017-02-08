@@ -21,19 +21,20 @@ export var platformBrowserDynamicTesting = createPlatformFactory(platformCoreDyn
  *
  * @stable
  */
-export var BrowserDynamicTestingModule = (function () {
+var BrowserDynamicTestingModule = (function () {
     function BrowserDynamicTestingModule() {
     }
-    BrowserDynamicTestingModule.decorators = [
-        { type: NgModule, args: [{
-                    exports: [BrowserTestingModule],
-                    providers: [
-                        { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
-                    ]
-                },] },
-    ];
-    /** @nocollapse */
-    BrowserDynamicTestingModule.ctorParameters = function () { return []; };
     return BrowserDynamicTestingModule;
 }());
+export { BrowserDynamicTestingModule };
+BrowserDynamicTestingModule.decorators = [
+    { type: NgModule, args: [{
+                exports: [BrowserTestingModule],
+                providers: [
+                    { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
+                ]
+            },] },
+];
+/** @nocollapse */
+BrowserDynamicTestingModule.ctorParameters = function () { return []; };
 //# sourceMappingURL=index.js.map
