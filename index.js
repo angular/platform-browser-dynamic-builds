@@ -11,4 +11,5 @@
  * Entry point for all public APIs of the platform-browser-dynamic package.
  */
 export * from './src/platform-browser-dynamic';
+// This file only reexports content of the `src` folder. Keep it that way.
 //# sourceMappingURL=index.js.map
