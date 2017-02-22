@@ -1,90 +1,136 @@
 /**
- * @license Angular v4.0.0-beta.8-bb0460b
+ * @license Angular v0.0.0-PLACEHOLDER
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/compiler/testing'), require('@angular/core'), require('@angular/core/testing'), require('@angular/platform-browser/testing'), require('@angular/platform-browser'), require('@angular/platform-browser-dynamic')) :
-    typeof define === 'function' && define.amd ? define(['exports', '@angular/compiler/testing', '@angular/core', '@angular/core/testing', '@angular/platform-browser/testing', '@angular/platform-browser', '@angular/platform-browser-dynamic'], factory) :
-    (factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}, global.ng.platformBrowserDynamic.testing = global.ng.platformBrowserDynamic.testing || {}),global.ng.compiler.testing,global.ng.core,global.ng.core.testing,global.ng.platformBrowser.testing,global.ng.platformBrowser,global.ng.platformBrowserDynamic));
-}(this, function (exports,_angular_compiler_testing,_angular_core,_angular_core_testing,_angular_platformBrowser_testing,_angular_platformBrowser,_angular_platformBrowserDynamic) { 'use strict';
+    if (typeof define === "function" && define.amd) {
+        define('@angular/platform-browser-dynamic/testing', ['exports', '@angular/compiler/testing', '@angular/core', '@angular/core/testing', '@angular/platform-browser-dynamic', '@angular/platform-browser/testing', '@angular/platform-browser'], factory);
+    } else if (typeof exports !== "undefined") {
+        factory(exports, require('@angular/compiler/testing'), require('@angular/core'), require('@angular/core/testing'), require('@angular/platform-browser-dynamic'), require('@angular/platform-browser/testing'), require('@angular/platform-browser'));
+    } else {
+        var mod = {
+            exports: {}
+        };
+        factory(mod.exports, global.ng.compiler.testing, global.ng.core, global.ng.core.testing, global.ng.platformBrowserDynamic, global.ng.platformBrowser.testing, global.ng.platformBrowser);
+        global.ng = global.ng || {};
+        global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {};
+        global.ng.platformBrowserDynamic.testing = mod.exports;
+    }
+})(this, function (exports, _testing, _core, _testing2, _platformBrowserDynamic, _testing3, _platformBrowser) {
+    'use strict';
 
-    var getDOM = _angular_platformBrowser.__platform_browser_private__.getDOM;
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.ɵDOMTestComponentRenderer = exports.BrowserDynamicTestingModule = exports.platformBrowserDynamicTesting = undefined;
 
-    /**
-     * @license
-     * Copyright Google Inc. All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-    var __extends = (this && this.__extends) || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-    /**
-     * A DOM based implementation of the TestComponentRenderer.
-     */
-    var DOMTestComponentRenderer = (function (_super) {
-        __extends(DOMTestComponentRenderer, _super);
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    var _createClass = function () {
+        function defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+                var descriptor = props[i];
+                descriptor.enumerable = descriptor.enumerable || false;
+                descriptor.configurable = true;
+                if ("value" in descriptor) descriptor.writable = true;
+                Object.defineProperty(target, descriptor.key, descriptor);
+            }
+        }
+
+        return function (Constructor, protoProps, staticProps) {
+            if (protoProps) defineProperties(Constructor.prototype, protoProps);
+            if (staticProps) defineProperties(Constructor, staticProps);
+            return Constructor;
+        };
+    }();
+
+    function _possibleConstructorReturn(self, call) {
+        if (!self) {
+            throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+        }
+
+        return call && (typeof call === "object" || typeof call === "function") ? call : self;
+    }
+
+    function _inherits(subClass, superClass) {
+        if (typeof superClass !== "function" && superClass !== null) {
+            throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+        }
+
+        subClass.prototype = Object.create(superClass && superClass.prototype, {
+            constructor: {
+                value: subClass,
+                enumerable: false,
+                writable: true,
+                configurable: true
+            }
+        });
+        if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+    }
+
+    var DOMTestComponentRenderer = function (_TestComponentRendere) {
+        _inherits(DOMTestComponentRenderer, _TestComponentRendere);
+
         function DOMTestComponentRenderer(_doc /** TODO #9100 */) {
-            var _this = _super.call(this) || this;
+            _classCallCheck(this, DOMTestComponentRenderer);
+
+            var _this = _possibleConstructorReturn(this, (DOMTestComponentRenderer.__proto__ || Object.getPrototypeOf(DOMTestComponentRenderer)).call(this));
+
             _this._doc = _doc; /** TODO #9100 */
             return _this;
         }
-        DOMTestComponentRenderer.prototype.insertRootElement = function (rootElId) {
-            var rootEl = getDOM().firstChild(getDOM().content(getDOM().createTemplate("<div id=\"" + rootElId + "\"></div>")));
-            // TODO(juliemr): can/should this be optional?
-            var oldRoots = getDOM().querySelectorAll(this._doc, '[id^=root]');
-            for (var i = 0; i < oldRoots.length; i++) {
-                getDOM().remove(oldRoots[i]);
+
+        _createClass(DOMTestComponentRenderer, [{
+            key: 'insertRootElement',
+            value: function insertRootElement(rootElId) {
+                var rootEl = (0, _platformBrowser.ɵgetDOM)().firstChild((0, _platformBrowser.ɵgetDOM)().content((0, _platformBrowser.ɵgetDOM)().createTemplate('<div id="' + rootElId + '"></div>')));
+                // TODO(juliemr): can/should this be optional?
+                var oldRoots = (0, _platformBrowser.ɵgetDOM)().querySelectorAll(this._doc, '[id^=root]');
+                for (var i = 0; i < oldRoots.length; i++) {
+                    (0, _platformBrowser.ɵgetDOM)().remove(oldRoots[i]);
+                }
+                (0, _platformBrowser.ɵgetDOM)().appendChild(this._doc.body, rootEl);
             }
-            getDOM().appendChild(this._doc.body, rootEl);
-        };
+        }]);
+
         return DOMTestComponentRenderer;
-    }(_angular_core_testing.TestComponentRenderer));
-    DOMTestComponentRenderer.decorators = [
-        { type: _angular_core.Injectable },
-    ];
+    }(_testing2.TestComponentRenderer);
+
+    DOMTestComponentRenderer.decorators = [{ type: _core.Injectable }];
     /** @nocollapse */
-    DOMTestComponentRenderer.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_platformBrowser.DOCUMENT,] },] },
-    ]; };
-
-    var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = _angular_platformBrowserDynamic.__platform_browser_dynamic_private__.INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS;
-
-    var __platform_browser_dynamic_private__$1 = {
-        DOMTestComponentRenderer: DOMTestComponentRenderer
+    DOMTestComponentRenderer.ctorParameters = function () {
+        return [{ type: undefined, decorators: [{ type: _core.Inject, args: [_platformBrowser.DOCUMENT] }] }];
     };
 
     /**
      * @stable
      */
-    var platformBrowserDynamicTesting = _angular_core.createPlatformFactory(_angular_compiler_testing.platformCoreDynamicTesting, 'browserDynamicTesting', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
+    var platformBrowserDynamicTesting = (0, _core.createPlatformFactory)(_testing.platformCoreDynamicTesting, 'browserDynamicTesting', _platformBrowserDynamic.ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
     /**
      * NgModule for testing.
      *
      * @stable
      */
-    var BrowserDynamicTestingModule = (function () {
-        function BrowserDynamicTestingModule() {
-        }
-        return BrowserDynamicTestingModule;
-    }());
-    BrowserDynamicTestingModule.decorators = [
-        { type: _angular_core.NgModule, args: [{
-                    exports: [_angular_platformBrowser_testing.BrowserTestingModule],
-                    providers: [
-                        { provide: _angular_core_testing.TestComponentRenderer, useClass: DOMTestComponentRenderer },
-                    ]
-                },] },
-    ];
+
+    var BrowserDynamicTestingModule = function BrowserDynamicTestingModule() {
+        _classCallCheck(this, BrowserDynamicTestingModule);
+    };
+
+    BrowserDynamicTestingModule.decorators = [{ type: _core.NgModule, args: [{
+            exports: [_testing3.BrowserTestingModule],
+            providers: [{ provide: _testing2.TestComponentRenderer, useClass: DOMTestComponentRenderer }]
+        }] }];
     /** @nocollapse */
-    BrowserDynamicTestingModule.ctorParameters = function () { return []; };
+    BrowserDynamicTestingModule.ctorParameters = function () {
+        return [];
+    };
 
     exports.platformBrowserDynamicTesting = platformBrowserDynamicTesting;
     exports.BrowserDynamicTestingModule = BrowserDynamicTestingModule;
-    exports.__platform_browser_dynamic_private__ = __platform_browser_dynamic_private__$1;
-
-}));
+    exports.ɵDOMTestComponentRenderer = DOMTestComponentRenderer;
+});
