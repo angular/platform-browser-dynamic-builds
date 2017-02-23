@@ -1,17 +1,17 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define('@angular/platform-browser-dynamic', ['exports', '@angular/compiler', '@angular/core', '@angular/platform-browser'], factory);
+        define('@angular/platform-browser-dynamic', ['exports', '@angular/compiler', '@angular/core', '@angular/common', '@angular/platform-browser'], factory);
     } else if (typeof exports !== "undefined") {
-        factory(exports, require('@angular/compiler'), require('@angular/core'), require('@angular/platform-browser'));
+        factory(exports, require('@angular/compiler'), require('@angular/core'), require('@angular/common'), require('@angular/platform-browser'));
     } else {
         var mod = {
             exports: {}
         };
-        factory(mod.exports, global.ng.compiler, global.ng.core, global.ng.platformBrowser);
+        factory(mod.exports, global.ng.compiler, global.ng.core, global.ng.common, global.ng.platformBrowser);
         global.ng = global.ng || {};
         global.ng.platformBrowserDynamic = mod.exports;
     }
-})(this, function (exports, _compiler, _core, _platformBrowser) {
+})(this, function (exports, _compiler, _core, _common, _platformBrowser) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
@@ -128,7 +128,7 @@
         provide: _core.COMPILER_OPTIONS,
         useValue: { providers: [{ provide: _compiler.ResourceLoader, useClass: ResourceLoaderImpl }] },
         multi: true
-    }];
+    }, { provide: _core.PLATFORM_ID, useValue: _common.ɵPLATFORM_BROWSER_ID }];
 
     /**
      * @license

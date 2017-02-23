@@ -7,12 +7,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- * @license Angular v4.0.0-beta.8-88bc143
+ * @license Angular v4.0.0-beta.8-a1d4769
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
 import { ResourceLoader, platformCoreDynamic } from '@angular/compiler';
-import { createPlatformFactory, COMPILER_OPTIONS, Injectable, Version } from '@angular/core';
+import { createPlatformFactory, PLATFORM_ID, COMPILER_OPTIONS, Injectable, Version } from '@angular/core';
+import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
 
 var ResourceLoaderImpl = function (_ResourceLoader) {
@@ -76,7 +77,7 @@ var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [ɵINTERNAL_BROWSER_PLATFORM_P
     provide: COMPILER_OPTIONS,
     useValue: { providers: [{ provide: ResourceLoader, useClass: ResourceLoaderImpl }] },
     multi: true
-}];
+}, { provide: PLATFORM_ID, useValue: ɵPLATFORM_BROWSER_ID }];
 
 /**
  * @license
@@ -148,7 +149,7 @@ var CachedResourceLoader = function (_ResourceLoader2) {
  */
 
 
-var VERSION = new Version('4.0.0-beta.8-88bc143');
+var VERSION = new Version('4.0.0-beta.8-a1d4769');
 
 /**
  * @experimental

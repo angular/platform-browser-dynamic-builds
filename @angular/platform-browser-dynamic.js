@@ -1,10 +1,11 @@
 /**
- * @license Angular v4.0.0-beta.8-88bc143
+ * @license Angular v4.0.0-beta.8-a1d4769
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
 import { ResourceLoader, platformCoreDynamic } from '@angular/compiler';
-import { createPlatformFactory, COMPILER_OPTIONS, Injectable, Version } from '@angular/core';
+import { createPlatformFactory, PLATFORM_ID, COMPILER_OPTIONS, Injectable, Version } from '@angular/core';
+import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
 
 class ResourceLoaderImpl extends ResourceLoader {
@@ -56,6 +57,7 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
         useValue: { providers: [{ provide: ResourceLoader, useClass: ResourceLoaderImpl }] },
         multi: true
     },
+    { provide: PLATFORM_ID, useValue: ɵPLATFORM_BROWSER_ID },
 ];
 
 /**
@@ -116,7 +118,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @stable
  */
-const VERSION = new Version('4.0.0-beta.8-88bc143');
+const VERSION = new Version('4.0.0-beta.8-a1d4769');
 
 /**
  * @experimental
