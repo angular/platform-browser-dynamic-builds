@@ -7,7 +7,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- * @license Angular v4.0.0-beta.8-4301dce
+ * @license Angular v4.0.0-beta.8-187f7b6
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -149,7 +149,7 @@ var CachedResourceLoader = function (_ResourceLoader2) {
  */
 
 
-var VERSION = new Version('4.0.0-beta.8-4301dce');
+var VERSION = new Version('4.0.0-beta.8-187f7b6');
 
 /**
  * @experimental
