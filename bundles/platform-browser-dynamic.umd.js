@@ -198,7 +198,7 @@
     /**
      * @stable
      */
-    var VERSION = new _core.Version('4.0.0-rc.2-180b705');
+    var VERSION = new _core.Version('4.0.0-rc.2-49aa508');
 
     /**
      * @experimental
