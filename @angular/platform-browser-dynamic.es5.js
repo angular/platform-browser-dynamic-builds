@@ -7,12 +7,12 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- * @license Angular v4.0.0-rc.2-207298c
+ * @license Angular v4.0.0-rc.2-b7e76cc
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
 import { ResourceLoader, platformCoreDynamic } from '@angular/compiler';
-import { createPlatformFactory, PLATFORM_ID, COMPILER_OPTIONS, Injectable, Version } from '@angular/core';
+import { createPlatformFactory, PLATFORM_ID, COMPILER_OPTIONS, Injectable, ɵglobal, Version } from '@angular/core';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
 
@@ -80,34 +80,6 @@ var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [ɵINTERNAL_BROWSER_PLATFORM_P
 }, { provide: PLATFORM_ID, useValue: ɵPLATFORM_BROWSER_ID }];
 
 /**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-var globalScope = void 0;
-if (typeof window === 'undefined') {
-    if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {
-        // TODO: Replace any with WorkerGlobalScope from lib.webworker.d.ts #3492
-        globalScope = self;
-    } else {
-        globalScope = global;
-    }
-} else {
-    globalScope = window;
-}
-// Need to declare a new variable for global here since TypeScript
-// exports the original value of the symbol.
-var _global = globalScope;
-// TODO: remove calls to assert in production environment
-// Note: Can't just export this and import in in other files
-// as `assert` is a reserved keyword in Dart
-_global.assert = function assert(condition) {
-    // TODO: to be fixed properly via #2830, noop for now
-};
-
-/**
  * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
  * ResourceLoader.
  *
@@ -123,7 +95,7 @@ var CachedResourceLoader = function (_ResourceLoader2) {
 
         var _this2 = _possibleConstructorReturn(this, (CachedResourceLoader.__proto__ || Object.getPrototypeOf(CachedResourceLoader)).call(this));
 
-        _this2._cache = _global.$templateCache;
+        _this2._cache = ɵglobal.$templateCache;
         if (_this2._cache == null) {
             throw new Error('CachedResourceLoader: Template cache was not found in $templateCache.');
         }
@@ -149,7 +121,7 @@ var CachedResourceLoader = function (_ResourceLoader2) {
  */
 
 
-var VERSION = new Version('4.0.0-rc.2-207298c');
+var VERSION = new Version('4.0.0-rc.2-b7e76cc');
 
 /**
  * @experimental

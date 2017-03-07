@@ -1,10 +1,10 @@
 /**
- * @license Angular v4.0.0-rc.2-207298c
+ * @license Angular v4.0.0-rc.2-b7e76cc
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
 import { ResourceLoader, platformCoreDynamic } from '@angular/compiler';
-import { createPlatformFactory, PLATFORM_ID, COMPILER_OPTIONS, Injectable, Version } from '@angular/core';
+import { createPlatformFactory, PLATFORM_ID, COMPILER_OPTIONS, Injectable, ɵglobal, Version } from '@angular/core';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
 
@@ -61,36 +61,6 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
 ];
 
 /**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-let globalScope;
-if (typeof window === 'undefined') {
-    if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {
-        // TODO: Replace any with WorkerGlobalScope from lib.webworker.d.ts #3492
-        globalScope = self;
-    }
-    else {
-        globalScope = global;
-    }
-}
-else {
-    globalScope = window;
-}
-// Need to declare a new variable for global here since TypeScript
-// exports the original value of the symbol.
-const _global = globalScope;
-// TODO: remove calls to assert in production environment
-// Note: Can't just export this and import in in other files
-// as `assert` is a reserved keyword in Dart
-_global.assert = function assert(condition) {
-    // TODO: to be fixed properly via #2830, noop for now
-};
-
-/**
  * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
  * ResourceLoader.
  *
@@ -100,7 +70,7 @@ _global.assert = function assert(condition) {
 class CachedResourceLoader extends ResourceLoader {
     constructor() {
         super();
-        this._cache = _global.$templateCache;
+        this._cache = ɵglobal.$templateCache;
         if (this._cache == null) {
             throw new Error('CachedResourceLoader: Template cache was not found in $templateCache.');
         }
@@ -118,7 +88,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @stable
  */
-const VERSION = new Version('4.0.0-rc.2-207298c');
+const VERSION = new Version('4.0.0-rc.2-b7e76cc');
 
 /**
  * @experimental

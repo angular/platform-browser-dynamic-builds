@@ -131,34 +131,6 @@
     }, { provide: _core.PLATFORM_ID, useValue: _common.ɵPLATFORM_BROWSER_ID }];
 
     /**
-     * @license
-     * Copyright Google Inc. All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-    var globalScope = void 0;
-    if (typeof window === 'undefined') {
-        if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {
-            // TODO: Replace any with WorkerGlobalScope from lib.webworker.d.ts #3492
-            globalScope = self;
-        } else {
-            globalScope = global;
-        }
-    } else {
-        globalScope = window;
-    }
-    // Need to declare a new variable for global here since TypeScript
-    // exports the original value of the symbol.
-    var _global = globalScope;
-    // TODO: remove calls to assert in production environment
-    // Note: Can't just export this and import in in other files
-    // as `assert` is a reserved keyword in Dart
-    _global.assert = function assert(condition) {
-        // TODO: to be fixed properly via #2830, noop for now
-    };
-
-    /**
      * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
      * ResourceLoader.
      *
@@ -174,7 +146,7 @@
 
             var _this2 = _possibleConstructorReturn(this, (CachedResourceLoader.__proto__ || Object.getPrototypeOf(CachedResourceLoader)).call(this));
 
-            _this2._cache = _global.$templateCache;
+            _this2._cache = _core.ɵglobal.$templateCache;
             if (_this2._cache == null) {
                 throw new Error('CachedResourceLoader: Template cache was not found in $templateCache.');
             }
@@ -198,7 +170,7 @@
     /**
      * @stable
      */
-    var VERSION = new _core.Version('4.0.0-rc.2-207298c');
+    var VERSION = new _core.Version('4.0.0-rc.2-b7e76cc');
 
     /**
      * @experimental
