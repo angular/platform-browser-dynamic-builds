@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
- * @license Angular v4.0.0-rc.3-018e5c9
+ * @license Angular v4.0.0-rc.3-75147ff
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -97,7 +97,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * @stable
  */
-var VERSION = new Version('4.0.0-rc.3-018e5c9');
+var VERSION = new Version('4.0.0-rc.3-75147ff');
 /**
  * @experimental
  */
