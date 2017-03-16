@@ -1,5 +1,5 @@
 /**
- * @license Angular v4.0.0-rc.3-a4076c7
+ * @license Angular v4.0.0-rc.3-992aa17
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -88,7 +88,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @stable
  */
-const VERSION = new Version('4.0.0-rc.3-a4076c7');
+const VERSION = new Version('4.0.0-rc.3-992aa17');
 
 /**
  * @experimental
@@ -100,3 +100,4 @@ const RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedReso
 const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 
 export { RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, VERSION, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl };
+//# sourceMappingURL=platform-browser-dynamic.js.map
