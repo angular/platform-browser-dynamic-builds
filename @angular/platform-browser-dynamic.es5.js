@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
- * @license Angular v4.0.0-rc.3-480a407
+ * @license Angular v4.0.0-rc.4-fcaca45
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -97,7 +97,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * @stable
  */
-var VERSION = new Version('4.0.0-rc.3-480a407');
+var VERSION = new Version('4.0.0-rc.4-fcaca45');
 /**
  * @experimental
  */
@@ -107,3 +107,4 @@ var RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedResour
  */
 var platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 export { RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, VERSION, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl };
+//# sourceMappingURL=platform-browser-dynamic.es5.js.map
