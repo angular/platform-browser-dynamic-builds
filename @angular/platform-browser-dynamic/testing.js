@@ -1,15 +1,22 @@
 /**
- * @license Angular v4.0.0-rc.5-5c5c2ae
+ * @license Angular v4.0.0-rc.5-bcc29ff
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
 import { platformCoreDynamicTesting } from '@angular/compiler/testing';
-import { createPlatformFactory, NgModule, Injectable, Inject } from '@angular/core';
+import { Inject, Injectable, NgModule, createPlatformFactory } from '@angular/core';
 import { TestComponentRenderer } from '@angular/core/testing';
 import { ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
 import { BrowserTestingModule } from '@angular/platform-browser/testing';
-import { ɵgetDOM, DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT, ɵgetDOM } from '@angular/platform-browser';
 
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * A DOM based implementation of the TestComponentRenderer.
  */
@@ -37,6 +44,21 @@ DOMTestComponentRenderer.ctorParameters = () => [
 ];
 
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @stable
  */
 const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
@@ -57,6 +79,19 @@ BrowserDynamicTestingModule.decorators = [
 ];
 /** @nocollapse */
 BrowserDynamicTestingModule.ctorParameters = () => [];
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the platform-browser-dynamic/testing package.
+ */
 
 export { platformBrowserDynamicTesting, BrowserDynamicTestingModule, DOMTestComponentRenderer as ɵDOMTestComponentRenderer };
 //# sourceMappingURL=testing.js.map
