@@ -4,14 +4,21 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
- * @license Angular v4.0.0-rc.5-d5a6e69
+ * @license Angular v4.0.0-rc.5-b7ba331
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
 import { ResourceLoader, platformCoreDynamic } from '@angular/compiler';
-import { createPlatformFactory, PLATFORM_ID, COMPILER_OPTIONS, Injectable, ɵglobal, Version } from '@angular/core';
+import { COMPILER_OPTIONS, Injectable, PLATFORM_ID, Version, createPlatformFactory, ɵglobal } from '@angular/core';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var ResourceLoaderImpl = (function (_super) {
     __extends(ResourceLoaderImpl, _super);
     function ResourceLoaderImpl() {
@@ -58,6 +65,13 @@ ResourceLoaderImpl.decorators = [
 ];
 /** @nocollapse */
 ResourceLoaderImpl.ctorParameters = function () { return []; };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
     ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
     {
@@ -67,6 +81,13 @@ var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
     },
     { provide: PLATFORM_ID, useValue: ɵPLATFORM_BROWSER_ID },
 ];
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
  * ResourceLoader.
@@ -95,9 +116,35 @@ var CachedResourceLoader = (function (_super) {
     return CachedResourceLoader;
 }(ResourceLoader));
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the common package.
+ */
+/**
  * @stable
  */
-var VERSION = new Version('4.0.0-rc.5-d5a6e69');
+var VERSION = new Version('4.0.0-rc.5-b7ba331');
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * @experimental
  */
@@ -106,5 +153,18 @@ var RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedResour
  * @stable
  */
 var platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the platform-browser-dynamic package.
+ */
+// This file only reexports content of the `src` folder. Keep it that way.
 export { RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, VERSION, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl };
 //# sourceMappingURL=platform-browser-dynamic.es5.js.map

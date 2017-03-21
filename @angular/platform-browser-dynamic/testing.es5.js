@@ -4,16 +4,23 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
- * @license Angular v4.0.0-rc.5-d5a6e69
+ * @license Angular v4.0.0-rc.5-b7ba331
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
 import { platformCoreDynamicTesting } from '@angular/compiler/testing';
-import { createPlatformFactory, NgModule, Injectable, Inject } from '@angular/core';
+import { Inject, Injectable, NgModule, createPlatformFactory } from '@angular/core';
 import { TestComponentRenderer } from '@angular/core/testing';
 import { ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
 import { BrowserTestingModule } from '@angular/platform-browser/testing';
-import { ɵgetDOM, DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT, ɵgetDOM } from '@angular/platform-browser';
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * A DOM based implementation of the TestComponentRenderer.
  */
@@ -43,6 +50,20 @@ DOMTestComponentRenderer.ctorParameters = function () { return [
     { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] },] },
 ]; };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @stable
  */
 var platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
@@ -66,5 +87,17 @@ BrowserDynamicTestingModule.decorators = [
 ];
 /** @nocollapse */
 BrowserDynamicTestingModule.ctorParameters = function () { return []; };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the platform-browser-dynamic/testing package.
+ */
 export { platformBrowserDynamicTesting, BrowserDynamicTestingModule, DOMTestComponentRenderer as ɵDOMTestComponentRenderer };
 //# sourceMappingURL=testing.es5.js.map
