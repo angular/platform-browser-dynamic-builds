@@ -1,6 +1,6 @@
 {
   "name": "@angular/platform-browser-dynamic",
-  "version": "4.0.0-9f2acf5",
+  "version": "4.0.0-19cb503",
   "description": "Angular - library for using Angular in a web browser with JIT compilation",
   "main": "./bundles/platform-browser-dynamic.umd.js",
   "module": "./@angular/platform-browser-dynamic.es5.js",
@@ -9,10 +9,10 @@
   "author": "angular",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/core": "4.0.0-9f2acf5",
-    "@angular/common": "4.0.0-9f2acf5",
-    "@angular/compiler": "4.0.0-9f2acf5",
-    "@angular/platform-browser": "4.0.0-9f2acf5"
+    "@angular/core": "4.0.0-19cb503",
+    "@angular/common": "4.0.0-19cb503",
+    "@angular/compiler": "4.0.0-19cb503",
+    "@angular/platform-browser": "4.0.0-19cb503"
   },
   "repository": {
     "type": "git",
