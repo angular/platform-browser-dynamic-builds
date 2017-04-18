@@ -3,7 +3,7 @@ export * from './private_export_testing';
 /**
  * @stable
  */
-export declare const platformBrowserDynamicTesting: (extraProviders?: Provider[]) => PlatformRef;
+export declare const platformBrowserDynamicTesting: (extraProviders?: Provider[] | undefined) => PlatformRef;
 /**
  * NgModule for testing.
  *
