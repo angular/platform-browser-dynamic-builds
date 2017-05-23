@@ -1,15 +1,6 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+import * as tslib_1 from "tslib";
 /**
- * @license Angular v4.2.0-rc.0-1651a8f
+ * @license Angular v4.2.0-rc.0-fa809ec
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -25,7 +16,7 @@ import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser
  * found in the LICENSE file at https://angular.io/license
  */
 var ResourceLoaderImpl = (function (_super) {
-    __extends(ResourceLoaderImpl, _super);
+    tslib_1.__extends(ResourceLoaderImpl, _super);
     function ResourceLoaderImpl() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
@@ -101,7 +92,7 @@ var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
  * via a separate mechanism.
  */
 var CachedResourceLoader = (function (_super) {
-    __extends(CachedResourceLoader, _super);
+    tslib_1.__extends(CachedResourceLoader, _super);
     function CachedResourceLoader() {
         var _this = _super.call(this) || this;
         _this._cache = ɵglobal.$templateCache;
@@ -142,7 +133,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * @stable
  */
-var VERSION = new Version('4.2.0-rc.0-1651a8f');
+var VERSION = new Version('4.2.0-rc.0-fa809ec');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
