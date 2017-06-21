@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 /**
- * @license Angular v4.2.3-3634832
+ * @license Angular v4.2.3-c112232
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -133,7 +133,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * @stable
  */
-var VERSION = new Version('4.2.3-3634832');
+var VERSION = new Version('4.2.3-c112232');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
