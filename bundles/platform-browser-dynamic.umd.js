@@ -1,5 +1,5 @@
 /**
- * @license Angular v4.2.5-7080fcc
+ * @license Angular v4.2.5-27b87e8
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v4.2.5-7080fcc
+ * @license Angular v4.2.5-27b87e8
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -165,7 +165,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * @stable
  */
-var VERSION = new _angular_core.Version('4.2.5-7080fcc');
+var VERSION = new _angular_core.Version('4.2.5-27b87e8');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
