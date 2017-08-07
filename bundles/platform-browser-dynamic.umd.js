@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.2-685cc26
+ * @license Angular v5.0.0-beta.2-fcadbf4
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.0.0-beta.2-685cc26
+ * @license Angular v5.0.0-beta.2-fcadbf4
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -104,7 +104,7 @@ var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
     _angular_platformBrowser.ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
     {
         provide: _angular_core.COMPILER_OPTIONS,
-        useValue: { providers: [{ provide: _angular_compiler.ResourceLoader, useClass: ResourceLoaderImpl }] },
+        useValue: { providers: [{ provide: _angular_compiler.ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] },
         multi: true
     },
     { provide: _angular_core.PLATFORM_ID, useValue: _angular_common.ɵPLATFORM_BROWSER_ID },
@@ -165,7 +165,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * @stable
  */
-var VERSION = new _angular_core.Version('5.0.0-beta.2-685cc26');
+var VERSION = new _angular_core.Version('5.0.0-beta.2-fcadbf4');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
