@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.2-fcadbf4
+ * @license Angular v5.0.0-beta.2-f69561b
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -68,7 +68,7 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
     ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
     {
         provide: COMPILER_OPTIONS,
-        useValue: { providers: [{ provide: ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] },
+        useValue: { providers: [{ provide: ResourceLoader, useClass: ResourceLoaderImpl }] },
         multi: true
     },
     { provide: PLATFORM_ID, useValue: ɵPLATFORM_BROWSER_ID },
@@ -129,7 +129,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @stable
  */
-const VERSION = new Version('5.0.0-beta.2-fcadbf4');
+const VERSION = new Version('5.0.0-beta.2-f69561b');
 
 /**
  * @license
