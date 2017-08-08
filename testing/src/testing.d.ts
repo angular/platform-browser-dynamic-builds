@@ -1,9 +1,9 @@
-import { PlatformRef, Provider } from '@angular/core';
+import { PlatformRef, StaticProvider } from '@angular/core';
 export * from './private_export_testing';
 /**
  * @stable
  */
-export declare const platformBrowserDynamicTesting: (extraProviders?: Provider[] | undefined) => PlatformRef;
+export declare const platformBrowserDynamicTesting: (extraProviders?: StaticProvider[] | undefined) => PlatformRef;
 /**
  * NgModule for testing.
  *
