@@ -1,12 +1,310 @@
 /**
- * @license Angular v5.0.0-beta.4-3a50098
+ * @license Angular v5.0.0-beta.4-0cc77b4
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
-import { ResourceLoader, platformCoreDynamic } from '@angular/compiler';
-import { COMPILER_OPTIONS, Injectable, PLATFORM_ID, Version, createPlatformFactory, ɵglobal } from '@angular/core';
+import { CompileMetadataResolver, CompileReflector, CompilerConfig, DirectiveNormalizer, DirectiveResolver, DomElementSchemaRegistry, ElementSchemaRegistry, HtmlParser, I18NHtmlParser, Identifiers, JitCompiler, JitSummaryResolver, Lexer, NgModuleCompiler, NgModuleResolver, Parser, PipeResolver, ProviderMeta, ResourceLoader, StaticSymbolCache, StyleCompiler, SummaryResolver, TemplateParser, UrlResolver, ViewCompiler, getUrlScheme, syntaxError } from '@angular/compiler';
+import { ANALYZE_FOR_ENTRY_COMPONENTS, COMPILER_OPTIONS, ChangeDetectionStrategy, ChangeDetectorRef, Compiler, CompilerFactory, ComponentFactory, ComponentFactoryResolver, ComponentRef, ElementRef, Inject, Injectable, InjectionToken, Injector, LOCALE_ID, MissingTranslationStrategy, NgModuleFactory, NgModuleRef, Optional, PACKAGE_ROOT_URL, PLATFORM_ID, QueryList, Renderer, SecurityContext, TRANSLATIONS, TRANSLATIONS_FORMAT, TemplateRef, Version, ViewContainerRef, ViewEncapsulation, createPlatformFactory, isDevMode, platformCore, ɵCodegenComponentFactoryResolver, ɵConsole, ɵEMPTY_ARRAY, ɵEMPTY_MAP, ɵReflectionCapabilities, ɵand, ɵccf, ɵcmf, ɵcrt, ɵdid, ɵeld, ɵglobal, ɵinlineInterpolate, ɵinterpolate, ɵmod, ɵmpd, ɵncd, ɵnov, ɵpad, ɵpid, ɵpod, ɵppd, ɵprd, ɵqud, ɵregisterModuleFactory, ɵstringify, ɵted, ɵunv, ɵvid } from '@angular/core';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+const MODULE_SUFFIX = '';
+const builtinExternalReferences = createBuiltinExternalReferencesMap();
+class JitReflector {
+    constructor() {
+        this.builtinExternalReferences = new Map();
+        this.reflectionCapabilities = new ɵReflectionCapabilities();
+    }
+    componentModuleUrl(type, cmpMetadata) {
+        const moduleId = cmpMetadata.moduleId;
+        if (typeof moduleId === 'string') {
+            const scheme = getUrlScheme(moduleId);
+            return scheme ? moduleId : `package:${moduleId}${MODULE_SUFFIX}`;
+        }
+        else if (moduleId !== null && moduleId !== void 0) {
+            throw syntaxError(`moduleId should be a string in "${ɵstringify(type)}". See https://goo.gl/wIDDiL for more information.\n` +
+                `If you're using Webpack you should inline the template and the styles, see https://goo.gl/X2J8zc.`);
+        }
+        return `./${ɵstringify(type)}`;
+    }
+    parameters(typeOrFunc) {
+        return this.reflectionCapabilities.parameters(typeOrFunc);
+    }
+    annotations(typeOrFunc) {
+        return this.reflectionCapabilities.annotations(typeOrFunc);
+    }
+    propMetadata(typeOrFunc) {
+        return this.reflectionCapabilities.propMetadata(typeOrFunc);
+    }
+    hasLifecycleHook(type, lcProperty) {
+        return this.reflectionCapabilities.hasLifecycleHook(type, lcProperty);
+    }
+    resolveExternalReference(ref) {
+        return builtinExternalReferences.get(ref) || ref.runtime;
+    }
+}
+function createBuiltinExternalReferencesMap() {
+    const map = new Map();
+    map.set(Identifiers.ANALYZE_FOR_ENTRY_COMPONENTS, ANALYZE_FOR_ENTRY_COMPONENTS);
+    map.set(Identifiers.ElementRef, ElementRef);
+    map.set(Identifiers.NgModuleRef, NgModuleRef);
+    map.set(Identifiers.ViewContainerRef, ViewContainerRef);
+    map.set(Identifiers.ChangeDetectorRef, ChangeDetectorRef);
+    map.set(Identifiers.QueryList, QueryList);
+    map.set(Identifiers.TemplateRef, TemplateRef);
+    map.set(Identifiers.CodegenComponentFactoryResolver, ɵCodegenComponentFactoryResolver);
+    map.set(Identifiers.ComponentFactoryResolver, ComponentFactoryResolver);
+    map.set(Identifiers.ComponentFactory, ComponentFactory);
+    map.set(Identifiers.ComponentRef, ComponentRef);
+    map.set(Identifiers.NgModuleFactory, NgModuleFactory);
+    map.set(Identifiers.createModuleFactory, ɵcmf);
+    map.set(Identifiers.moduleDef, ɵmod);
+    map.set(Identifiers.moduleProviderDef, ɵmpd);
+    map.set(Identifiers.RegisterModuleFactoryFn, ɵregisterModuleFactory);
+    map.set(Identifiers.Injector, Injector);
+    map.set(Identifiers.ViewEncapsulation, ViewEncapsulation);
+    map.set(Identifiers.ChangeDetectionStrategy, ChangeDetectionStrategy);
+    map.set(Identifiers.SecurityContext, SecurityContext);
+    map.set(Identifiers.LOCALE_ID, LOCALE_ID);
+    map.set(Identifiers.TRANSLATIONS_FORMAT, TRANSLATIONS_FORMAT);
+    map.set(Identifiers.inlineInterpolate, ɵinlineInterpolate);
+    map.set(Identifiers.interpolate, ɵinterpolate);
+    map.set(Identifiers.EMPTY_ARRAY, ɵEMPTY_ARRAY);
+    map.set(Identifiers.EMPTY_MAP, ɵEMPTY_MAP);
+    map.set(Identifiers.Renderer, Renderer);
+    map.set(Identifiers.viewDef, ɵvid);
+    map.set(Identifiers.elementDef, ɵeld);
+    map.set(Identifiers.anchorDef, ɵand);
+    map.set(Identifiers.textDef, ɵted);
+    map.set(Identifiers.directiveDef, ɵdid);
+    map.set(Identifiers.providerDef, ɵprd);
+    map.set(Identifiers.queryDef, ɵqud);
+    map.set(Identifiers.pureArrayDef, ɵpad);
+    map.set(Identifiers.pureObjectDef, ɵpod);
+    map.set(Identifiers.purePipeDef, ɵppd);
+    map.set(Identifiers.pipeDef, ɵpid);
+    map.set(Identifiers.nodeValue, ɵnov);
+    map.set(Identifiers.ngContentDef, ɵncd);
+    map.set(Identifiers.unwrapValue, ɵunv);
+    map.set(Identifiers.createRendererType2, ɵcrt);
+    map.set(Identifiers.createComponentFactory, ɵccf);
+    return map;
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+const ERROR_COLLECTOR_TOKEN = new InjectionToken('ErrorCollector');
+/**
+ * A default provider for {@link PACKAGE_ROOT_URL} that maps to '/'.
+ */
+const DEFAULT_PACKAGE_URL_PROVIDER = {
+    provide: PACKAGE_ROOT_URL,
+    useValue: '/'
+};
+const _NO_RESOURCE_LOADER = {
+    get(url) {
+        throw new Error(`No ResourceLoader implementation has been provided. Can't read the url "${url}"`);
+    }
+};
+const baseHtmlParser = new InjectionToken('HtmlParser');
+class CompilerImpl {
+    constructor(_injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
+        this._injector = _injector;
+        this._metadataResolver = _metadataResolver;
+        this._delegate = new JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
+    }
+    get injector() { return this._injector; }
+    getExtraNgModuleProviders() {
+        return [this._metadataResolver.getProviderMetadata(new ProviderMeta(Compiler, { useValue: this }))];
+    }
+    compileModuleSync(moduleType) {
+        return this._delegate.compileModuleSync(moduleType);
+    }
+    compileModuleAsync(moduleType) {
+        return this._delegate.compileModuleAsync(moduleType);
+    }
+    compileModuleAndAllComponentsSync(moduleType) {
+        const result = this._delegate.compileModuleAndAllComponentsSync(moduleType);
+        return {
+            ngModuleFactory: result.ngModuleFactory,
+            componentFactories: result.componentFactories,
+        };
+    }
+    compileModuleAndAllComponentsAsync(moduleType) {
+        return this._delegate.compileModuleAndAllComponentsAsync(moduleType)
+            .then((result) => ({
+            ngModuleFactory: result.ngModuleFactory,
+            componentFactories: result.componentFactories,
+        }));
+    }
+    getNgContentSelectors(component) {
+        return this._delegate.getNgContentSelectors(component);
+    }
+    loadAotSummaries(summaries) { this._delegate.loadAotSummaries(summaries); }
+    hasAotSummary(ref) { return this._delegate.hasAotSummary(ref); }
+    getComponentFactory(component) {
+        return this._delegate.getComponentFactory(component);
+    }
+    clearCache() { this._delegate.clearCache(); }
+    clearCacheFor(type) { this._delegate.clearCacheFor(type); }
+}
+/**
+ * A set of providers that provide `JitCompiler` and its dependencies to use for
+ * template compilation.
+ */
+const COMPILER_PROVIDERS = [
+    { provide: CompileReflector, useValue: new JitReflector() },
+    { provide: ResourceLoader, useValue: _NO_RESOURCE_LOADER },
+    { provide: JitSummaryResolver, deps: [] },
+    { provide: SummaryResolver, useExisting: JitSummaryResolver },
+    { provide: ɵConsole, deps: [] },
+    { provide: Lexer, deps: [] },
+    { provide: Parser, deps: [Lexer] },
+    {
+        provide: baseHtmlParser,
+        useClass: HtmlParser,
+        deps: [],
+    },
+    {
+        provide: I18NHtmlParser,
+        useFactory: (parser, translations, format, config, console) => {
+            translations = translations || '';
+            const missingTranslation = translations ? config.missingTranslation : MissingTranslationStrategy.Ignore;
+            return new I18NHtmlParser(parser, translations, format, missingTranslation, console);
+        },
+        deps: [
+            baseHtmlParser,
+            [new Optional(), new Inject(TRANSLATIONS)],
+            [new Optional(), new Inject(TRANSLATIONS_FORMAT)],
+            [CompilerConfig],
+            [ɵConsole],
+        ]
+    },
+    {
+        provide: HtmlParser,
+        useExisting: I18NHtmlParser,
+    },
+    {
+        provide: TemplateParser, deps: [CompilerConfig, CompileReflector,
+            Parser, ElementSchemaRegistry,
+            I18NHtmlParser, ɵConsole]
+    },
+    { provide: DirectiveNormalizer, deps: [ResourceLoader, UrlResolver, HtmlParser, CompilerConfig] },
+    { provide: CompileMetadataResolver, deps: [CompilerConfig, NgModuleResolver,
+            DirectiveResolver, PipeResolver,
+            SummaryResolver,
+            ElementSchemaRegistry,
+            DirectiveNormalizer, ɵConsole,
+            [Optional, StaticSymbolCache],
+            CompileReflector,
+            [Optional, ERROR_COLLECTOR_TOKEN]] },
+    DEFAULT_PACKAGE_URL_PROVIDER,
+    { provide: StyleCompiler, deps: [UrlResolver] },
+    { provide: ViewCompiler, deps: [CompilerConfig, CompileReflector, ElementSchemaRegistry] },
+    { provide: NgModuleCompiler, deps: [CompileReflector] },
+    { provide: CompilerConfig, useValue: new CompilerConfig() },
+    { provide: Compiler, useClass: CompilerImpl, deps: [Injector, CompileMetadataResolver,
+            TemplateParser, StyleCompiler,
+            ViewCompiler, NgModuleCompiler,
+            SummaryResolver, CompileReflector, CompilerConfig,
+            ɵConsole] },
+    { provide: DomElementSchemaRegistry, deps: [] },
+    { provide: ElementSchemaRegistry, useExisting: DomElementSchemaRegistry },
+    { provide: UrlResolver, deps: [PACKAGE_ROOT_URL] },
+    { provide: DirectiveResolver, deps: [CompileReflector] },
+    { provide: PipeResolver, deps: [CompileReflector] },
+    { provide: NgModuleResolver, deps: [CompileReflector] },
+];
+class JitCompilerFactory {
+    constructor(defaultOptions) {
+        const compilerOptions = {
+            useDebug: isDevMode(),
+            useJit: true,
+            defaultEncapsulation: ViewEncapsulation.Emulated,
+            missingTranslation: MissingTranslationStrategy.Warning,
+            enableLegacyTemplate: true,
+            preserveWhitespaces: true,
+        };
+        this._defaultOptions = [compilerOptions, ...defaultOptions];
+    }
+    createCompiler(options = []) {
+        const opts = _mergeOptions(this._defaultOptions.concat(options));
+        const injector = Injector.create([
+            COMPILER_PROVIDERS, {
+                provide: CompilerConfig,
+                useFactory: () => {
+                    return new CompilerConfig({
+                        // let explicit values from the compiler options overwrite options
+                        // from the app providers
+                        useJit: opts.useJit,
+                        jitDevMode: isDevMode(),
+                        // let explicit values from the compiler options overwrite options
+                        // from the app providers
+                        defaultEncapsulation: opts.defaultEncapsulation,
+                        missingTranslation: opts.missingTranslation,
+                        enableLegacyTemplate: opts.enableLegacyTemplate,
+                        preserveWhitespaces: opts.preserveWhitespaces,
+                    });
+                },
+                deps: []
+            },
+            opts.providers
+        ]);
+        return injector.get(Compiler);
+    }
+}
+function _mergeOptions(optionsArr) {
+    return {
+        useJit: _lastDefined(optionsArr.map(options => options.useJit)),
+        defaultEncapsulation: _lastDefined(optionsArr.map(options => options.defaultEncapsulation)),
+        providers: _mergeArrays(optionsArr.map(options => options.providers)),
+        missingTranslation: _lastDefined(optionsArr.map(options => options.missingTranslation)),
+        enableLegacyTemplate: _lastDefined(optionsArr.map(options => options.enableLegacyTemplate)),
+        preserveWhitespaces: _lastDefined(optionsArr.map(options => options.preserveWhitespaces)),
+    };
+}
+function _lastDefined(args) {
+    for (let i = args.length - 1; i >= 0; i--) {
+        if (args[i] !== undefined) {
+            return args[i];
+        }
+    }
+    return undefined;
+}
+function _mergeArrays(parts) {
+    const result = [];
+    parts.forEach((part) => part && result.push(...part));
+    return result;
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * A platform that included corePlatform and the compiler.
+ *
+ * @experimental
+ */
+const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
+    { provide: COMPILER_OPTIONS, useValue: {}, multi: true },
+    { provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS] },
+]);
 
 /**
  * @license
@@ -129,7 +427,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @stable
  */
-const VERSION = new Version('5.0.0-beta.4-3a50098');
+const VERSION = new Version('5.0.0-beta.4-0cc77b4');
 
 /**
  * @license
@@ -162,5 +460,5 @@ const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'brows
 
 // This file only reexports content of the `src` folder. Keep it that way.
 
-export { RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, VERSION, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl };
+export { RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, VERSION, CompilerImpl as ɵCompilerImpl, platformCoreDynamic as ɵplatformCoreDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl };
 //# sourceMappingURL=platform-browser-dynamic.js.map
