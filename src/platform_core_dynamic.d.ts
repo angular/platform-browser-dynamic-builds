@@ -6,15 +6,9 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { PlatformRef, StaticProvider } from '@angular/core';
-export * from './private_export_testing';
 /**
- * @stable
- */
-export declare const platformBrowserDynamicTesting: (extraProviders?: StaticProvider[] | undefined) => PlatformRef;
-/**
- * NgModule for testing.
+ * A platform that included corePlatform and the compiler.
  *
- * @stable
+ * @experimental
  */
-export declare class BrowserDynamicTestingModule {
-}
+export declare const platformCoreDynamic: (extraProviders?: StaticProvider[] | undefined) => PlatformRef;
