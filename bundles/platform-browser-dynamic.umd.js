@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.4-a56468c
+ * @license Angular v5.0.0-beta.4-f2a2a6b
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.0.0-beta.4-a56468c
+ * @license Angular v5.0.0-beta.4-f2a2a6b
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -267,7 +267,6 @@ var COMPILER_PROVIDERS = [
 var JitCompilerFactory = (function () {
     function JitCompilerFactory(defaultOptions) {
         var compilerOptions = {
-            useDebug: _angular_core.isDevMode(),
             useJit: true,
             defaultEncapsulation: _angular_core.ViewEncapsulation.Emulated,
             missingTranslation: _angular_core.MissingTranslationStrategy.Warning,
@@ -468,7 +467,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * @stable
  */
-var VERSION = new _angular_core.Version('5.0.0-beta.4-a56468c');
+var VERSION = new _angular_core.Version('5.0.0-beta.4-f2a2a6b');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.

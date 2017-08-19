@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 /**
- * @license Angular v5.0.0-beta.4-a56468c
+ * @license Angular v5.0.0-beta.4-f2a2a6b
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -235,7 +235,6 @@ var COMPILER_PROVIDERS = [
 var JitCompilerFactory = (function () {
     function JitCompilerFactory(defaultOptions) {
         var compilerOptions = {
-            useDebug: isDevMode(),
             useJit: true,
             defaultEncapsulation: ViewEncapsulation.Emulated,
             missingTranslation: MissingTranslationStrategy.Warning,
@@ -436,7 +435,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * @stable
  */
-var VERSION = new Version('5.0.0-beta.4-a56468c');
+var VERSION = new Version('5.0.0-beta.4-f2a2a6b');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
