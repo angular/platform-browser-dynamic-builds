@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 /**
- * @license Angular v5.0.0-beta.4-409688f
+ * @license Angular v5.0.0-beta.4
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -239,7 +239,6 @@ var JitCompilerFactory = (function () {
             defaultEncapsulation: ViewEncapsulation.Emulated,
             missingTranslation: MissingTranslationStrategy.Warning,
             enableLegacyTemplate: true,
-            preserveWhitespaces: true,
         };
         this._defaultOptions = [compilerOptions].concat(defaultOptions);
     }
@@ -435,7 +434,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * @stable
  */
-var VERSION = new Version('5.0.0-beta.4-409688f');
+var VERSION = new Version('5.0.0-beta.4');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
