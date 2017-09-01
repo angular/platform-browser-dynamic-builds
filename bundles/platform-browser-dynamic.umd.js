@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.5-fd701b0
+ * @license Angular v5.0.0-beta.5-56238fe
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.0.0-beta.5-fd701b0
+ * @license Angular v5.0.0-beta.5-56238fe
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -377,7 +377,7 @@ var JitCompilerFactory = (function () {
             useJit: true,
             defaultEncapsulation: _angular_core.ViewEncapsulation.Emulated,
             missingTranslation: _angular_core.MissingTranslationStrategy.Warning,
-            enableLegacyTemplate: true,
+            enableLegacyTemplate: false,
         };
         this._defaultOptions = [compilerOptions].concat(defaultOptions);
     }
@@ -627,7 +627,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.0.0-beta.5-fd701b0');
+var VERSION = new _angular_core.Version('5.0.0-beta.5-56238fe');
 
 /**
  * @fileoverview added by tsickle

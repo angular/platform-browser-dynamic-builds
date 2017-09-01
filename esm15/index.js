@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.5-fd701b0
+ * @license Angular v5.0.0-beta.5-56238fe
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -339,7 +339,7 @@ class JitCompilerFactory {
             useJit: true,
             defaultEncapsulation: ViewEncapsulation.Emulated,
             missingTranslation: MissingTranslationStrategy.Warning,
-            enableLegacyTemplate: true,
+            enableLegacyTemplate: false,
         };
         this._defaultOptions = [compilerOptions, ...defaultOptions];
     }
@@ -579,7 +579,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * \@stable
  */
-const VERSION = new Version('5.0.0-beta.5-fd701b0');
+const VERSION = new Version('5.0.0-beta.5-56238fe');
 
 /**
  * @fileoverview added by tsickle
