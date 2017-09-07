@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.6-b6833d1
+ * @license Angular v5.0.0-beta.6-5ef6e63
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.0.0-beta.6-b6833d1
+ * @license Angular v5.0.0-beta.6-5ef6e63
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -627,7 +627,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.0.0-beta.6-b6833d1');
+var VERSION = new _angular_core.Version('5.0.0-beta.6-5ef6e63');
 
 /**
  * @fileoverview added by tsickle
