@@ -3,43 +3,15 @@
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/core/testing'), require('@angular/platform-browser-dynamic'), require('@angular/platform-browser/testing'), require('@angular/platform-browser'), require('@angular/compiler'), require('@angular/compiler/testing')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/core/testing', '@angular/platform-browser-dynamic', '@angular/platform-browser/testing', '@angular/platform-browser', '@angular/compiler', '@angular/compiler/testing'], factory) :
-	(factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}, global.ng.platformBrowserDynamic.testing = {}),global.ng.core,global.ng.core.testing,global.ng.platformBrowserDynamic,global.ng.platformBrowser.testing,global.ng.platformBrowser,global.ng.compiler,global.ng.compiler.testing));
-}(this, (function (exports,_angular_core,_angular_core_testing,_angular_platformBrowserDynamic,_angular_platformBrowser_testing,_angular_platformBrowser,_angular_compiler,_angular_compiler_testing) { 'use strict';
+import { COMPILER_OPTIONS, CompilerFactory, Component, Directive, Inject, Injectable, Injector, NgModule, Pipe, createPlatformFactory, ɵstringify } from '@angular/core';
+import { TestComponentRenderer, ɵTestingCompilerFactory } from '@angular/core/testing';
+import { ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ɵplatformCoreDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserTestingModule } from '@angular/platform-browser/testing';
+import { __extends } from 'tslib';
+import { DOCUMENT, ɵgetDOM } from '@angular/platform-browser';
+import { CompileReflector, DirectiveResolver, ERROR_COMPONENT_TYPE, NgModuleResolver, PipeResolver } from '@angular/compiler';
+import { MockDirectiveResolver, MockNgModuleResolver, MockPipeResolver } from '@angular/compiler/testing';
 
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at http://www.apache.org/licenses/LICENSE-2.0
-
-THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-MERCHANTABLITY OR NON-INFRINGEMENT.
-
-See the Apache Version 2.0 License for specific language governing permissions
-and limitations under the License.
-***************************************************************************** */
-/* global Reflect, Promise */
-
-var extendStatics = Object.setPrototypeOf ||
-    ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-    function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-
-function __extends(d, b) {
-    extendStatics(d, b);
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
-
-/**
- * @license Angular v5.0.0-beta.6-f2945c6
- * (c) 2010-2017 Google, Inc. https://angular.io/
- * License: MIT
- */
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -69,22 +41,22 @@ var DOMTestComponentRenderer = (function (_super) {
      * @return {?}
      */
     DOMTestComponentRenderer.prototype.insertRootElement = function (rootElId) {
-        var /** @type {?} */ rootEl = (_angular_platformBrowser.ɵgetDOM().firstChild(_angular_platformBrowser.ɵgetDOM().content(_angular_platformBrowser.ɵgetDOM().createTemplate("<div id=\"" + rootElId + "\"></div>"))));
+        var /** @type {?} */ rootEl = (ɵgetDOM().firstChild(ɵgetDOM().content(ɵgetDOM().createTemplate("<div id=\"" + rootElId + "\"></div>"))));
         // TODO(juliemr): can/should this be optional?
-        var /** @type {?} */ oldRoots = _angular_platformBrowser.ɵgetDOM().querySelectorAll(this._doc, '[id^=root]');
+        var /** @type {?} */ oldRoots = ɵgetDOM().querySelectorAll(this._doc, '[id^=root]');
         for (var /** @type {?} */ i = 0; i < oldRoots.length; i++) {
-            _angular_platformBrowser.ɵgetDOM().remove(oldRoots[i]);
+            ɵgetDOM().remove(oldRoots[i]);
         }
-        _angular_platformBrowser.ɵgetDOM().appendChild(this._doc.body, rootEl);
+        ɵgetDOM().appendChild(this._doc.body, rootEl);
     };
     return DOMTestComponentRenderer;
-}(_angular_core_testing.TestComponentRenderer));
+}(TestComponentRenderer));
 DOMTestComponentRenderer.decorators = [
-    { type: _angular_core.Injectable },
+    { type: Injectable },
 ];
 /** @nocollapse */
 DOMTestComponentRenderer.ctorParameters = function () { return [
-    { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_platformBrowser.DOCUMENT,] },] },
+    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] },] },
 ]; };
 
 /**
@@ -119,7 +91,7 @@ var MetadataOverrider = (function () {
         }
         if (override.set) {
             if (override.remove || override.add) {
-                throw new Error("Cannot set and add/remove " + _angular_core.ɵstringify(metadataClass) + " at the same time!");
+                throw new Error("Cannot set and add/remove " + ɵstringify(metadataClass) + " at the same time!");
             }
             setMetadata(props, override.set);
         }
@@ -218,7 +190,7 @@ function _propHashKey(propName, propValue, references) {
 function _serializeReference(ref, references) {
     var /** @type {?} */ id = references.get(ref);
     if (!id) {
-        id = "" + _angular_core.ɵstringify(ref) + _nextReferenceId++;
+        id = "" + ɵstringify(ref) + _nextReferenceId++;
         references.set(ref, id);
     }
     return id;
@@ -260,12 +232,12 @@ function _valueProps(obj) {
  * found in the LICENSE file at https://angular.io/license
  */
 var COMPILER_PROVIDERS = [
-    { provide: _angular_compiler_testing.MockPipeResolver, deps: [_angular_compiler.CompileReflector] },
-    { provide: _angular_compiler.PipeResolver, useExisting: _angular_compiler_testing.MockPipeResolver },
-    { provide: _angular_compiler_testing.MockDirectiveResolver, deps: [_angular_compiler.CompileReflector] },
-    { provide: _angular_compiler.DirectiveResolver, useExisting: _angular_compiler_testing.MockDirectiveResolver },
-    { provide: _angular_compiler_testing.MockNgModuleResolver, deps: [_angular_compiler.CompileReflector] },
-    { provide: _angular_compiler.NgModuleResolver, useExisting: _angular_compiler_testing.MockNgModuleResolver },
+    { provide: MockPipeResolver, deps: [CompileReflector] },
+    { provide: PipeResolver, useExisting: MockPipeResolver },
+    { provide: MockDirectiveResolver, deps: [CompileReflector] },
+    { provide: DirectiveResolver, useExisting: MockDirectiveResolver },
+    { provide: MockNgModuleResolver, deps: [CompileReflector] },
+    { provide: NgModuleResolver, useExisting: MockNgModuleResolver },
 ];
 var TestingCompilerFactoryImpl = (function () {
     /**
@@ -282,7 +254,7 @@ var TestingCompilerFactoryImpl = (function () {
      */
     TestingCompilerFactoryImpl.prototype.createTestingCompiler = function (options) {
         var /** @type {?} */ compiler = (this._compilerFactory.createCompiler(options));
-        return new TestingCompilerImpl(compiler, compiler.injector.get(_angular_compiler_testing.MockDirectiveResolver), compiler.injector.get(_angular_compiler_testing.MockPipeResolver), compiler.injector.get(_angular_compiler_testing.MockNgModuleResolver));
+        return new TestingCompilerImpl(compiler, compiler.injector.get(MockDirectiveResolver), compiler.injector.get(MockPipeResolver), compiler.injector.get(MockNgModuleResolver));
     };
     return TestingCompilerFactoryImpl;
 }());
@@ -361,7 +333,7 @@ var TestingCompilerImpl = (function () {
      */
     TestingCompilerImpl.prototype.checkOverrideAllowed = function (type) {
         if (this._compiler.hasAotSummary(type)) {
-            throw new Error(_angular_core.ɵstringify(type) + " was AOT compiled, so its metadata cannot be changed.");
+            throw new Error(ɵstringify(type) + " was AOT compiled, so its metadata cannot be changed.");
         }
     };
     /**
@@ -372,7 +344,7 @@ var TestingCompilerImpl = (function () {
     TestingCompilerImpl.prototype.overrideModule = function (ngModule, override) {
         this.checkOverrideAllowed(ngModule);
         var /** @type {?} */ oldMetadata = this._moduleResolver.resolve(ngModule, false);
-        this._moduleResolver.setNgModule(ngModule, this._overrider.overrideMetadata(_angular_core.NgModule, oldMetadata, override));
+        this._moduleResolver.setNgModule(ngModule, this._overrider.overrideMetadata(NgModule, oldMetadata, override));
         this.clearCacheFor(ngModule);
     };
     /**
@@ -383,7 +355,7 @@ var TestingCompilerImpl = (function () {
     TestingCompilerImpl.prototype.overrideDirective = function (directive, override) {
         this.checkOverrideAllowed(directive);
         var /** @type {?} */ oldMetadata = this._directiveResolver.resolve(directive, false);
-        this._directiveResolver.setDirective(directive, this._overrider.overrideMetadata(_angular_core.Directive, /** @type {?} */ ((oldMetadata)), override));
+        this._directiveResolver.setDirective(directive, this._overrider.overrideMetadata(Directive, /** @type {?} */ ((oldMetadata)), override));
         this.clearCacheFor(directive);
     };
     /**
@@ -394,7 +366,7 @@ var TestingCompilerImpl = (function () {
     TestingCompilerImpl.prototype.overrideComponent = function (component, override) {
         this.checkOverrideAllowed(component);
         var /** @type {?} */ oldMetadata = this._directiveResolver.resolve(component, false);
-        this._directiveResolver.setDirective(component, this._overrider.overrideMetadata(_angular_core.Component, /** @type {?} */ ((oldMetadata)), override));
+        this._directiveResolver.setDirective(component, this._overrider.overrideMetadata(Component, /** @type {?} */ ((oldMetadata)), override));
         this.clearCacheFor(component);
     };
     /**
@@ -405,7 +377,7 @@ var TestingCompilerImpl = (function () {
     TestingCompilerImpl.prototype.overridePipe = function (pipe, override) {
         this.checkOverrideAllowed(pipe);
         var /** @type {?} */ oldMetadata = this._pipeResolver.resolve(pipe, false);
-        this._pipeResolver.setPipe(pipe, this._overrider.overrideMetadata(_angular_core.Pipe, oldMetadata, override));
+        this._pipeResolver.setPipe(pipe, this._overrider.overrideMetadata(Pipe, oldMetadata, override));
         this.clearCacheFor(pipe);
     };
     /**
@@ -426,7 +398,7 @@ var TestingCompilerImpl = (function () {
      * @param {?} error
      * @return {?}
      */
-    TestingCompilerImpl.prototype.getComponentFromError = function (error) { return ((error))[_angular_compiler.ERROR_COMPONENT_TYPE] || null; };
+    TestingCompilerImpl.prototype.getComponentFromError = function (error) { return ((error))[ERROR_COMPONENT_TYPE] || null; };
     return TestingCompilerImpl;
 }());
 
@@ -446,11 +418,11 @@ var TestingCompilerImpl = (function () {
  *
  * \@experimental
  */
-var platformCoreDynamicTesting = _angular_core.createPlatformFactory(_angular_platformBrowserDynamic.ɵplatformCoreDynamic, 'coreDynamicTesting', [
-    { provide: _angular_core.COMPILER_OPTIONS, useValue: { providers: COMPILER_PROVIDERS }, multi: true }, {
-        provide: _angular_core_testing.ɵTestingCompilerFactory,
+var platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 'coreDynamicTesting', [
+    { provide: COMPILER_OPTIONS, useValue: { providers: COMPILER_PROVIDERS }, multi: true }, {
+        provide: ɵTestingCompilerFactory,
         useClass: TestingCompilerFactoryImpl,
-        deps: [_angular_core.Injector, _angular_core.CompilerFactory]
+        deps: [Injector, CompilerFactory]
     }
 ]);
 
@@ -480,7 +452,7 @@ var platformCoreDynamicTesting = _angular_core.createPlatformFactory(_angular_pl
 /**
  * \@stable
  */
-var platformBrowserDynamicTesting = _angular_core.createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', _angular_platformBrowserDynamic.ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
+var platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 /**
  * NgModule for testing.
  *
@@ -492,24 +464,40 @@ var BrowserDynamicTestingModule = (function () {
     return BrowserDynamicTestingModule;
 }());
 BrowserDynamicTestingModule.decorators = [
-    { type: _angular_core.NgModule, args: [{
-                exports: [_angular_platformBrowser_testing.BrowserTestingModule],
+    { type: NgModule, args: [{
+                exports: [BrowserTestingModule],
                 providers: [
-                    { provide: _angular_core_testing.TestComponentRenderer, useClass: DOMTestComponentRenderer },
+                    { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
                 ]
             },] },
 ];
 /** @nocollapse */
 BrowserDynamicTestingModule.ctorParameters = function () { return []; };
 
-exports.platformBrowserDynamicTesting = platformBrowserDynamicTesting;
-exports.BrowserDynamicTestingModule = BrowserDynamicTestingModule;
-exports.ɵDOMTestComponentRenderer = DOMTestComponentRenderer;
-exports.ɵplatformCoreDynamicTesting = platformCoreDynamicTesting;
-exports.ɵa = COMPILER_PROVIDERS;
-exports.ɵb = TestingCompilerFactoryImpl;
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of this package.
+ */
 
-Object.defineProperty(exports, '__esModule', { value: true });
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * Generated bundle index. Do not edit.
+ */
 
-})));
-//# sourceMappingURL=platform-browser-dynamic-testing.umd.js.map
+export { platformBrowserDynamicTesting, BrowserDynamicTestingModule, DOMTestComponentRenderer as ɵDOMTestComponentRenderer, platformCoreDynamicTesting as ɵplatformCoreDynamicTesting, COMPILER_PROVIDERS as ɵa, TestingCompilerFactoryImpl as ɵb };
+//# sourceMappingURL=index.js.map
