@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.6-112e777
+ * @license Angular v5.0.0-beta.6-ca5aeba
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -194,7 +194,7 @@ class CompilerImpl {
      * @return {?}
      */
     compileModuleSync(moduleType) {
-        return (this._delegate.compileModuleSync(moduleType));
+        return /** @type {?} */ (this._delegate.compileModuleSync(moduleType));
     }
     /**
      * @template T
@@ -202,7 +202,7 @@ class CompilerImpl {
      * @return {?}
      */
     compileModuleAsync(moduleType) {
-        return (this._delegate.compileModuleAsync(moduleType));
+        return /** @type {?} */ (this._delegate.compileModuleAsync(moduleType));
     }
     /**
      * @template T
@@ -251,7 +251,7 @@ class CompilerImpl {
      * @return {?}
      */
     getComponentFactory(component) {
-        return (this._delegate.getComponentFactory(component));
+        return /** @type {?} */ (this._delegate.getComponentFactory(component));
     }
     /**
      * @return {?}
@@ -267,7 +267,7 @@ class CompilerImpl {
  * A set of providers that provide `JitCompiler` and its dependencies to use for
  * template compilation.
  */
-const COMPILER_PROVIDERS = ([
+const COMPILER_PROVIDERS = /** @type {?} */ ([
     { provide: CompileReflector, useValue: new JitReflector() },
     { provide: ResourceLoader, useValue: _NO_RESOURCE_LOADER },
     { provide: JitSummaryResolver, deps: [] },
@@ -284,7 +284,7 @@ const COMPILER_PROVIDERS = ([
         provide: I18NHtmlParser,
         useFactory: (parser, translations, format, config, console) => {
             translations = translations || '';
-            const /** @type {?} */ missingTranslation = translations ? ((config.missingTranslation)) : MissingTranslationStrategy.Ignore;
+            const /** @type {?} */ missingTranslation = translations ? /** @type {?} */ ((config.missingTranslation)) : MissingTranslationStrategy.Ignore;
             return new I18NHtmlParser(parser, translations, format, missingTranslation, console);
         },
         deps: [
@@ -367,7 +367,8 @@ class JitCompilerFactory {
                     });
                 },
                 deps: []
-            }, /** @type {?} */ ((opts.providers))
+            },
+            /** @type {?} */ ((opts.providers))
         ]);
         return injector.get(Compiler);
     }
@@ -380,7 +381,7 @@ function _mergeOptions(optionsArr) {
     return {
         useJit: _lastDefined(optionsArr.map(options => options.useJit)),
         defaultEncapsulation: _lastDefined(optionsArr.map(options => options.defaultEncapsulation)),
-        providers: _mergeArrays(optionsArr.map(options => ((options.providers)))),
+        providers: _mergeArrays(optionsArr.map(options => /** @type {?} */ ((options.providers)))),
         missingTranslation: _lastDefined(optionsArr.map(options => options.missingTranslation)),
         enableLegacyTemplate: _lastDefined(optionsArr.map(options => options.enableLegacyTemplate)),
         preserveWhitespaces: _lastDefined(optionsArr.map(options => options.preserveWhitespaces)),
@@ -529,7 +530,7 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
 class CachedResourceLoader extends ResourceLoader {
     constructor() {
         super();
-        this._cache = ((ɵglobal)).$templateCache;
+        this._cache = (/** @type {?} */ (ɵglobal)).$templateCache;
         if (this._cache == null) {
             throw new Error('CachedResourceLoader: Template cache was not found in $templateCache.');
         }
@@ -543,7 +544,7 @@ class CachedResourceLoader extends ResourceLoader {
             return Promise.resolve(this._cache[url]);
         }
         else {
-            return (Promise.reject('CachedResourceLoader: Did not find cached template for ' + url));
+            return /** @type {?} */ (Promise.reject('CachedResourceLoader: Did not find cached template for ' + url));
         }
     }
 }
@@ -579,7 +580,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * \@stable
  */
-const VERSION = new Version('5.0.0-beta.6-112e777');
+const VERSION = new Version('5.0.0-beta.6-ca5aeba');
 
 /**
  * @fileoverview added by tsickle

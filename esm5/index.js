@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.6-112e777
+ * @license Angular v5.0.0-beta.6-ca5aeba
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -32,7 +32,12 @@ var JitReflector = (function () {
      * @param {?} cmpMetadata
      * @return {?}
      */
-    JitReflector.prototype.componentModuleUrl = function (type, cmpMetadata) {
+    JitReflector.prototype.componentModuleUrl = /**
+     * @param {?} type
+     * @param {?} cmpMetadata
+     * @return {?}
+     */
+    function (type, cmpMetadata) {
         var /** @type {?} */ moduleId = cmpMetadata.moduleId;
         if (typeof moduleId === 'string') {
             var /** @type {?} */ scheme = getUrlScheme(moduleId);
@@ -48,21 +53,33 @@ var JitReflector = (function () {
      * @param {?} typeOrFunc
      * @return {?}
      */
-    JitReflector.prototype.parameters = function (typeOrFunc) {
+    JitReflector.prototype.parameters = /**
+     * @param {?} typeOrFunc
+     * @return {?}
+     */
+    function (typeOrFunc) {
         return this.reflectionCapabilities.parameters(typeOrFunc);
     };
     /**
      * @param {?} typeOrFunc
      * @return {?}
      */
-    JitReflector.prototype.annotations = function (typeOrFunc) {
+    JitReflector.prototype.annotations = /**
+     * @param {?} typeOrFunc
+     * @return {?}
+     */
+    function (typeOrFunc) {
         return this.reflectionCapabilities.annotations(typeOrFunc);
     };
     /**
      * @param {?} typeOrFunc
      * @return {?}
      */
-    JitReflector.prototype.propMetadata = function (typeOrFunc) {
+    JitReflector.prototype.propMetadata = /**
+     * @param {?} typeOrFunc
+     * @return {?}
+     */
+    function (typeOrFunc) {
         return this.reflectionCapabilities.propMetadata(typeOrFunc);
     };
     /**
@@ -70,14 +87,23 @@ var JitReflector = (function () {
      * @param {?} lcProperty
      * @return {?}
      */
-    JitReflector.prototype.hasLifecycleHook = function (type, lcProperty) {
+    JitReflector.prototype.hasLifecycleHook = /**
+     * @param {?} type
+     * @param {?} lcProperty
+     * @return {?}
+     */
+    function (type, lcProperty) {
         return this.reflectionCapabilities.hasLifecycleHook(type, lcProperty);
     };
     /**
      * @param {?} ref
      * @return {?}
      */
-    JitReflector.prototype.resolveExternalReference = function (ref) {
+    JitReflector.prototype.resolveExternalReference = /**
+     * @param {?} ref
+     * @return {?}
+     */
+    function (ref) {
         return builtinExternalReferences.get(ref) || ref.runtime;
     };
     return JitReflector;
@@ -153,45 +179,36 @@ var DEFAULT_PACKAGE_URL_PROVIDER = {
     useValue: '/'
 };
 var _NO_RESOURCE_LOADER = {
-    /**
+    get: /**
      * @param {?} url
      * @return {?}
      */
-    get: function (url) {
+    function (url) {
         throw new Error("No ResourceLoader implementation has been provided. Can't read the url \"" + url + "\"");
     }
 };
 var baseHtmlParser = new InjectionToken('HtmlParser');
 var CompilerImpl = (function () {
-    /**
-     * @param {?} _injector
-     * @param {?} _metadataResolver
-     * @param {?} templateParser
-     * @param {?} styleCompiler
-     * @param {?} viewCompiler
-     * @param {?} ngModuleCompiler
-     * @param {?} summaryResolver
-     * @param {?} compileReflector
-     * @param {?} compilerConfig
-     * @param {?} console
-     */
     function CompilerImpl(_injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
         this._injector = _injector;
         this._metadataResolver = _metadataResolver;
         this._delegate = new JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
     }
     Object.defineProperty(CompilerImpl.prototype, "injector", {
-        /**
+        get: /**
          * @return {?}
          */
-        get: function () { return this._injector; },
+        function () { return this._injector; },
         enumerable: true,
         configurable: true
     });
     /**
      * @return {?}
      */
-    CompilerImpl.prototype.getExtraNgModuleProviders = function () {
+    CompilerImpl.prototype.getExtraNgModuleProviders = /**
+     * @return {?}
+     */
+    function () {
         return [this._metadataResolver.getProviderMetadata(new ProviderMeta(Compiler, { useValue: this }))];
     };
     /**
@@ -199,23 +216,38 @@ var CompilerImpl = (function () {
      * @param {?} moduleType
      * @return {?}
      */
-    CompilerImpl.prototype.compileModuleSync = function (moduleType) {
-        return (this._delegate.compileModuleSync(moduleType));
+    CompilerImpl.prototype.compileModuleSync = /**
+     * @template T
+     * @param {?} moduleType
+     * @return {?}
+     */
+    function (moduleType) {
+        return /** @type {?} */ (this._delegate.compileModuleSync(moduleType));
     };
     /**
      * @template T
      * @param {?} moduleType
      * @return {?}
      */
-    CompilerImpl.prototype.compileModuleAsync = function (moduleType) {
-        return (this._delegate.compileModuleAsync(moduleType));
+    CompilerImpl.prototype.compileModuleAsync = /**
+     * @template T
+     * @param {?} moduleType
+     * @return {?}
+     */
+    function (moduleType) {
+        return /** @type {?} */ (this._delegate.compileModuleAsync(moduleType));
     };
     /**
      * @template T
      * @param {?} moduleType
      * @return {?}
      */
-    CompilerImpl.prototype.compileModuleAndAllComponentsSync = function (moduleType) {
+    CompilerImpl.prototype.compileModuleAndAllComponentsSync = /**
+     * @template T
+     * @param {?} moduleType
+     * @return {?}
+     */
+    function (moduleType) {
         var /** @type {?} */ result = this._delegate.compileModuleAndAllComponentsSync(moduleType);
         return {
             ngModuleFactory: /** @type {?} */ (result.ngModuleFactory),
@@ -227,54 +259,85 @@ var CompilerImpl = (function () {
      * @param {?} moduleType
      * @return {?}
      */
-    CompilerImpl.prototype.compileModuleAndAllComponentsAsync = function (moduleType) {
+    CompilerImpl.prototype.compileModuleAndAllComponentsAsync = /**
+     * @template T
+     * @param {?} moduleType
+     * @return {?}
+     */
+    function (moduleType) {
         return this._delegate.compileModuleAndAllComponentsAsync(moduleType)
-            .then(function (result) { return ({
-            ngModuleFactory: /** @type {?} */ (result.ngModuleFactory),
-            componentFactories: /** @type {?} */ (result.componentFactories),
-        }); });
+            .then(function (result) {
+            return ({
+                ngModuleFactory: /** @type {?} */ (result.ngModuleFactory),
+                componentFactories: /** @type {?} */ (result.componentFactories),
+            });
+        });
     };
     /**
      * @param {?} component
      * @return {?}
      */
-    CompilerImpl.prototype.getNgContentSelectors = function (component) {
+    CompilerImpl.prototype.getNgContentSelectors = /**
+     * @param {?} component
+     * @return {?}
+     */
+    function (component) {
         return this._delegate.getNgContentSelectors(component);
     };
     /**
      * @param {?} summaries
      * @return {?}
      */
-    CompilerImpl.prototype.loadAotSummaries = function (summaries) { this._delegate.loadAotSummaries(summaries); };
+    CompilerImpl.prototype.loadAotSummaries = /**
+     * @param {?} summaries
+     * @return {?}
+     */
+    function (summaries) { this._delegate.loadAotSummaries(summaries); };
     /**
      * @param {?} ref
      * @return {?}
      */
-    CompilerImpl.prototype.hasAotSummary = function (ref) { return this._delegate.hasAotSummary(ref); };
+    CompilerImpl.prototype.hasAotSummary = /**
+     * @param {?} ref
+     * @return {?}
+     */
+    function (ref) { return this._delegate.hasAotSummary(ref); };
     /**
      * @template T
      * @param {?} component
      * @return {?}
      */
-    CompilerImpl.prototype.getComponentFactory = function (component) {
-        return (this._delegate.getComponentFactory(component));
+    CompilerImpl.prototype.getComponentFactory = /**
+     * @template T
+     * @param {?} component
+     * @return {?}
+     */
+    function (component) {
+        return /** @type {?} */ (this._delegate.getComponentFactory(component));
     };
     /**
      * @return {?}
      */
-    CompilerImpl.prototype.clearCache = function () { this._delegate.clearCache(); };
+    CompilerImpl.prototype.clearCache = /**
+     * @return {?}
+     */
+    function () { this._delegate.clearCache(); };
     /**
      * @param {?} type
      * @return {?}
      */
-    CompilerImpl.prototype.clearCacheFor = function (type) { this._delegate.clearCacheFor(type); };
+    CompilerImpl.prototype.clearCacheFor = /**
+     * @param {?} type
+     * @return {?}
+     */
+    function (type) { this._delegate.clearCacheFor(type); };
     return CompilerImpl;
 }());
 /**
  * A set of providers that provide `JitCompiler` and its dependencies to use for
  * template compilation.
  */
-var COMPILER_PROVIDERS = ([
+var COMPILER_PROVIDERS = /** @type {?} */ ([
     { provide: CompileReflector, useValue: new JitReflector() },
     { provide: ResourceLoader, useValue: _NO_RESOURCE_LOADER },
     { provide: JitSummaryResolver, deps: [] },
@@ -291,7 +354,7 @@ var COMPILER_PROVIDERS = ([
         provide: I18NHtmlParser,
         useFactory: function (parser, translations, format, config, console) {
             translations = translations || '';
-            var /** @type {?} */ missingTranslation = translations ? ((config.missingTranslation)) : MissingTranslationStrategy.Ignore;
+            var /** @type {?} */ missingTranslation = translations ? /** @type {?} */ ((config.missingTranslation)) : MissingTranslationStrategy.Ignore;
             return new I18NHtmlParser(parser, translations, format, missingTranslation, console);
         },
         deps: [
@@ -338,9 +401,6 @@ var COMPILER_PROVIDERS = ([
     { provide: NgModuleResolver, deps: [CompileReflector] },
 ]);
 var JitCompilerFactory = (function () {
-    /**
-     * @param {?} defaultOptions
-     */
     function JitCompilerFactory(defaultOptions) {
         var /** @type {?} */ compilerOptions = {
             useJit: true,
@@ -354,7 +414,11 @@ var JitCompilerFactory = (function () {
      * @param {?=} options
      * @return {?}
      */
-    JitCompilerFactory.prototype.createCompiler = function (options) {
+    JitCompilerFactory.prototype.createCompiler = /**
+     * @param {?=} options
+     * @return {?}
+     */
+    function (options) {
         if (options === void 0) { options = []; }
         var /** @type {?} */ opts = _mergeOptions(this._defaultOptions.concat(options));
         var /** @type {?} */ injector = Injector.create([
@@ -375,7 +439,8 @@ var JitCompilerFactory = (function () {
                     });
                 },
                 deps: []
-            }, /** @type {?} */ ((opts.providers))
+            },
+            /** @type {?} */ ((opts.providers))
         ]);
         return injector.get(Compiler);
     };
@@ -389,7 +454,7 @@ function _mergeOptions(optionsArr) {
     return {
         useJit: _lastDefined(optionsArr.map(function (options) { return options.useJit; })),
         defaultEncapsulation: _lastDefined(optionsArr.map(function (options) { return options.defaultEncapsulation; })),
-        providers: _mergeArrays(optionsArr.map(function (options) { /** @type {?} */ return ((options.providers)); })),
+        providers: _mergeArrays(optionsArr.map(function (options) { return /** @type {?} */ ((options.providers)); })),
         missingTranslation: _lastDefined(optionsArr.map(function (options) { return options.missingTranslation; })),
         enableLegacyTemplate: _lastDefined(optionsArr.map(function (options) { return options.enableLegacyTemplate; })),
         preserveWhitespaces: _lastDefined(optionsArr.map(function (options) { return options.preserveWhitespaces; })),
@@ -459,7 +524,11 @@ var ResourceLoaderImpl = (function (_super) {
      * @param {?} url
      * @return {?}
      */
-    ResourceLoaderImpl.prototype.get = function (url) {
+    ResourceLoaderImpl.prototype.get = /**
+     * @param {?} url
+     * @return {?}
+     */
+    function (url) {
         var /** @type {?} */ resolve;
         var /** @type {?} */ reject;
         var /** @type {?} */ promise = new Promise(function (res, rej) {
@@ -493,13 +562,13 @@ var ResourceLoaderImpl = (function (_super) {
         xhr.send();
         return promise;
     };
+    ResourceLoaderImpl.decorators = [
+        { type: Injectable },
+    ];
+    /** @nocollapse */
+    ResourceLoaderImpl.ctorParameters = function () { return []; };
     return ResourceLoaderImpl;
 }(ResourceLoader));
-ResourceLoaderImpl.decorators = [
-    { type: Injectable },
-];
-/** @nocollapse */
-ResourceLoaderImpl.ctorParameters = function () { return []; };
 
 /**
  * @fileoverview added by tsickle
@@ -544,7 +613,7 @@ var CachedResourceLoader = (function (_super) {
     __extends(CachedResourceLoader, _super);
     function CachedResourceLoader() {
         var _this = _super.call(this) || this;
-        _this._cache = ((ɵglobal)).$templateCache;
+        _this._cache = (/** @type {?} */ (ɵglobal)).$templateCache;
         if (_this._cache == null) {
             throw new Error('CachedResourceLoader: Template cache was not found in $templateCache.');
         }
@@ -554,12 +623,16 @@ var CachedResourceLoader = (function (_super) {
      * @param {?} url
      * @return {?}
      */
-    CachedResourceLoader.prototype.get = function (url) {
+    CachedResourceLoader.prototype.get = /**
+     * @param {?} url
+     * @return {?}
+     */
+    function (url) {
         if (this._cache.hasOwnProperty(url)) {
             return Promise.resolve(this._cache[url]);
         }
         else {
-            return (Promise.reject('CachedResourceLoader: Did not find cached template for ' + url));
+            return /** @type {?} */ (Promise.reject('CachedResourceLoader: Did not find cached template for ' + url));
         }
     };
     return CachedResourceLoader;
@@ -596,7 +669,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new Version('5.0.0-beta.6-112e777');
+var VERSION = new Version('5.0.0-beta.6-ca5aeba');
 
 /**
  * @fileoverview added by tsickle

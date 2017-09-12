@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.6-112e777
+ * @license Angular v5.0.0-beta.6-ca5aeba
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -31,14 +31,14 @@ class DOMTestComponentRenderer extends TestComponentRenderer {
      */
     constructor(_doc /** TODO #9100 */) {
         super();
-        this._doc = _doc; /** TODO #9100 */
+        this._doc = _doc;
     }
     /**
      * @param {?} rootElId
      * @return {?}
      */
     insertRootElement(rootElId) {
-        const /** @type {?} */ rootEl = (ɵgetDOM().firstChild(ɵgetDOM().content(ɵgetDOM().createTemplate(`<div id="${rootElId}"></div>`))));
+        const /** @type {?} */ rootEl = /** @type {?} */ (ɵgetDOM().firstChild(ɵgetDOM().content(ɵgetDOM().createTemplate(`<div id="${rootElId}"></div>`))));
         // TODO(juliemr): can/should this be optional?
         const /** @type {?} */ oldRoots = ɵgetDOM().querySelectorAll(this._doc, '[id^=root]');
         for (let /** @type {?} */ i = 0; i < oldRoots.length; i++) {
@@ -83,7 +83,7 @@ class MetadataOverrider {
     overrideMetadata(metadataClass, oldMetadata, override) {
         const /** @type {?} */ props = {};
         if (oldMetadata) {
-            _valueProps(oldMetadata).forEach((prop) => props[prop] = ((oldMetadata))[prop]);
+            _valueProps(oldMetadata).forEach((prop) => props[prop] = (/** @type {?} */ (oldMetadata))[prop]);
         }
         if (override.set) {
             if (override.remove || override.add) {
@@ -242,7 +242,7 @@ class TestingCompilerFactoryImpl {
      * @return {?}
      */
     createTestingCompiler(options) {
-        const /** @type {?} */ compiler = (this._compilerFactory.createCompiler(options));
+        const /** @type {?} */ compiler = /** @type {?} */ (this._compilerFactory.createCompiler(options));
         return new TestingCompilerImpl(compiler, compiler.injector.get(MockDirectiveResolver), compiler.injector.get(MockPipeResolver), compiler.injector.get(MockNgModuleResolver));
     }
 }
@@ -382,7 +382,7 @@ class TestingCompilerImpl {
      * @param {?} error
      * @return {?}
      */
-    getComponentFromError(error) { return ((error))[ERROR_COMPONENT_TYPE] || null; }
+    getComponentFromError(error) { return (/** @type {?} */ (error))[ERROR_COMPONENT_TYPE] || null; }
 }
 
 /**
