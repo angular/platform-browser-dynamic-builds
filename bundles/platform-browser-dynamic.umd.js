@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.7-4695c69
+ * @license Angular v5.0.0-beta.7-b6431c6
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.0.0-beta.7-4695c69
+ * @license Angular v5.0.0-beta.7-b6431c6
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -220,10 +220,10 @@ var _NO_RESOURCE_LOADER = {
 };
 var baseHtmlParser = new _angular_core.InjectionToken('HtmlParser');
 var CompilerImpl = (function () {
-    function CompilerImpl(_injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
+    function CompilerImpl(_injector, _metadataResolver, htmlParser, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
         this._injector = _injector;
         this._metadataResolver = _metadataResolver;
-        this._delegate = new _angular_compiler.JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
+        this._delegate = new _angular_compiler.JitCompiler(_metadataResolver, htmlParser, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
     }
     Object.defineProperty(CompilerImpl.prototype, "injector", {
         get: /**
@@ -420,7 +420,7 @@ var COMPILER_PROVIDERS = /** @type {?} */ ([
     { provide: _angular_compiler.NgModuleCompiler, deps: [_angular_compiler.CompileReflector] },
     { provide: _angular_compiler.CompilerConfig, useValue: new _angular_compiler.CompilerConfig() },
     { provide: _angular_core.Compiler, useClass: CompilerImpl, deps: [_angular_core.Injector, _angular_compiler.CompileMetadataResolver,
-            _angular_compiler.TemplateParser, _angular_compiler.StyleCompiler,
+            _angular_compiler.HtmlParser, _angular_compiler.TemplateParser, _angular_compiler.StyleCompiler,
             _angular_compiler.ViewCompiler, _angular_compiler.NgModuleCompiler,
             _angular_compiler.SummaryResolver, _angular_compiler.CompileReflector, _angular_compiler.CompilerConfig,
             _angular_core.ɵConsole] },
@@ -700,7 +700,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.0.0-beta.7-4695c69');
+var VERSION = new _angular_core.Version('5.0.0-beta.7-b6431c6');
 
 /**
  * @fileoverview added by tsickle

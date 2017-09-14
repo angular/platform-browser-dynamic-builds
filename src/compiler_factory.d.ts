@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { Compiler, CompilerFactory, ComponentFactory, CompilerOptions, ModuleWithComponentFactories, InjectionToken, StaticProvider, Type, ɵConsole as Console, Injector, NgModuleFactory } from '@angular/core';
-import { ViewCompiler, CompileMetadataResolver, TemplateParser, NgModuleCompiler, SummaryResolver, StyleCompiler, CompileReflector, CompilerConfig } from '@angular/compiler';
+import { ViewCompiler, CompileMetadataResolver, TemplateParser, NgModuleCompiler, SummaryResolver, StyleCompiler, HtmlParser, CompileReflector, CompilerConfig } from '@angular/compiler';
 export declare const ERROR_COLLECTOR_TOKEN: InjectionToken<{}>;
 /**
  * A default provider for {@link PACKAGE_ROOT_URL} that maps to '/'.
@@ -19,7 +19,7 @@ export declare class CompilerImpl implements Compiler {
     private _injector;
     private _metadataResolver;
     private _delegate;
-    constructor(_injector: Injector, _metadataResolver: CompileMetadataResolver, templateParser: TemplateParser, styleCompiler: StyleCompiler, viewCompiler: ViewCompiler, ngModuleCompiler: NgModuleCompiler, summaryResolver: SummaryResolver<Type<any>>, compileReflector: CompileReflector, compilerConfig: CompilerConfig, console: Console);
+    constructor(_injector: Injector, _metadataResolver: CompileMetadataResolver, htmlParser: HtmlParser, templateParser: TemplateParser, styleCompiler: StyleCompiler, viewCompiler: ViewCompiler, ngModuleCompiler: NgModuleCompiler, summaryResolver: SummaryResolver<Type<any>>, compileReflector: CompileReflector, compilerConfig: CompilerConfig, console: Console);
     readonly injector: Injector;
     private getExtraNgModuleProviders();
     compileModuleSync<T>(moduleType: Type<T>): NgModuleFactory<T>;

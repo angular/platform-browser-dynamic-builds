@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.7-4695c69
+ * @license Angular v5.0.0-beta.7-b6431c6
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -164,6 +164,7 @@ class CompilerImpl {
     /**
      * @param {?} _injector
      * @param {?} _metadataResolver
+     * @param {?} htmlParser
      * @param {?} templateParser
      * @param {?} styleCompiler
      * @param {?} viewCompiler
@@ -173,10 +174,10 @@ class CompilerImpl {
      * @param {?} compilerConfig
      * @param {?} console
      */
-    constructor(_injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
+    constructor(_injector, _metadataResolver, htmlParser, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
         this._injector = _injector;
         this._metadataResolver = _metadataResolver;
-        this._delegate = new JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
+        this._delegate = new JitCompiler(_metadataResolver, htmlParser, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
     }
     /**
      * @return {?}
@@ -319,7 +320,7 @@ const COMPILER_PROVIDERS = /** @type {?} */ ([
     { provide: NgModuleCompiler, deps: [CompileReflector] },
     { provide: CompilerConfig, useValue: new CompilerConfig() },
     { provide: Compiler, useClass: CompilerImpl, deps: [Injector, CompileMetadataResolver,
-            TemplateParser, StyleCompiler,
+            HtmlParser, TemplateParser, StyleCompiler,
             ViewCompiler, NgModuleCompiler,
             SummaryResolver, CompileReflector, CompilerConfig,
             ɵConsole] },
@@ -580,7 +581,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * \@stable
  */
-const VERSION = new Version('5.0.0-beta.7-4695c69');
+const VERSION = new Version('5.0.0-beta.7-b6431c6');
 
 /**
  * @fileoverview added by tsickle
