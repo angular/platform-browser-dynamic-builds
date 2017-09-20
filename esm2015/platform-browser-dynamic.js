@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.7-5751865
+ * @license Angular v5.0.0-beta.7-b14c2d1
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -162,7 +162,7 @@ const _NO_RESOURCE_LOADER = {
 const baseHtmlParser = new InjectionToken('HtmlParser');
 class CompilerImpl {
     /**
-     * @param {?} _injector
+     * @param {?} injector
      * @param {?} _metadataResolver
      * @param {?} templateParser
      * @param {?} styleCompiler
@@ -173,15 +173,11 @@ class CompilerImpl {
      * @param {?} compilerConfig
      * @param {?} console
      */
-    constructor(_injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
-        this._injector = _injector;
+    constructor(injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
         this._metadataResolver = _metadataResolver;
         this._delegate = new JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
+        this.injector = injector;
     }
-    /**
-     * @return {?}
-     */
-    get injector() { return this._injector; }
     /**
      * @return {?}
      */
@@ -580,7 +576,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * \@stable
  */
-const VERSION = new Version('5.0.0-beta.7-5751865');
+const VERSION = new Version('5.0.0-beta.7-b14c2d1');
 
 /**
  * @fileoverview added by tsickle

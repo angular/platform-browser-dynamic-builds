@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.7-5751865
+ * @license Angular v5.0.0-beta.7-b14c2d1
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -189,19 +189,11 @@ var _NO_RESOURCE_LOADER = {
 };
 var baseHtmlParser = new InjectionToken('HtmlParser');
 var CompilerImpl = (function () {
-    function CompilerImpl(_injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
-        this._injector = _injector;
+    function CompilerImpl(injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
         this._metadataResolver = _metadataResolver;
         this._delegate = new JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
+        this.injector = injector;
     }
-    Object.defineProperty(CompilerImpl.prototype, "injector", {
-        get: /**
-         * @return {?}
-         */
-        function () { return this._injector; },
-        enumerable: true,
-        configurable: true
-    });
     /**
      * @return {?}
      */
@@ -669,7 +661,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new Version('5.0.0-beta.7-5751865');
+var VERSION = new Version('5.0.0-beta.7-b14c2d1');
 
 /**
  * @fileoverview added by tsickle

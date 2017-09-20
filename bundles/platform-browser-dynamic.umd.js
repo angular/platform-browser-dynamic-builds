@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.7-5751865
+ * @license Angular v5.0.0-beta.7-b14c2d1
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.0.0-beta.7-5751865
+ * @license Angular v5.0.0-beta.7-b14c2d1
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -220,19 +220,11 @@ var _NO_RESOURCE_LOADER = {
 };
 var baseHtmlParser = new _angular_core.InjectionToken('HtmlParser');
 var CompilerImpl = (function () {
-    function CompilerImpl(_injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
-        this._injector = _injector;
+    function CompilerImpl(injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
         this._metadataResolver = _metadataResolver;
         this._delegate = new _angular_compiler.JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
+        this.injector = injector;
     }
-    Object.defineProperty(CompilerImpl.prototype, "injector", {
-        get: /**
-         * @return {?}
-         */
-        function () { return this._injector; },
-        enumerable: true,
-        configurable: true
-    });
     /**
      * @return {?}
      */
@@ -700,7 +692,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.0.0-beta.7-5751865');
+var VERSION = new _angular_core.Version('5.0.0-beta.7-b14c2d1');
 
 /**
  * @fileoverview added by tsickle

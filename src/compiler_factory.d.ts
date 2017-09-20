@@ -16,11 +16,10 @@ export declare const DEFAULT_PACKAGE_URL_PROVIDER: {
     useValue: string;
 };
 export declare class CompilerImpl implements Compiler {
-    private _injector;
     private _metadataResolver;
     private _delegate;
-    constructor(_injector: Injector, _metadataResolver: CompileMetadataResolver, templateParser: TemplateParser, styleCompiler: StyleCompiler, viewCompiler: ViewCompiler, ngModuleCompiler: NgModuleCompiler, summaryResolver: SummaryResolver<Type<any>>, compileReflector: CompileReflector, compilerConfig: CompilerConfig, console: Console);
     readonly injector: Injector;
+    constructor(injector: Injector, _metadataResolver: CompileMetadataResolver, templateParser: TemplateParser, styleCompiler: StyleCompiler, viewCompiler: ViewCompiler, ngModuleCompiler: NgModuleCompiler, summaryResolver: SummaryResolver<Type<any>>, compileReflector: CompileReflector, compilerConfig: CompilerConfig, console: Console);
     private getExtraNgModuleProviders();
     compileModuleSync<T>(moduleType: Type<T>): NgModuleFactory<T>;
     compileModuleAsync<T>(moduleType: Type<T>): Promise<NgModuleFactory<T>>;
