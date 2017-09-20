@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.7-b14c2d1
+ * @license Angular v5.0.0-beta.7-2c4107c
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -377,7 +377,7 @@ var COMPILER_PROVIDERS = /** @type {?} */ ([
             [Optional, ERROR_COLLECTOR_TOKEN]] },
     DEFAULT_PACKAGE_URL_PROVIDER,
     { provide: StyleCompiler, deps: [UrlResolver] },
-    { provide: ViewCompiler, deps: [CompilerConfig, CompileReflector, ElementSchemaRegistry] },
+    { provide: ViewCompiler, deps: [CompileReflector] },
     { provide: NgModuleCompiler, deps: [CompileReflector] },
     { provide: CompilerConfig, useValue: new CompilerConfig() },
     { provide: Compiler, useClass: CompilerImpl, deps: [Injector, CompileMetadataResolver,
@@ -661,7 +661,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new Version('5.0.0-beta.7-b14c2d1');
+var VERSION = new Version('5.0.0-beta.7-2c4107c');
 
 /**
  * @fileoverview added by tsickle

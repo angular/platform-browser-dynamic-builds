@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.7-b14c2d1
+ * @license Angular v5.0.0-beta.7-2c4107c
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.0.0-beta.7-b14c2d1
+ * @license Angular v5.0.0-beta.7-2c4107c
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -408,7 +408,7 @@ var COMPILER_PROVIDERS = /** @type {?} */ ([
             [_angular_core.Optional, ERROR_COLLECTOR_TOKEN]] },
     DEFAULT_PACKAGE_URL_PROVIDER,
     { provide: _angular_compiler.StyleCompiler, deps: [_angular_compiler.UrlResolver] },
-    { provide: _angular_compiler.ViewCompiler, deps: [_angular_compiler.CompilerConfig, _angular_compiler.CompileReflector, _angular_compiler.ElementSchemaRegistry] },
+    { provide: _angular_compiler.ViewCompiler, deps: [_angular_compiler.CompileReflector] },
     { provide: _angular_compiler.NgModuleCompiler, deps: [_angular_compiler.CompileReflector] },
     { provide: _angular_compiler.CompilerConfig, useValue: new _angular_compiler.CompilerConfig() },
     { provide: _angular_core.Compiler, useClass: CompilerImpl, deps: [_angular_core.Injector, _angular_compiler.CompileMetadataResolver,
@@ -692,7 +692,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.0.0-beta.7-b14c2d1');
+var VERSION = new _angular_core.Version('5.0.0-beta.7-2c4107c');
 
 /**
  * @fileoverview added by tsickle
