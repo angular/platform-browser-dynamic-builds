@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.7-9d2236a
+ * @license Angular v5.0.0-beta.7-5751865
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -164,7 +164,6 @@ class CompilerImpl {
     /**
      * @param {?} _injector
      * @param {?} _metadataResolver
-     * @param {?} htmlParser
      * @param {?} templateParser
      * @param {?} styleCompiler
      * @param {?} viewCompiler
@@ -174,10 +173,10 @@ class CompilerImpl {
      * @param {?} compilerConfig
      * @param {?} console
      */
-    constructor(_injector, _metadataResolver, htmlParser, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
+    constructor(_injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
         this._injector = _injector;
         this._metadataResolver = _metadataResolver;
-        this._delegate = new JitCompiler(_metadataResolver, htmlParser, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
+        this._delegate = new JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
     }
     /**
      * @return {?}
@@ -306,7 +305,7 @@ const COMPILER_PROVIDERS = /** @type {?} */ ([
             I18NHtmlParser, ɵConsole]
     },
     { provide: DirectiveNormalizer, deps: [ResourceLoader, UrlResolver, HtmlParser, CompilerConfig] },
-    { provide: CompileMetadataResolver, deps: [CompilerConfig, NgModuleResolver,
+    { provide: CompileMetadataResolver, deps: [CompilerConfig, HtmlParser, NgModuleResolver,
             DirectiveResolver, PipeResolver,
             SummaryResolver,
             ElementSchemaRegistry,
@@ -320,7 +319,7 @@ const COMPILER_PROVIDERS = /** @type {?} */ ([
     { provide: NgModuleCompiler, deps: [CompileReflector] },
     { provide: CompilerConfig, useValue: new CompilerConfig() },
     { provide: Compiler, useClass: CompilerImpl, deps: [Injector, CompileMetadataResolver,
-            HtmlParser, TemplateParser, StyleCompiler,
+            TemplateParser, StyleCompiler,
             ViewCompiler, NgModuleCompiler,
             SummaryResolver, CompileReflector, CompilerConfig,
             ɵConsole] },
@@ -581,7 +580,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * \@stable
  */
-const VERSION = new Version('5.0.0-beta.7-9d2236a');
+const VERSION = new Version('5.0.0-beta.7-5751865');
 
 /**
  * @fileoverview added by tsickle
@@ -631,4 +630,4 @@ const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'brows
  */
 
 export { VERSION, RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, CompilerImpl as ɵCompilerImpl, platformCoreDynamic as ɵplatformCoreDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl, JitCompilerFactory as ɵa, CachedResourceLoader as ɵb };
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=platform-browser-dynamic.js.map
