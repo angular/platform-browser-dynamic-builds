@@ -25,7 +25,6 @@ export declare class CompilerImpl implements Compiler {
     compileModuleAsync<T>(moduleType: Type<T>): Promise<NgModuleFactory<T>>;
     compileModuleAndAllComponentsSync<T>(moduleType: Type<T>): ModuleWithComponentFactories<T>;
     compileModuleAndAllComponentsAsync<T>(moduleType: Type<T>): Promise<ModuleWithComponentFactories<T>>;
-    getNgContentSelectors(component: Type<any>): string[];
     loadAotSummaries(summaries: () => any[]): void;
     hasAotSummary(ref: Type<any>): boolean;
     getComponentFactory<T>(component: Type<T>): ComponentFactory<T>;

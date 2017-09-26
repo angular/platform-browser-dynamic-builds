@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.7-2cf52c1
+ * @license Angular v5.0.0-beta.7-f57b7df
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.0.0-beta.7-2cf52c1
+ * @license Angular v5.0.0-beta.7-f57b7df
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -367,17 +367,6 @@ var TestingCompilerImpl = (function () {
      */
     function (moduleType) {
         return this._compiler.compileModuleAndAllComponentsAsync(moduleType);
-    };
-    /**
-     * @param {?} component
-     * @return {?}
-     */
-    TestingCompilerImpl.prototype.getNgContentSelectors = /**
-     * @param {?} component
-     * @return {?}
-     */
-    function (component) {
-        return this._compiler.getNgContentSelectors(component);
     };
     /**
      * @template T

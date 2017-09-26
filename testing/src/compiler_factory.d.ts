@@ -21,7 +21,6 @@ export declare class TestingCompilerImpl implements TestingCompiler {
     compileModuleAsync<T>(moduleType: Type<T>): Promise<NgModuleFactory<T>>;
     compileModuleAndAllComponentsSync<T>(moduleType: Type<T>): ModuleWithComponentFactories<T>;
     compileModuleAndAllComponentsAsync<T>(moduleType: Type<T>): Promise<ModuleWithComponentFactories<T>>;
-    getNgContentSelectors(component: Type<any>): string[];
     getComponentFactory<T>(component: Type<T>): ComponentFactory<T>;
     checkOverrideAllowed(type: Type<any>): void;
     overrideModule(ngModule: Type<any>, override: MetadataOverride<NgModule>): void;

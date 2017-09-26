@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.7-2cf52c1
+ * @license Angular v5.0.0-beta.7-f57b7df
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -223,13 +223,6 @@ class CompilerImpl {
             ngModuleFactory: /** @type {?} */ (result.ngModuleFactory),
             componentFactories: /** @type {?} */ (result.componentFactories),
         }));
-    }
-    /**
-     * @param {?} component
-     * @return {?}
-     */
-    getNgContentSelectors(component) {
-        return this._delegate.getNgContentSelectors(component);
     }
     /**
      * @param {?} summaries
@@ -576,7 +569,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * \@stable
  */
-const VERSION = new Version('5.0.0-beta.7-2cf52c1');
+const VERSION = new Version('5.0.0-beta.7-f57b7df');
 
 /**
  * @fileoverview added by tsickle

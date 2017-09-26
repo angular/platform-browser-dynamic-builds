@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.0.0-beta.7-2cf52c1
+ * @license Angular v5.0.0-beta.7-f57b7df
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.0.0-beta.7-2cf52c1
+ * @license Angular v5.0.0-beta.7-f57b7df
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -295,17 +295,6 @@ var CompilerImpl = (function () {
                 componentFactories: /** @type {?} */ (result.componentFactories),
             });
         });
-    };
-    /**
-     * @param {?} component
-     * @return {?}
-     */
-    CompilerImpl.prototype.getNgContentSelectors = /**
-     * @param {?} component
-     * @return {?}
-     */
-    function (component) {
-        return this._delegate.getNgContentSelectors(component);
     };
     /**
      * @param {?} summaries
@@ -692,7 +681,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.0.0-beta.7-2cf52c1');
+var VERSION = new _angular_core.Version('5.0.0-beta.7-f57b7df');
 
 /**
  * @fileoverview added by tsickle
