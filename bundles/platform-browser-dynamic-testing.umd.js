@@ -1,11 +1,11 @@
 /**
- * @license Angular v5.0.0-beta.7-5406a49
+ * @license Angular v5.0.0-beta.7-82e4923
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/core/testing'), require('@angular/platform-browser-dynamic'), require('@angular/platform-browser/testing'), require('@angular/platform-browser'), require('@angular/compiler'), require('@angular/compiler/testing')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/core/testing', '@angular/platform-browser-dynamic', '@angular/platform-browser/testing', '@angular/platform-browser', '@angular/compiler', '@angular/compiler/testing'], factory) :
+	typeof define === 'function' && define.amd ? define('@angular/platform-browser-dynamic/testing', ['exports', '@angular/core', '@angular/core/testing', '@angular/platform-browser-dynamic', '@angular/platform-browser/testing', '@angular/platform-browser', '@angular/compiler', '@angular/compiler/testing'], factory) :
 	(factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}, global.ng.platformBrowserDynamic.testing = {}),global.ng.core,global.ng.core.testing,global.ng.platformBrowserDynamic,global.ng.platformBrowser.testing,global.ng.platformBrowser,global.ng.compiler,global.ng.compiler.testing));
 }(this, (function (exports,_angular_core,_angular_core_testing,_angular_platformBrowserDynamic,_angular_platformBrowser_testing,_angular_platformBrowser,_angular_compiler,_angular_compiler_testing) { 'use strict';
 
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.0.0-beta.7-5406a49
+ * @license Angular v5.0.0-beta.7-82e4923
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */

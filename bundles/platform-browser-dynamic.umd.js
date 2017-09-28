@@ -1,11 +1,11 @@
 /**
- * @license Angular v5.0.0-beta.7-5406a49
+ * @license Angular v5.0.0-beta.7-82e4923
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/compiler'), require('@angular/core'), require('@angular/common'), require('@angular/platform-browser')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/compiler', '@angular/core', '@angular/common', '@angular/platform-browser'], factory) :
+	typeof define === 'function' && define.amd ? define('@angular/platform-browser-dynamic', ['exports', '@angular/compiler', '@angular/core', '@angular/common', '@angular/platform-browser'], factory) :
 	(factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = {}),global.ng.compiler,global.ng.core,global.ng.common,global.ng.platformBrowser));
 }(this, (function (exports,_angular_compiler,_angular_core,_angular_common,_angular_platformBrowser) { 'use strict';
 
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.0.0-beta.7-5406a49
+ * @license Angular v5.0.0-beta.7-82e4923
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -681,7 +681,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.0.0-beta.7-5406a49');
+var VERSION = new _angular_core.Version('5.0.0-beta.7-82e4923');
 
 /**
  * @fileoverview added by tsickle
