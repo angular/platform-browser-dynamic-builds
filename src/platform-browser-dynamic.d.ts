@@ -1,6 +1,7 @@
 import { PlatformRef, Provider, StaticProvider } from '@angular/core';
 export * from './private_export';
 export { VERSION } from './version';
+export { JitCompilerFactory } from './compiler_factory';
 /**
  * @experimental
  */

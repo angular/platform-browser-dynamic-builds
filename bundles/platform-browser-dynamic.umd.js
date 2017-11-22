@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.1.0-beta.1-ac93f12
+ * @license Angular v5.1.0-beta.1-a0819d3
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.1.0-beta.1-ac93f12
+ * @license Angular v5.1.0-beta.1-a0819d3
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -412,7 +412,11 @@ var COMPILER_PROVIDERS = /** @type {?} */ ([
     { provide: _angular_compiler.PipeResolver, deps: [_angular_compiler.CompileReflector] },
     { provide: _angular_compiler.NgModuleResolver, deps: [_angular_compiler.CompileReflector] },
 ]);
+/**
+ * \@experimental
+ */
 var JitCompilerFactory = /** @class */ (function () {
+    /* @internal */
     function JitCompilerFactory(defaultOptions) {
         var /** @type {?} */ compilerOptions = {
             useJit: true,
@@ -681,7 +685,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.1.0-beta.1-ac93f12');
+var VERSION = new _angular_core.Version('5.1.0-beta.1-a0819d3');
 
 /**
  * @fileoverview added by tsickle
@@ -704,14 +708,14 @@ var RESOURCE_CACHE_PROVIDER = [{ provide: _angular_compiler.ResourceLoader, useC
 var platformBrowserDynamic = _angular_core.createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 
 exports.VERSION = VERSION;
+exports.JitCompilerFactory = JitCompilerFactory;
 exports.RESOURCE_CACHE_PROVIDER = RESOURCE_CACHE_PROVIDER;
 exports.platformBrowserDynamic = platformBrowserDynamic;
 exports.ɵCompilerImpl = CompilerImpl;
 exports.ɵplatformCoreDynamic = platformCoreDynamic;
 exports.ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS;
 exports.ɵResourceLoaderImpl = ResourceLoaderImpl;
-exports.ɵa = JitCompilerFactory;
-exports.ɵb = CachedResourceLoader;
+exports.ɵa = CachedResourceLoader;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 

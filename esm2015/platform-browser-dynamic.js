@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.1.0-beta.1-ac93f12
+ * @license Angular v5.1.0-beta.1-a0819d3
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -319,6 +319,9 @@ const COMPILER_PROVIDERS = /** @type {?} */ ([
     { provide: PipeResolver, deps: [CompileReflector] },
     { provide: NgModuleResolver, deps: [CompileReflector] },
 ]);
+/**
+ * \@experimental
+ */
 class JitCompilerFactory {
     /**
      * @param {?} defaultOptions
@@ -569,7 +572,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * \@stable
  */
-const VERSION = new Version('5.1.0-beta.1-ac93f12');
+const VERSION = new Version('5.1.0-beta.1-a0819d3');
 
 /**
  * @fileoverview added by tsickle
@@ -618,5 +621,5 @@ const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'brows
  * Generated bundle index. Do not edit.
  */
 
-export { VERSION, RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, CompilerImpl as ɵCompilerImpl, platformCoreDynamic as ɵplatformCoreDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl, JitCompilerFactory as ɵa, CachedResourceLoader as ɵb };
+export { VERSION, JitCompilerFactory, RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, CompilerImpl as ɵCompilerImpl, platformCoreDynamic as ɵplatformCoreDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl, CachedResourceLoader as ɵa };
 //# sourceMappingURL=platform-browser-dynamic.js.map
