@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.1.0-rc.1-7e7ff2e
+ * @license Angular v5.1.0-rc.1-6911a25
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -654,7 +654,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new Version('5.1.0-rc.1-7e7ff2e');
+var VERSION = new Version('5.1.0-rc.1-6911a25');
 
 /**
  * @fileoverview added by tsickle
