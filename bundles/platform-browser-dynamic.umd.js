@@ -1,11 +1,11 @@
 /**
- * @license Angular v5.0.0-beta.7-3215c4b
+ * @license Angular v5.1.0-5a0076f
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/compiler'), require('@angular/core'), require('@angular/common'), require('@angular/platform-browser')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/compiler', '@angular/core', '@angular/common', '@angular/platform-browser'], factory) :
+	typeof define === 'function' && define.amd ? define('@angular/platform-browser-dynamic', ['exports', '@angular/compiler', '@angular/core', '@angular/common', '@angular/platform-browser'], factory) :
 	(factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = {}),global.ng.compiler,global.ng.core,global.ng.common,global.ng.platformBrowser));
 }(this, (function (exports,_angular_compiler,_angular_core,_angular_common,_angular_platformBrowser) { 'use strict';
 
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.0.0-beta.7-3215c4b
+ * @license Angular v5.1.0-5a0076f
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -53,7 +53,7 @@ function __extends(d, b) {
  */
 var MODULE_SUFFIX = '';
 var builtinExternalReferences = createBuiltinExternalReferencesMap();
-var JitReflector = (function () {
+var JitReflector = /** @class */ (function () {
     function JitReflector() {
         this.builtinExternalReferences = new Map();
         this.reflectionCapabilities = new _angular_core.ɵReflectionCapabilities();
@@ -219,20 +219,12 @@ var _NO_RESOURCE_LOADER = {
     }
 };
 var baseHtmlParser = new _angular_core.InjectionToken('HtmlParser');
-var CompilerImpl = (function () {
-    function CompilerImpl(_injector, _metadataResolver, htmlParser, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
-        this._injector = _injector;
+var CompilerImpl = /** @class */ (function () {
+    function CompilerImpl(injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
         this._metadataResolver = _metadataResolver;
-        this._delegate = new _angular_compiler.JitCompiler(_metadataResolver, htmlParser, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
+        this._delegate = new _angular_compiler.JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
+        this.injector = injector;
     }
-    Object.defineProperty(CompilerImpl.prototype, "injector", {
-        get: /**
-         * @return {?}
-         */
-        function () { return this._injector; },
-        enumerable: true,
-        configurable: true
-    });
     /**
      * @return {?}
      */
@@ -303,17 +295,6 @@ var CompilerImpl = (function () {
                 componentFactories: /** @type {?} */ (result.componentFactories),
             });
         });
-    };
-    /**
-     * @param {?} component
-     * @return {?}
-     */
-    CompilerImpl.prototype.getNgContentSelectors = /**
-     * @param {?} component
-     * @return {?}
-     */
-    function (component) {
-        return this._delegate.getNgContentSelectors(component);
     };
     /**
      * @param {?} summaries
@@ -406,7 +387,7 @@ var COMPILER_PROVIDERS = /** @type {?} */ ([
             _angular_compiler.I18NHtmlParser, _angular_core.ɵConsole]
     },
     { provide: _angular_compiler.DirectiveNormalizer, deps: [_angular_compiler.ResourceLoader, _angular_compiler.UrlResolver, _angular_compiler.HtmlParser, _angular_compiler.CompilerConfig] },
-    { provide: _angular_compiler.CompileMetadataResolver, deps: [_angular_compiler.CompilerConfig, _angular_compiler.NgModuleResolver,
+    { provide: _angular_compiler.CompileMetadataResolver, deps: [_angular_compiler.CompilerConfig, _angular_compiler.HtmlParser, _angular_compiler.NgModuleResolver,
             _angular_compiler.DirectiveResolver, _angular_compiler.PipeResolver,
             _angular_compiler.SummaryResolver,
             _angular_compiler.ElementSchemaRegistry,
@@ -416,11 +397,11 @@ var COMPILER_PROVIDERS = /** @type {?} */ ([
             [_angular_core.Optional, ERROR_COLLECTOR_TOKEN]] },
     DEFAULT_PACKAGE_URL_PROVIDER,
     { provide: _angular_compiler.StyleCompiler, deps: [_angular_compiler.UrlResolver] },
-    { provide: _angular_compiler.ViewCompiler, deps: [_angular_compiler.CompilerConfig, _angular_compiler.CompileReflector, _angular_compiler.ElementSchemaRegistry] },
+    { provide: _angular_compiler.ViewCompiler, deps: [_angular_compiler.CompileReflector] },
     { provide: _angular_compiler.NgModuleCompiler, deps: [_angular_compiler.CompileReflector] },
     { provide: _angular_compiler.CompilerConfig, useValue: new _angular_compiler.CompilerConfig() },
     { provide: _angular_core.Compiler, useClass: CompilerImpl, deps: [_angular_core.Injector, _angular_compiler.CompileMetadataResolver,
-            _angular_compiler.HtmlParser, _angular_compiler.TemplateParser, _angular_compiler.StyleCompiler,
+            _angular_compiler.TemplateParser, _angular_compiler.StyleCompiler,
             _angular_compiler.ViewCompiler, _angular_compiler.NgModuleCompiler,
             _angular_compiler.SummaryResolver, _angular_compiler.CompileReflector, _angular_compiler.CompilerConfig,
             _angular_core.ɵConsole] },
@@ -431,7 +412,11 @@ var COMPILER_PROVIDERS = /** @type {?} */ ([
     { provide: _angular_compiler.PipeResolver, deps: [_angular_compiler.CompileReflector] },
     { provide: _angular_compiler.NgModuleResolver, deps: [_angular_compiler.CompileReflector] },
 ]);
-var JitCompilerFactory = (function () {
+/**
+ * \@experimental
+ */
+var JitCompilerFactory = /** @class */ (function () {
+    /* @internal */
     function JitCompilerFactory(defaultOptions) {
         var /** @type {?} */ compilerOptions = {
             useJit: true,
@@ -485,7 +470,7 @@ function _mergeOptions(optionsArr) {
     return {
         useJit: _lastDefined(optionsArr.map(function (options) { return options.useJit; })),
         defaultEncapsulation: _lastDefined(optionsArr.map(function (options) { return options.defaultEncapsulation; })),
-        providers: _mergeArrays(optionsArr.map(function (options) { return /** @type {?} */ ((options.providers)); })),
+        providers: _mergeArrays(optionsArr.map(function (options) { return ((options.providers)); })),
         missingTranslation: _lastDefined(optionsArr.map(function (options) { return options.missingTranslation; })),
         enableLegacyTemplate: _lastDefined(optionsArr.map(function (options) { return options.enableLegacyTemplate; })),
         preserveWhitespaces: _lastDefined(optionsArr.map(function (options) { return options.preserveWhitespaces; })),
@@ -546,7 +531,7 @@ var platformCoreDynamic = _angular_core.createPlatformFactory(_angular_core.plat
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var ResourceLoaderImpl = (function (_super) {
+var ResourceLoaderImpl = /** @class */ (function (_super) {
     __extends(ResourceLoaderImpl, _super);
     function ResourceLoaderImpl() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -640,7 +625,7 @@ var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
  * The template cache needs to be built and loaded into window.$templateCache
  * via a separate mechanism.
  */
-var CachedResourceLoader = (function (_super) {
+var CachedResourceLoader = /** @class */ (function (_super) {
     __extends(CachedResourceLoader, _super);
     function CachedResourceLoader() {
         var _this = _super.call(this) || this;
@@ -700,7 +685,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.0.0-beta.7-3215c4b');
+var VERSION = new _angular_core.Version('5.1.0-5a0076f');
 
 /**
  * @fileoverview added by tsickle
@@ -723,14 +708,14 @@ var RESOURCE_CACHE_PROVIDER = [{ provide: _angular_compiler.ResourceLoader, useC
 var platformBrowserDynamic = _angular_core.createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 
 exports.VERSION = VERSION;
+exports.JitCompilerFactory = JitCompilerFactory;
 exports.RESOURCE_CACHE_PROVIDER = RESOURCE_CACHE_PROVIDER;
 exports.platformBrowserDynamic = platformBrowserDynamic;
 exports.ɵCompilerImpl = CompilerImpl;
 exports.ɵplatformCoreDynamic = platformCoreDynamic;
 exports.ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS;
 exports.ɵResourceLoaderImpl = ResourceLoaderImpl;
-exports.ɵa = JitCompilerFactory;
-exports.ɵb = CachedResourceLoader;
+exports.ɵa = CachedResourceLoader;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
