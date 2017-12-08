@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.1.0-ddada6e
+ * @license Angular v5.1.0-3ce3b4d
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.1.0-ddada6e
+ * @license Angular v5.1.0-3ce3b4d
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -126,6 +126,15 @@ var JitReflector = /** @class */ (function () {
     function (type, lcProperty) {
         return this.reflectionCapabilities.hasLifecycleHook(type, lcProperty);
     };
+    /**
+     * @param {?} type
+     * @return {?}
+     */
+    JitReflector.prototype.guards = /**
+     * @param {?} type
+     * @return {?}
+     */
+    function (type) { return this.reflectionCapabilities.guards(type); };
     /**
      * @param {?} ref
      * @return {?}
@@ -685,7 +694,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.1.0-ddada6e');
+var VERSION = new _angular_core.Version('5.1.0-3ce3b4d');
 
 /**
  * @fileoverview added by tsickle

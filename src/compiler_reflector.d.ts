@@ -19,5 +19,8 @@ export declare class JitReflector implements CompileReflector {
         [key: string]: any[];
     };
     hasLifecycleHook(type: any, lcProperty: string): boolean;
+    guards(type: any): {
+        [key: string]: any;
+    };
     resolveExternalReference(ref: ExternalReference): any;
 }
