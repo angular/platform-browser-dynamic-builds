@@ -1,5 +1,5 @@
 /**
- * @license Angular v5.1.3-a73b0b6
+ * @license Angular v5.1.3-0602aaa
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.1.3-a73b0b6
+ * @license Angular v5.1.3-0602aaa
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -685,7 +685,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.1.3-a73b0b6');
+var VERSION = new _angular_core.Version('5.1.3-0602aaa');
 
 /**
  * @fileoverview added by tsickle
