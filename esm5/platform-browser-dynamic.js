@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.0-beta.2-f791e9f
+ * @license Angular v6.0.0-beta.2-e81606c
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -651,7 +651,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new Version('6.0.0-beta.2-f791e9f');
+var VERSION = new Version('6.0.0-beta.2-e81606c');
 
 /**
  * @fileoverview added by tsickle
