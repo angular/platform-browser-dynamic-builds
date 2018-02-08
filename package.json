@@ -1,6 +1,6 @@
 {
   "name": "@angular/platform-browser-dynamic",
-  "version": "6.0.0-beta.3-a9545ab",
+  "version": "6.0.0-beta.3-dcf64a0",
   "description": "Angular - library for using Angular in a web browser with JIT compilation",
   "main": "./bundles/platform-browser-dynamic.umd.js",
   "module": "./esm5/platform-browser-dynamic.js",
@@ -12,10 +12,10 @@
     "tslib": "^1.7.1"
   },
   "peerDependencies": {
-    "@angular/core": "6.0.0-beta.3-a9545ab",
-    "@angular/common": "6.0.0-beta.3-a9545ab",
-    "@angular/compiler": "6.0.0-beta.3-a9545ab",
-    "@angular/platform-browser": "6.0.0-beta.3-a9545ab"
+    "@angular/core": "6.0.0-beta.3-dcf64a0",
+    "@angular/common": "6.0.0-beta.3-dcf64a0",
+    "@angular/compiler": "6.0.0-beta.3-dcf64a0",
+    "@angular/platform-browser": "6.0.0-beta.3-dcf64a0"
   },
   "repository": {
     "type": "git",
