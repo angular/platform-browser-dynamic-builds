@@ -14,6 +14,7 @@ export declare class JitReflector implements CompileReflector {
     constructor();
     componentModuleUrl(type: any, cmpMetadata: Component): string;
     parameters(typeOrFunc: any): any[][];
+    tryAnnotations(typeOrFunc: any): any[];
     annotations(typeOrFunc: any): any[];
     propMetadata(typeOrFunc: any): {
         [key: string]: any[];
