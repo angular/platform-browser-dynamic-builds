@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.0-beta.7-4e6ac18
+ * @license Angular v6.0.0-beta.7-0ebd577
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -341,7 +341,6 @@ class JitCompilerFactory {
             useJit: true,
             defaultEncapsulation: ViewEncapsulation.Emulated,
             missingTranslation: MissingTranslationStrategy.Warning,
-            enableLegacyTemplate: false,
         };
         this._defaultOptions = [compilerOptions, ...defaultOptions];
     }
@@ -364,7 +363,6 @@ class JitCompilerFactory {
                         // from the app providers
                         defaultEncapsulation: opts.defaultEncapsulation,
                         missingTranslation: opts.missingTranslation,
-                        enableLegacyTemplate: opts.enableLegacyTemplate,
                         preserveWhitespaces: opts.preserveWhitespaces,
                     });
                 },
@@ -385,7 +383,6 @@ function _mergeOptions(optionsArr) {
         defaultEncapsulation: _lastDefined(optionsArr.map(options => options.defaultEncapsulation)),
         providers: _mergeArrays(optionsArr.map(options => /** @type {?} */ ((options.providers)))),
         missingTranslation: _lastDefined(optionsArr.map(options => options.missingTranslation)),
-        enableLegacyTemplate: _lastDefined(optionsArr.map(options => options.enableLegacyTemplate)),
         preserveWhitespaces: _lastDefined(optionsArr.map(options => options.preserveWhitespaces)),
     };
 }
@@ -570,7 +567,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * \@stable
  */
-const VERSION = new Version('6.0.0-beta.7-4e6ac18');
+const VERSION = new Version('6.0.0-beta.7-0ebd577');
 
 /**
  * @fileoverview added by tsickle

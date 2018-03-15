@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.0-beta.7-4e6ac18
+ * @license Angular v6.0.0-beta.7-0ebd577
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v6.0.0-beta.7-4e6ac18
+ * @license Angular v6.0.0-beta.7-0ebd577
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -440,7 +440,6 @@ var JitCompilerFactory = /** @class */ (function () {
             useJit: true,
             defaultEncapsulation: _angular_core.ViewEncapsulation.Emulated,
             missingTranslation: _angular_core.MissingTranslationStrategy.Warning,
-            enableLegacyTemplate: false,
         };
         this._defaultOptions = [compilerOptions].concat(defaultOptions);
     }
@@ -468,7 +467,6 @@ var JitCompilerFactory = /** @class */ (function () {
                         // from the app providers
                         defaultEncapsulation: opts.defaultEncapsulation,
                         missingTranslation: opts.missingTranslation,
-                        enableLegacyTemplate: opts.enableLegacyTemplate,
                         preserveWhitespaces: opts.preserveWhitespaces,
                     });
                 },
@@ -490,7 +488,6 @@ function _mergeOptions(optionsArr) {
         defaultEncapsulation: _lastDefined(optionsArr.map(function (options) { return options.defaultEncapsulation; })),
         providers: _mergeArrays(optionsArr.map(function (options) { return ((options.providers)); })),
         missingTranslation: _lastDefined(optionsArr.map(function (options) { return options.missingTranslation; })),
-        enableLegacyTemplate: _lastDefined(optionsArr.map(function (options) { return options.enableLegacyTemplate; })),
         preserveWhitespaces: _lastDefined(optionsArr.map(function (options) { return options.preserveWhitespaces; })),
     };
 }
@@ -691,7 +688,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('6.0.0-beta.7-4e6ac18');
+var VERSION = new _angular_core.Version('6.0.0-beta.7-0ebd577');
 
 /**
  * @fileoverview added by tsickle
