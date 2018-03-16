@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.0-beta.7-688096b
+ * @license Angular v6.0.0-beta.7-6ef9f22
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -79,6 +79,17 @@ var JitReflector = /** @class */ (function () {
      */
     function (typeOrFunc) {
         return this.reflectionCapabilities.annotations(typeOrFunc);
+    };
+    /**
+     * @param {?} typeOrFunc
+     * @return {?}
+     */
+    JitReflector.prototype.shallowAnnotations = /**
+     * @param {?} typeOrFunc
+     * @return {?}
+     */
+    function (typeOrFunc) {
+        throw new Error('Not supported in JIT mode');
     };
     /**
      * @param {?} typeOrFunc
@@ -657,7 +668,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new Version('6.0.0-beta.7-688096b');
+var VERSION = new Version('6.0.0-beta.7-6ef9f22');
 
 /**
  * @fileoverview added by tsickle

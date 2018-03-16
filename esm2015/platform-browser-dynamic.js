@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.0-beta.7-688096b
+ * @license Angular v6.0.0-beta.7-6ef9f22
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -61,6 +61,13 @@ class JitReflector {
      */
     annotations(typeOrFunc) {
         return this.reflectionCapabilities.annotations(typeOrFunc);
+    }
+    /**
+     * @param {?} typeOrFunc
+     * @return {?}
+     */
+    shallowAnnotations(typeOrFunc) {
+        throw new Error('Not supported in JIT mode');
     }
     /**
      * @param {?} typeOrFunc
@@ -567,7 +574,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * \@stable
  */
-const VERSION = new Version('6.0.0-beta.7-688096b');
+const VERSION = new Version('6.0.0-beta.7-6ef9f22');
 
 /**
  * @fileoverview added by tsickle
