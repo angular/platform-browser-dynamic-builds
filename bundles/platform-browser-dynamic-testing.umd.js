@@ -1,11 +1,11 @@
 /**
- * @license Angular v5.0.0-beta.6-3f585ba
- * (c) 2010-2017 Google, Inc. https://angular.io/
+ * @license Angular v6.0.0-beta.7-a7d6efe
+ * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/core/testing'), require('@angular/platform-browser-dynamic'), require('@angular/platform-browser/testing'), require('@angular/platform-browser'), require('@angular/compiler'), require('@angular/compiler/testing')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/core/testing', '@angular/platform-browser-dynamic', '@angular/platform-browser/testing', '@angular/platform-browser', '@angular/compiler', '@angular/compiler/testing'], factory) :
+	typeof define === 'function' && define.amd ? define('@angular/platform-browser-dynamic/testing', ['exports', '@angular/core', '@angular/core/testing', '@angular/platform-browser-dynamic', '@angular/platform-browser/testing', '@angular/platform-browser', '@angular/compiler', '@angular/compiler/testing'], factory) :
 	(factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}, global.ng.platformBrowserDynamic.testing = {}),global.ng.core,global.ng.core.testing,global.ng.platformBrowserDynamic,global.ng.platformBrowser.testing,global.ng.platformBrowser,global.ng.compiler,global.ng.compiler.testing));
 }(this, (function (exports,_angular_core,_angular_core_testing,_angular_platformBrowserDynamic,_angular_platformBrowser_testing,_angular_platformBrowser,_angular_compiler,_angular_compiler_testing) { 'use strict';
 
@@ -36,8 +36,8 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.0.0-beta.6-3f585ba
- * (c) 2010-2017 Google, Inc. https://angular.io/
+ * @license Angular v6.0.0-beta.7-a7d6efe
+ * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 /**
@@ -54,7 +54,7 @@ function __extends(d, b) {
 /**
  * A DOM based implementation of the TestComponentRenderer.
  */
-var DOMTestComponentRenderer = (function (_super) {
+var DOMTestComponentRenderer = /** @class */ (function (_super) {
     __extends(DOMTestComponentRenderer, _super);
     function DOMTestComponentRenderer(_doc /** TODO #9100 */) {
         var _this = _super.call(this) || this;
@@ -100,7 +100,7 @@ var DOMTestComponentRenderer = (function (_super) {
  * found in the LICENSE file at https://angular.io/license
  */
 var _nextReferenceId = 0;
-var MetadataOverrider = (function () {
+var MetadataOverrider = /** @class */ (function () {
     function MetadataOverrider() {
         this._references = new Map();
     }
@@ -281,7 +281,7 @@ var COMPILER_PROVIDERS = [
     { provide: _angular_compiler_testing.MockNgModuleResolver, deps: [_angular_compiler.CompileReflector] },
     { provide: _angular_compiler.NgModuleResolver, useExisting: _angular_compiler_testing.MockNgModuleResolver },
 ];
-var TestingCompilerFactoryImpl = (function () {
+var TestingCompilerFactoryImpl = /** @class */ (function () {
     function TestingCompilerFactoryImpl(_injector, _compilerFactory) {
         this._injector = _injector;
         this._compilerFactory = _compilerFactory;
@@ -300,7 +300,7 @@ var TestingCompilerFactoryImpl = (function () {
     };
     return TestingCompilerFactoryImpl;
 }());
-var TestingCompilerImpl = (function () {
+var TestingCompilerImpl = /** @class */ (function () {
     function TestingCompilerImpl(_compiler, _directiveResolver, _pipeResolver, _moduleResolver) {
         this._compiler = _compiler;
         this._directiveResolver = _directiveResolver;
@@ -367,17 +367,6 @@ var TestingCompilerImpl = (function () {
      */
     function (moduleType) {
         return this._compiler.compileModuleAndAllComponentsAsync(moduleType);
-    };
-    /**
-     * @param {?} component
-     * @return {?}
-     */
-    TestingCompilerImpl.prototype.getNgContentSelectors = /**
-     * @param {?} component
-     * @return {?}
-     */
-    function (component) {
-        return this._compiler.getNgContentSelectors(component);
     };
     /**
      * @template T
@@ -562,7 +551,7 @@ var platformBrowserDynamicTesting = _angular_core.createPlatformFactory(platform
  *
  * \@stable
  */
-var BrowserDynamicTestingModule = (function () {
+var BrowserDynamicTestingModule = /** @class */ (function () {
     function BrowserDynamicTestingModule() {
     }
     BrowserDynamicTestingModule.decorators = [
