@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.0-beta.7-63cad11
+ * @license Angular v6.0.0-rc.0-0f31b2d
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v6.0.0-beta.7-63cad11
+ * @license Angular v6.0.0-rc.0-0f31b2d
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -110,6 +110,17 @@ var JitReflector = /** @class */ (function () {
      */
     function (typeOrFunc) {
         return this.reflectionCapabilities.annotations(typeOrFunc);
+    };
+    /**
+     * @param {?} typeOrFunc
+     * @return {?}
+     */
+    JitReflector.prototype.shallowAnnotations = /**
+     * @param {?} typeOrFunc
+     * @return {?}
+     */
+    function (typeOrFunc) {
+        throw new Error('Not supported in JIT mode');
     };
     /**
      * @param {?} typeOrFunc
@@ -440,7 +451,6 @@ var JitCompilerFactory = /** @class */ (function () {
             useJit: true,
             defaultEncapsulation: _angular_core.ViewEncapsulation.Emulated,
             missingTranslation: _angular_core.MissingTranslationStrategy.Warning,
-            enableLegacyTemplate: false,
         };
         this._defaultOptions = [compilerOptions].concat(defaultOptions);
     }
@@ -468,7 +478,6 @@ var JitCompilerFactory = /** @class */ (function () {
                         // from the app providers
                         defaultEncapsulation: opts.defaultEncapsulation,
                         missingTranslation: opts.missingTranslation,
-                        enableLegacyTemplate: opts.enableLegacyTemplate,
                         preserveWhitespaces: opts.preserveWhitespaces,
                     });
                 },
@@ -490,7 +499,6 @@ function _mergeOptions(optionsArr) {
         defaultEncapsulation: _lastDefined(optionsArr.map(function (options) { return options.defaultEncapsulation; })),
         providers: _mergeArrays(optionsArr.map(function (options) { return ((options.providers)); })),
         missingTranslation: _lastDefined(optionsArr.map(function (options) { return options.missingTranslation; })),
-        enableLegacyTemplate: _lastDefined(optionsArr.map(function (options) { return options.enableLegacyTemplate; })),
         preserveWhitespaces: _lastDefined(optionsArr.map(function (options) { return options.preserveWhitespaces; })),
     };
 }
@@ -691,7 +699,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('6.0.0-beta.7-63cad11');
+var VERSION = new _angular_core.Version('6.0.0-rc.0-0f31b2d');
 
 /**
  * @fileoverview added by tsickle
