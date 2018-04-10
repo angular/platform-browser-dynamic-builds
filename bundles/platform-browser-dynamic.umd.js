@@ -1,6 +1,6 @@
 /**
- * @license Angular v5.1.0-5a0076f
- * (c) 2010-2017 Google, Inc. https://angular.io/
+ * @license Angular v6.0.0-rc.3-5992fe6
+ * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 (function (global, factory) {
@@ -36,8 +36,8 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.1.0-5a0076f
- * (c) 2010-2017 Google, Inc. https://angular.io/
+ * @license Angular v6.0.0-rc.3-5992fe6
+ * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 /**
@@ -95,12 +95,32 @@ var JitReflector = /** @class */ (function () {
      * @param {?} typeOrFunc
      * @return {?}
      */
+    JitReflector.prototype.tryAnnotations = /**
+     * @param {?} typeOrFunc
+     * @return {?}
+     */
+    function (typeOrFunc) { return this.annotations(typeOrFunc); };
+    /**
+     * @param {?} typeOrFunc
+     * @return {?}
+     */
     JitReflector.prototype.annotations = /**
      * @param {?} typeOrFunc
      * @return {?}
      */
     function (typeOrFunc) {
         return this.reflectionCapabilities.annotations(typeOrFunc);
+    };
+    /**
+     * @param {?} typeOrFunc
+     * @return {?}
+     */
+    JitReflector.prototype.shallowAnnotations = /**
+     * @param {?} typeOrFunc
+     * @return {?}
+     */
+    function (typeOrFunc) {
+        throw new Error('Not supported in JIT mode');
     };
     /**
      * @param {?} typeOrFunc
@@ -126,6 +146,15 @@ var JitReflector = /** @class */ (function () {
     function (type, lcProperty) {
         return this.reflectionCapabilities.hasLifecycleHook(type, lcProperty);
     };
+    /**
+     * @param {?} type
+     * @return {?}
+     */
+    JitReflector.prototype.guards = /**
+     * @param {?} type
+     * @return {?}
+     */
+    function (type) { return this.reflectionCapabilities.guards(type); };
     /**
      * @param {?} ref
      * @return {?}
@@ -422,7 +451,6 @@ var JitCompilerFactory = /** @class */ (function () {
             useJit: true,
             defaultEncapsulation: _angular_core.ViewEncapsulation.Emulated,
             missingTranslation: _angular_core.MissingTranslationStrategy.Warning,
-            enableLegacyTemplate: false,
         };
         this._defaultOptions = [compilerOptions].concat(defaultOptions);
     }
@@ -450,7 +478,6 @@ var JitCompilerFactory = /** @class */ (function () {
                         // from the app providers
                         defaultEncapsulation: opts.defaultEncapsulation,
                         missingTranslation: opts.missingTranslation,
-                        enableLegacyTemplate: opts.enableLegacyTemplate,
                         preserveWhitespaces: opts.preserveWhitespaces,
                     });
                 },
@@ -472,7 +499,6 @@ function _mergeOptions(optionsArr) {
         defaultEncapsulation: _lastDefined(optionsArr.map(function (options) { return options.defaultEncapsulation; })),
         providers: _mergeArrays(optionsArr.map(function (options) { return ((options.providers)); })),
         missingTranslation: _lastDefined(optionsArr.map(function (options) { return options.missingTranslation; })),
-        enableLegacyTemplate: _lastDefined(optionsArr.map(function (options) { return options.enableLegacyTemplate; })),
         preserveWhitespaces: _lastDefined(optionsArr.map(function (options) { return options.preserveWhitespaces; })),
     };
 }
@@ -523,13 +549,6 @@ var platformCoreDynamic = _angular_core.createPlatformFactory(_angular_core.plat
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
- */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
  */
 var ResourceLoaderImpl = /** @class */ (function (_super) {
     __extends(ResourceLoaderImpl, _super);
@@ -678,14 +697,9 @@ var CachedResourceLoader = /** @class */ (function (_super) {
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * @module
- * @description
- * Entry point for all public APIs of the common package.
- */
-/**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.1.0-5a0076f');
+var VERSION = new _angular_core.Version('6.0.0-rc.3-5992fe6');
 
 /**
  * @fileoverview added by tsickle
