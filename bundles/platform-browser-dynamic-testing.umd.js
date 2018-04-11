@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.0-rc.3-5992fe6
+ * @license Angular v6.0.0-rc.3-fb4513c
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v6.0.0-rc.3-5992fe6
+ * @license Angular v6.0.0-rc.3-fb4513c
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -543,13 +543,13 @@ var platformCoreDynamicTesting = _angular_core.createPlatformFactory(_angular_pl
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * \@stable
+ *
  */
 var platformBrowserDynamicTesting = _angular_core.createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', _angular_platformBrowserDynamic.ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 /**
  * NgModule for testing.
  *
- * \@stable
+ *
  */
 var BrowserDynamicTestingModule = /** @class */ (function () {
     function BrowserDynamicTestingModule() {

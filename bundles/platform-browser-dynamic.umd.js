@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.0-rc.3-5992fe6
+ * @license Angular v6.0.0-rc.3-fb4513c
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -36,7 +36,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v6.0.0-rc.3-5992fe6
+ * @license Angular v6.0.0-rc.3-fb4513c
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -697,9 +697,9 @@ var CachedResourceLoader = /** @class */ (function (_super) {
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * \@stable
+ *
  */
-var VERSION = new _angular_core.Version('6.0.0-rc.3-5992fe6');
+var VERSION = new _angular_core.Version('6.0.0-rc.3-fb4513c');
 
 /**
  * @fileoverview added by tsickle
@@ -717,7 +717,7 @@ var VERSION = new _angular_core.Version('6.0.0-rc.3-5992fe6');
  */
 var RESOURCE_CACHE_PROVIDER = [{ provide: _angular_compiler.ResourceLoader, useClass: CachedResourceLoader, deps: [] }];
 /**
- * \@stable
+ *
  */
 var platformBrowserDynamic = _angular_core.createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 

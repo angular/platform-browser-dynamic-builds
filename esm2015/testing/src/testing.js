@@ -17,13 +17,13 @@ import { DOMTestComponentRenderer } from './dom_test_component_renderer';
 import { platformCoreDynamicTesting } from './platform_core_dynamic_testing';
 export { ɵDOMTestComponentRenderer, ɵplatformCoreDynamicTesting } from './private_export_testing';
 /**
- * \@stable
+ *
  */
 export const /** @type {?} */ platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 /**
  * NgModule for testing.
  *
- * \@stable
+ *
  */
 export class BrowserDynamicTestingModule {
 }
