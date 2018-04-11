@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.0-rc.3-ee14579
+ * @license Angular v6.0.0-rc.3-0cb4f12
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -666,9 +666,9 @@ var CachedResourceLoader = /** @class */ (function (_super) {
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * \@stable
+ *
  */
-var VERSION = new Version('6.0.0-rc.3-ee14579');
+var VERSION = new Version('6.0.0-rc.3-0cb4f12');
 
 /**
  * @fileoverview added by tsickle
@@ -686,7 +686,7 @@ var VERSION = new Version('6.0.0-rc.3-ee14579');
  */
 var RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedResourceLoader, deps: [] }];
 /**
- * \@stable
+ *
  */
 var platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 

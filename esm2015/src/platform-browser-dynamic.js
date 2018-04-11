@@ -22,7 +22,7 @@ export { JitCompilerFactory } from './compiler_factory';
  */
 export const /** @type {?} */ RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedResourceLoader, deps: [] }];
 /**
- * \@stable
+ *
  */
 export const /** @type {?} */ platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 //# sourceMappingURL=platform-browser-dynamic.js.map
