@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.0-rc.4-6c2c958
+ * @license Angular v6.0.0-rc.4-6e73300
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -574,7 +574,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  *
  */
-const VERSION = new Version('6.0.0-rc.4-6c2c958');
+const VERSION = new Version('6.0.0-rc.4-6e73300');
 
 /**
  * @fileoverview added by tsickle
