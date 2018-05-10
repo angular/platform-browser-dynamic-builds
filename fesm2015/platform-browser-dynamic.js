@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.0-rc.5+161.sha-72eab4d
+ * @license Angular v6.0.0-rc.5+163.sha-c4221da
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -572,10 +572,7 @@ class CachedResourceLoader extends ResourceLoader {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-/**
- *
- */
-const VERSION = new Version('6.0.0-rc.5+161.sha-72eab4d');
+const VERSION = new Version('6.0.0-rc.5+163.sha-c4221da');
 
 /**
  * @fileoverview added by tsickle
@@ -592,9 +589,6 @@ const VERSION = new Version('6.0.0-rc.5+161.sha-72eab4d');
  * \@experimental
  */
 const RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedResourceLoader, deps: [] }];
-/**
- *
- */
 const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 
 /**
