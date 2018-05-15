@@ -32,8 +32,6 @@ BrowserDynamicTestingModule.decorators = [
                 ]
             },] }
 ];
-/** @nocollapse */
-BrowserDynamicTestingModule.ctorParameters = () => [];
 function BrowserDynamicTestingModule_tsickle_Closure_declarations() {
     /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     BrowserDynamicTestingModule.decorators;
