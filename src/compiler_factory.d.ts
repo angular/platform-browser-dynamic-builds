@@ -36,8 +36,10 @@ export declare class CompilerImpl implements Compiler {
  * template compilation.
  */
 export declare const COMPILER_PROVIDERS: StaticProvider[];
+/**
+ * @experimental
+ */
 export declare class JitCompilerFactory implements CompilerFactory {
     private _defaultOptions;
-    constructor(defaultOptions: CompilerOptions[]);
     createCompiler(options?: CompilerOptions[]): Compiler;
 }
