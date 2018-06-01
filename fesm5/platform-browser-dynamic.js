@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.3+49.sha-2991b1b
+ * @license Angular v6.0.3+50.sha-d69ba73
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -151,12 +151,10 @@ var CompilerImpl = /** @class */ (function () {
     };
     CompilerImpl.prototype.compileModuleAndAllComponentsAsync = function (moduleType) {
         return this._delegate.compileModuleAndAllComponentsAsync(moduleType)
-            .then(function (result) {
-            return ({
-                ngModuleFactory: result.ngModuleFactory,
-                componentFactories: result.componentFactories,
-            });
-        });
+            .then(function (result) { return ({
+            ngModuleFactory: result.ngModuleFactory,
+            componentFactories: result.componentFactories,
+        }); });
     };
     CompilerImpl.prototype.loadAotSummaries = function (summaries) { this._delegate.loadAotSummaries(summaries); };
     CompilerImpl.prototype.hasAotSummary = function (ref) { return this._delegate.hasAotSummary(ref); };
@@ -268,7 +266,7 @@ var JitCompilerFactory = /** @class */ (function () {
                 },
                 deps: []
             },
-            (opts.providers)
+            opts.providers
         ]);
         return injector.get(Compiler);
     };
@@ -314,6 +312,13 @@ var platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
     { provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS] },
 ]);
 
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var ResourceLoaderImpl = /** @class */ (function (_super) {
     __extends(ResourceLoaderImpl, _super);
     function ResourceLoaderImpl() {
@@ -356,8 +361,6 @@ var ResourceLoaderImpl = /** @class */ (function (_super) {
     ResourceLoaderImpl.decorators = [
         { type: Injectable }
     ];
-    /** @nocollapse */
-    ResourceLoaderImpl.ctorParameters = function () { return []; };
     return ResourceLoaderImpl;
 }(ResourceLoader));
 
@@ -428,7 +431,12 @@ var CachedResourceLoader = /** @class */ (function (_super) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var VERSION = new Version('6.0.3+49.sha-2991b1b');
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the common package.
+ */
+var VERSION = new Version('6.0.3+50.sha-d69ba73');
 
 /**
  * @license
@@ -450,6 +458,11 @@ var platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browser
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of this package.
+ */
 
 // This file only reexports content of the `src` folder. Keep it that way.
 
@@ -460,6 +473,10 @@ var platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browser
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+// This file is not used to build this module. It is only used during editing
+// by the TypeScript language service and during build for verification. `ngc`
+// replaces this file with production index.ts when it rewrites private symbol
+// names.
 
 /**
  * Generated bundle index. Do not edit.

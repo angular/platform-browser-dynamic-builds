@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.3+49.sha-2991b1b
+ * @license Angular v6.0.3+50.sha-d69ba73
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -27,7 +27,7 @@ var DOMTestComponentRenderer = /** @class */ (function (_super) {
     __extends(DOMTestComponentRenderer, _super);
     function DOMTestComponentRenderer(_doc /** TODO #9100 */) {
         var _this = _super.call(this) || this;
-        _this._doc = _doc;
+        _this._doc = _doc; /** TODO #9100 */
         return _this;
     }
     DOMTestComponentRenderer.prototype.insertRootElement = function (rootElId) {
@@ -44,7 +44,7 @@ var DOMTestComponentRenderer = /** @class */ (function (_super) {
     ];
     /** @nocollapse */
     DOMTestComponentRenderer.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] },] },
+        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
     ]; };
     return DOMTestComponentRenderer;
 }(TestComponentRenderer));
@@ -65,15 +65,7 @@ var MetadataOverrider = /** @class */ (function () {
      * Creates a new instance for the given metadata class
      * based on an old instance and overrides.
      */
-    /**
-       * Creates a new instance for the given metadata class
-       * based on an old instance and overrides.
-       */
-    MetadataOverrider.prototype.overrideMetadata = /**
-       * Creates a new instance for the given metadata class
-       * based on an old instance and overrides.
-       */
-    function (metadataClass, oldMetadata, override) {
+    MetadataOverrider.prototype.overrideMetadata = function (metadataClass, oldMetadata, override) {
         var props = {};
         if (oldMetadata) {
             _valueProps(oldMetadata).forEach(function (prop) { return props[prop] = oldMetadata[prop]; });
@@ -246,13 +238,13 @@ var TestingCompilerImpl = /** @class */ (function () {
     TestingCompilerImpl.prototype.overrideDirective = function (directive, override) {
         this.checkOverrideAllowed(directive);
         var oldMetadata = this._directiveResolver.resolve(directive, false);
-        this._directiveResolver.setDirective(directive, this._overrider.overrideMetadata(Directive, (oldMetadata), override));
+        this._directiveResolver.setDirective(directive, this._overrider.overrideMetadata(Directive, oldMetadata, override));
         this.clearCacheFor(directive);
     };
     TestingCompilerImpl.prototype.overrideComponent = function (component, override) {
         this.checkOverrideAllowed(component);
         var oldMetadata = this._directiveResolver.resolve(component, false);
-        this._directiveResolver.setDirective(component, this._overrider.overrideMetadata(Component, (oldMetadata), override));
+        this._directiveResolver.setDirective(component, this._overrider.overrideMetadata(Component, oldMetadata, override));
         this.clearCacheFor(component);
     };
     TestingCompilerImpl.prototype.overridePipe = function (pipe, override) {
@@ -320,8 +312,6 @@ var BrowserDynamicTestingModule = /** @class */ (function () {
                     ]
                 },] }
     ];
-    /** @nocollapse */
-    BrowserDynamicTestingModule.ctorParameters = function () { return []; };
     return BrowserDynamicTestingModule;
 }());
 
@@ -332,6 +322,11 @@ var BrowserDynamicTestingModule = /** @class */ (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of this package.
+ */
 
 /**
  * @license
@@ -340,6 +335,10 @@ var BrowserDynamicTestingModule = /** @class */ (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+// This file is not used to build this module. It is only used during editing
+// by the TypeScript language service and during build for verification. `ngc`
+// replaces this file with production index.ts when it rewrites private symbol
+// names.
 
 /**
  * Generated bundle index. Do not edit.

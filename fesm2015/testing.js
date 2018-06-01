@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.3+49.sha-2991b1b
+ * @license Angular v6.0.3+50.sha-d69ba73
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -32,7 +32,7 @@ class DOMTestComponentRenderer extends TestComponentRenderer {
      */
     constructor(_doc /** TODO #9100 */) {
         super();
-        this._doc = _doc;
+        this._doc = _doc; /** TODO #9100 */
     }
     /**
      * @param {?} rootElId
@@ -53,7 +53,7 @@ DOMTestComponentRenderer.decorators = [
 ];
 /** @nocollapse */
 DOMTestComponentRenderer.ctorParameters = () => [
-    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] },] },
+    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
 ];
 
 /**
@@ -442,8 +442,6 @@ BrowserDynamicTestingModule.decorators = [
                 ]
             },] }
 ];
-/** @nocollapse */
-BrowserDynamicTestingModule.ctorParameters = () => [];
 
 /**
  * @fileoverview added by tsickle
