@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.0.0-rc.5+294.sha-60aa943
+ * @license Angular v6.0.0-rc.5+295.sha-f69ac67
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -67,7 +67,7 @@ var DOMTestComponentRenderer = /** @class */ (function (_super) {
     ];
     /** @nocollapse */
     DOMTestComponentRenderer.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: core.Inject, args: [platformBrowser.DOCUMENT,] },] },
+        { type: undefined, decorators: [{ type: core.Inject, args: [platformBrowser.DOCUMENT,] }] }
     ]; };
     return DOMTestComponentRenderer;
 }(testing.TestComponentRenderer));
@@ -88,15 +88,7 @@ var MetadataOverrider = /** @class */ (function () {
      * Creates a new instance for the given metadata class
      * based on an old instance and overrides.
      */
-    /**
-       * Creates a new instance for the given metadata class
-       * based on an old instance and overrides.
-       */
-    MetadataOverrider.prototype.overrideMetadata = /**
-       * Creates a new instance for the given metadata class
-       * based on an old instance and overrides.
-       */
-    function (metadataClass, oldMetadata, override) {
+    MetadataOverrider.prototype.overrideMetadata = function (metadataClass, oldMetadata, override) {
         var props = {};
         if (oldMetadata) {
             _valueProps(oldMetadata).forEach(function (prop) { return props[prop] = oldMetadata[prop]; });
@@ -269,13 +261,13 @@ var TestingCompilerImpl = /** @class */ (function () {
     TestingCompilerImpl.prototype.overrideDirective = function (directive, override) {
         this.checkOverrideAllowed(directive);
         var oldMetadata = this._directiveResolver.resolve(directive, false);
-        this._directiveResolver.setDirective(directive, this._overrider.overrideMetadata(core.Directive, (oldMetadata), override));
+        this._directiveResolver.setDirective(directive, this._overrider.overrideMetadata(core.Directive, oldMetadata, override));
         this.clearCacheFor(directive);
     };
     TestingCompilerImpl.prototype.overrideComponent = function (component, override) {
         this.checkOverrideAllowed(component);
         var oldMetadata = this._directiveResolver.resolve(component, false);
-        this._directiveResolver.setDirective(component, this._overrider.overrideMetadata(core.Component, (oldMetadata), override));
+        this._directiveResolver.setDirective(component, this._overrider.overrideMetadata(core.Component, oldMetadata, override));
         this.clearCacheFor(component);
     };
     TestingCompilerImpl.prototype.overridePipe = function (pipe, override) {
@@ -353,6 +345,11 @@ var BrowserDynamicTestingModule = /** @class */ (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of this package.
+ */
 
 /**
  * @license
@@ -361,6 +358,10 @@ var BrowserDynamicTestingModule = /** @class */ (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+// This file is not used to build this module. It is only used during editing
+// by the TypeScript language service and during build for verification. `ngc`
+// replaces this file with production index.ts when it rewrites private symbol
+// names.
 
 /**
  * Generated bundle index. Do not edit.
