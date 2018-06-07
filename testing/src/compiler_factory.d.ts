@@ -31,4 +31,5 @@ export declare class TestingCompilerImpl implements TestingCompiler {
     clearCache(): void;
     clearCacheFor(type: Type<any>): void;
     getComponentFromError(error: Error): any;
+    getModuleId(moduleType: Type<any>): string | undefined;
 }

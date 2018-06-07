@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.1.0-beta.0+12.sha-e3759f7
+ * @license Angular v6.1.0-beta.0+13.sha-bd02b27
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -257,6 +257,9 @@ var TestingCompilerImpl = /** @class */ (function () {
     TestingCompilerImpl.prototype.clearCache = function () { this._compiler.clearCache(); };
     TestingCompilerImpl.prototype.clearCacheFor = function (type) { this._compiler.clearCacheFor(type); };
     TestingCompilerImpl.prototype.getComponentFromError = function (error) { return error[ERROR_COMPONENT_TYPE] || null; };
+    TestingCompilerImpl.prototype.getModuleId = function (moduleType) {
+        return this._moduleResolver.resolve(moduleType, true).id;
+    };
     return TestingCompilerImpl;
 }());
 

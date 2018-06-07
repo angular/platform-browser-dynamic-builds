@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.1.0-beta.0+12.sha-e3759f7
+ * @license Angular v6.1.0-beta.0+13.sha-bd02b27
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -269,6 +269,14 @@ class CompilerImpl {
      * @return {?}
      */
     clearCacheFor(type) { this._delegate.clearCacheFor(type); }
+    /**
+     * @param {?} moduleType
+     * @return {?}
+     */
+    getModuleId(moduleType) {
+        const /** @type {?} */ meta = this._metadataResolver.getNgModuleMetadata(moduleType);
+        return meta && meta.id || undefined;
+    }
 }
 /**
  * A set of providers that provide `JitCompiler` and its dependencies to use for
@@ -570,7 +578,7 @@ class CachedResourceLoader extends ResourceLoader {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-const VERSION = new Version('6.1.0-beta.0+12.sha-e3759f7');
+const VERSION = new Version('6.1.0-beta.0+13.sha-bd02b27');
 
 /**
  * @fileoverview added by tsickle
