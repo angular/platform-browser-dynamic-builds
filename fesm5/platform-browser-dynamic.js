@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.1.0-beta.0+11.sha-7de2ba0
+ * @license Angular v6.1.0-beta.0+14.sha-f781f74
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -163,6 +163,10 @@ var CompilerImpl = /** @class */ (function () {
     };
     CompilerImpl.prototype.clearCache = function () { this._delegate.clearCache(); };
     CompilerImpl.prototype.clearCacheFor = function (type) { this._delegate.clearCacheFor(type); };
+    CompilerImpl.prototype.getModuleId = function (moduleType) {
+        var meta = this._metadataResolver.getNgModuleMetadata(moduleType);
+        return meta && meta.id || undefined;
+    };
     return CompilerImpl;
 }());
 /**
@@ -436,7 +440,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
  * @description
  * Entry point for all public APIs of the common package.
  */
-var VERSION = new Version('6.1.0-beta.0+11.sha-7de2ba0');
+var VERSION = new Version('6.1.0-beta.0+14.sha-f781f74');
 
 /**
  * @license

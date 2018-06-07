@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.1.0-beta.0+11.sha-7de2ba0
+ * @license Angular v6.1.0-beta.0+14.sha-f781f74
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -377,6 +377,13 @@ class TestingCompilerImpl {
      * @return {?}
      */
     getComponentFromError(error) { return (/** @type {?} */ (error))[ERROR_COMPONENT_TYPE] || null; }
+    /**
+     * @param {?} moduleType
+     * @return {?}
+     */
+    getModuleId(moduleType) {
+        return this._moduleResolver.resolve(moduleType, true).id;
+    }
 }
 
 /**
