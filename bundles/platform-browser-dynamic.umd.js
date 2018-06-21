@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.1.0-beta.2+3.sha-b91254f
+ * @license Angular v6.1.0-beta.2+2.sha-8b81682
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -512,7 +512,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
  * @description
  * Entry point for all public APIs of the common package.
  */
-var VERSION = new core.Version('6.1.0-beta.2+3.sha-b91254f');
+var VERSION = new core.Version('6.1.0-beta.2+2.sha-8b81682');
 
 /**
  * @license
