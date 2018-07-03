@@ -20,7 +20,7 @@ export declare class CompilerImpl implements Compiler {
     private _delegate;
     readonly injector: Injector;
     constructor(injector: Injector, _metadataResolver: CompileMetadataResolver, templateParser: TemplateParser, styleCompiler: StyleCompiler, viewCompiler: ViewCompiler, ngModuleCompiler: NgModuleCompiler, summaryResolver: SummaryResolver<Type<any>>, compileReflector: CompileReflector, compilerConfig: CompilerConfig, console: Console);
-    private getExtraNgModuleProviders;
+    private getExtraNgModuleProviders();
     compileModuleSync<T>(moduleType: Type<T>): NgModuleFactory<T>;
     compileModuleAsync<T>(moduleType: Type<T>): Promise<NgModuleFactory<T>>;
     compileModuleAndAllComponentsSync<T>(moduleType: Type<T>): ModuleWithComponentFactories<T>;
