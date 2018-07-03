@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.1.0-beta.3+30.sha-e3064d5
+ * @license Angular v6.1.0-beta.3+29.sha-0c3738a
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -11,7 +11,7 @@ import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes} checked by tsc
  */
 /**
  * @license
@@ -20,9 +20,7 @@ import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-/** @type {?} */
 const MODULE_SUFFIX = '';
-/** @type {?} */
 const builtinExternalReferences = createBuiltinExternalReferencesMap();
 class JitReflector {
     constructor() {
@@ -35,11 +33,9 @@ class JitReflector {
      * @return {?}
      */
     componentModuleUrl(type, cmpMetadata) {
-        /** @type {?} */
-        const moduleId = cmpMetadata.moduleId;
+        const /** @type {?} */ moduleId = cmpMetadata.moduleId;
         if (typeof moduleId === 'string') {
-            /** @type {?} */
-            const scheme = getUrlScheme(moduleId);
+            const /** @type {?} */ scheme = getUrlScheme(moduleId);
             return scheme ? moduleId : `package:${moduleId}${MODULE_SUFFIX}`;
         }
         else if (moduleId !== null && moduleId !== void 0) {
@@ -106,8 +102,7 @@ class JitReflector {
  * @return {?}
  */
 function createBuiltinExternalReferencesMap() {
-    /** @type {?} */
-    const map = new Map();
+    const /** @type {?} */ map = new Map();
     map.set(Identifiers.ANALYZE_FOR_ENTRY_COMPONENTS, ANALYZE_FOR_ENTRY_COMPONENTS);
     map.set(Identifiers.ElementRef, ElementRef);
     map.set(Identifiers.NgModuleRef, NgModuleRef);
@@ -156,7 +151,7 @@ function createBuiltinExternalReferencesMap() {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes} checked by tsc
  */
 /**
  * @license
@@ -165,16 +160,14 @@ function createBuiltinExternalReferencesMap() {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-/** @type {?} */
 const ERROR_COLLECTOR_TOKEN = new InjectionToken('ErrorCollector');
-/** *
+/**
  * A default provider for {\@link PACKAGE_ROOT_URL} that maps to '/'.
-  @type {?} */
+ */
 const DEFAULT_PACKAGE_URL_PROVIDER = {
     provide: PACKAGE_ROOT_URL,
     useValue: '/'
 };
-/** @type {?} */
 const _NO_RESOURCE_LOADER = {
     /**
      * @param {?} url
@@ -184,7 +177,6 @@ const _NO_RESOURCE_LOADER = {
         throw new Error(`No ResourceLoader implementation has been provided. Can't read the url "${url}"`);
     }
 };
-/** @type {?} */
 const baseHtmlParser = new InjectionToken('HtmlParser');
 class CompilerImpl {
     /**
@@ -232,8 +224,7 @@ class CompilerImpl {
      * @return {?}
      */
     compileModuleAndAllComponentsSync(moduleType) {
-        /** @type {?} */
-        const result = this._delegate.compileModuleAndAllComponentsSync(moduleType);
+        const /** @type {?} */ result = this._delegate.compileModuleAndAllComponentsSync(moduleType);
         return {
             ngModuleFactory: /** @type {?} */ (result.ngModuleFactory),
             componentFactories: /** @type {?} */ (result.componentFactories),
@@ -283,15 +274,14 @@ class CompilerImpl {
      * @return {?}
      */
     getModuleId(moduleType) {
-        /** @type {?} */
-        const meta = this._metadataResolver.getNgModuleMetadata(moduleType);
+        const /** @type {?} */ meta = this._metadataResolver.getNgModuleMetadata(moduleType);
         return meta && meta.id || undefined;
     }
 }
-/** *
+/**
  * A set of providers that provide `JitCompiler` and its dependencies to use for
  * template compilation.
-  @type {?} */
+ */
 const COMPILER_PROVIDERS = /** @type {?} */ ([
     { provide: CompileReflector, useValue: new JitReflector() },
     { provide: ResourceLoader, useValue: _NO_RESOURCE_LOADER },
@@ -309,8 +299,7 @@ const COMPILER_PROVIDERS = /** @type {?} */ ([
         provide: I18NHtmlParser,
         useFactory: (parser, translations, format, config, console) => {
             translations = translations || '';
-            /** @type {?} */
-            const missingTranslation = translations ? /** @type {?} */ ((config.missingTranslation)) : MissingTranslationStrategy.Ignore;
+            const /** @type {?} */ missingTranslation = translations ? /** @type {?} */ ((config.missingTranslation)) : MissingTranslationStrategy.Ignore;
             return new I18NHtmlParser(parser, translations, format, missingTranslation, console);
         },
         deps: [
@@ -364,8 +353,7 @@ class JitCompilerFactory {
      * @param {?} defaultOptions
      */
     constructor(defaultOptions) {
-        /** @type {?} */
-        const compilerOptions = {
+        const /** @type {?} */ compilerOptions = {
             useJit: true,
             defaultEncapsulation: ViewEncapsulation.Emulated,
             missingTranslation: MissingTranslationStrategy.Warning,
@@ -377,10 +365,8 @@ class JitCompilerFactory {
      * @return {?}
      */
     createCompiler(options = []) {
-        /** @type {?} */
-        const opts = _mergeOptions(this._defaultOptions.concat(options));
-        /** @type {?} */
-        const injector = Injector.create([
+        const /** @type {?} */ opts = _mergeOptions(this._defaultOptions.concat(options));
+        const /** @type {?} */ injector = Injector.create([
             COMPILER_PROVIDERS, {
                 provide: CompilerConfig,
                 useFactory: () => {
@@ -422,7 +408,7 @@ function _mergeOptions(optionsArr) {
  * @return {?}
  */
 function _lastDefined(args) {
-    for (let i = args.length - 1; i >= 0; i--) {
+    for (let /** @type {?} */ i = args.length - 1; i >= 0; i--) {
         if (args[i] !== undefined) {
             return args[i];
         }
@@ -434,15 +420,14 @@ function _lastDefined(args) {
  * @return {?}
  */
 function _mergeArrays(parts) {
-    /** @type {?} */
-    const result = [];
+    const /** @type {?} */ result = [];
     parts.forEach((part) => part && result.push(...part));
     return result;
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes} checked by tsc
  */
 /**
  * @license
@@ -451,11 +436,11 @@ function _mergeArrays(parts) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-/** *
+/**
  * A platform that included corePlatform and the compiler.
  *
  * \@experimental
-  @type {?} */
+ */
 const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
     { provide: COMPILER_OPTIONS, useValue: {}, multi: true },
     { provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS] },
@@ -463,7 +448,7 @@ const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes} checked by tsc
  */
 class ResourceLoaderImpl extends ResourceLoader {
     /**
@@ -471,24 +456,22 @@ class ResourceLoaderImpl extends ResourceLoader {
      * @return {?}
      */
     get(url) {
-        /** @type {?} */
-        let resolve;
-        /** @type {?} */
-        let reject;
-        /** @type {?} */
-        const promise = new Promise((res, rej) => {
+        let /** @type {?} */ resolve;
+        let /** @type {?} */ reject;
+        const /** @type {?} */ promise = new Promise((res, rej) => {
             resolve = res;
             reject = rej;
         });
-        /** @type {?} */
-        const xhr = new XMLHttpRequest();
+        const /** @type {?} */ xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'text';
         xhr.onload = function () {
-            /** @type {?} */
-            const response = xhr.response || xhr.responseText;
-            /** @type {?} */
-            let status = xhr.status === 1223 ? 204 : xhr.status;
+            // responseText is the old-school way of retrieving response (supported by IE8 & 9)
+            // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
+            // by IE10)
+            const /** @type {?} */ response = xhr.response || xhr.responseText;
+            // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
+            let /** @type {?} */ status = xhr.status === 1223 ? 204 : xhr.status;
             // fix status code when it is 0 (0 status is undocumented).
             // Occurs when accessing file resources or on Android 4.1 stock browser
             // while retrieving files from application cache.
@@ -513,7 +496,7 @@ ResourceLoaderImpl.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes} checked by tsc
  */
 /**
  * @license
@@ -522,7 +505,6 @@ ResourceLoaderImpl.decorators = [
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-/** @type {?} */
 const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
     ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
     {
@@ -535,7 +517,7 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes} checked by tsc
  */
 /**
  * @license
@@ -575,7 +557,7 @@ class CachedResourceLoader extends ResourceLoader {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes} checked by tsc
  */
 /**
  * @license
@@ -587,7 +569,7 @@ class CachedResourceLoader extends ResourceLoader {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes} checked by tsc
  */
 /**
  * @license
@@ -596,12 +578,11 @@ class CachedResourceLoader extends ResourceLoader {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-/** @type {?} */
-const VERSION = new Version('6.1.0-beta.3+30.sha-e3064d5');
+const VERSION = new Version('6.1.0-beta.3+29.sha-0c3738a');
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes} checked by tsc
  */
 /**
  * @license
@@ -610,16 +591,15 @@ const VERSION = new Version('6.1.0-beta.3+30.sha-e3064d5');
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-/** *
+/**
  * \@experimental
-  @type {?} */
+ */
 const RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedResourceLoader, deps: [] }];
-/** @type {?} */
 const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes} checked by tsc
  */
 /**
  * @license
@@ -638,7 +618,7 @@ const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'brows
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes} checked by tsc
  */
 /**
  * @license
