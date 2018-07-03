@@ -1,6 +1,6 @@
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 /**
  * @license
@@ -39,7 +39,7 @@ export class CachedResourceLoader extends ResourceLoader {
         }
     }
 }
-function CachedResourceLoader_tsickle_Closure_declarations() {
+if (false) {
     /** @type {?} */
     CachedResourceLoader.prototype._cache;
 }
