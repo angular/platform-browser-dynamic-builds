@@ -1,17 +1,17 @@
 /**
- * @license Angular v6.1.0-beta.3+46.sha-f62876b
+ * @license Angular v6.1.0-beta.3+61.sha-3980640
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 
-import { __decorate, __metadata, __param } from 'tslib';
-import { COMPILER_OPTIONS, CompilerFactory, Component, Directive, Inject, Injectable, Injector, NgModule, Pipe, createPlatformFactory, ɵstringify } from '@angular/core';
+import { __decorate, __param, __metadata } from 'tslib';
+import { Inject, Injectable, ɵstringify, Component, Directive, NgModule, Pipe, COMPILER_OPTIONS, CompilerFactory, Injector, createPlatformFactory } from '@angular/core';
 import { TestComponentRenderer, ɵTestingCompilerFactory } from '@angular/core/testing';
-import { ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ɵplatformCoreDynamic } from '@angular/platform-browser-dynamic';
-import { BrowserTestingModule } from '@angular/platform-browser/testing';
 import { DOCUMENT, ɵgetDOM } from '@angular/platform-browser';
 import { CompileReflector, DirectiveResolver, ERROR_COMPONENT_TYPE, NgModuleResolver, PipeResolver } from '@angular/compiler';
 import { MockDirectiveResolver, MockNgModuleResolver, MockPipeResolver } from '@angular/compiler/testing';
+import { ɵplatformCoreDynamic, ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
+import { BrowserTestingModule } from '@angular/platform-browser/testing';
 
 /**
  * @license
@@ -179,8 +179,8 @@ class TestingCompilerFactoryImpl {
         this._compilerFactory = _compilerFactory;
     }
     createTestingCompiler(options) {
-        const compiler$$1 = this._compilerFactory.createCompiler(options);
-        return new TestingCompilerImpl(compiler$$1, compiler$$1.injector.get(MockDirectiveResolver), compiler$$1.injector.get(MockPipeResolver), compiler$$1.injector.get(MockNgModuleResolver));
+        const compiler = this._compilerFactory.createCompiler(options);
+        return new TestingCompilerImpl(compiler, compiler.injector.get(MockDirectiveResolver), compiler.injector.get(MockPipeResolver), compiler.injector.get(MockNgModuleResolver));
     }
 }
 class TestingCompilerImpl {
@@ -304,11 +304,6 @@ BrowserDynamicTestingModule = __decorate([
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-/**
- * @module
- * @description
- * Entry point for all public APIs of this package.
- */
 
 /**
  * @license
@@ -317,10 +312,6 @@ BrowserDynamicTestingModule = __decorate([
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-// This file is not used to build this module. It is only used during editing
-// by the TypeScript language service and during build for verification. `ngc`
-// replaces this file with production index.ts when it rewrites private symbol
-// names.
 
 export { platformBrowserDynamicTesting, BrowserDynamicTestingModule, DOMTestComponentRenderer as ɵDOMTestComponentRenderer, platformCoreDynamicTesting as ɵplatformCoreDynamicTesting };
 //# sourceMappingURL=testing.js.map
