@@ -1,27 +1,20 @@
 /**
- * @license Angular v6.0.7+21.sha-0437598
+ * @license Angular v6.0.8+4.sha-48415ed
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 
-import { COMPILER_OPTIONS, CompilerFactory, Component, Directive, Inject, Injectable, Injector, NgModule, Pipe, createPlatformFactory, ɵstringify } from '@angular/core';
+import { Inject, Injectable, ɵstringify, Component, Directive, NgModule, Pipe, COMPILER_OPTIONS, CompilerFactory, Injector, createPlatformFactory } from '@angular/core';
 import { TestComponentRenderer, ɵTestingCompilerFactory } from '@angular/core/testing';
-import { ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ɵplatformCoreDynamic } from '@angular/platform-browser-dynamic';
-import { BrowserTestingModule } from '@angular/platform-browser/testing';
 import { DOCUMENT, ɵgetDOM } from '@angular/platform-browser';
 import { CompileReflector, DirectiveResolver, ERROR_COMPONENT_TYPE, NgModuleResolver, PipeResolver } from '@angular/compiler';
 import { MockDirectiveResolver, MockNgModuleResolver, MockPipeResolver } from '@angular/compiler/testing';
+import { ɵplatformCoreDynamic, ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
+import { BrowserTestingModule } from '@angular/platform-browser/testing';
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
- */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
  */
 /**
  * A DOM based implementation of the TestComponentRenderer.
@@ -60,14 +53,7 @@ DOMTestComponentRenderer.ctorParameters = () => [
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-let _nextReferenceId = 0;
+let /** @type {?} */ _nextReferenceId = 0;
 class MetadataOverrider {
     constructor() {
         this._references = new Map();
@@ -214,14 +200,7 @@ function _valueProps(obj) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-const COMPILER_PROVIDERS = [
+const /** @type {?} */ COMPILER_PROVIDERS = [
     { provide: MockPipeResolver, deps: [CompileReflector] },
     { provide: PipeResolver, useExisting: MockPipeResolver },
     { provide: MockDirectiveResolver, deps: [CompileReflector] },
@@ -243,8 +222,8 @@ class TestingCompilerFactoryImpl {
      * @return {?}
      */
     createTestingCompiler(options) {
-        const /** @type {?} */ compiler$$1 = /** @type {?} */ (this._compilerFactory.createCompiler(options));
-        return new TestingCompilerImpl(compiler$$1, compiler$$1.injector.get(MockDirectiveResolver), compiler$$1.injector.get(MockPipeResolver), compiler$$1.injector.get(MockNgModuleResolver));
+        const /** @type {?} */ compiler = /** @type {?} */ (this._compilerFactory.createCompiler(options));
+        return new TestingCompilerImpl(compiler, compiler.injector.get(MockDirectiveResolver), compiler.injector.get(MockPipeResolver), compiler.injector.get(MockNgModuleResolver));
     }
 }
 class TestingCompilerImpl {
@@ -384,18 +363,11 @@ class TestingCompilerImpl {
  * @suppress {checkTypes} checked by tsc
  */
 /**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
  * Platform for dynamic tests
  *
  * \@experimental
  */
-const platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 'coreDynamicTesting', [
+const /** @type {?} */ platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 'coreDynamicTesting', [
     { provide: COMPILER_OPTIONS, useValue: { providers: COMPILER_PROVIDERS }, multi: true }, {
         provide: ɵTestingCompilerFactory,
         useClass: TestingCompilerFactoryImpl,
@@ -407,26 +379,12 @@ const platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
+const /** @type {?} */ platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 /**
  * NgModule for testing.
  *
@@ -447,34 +405,11 @@ BrowserDynamicTestingModule.decorators = [
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
- * @module
- * @description
- * Entry point for all public APIs of this package.
- */
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-// This file is not used to build this module. It is only used during editing
-// by the TypeScript language service and during build for verification. `ngc`
-// replaces this file with production index.ts when it rewrites private symbol
-// names.
 
 /**
  * Generated bundle index. Do not edit.
