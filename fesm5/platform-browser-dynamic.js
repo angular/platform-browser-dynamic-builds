@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.0.0-beta.0+18.sha-26a15cc
+ * @license Angular v7.0.0-beta.0+22.sha-97b5cb2
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -21,7 +21,6 @@ var MODULE_SUFFIX = '';
 var builtinExternalReferences = createBuiltinExternalReferencesMap();
 var JitReflector = /** @class */ (function () {
     function JitReflector() {
-        this.builtinExternalReferences = new Map();
         this.reflectionCapabilities = new ɵReflectionCapabilities();
     }
     JitReflector.prototype.componentModuleUrl = function (type, cmpMetadata) {
@@ -428,7 +427,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var VERSION = new Version('7.0.0-beta.0+18.sha-26a15cc');
+var VERSION = new Version('7.0.0-beta.0+22.sha-97b5cb2');
 
 /**
  * @license
