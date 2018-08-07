@@ -1,5 +1,5 @@
 /**
- * @license Angular v6.1.0+100.sha-183757d
+ * @license Angular v7.0.0-beta.0+38.sha-16c03c0
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -21,7 +21,6 @@ const MODULE_SUFFIX = '';
 const builtinExternalReferences = createBuiltinExternalReferencesMap();
 class JitReflector {
     constructor() {
-        this.builtinExternalReferences = new Map();
         this.reflectionCapabilities = new ɵReflectionCapabilities();
     }
     componentModuleUrl(type, cmpMetadata) {
@@ -416,7 +415,7 @@ class CachedResourceLoader extends ResourceLoader {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-const VERSION = new Version('6.1.0+100.sha-183757d');
+const VERSION = new Version('7.0.0-beta.0+38.sha-16c03c0');
 
 /**
  * @license
