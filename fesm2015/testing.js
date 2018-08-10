@@ -1,27 +1,20 @@
 /**
- * @license Angular v6.0.0-rc.5+145.sha-741fa9e
+ * @license Angular v7.0.0-beta.1+25.sha-ca8c683
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 
-import { COMPILER_OPTIONS, CompilerFactory, Component, Directive, Inject, Injectable, Injector, NgModule, Pipe, createPlatformFactory, ɵstringify } from '@angular/core';
+import { Inject, Injectable, ɵstringify, Component, Directive, NgModule, Pipe, COMPILER_OPTIONS, CompilerFactory, Injector, createPlatformFactory } from '@angular/core';
 import { TestComponentRenderer, ɵTestingCompilerFactory } from '@angular/core/testing';
-import { ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ɵplatformCoreDynamic } from '@angular/platform-browser-dynamic';
-import { BrowserTestingModule } from '@angular/platform-browser/testing';
 import { DOCUMENT, ɵgetDOM } from '@angular/platform-browser';
 import { CompileReflector, DirectiveResolver, ERROR_COMPONENT_TYPE, NgModuleResolver, PipeResolver } from '@angular/compiler';
 import { MockDirectiveResolver, MockNgModuleResolver, MockPipeResolver } from '@angular/compiler/testing';
+import { ɵplatformCoreDynamic, ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
+import { BrowserTestingModule } from '@angular/platform-browser/testing';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 /**
  * A DOM based implementation of the TestComponentRenderer.
@@ -39,10 +32,11 @@ class DOMTestComponentRenderer extends TestComponentRenderer {
      * @return {?}
      */
     insertRootElement(rootElId) {
-        const /** @type {?} */ rootEl = /** @type {?} */ (ɵgetDOM().firstChild(ɵgetDOM().content(ɵgetDOM().createTemplate(`<div id="${rootElId}"></div>`))));
-        // TODO(juliemr): can/should this be optional?
-        const /** @type {?} */ oldRoots = ɵgetDOM().querySelectorAll(this._doc, '[id^=root]');
-        for (let /** @type {?} */ i = 0; i < oldRoots.length; i++) {
+        /** @type {?} */
+        const rootEl = /** @type {?} */ (ɵgetDOM().firstChild(ɵgetDOM().content(ɵgetDOM().createTemplate(`<div id="${rootElId}"></div>`))));
+        /** @type {?} */
+        const oldRoots = ɵgetDOM().querySelectorAll(this._doc, '[id^=root]');
+        for (let i = 0; i < oldRoots.length; i++) {
             ɵgetDOM().remove(oldRoots[i]);
         }
         ɵgetDOM().appendChild(this._doc.body, rootEl);
@@ -53,20 +47,14 @@ DOMTestComponentRenderer.decorators = [
 ];
 /** @nocollapse */
 DOMTestComponentRenderer.ctorParameters = () => [
-    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] },] },
+    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
 ];
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
+/** @type {?} */
 let _nextReferenceId = 0;
 class MetadataOverrider {
     constructor() {
@@ -82,7 +70,8 @@ class MetadataOverrider {
      * @return {?}
      */
     overrideMetadata(metadataClass, oldMetadata, override) {
-        const /** @type {?} */ props = {};
+        /** @type {?} */
+        const props = {};
         if (oldMetadata) {
             _valueProps(oldMetadata).forEach((prop) => props[prop] = (/** @type {?} */ (oldMetadata))[prop]);
         }
@@ -108,9 +97,11 @@ class MetadataOverrider {
  * @return {?}
  */
 function removeMetadata(metadata, remove, references) {
-    const /** @type {?} */ removeObjects = new Set();
-    for (const /** @type {?} */ prop in remove) {
-        const /** @type {?} */ removeValue = remove[prop];
+    /** @type {?} */
+    const removeObjects = new Set();
+    for (const prop in remove) {
+        /** @type {?} */
+        const removeValue = remove[prop];
         if (removeValue instanceof Array) {
             removeValue.forEach((value) => { removeObjects.add(_propHashKey(prop, value, references)); });
         }
@@ -118,8 +109,9 @@ function removeMetadata(metadata, remove, references) {
             removeObjects.add(_propHashKey(prop, removeValue, references));
         }
     }
-    for (const /** @type {?} */ prop in metadata) {
-        const /** @type {?} */ propValue = metadata[prop];
+    for (const prop in metadata) {
+        /** @type {?} */
+        const propValue = metadata[prop];
         if (propValue instanceof Array) {
             metadata[prop] = propValue.filter((value) => !removeObjects.has(_propHashKey(prop, value, references)));
         }
@@ -136,9 +128,11 @@ function removeMetadata(metadata, remove, references) {
  * @return {?}
  */
 function addMetadata(metadata, add) {
-    for (const /** @type {?} */ prop in add) {
-        const /** @type {?} */ addValue = add[prop];
-        const /** @type {?} */ propValue = metadata[prop];
+    for (const prop in add) {
+        /** @type {?} */
+        const addValue = add[prop];
+        /** @type {?} */
+        const propValue = metadata[prop];
         if (propValue != null && propValue instanceof Array) {
             metadata[prop] = propValue.concat(addValue);
         }
@@ -153,7 +147,7 @@ function addMetadata(metadata, add) {
  * @return {?}
  */
 function setMetadata(metadata, set) {
-    for (const /** @type {?} */ prop in set) {
+    for (const prop in set) {
         metadata[prop] = set[prop];
     }
 }
@@ -164,7 +158,8 @@ function setMetadata(metadata, set) {
  * @return {?}
  */
 function _propHashKey(propName, propValue, references) {
-    const /** @type {?} */ replacer = (key, value) => {
+    /** @type {?} */
+    const replacer = (key, value) => {
         if (typeof value === 'function') {
             value = _serializeReference(value, references);
         }
@@ -178,7 +173,8 @@ function _propHashKey(propName, propValue, references) {
  * @return {?}
  */
 function _serializeReference(ref, references) {
-    let /** @type {?} */ id = references.get(ref);
+    /** @type {?} */
+    let id = references.get(ref);
     if (!id) {
         id = `${ɵstringify(ref)}${_nextReferenceId++}`;
         references.set(ref, id);
@@ -190,18 +186,20 @@ function _serializeReference(ref, references) {
  * @return {?}
  */
 function _valueProps(obj) {
-    const /** @type {?} */ props = [];
+    /** @type {?} */
+    const props = [];
     // regular public props
     Object.keys(obj).forEach((prop) => {
         if (!prop.startsWith('_')) {
             props.push(prop);
         }
     });
-    // getters
-    let /** @type {?} */ proto = obj;
+    /** @type {?} */
+    let proto = obj;
     while (proto = Object.getPrototypeOf(proto)) {
         Object.keys(proto).forEach((protoProp) => {
-            const /** @type {?} */ desc = Object.getOwnPropertyDescriptor(proto, protoProp);
+            /** @type {?} */
+            const desc = Object.getOwnPropertyDescriptor(proto, protoProp);
             if (!protoProp.startsWith('_') && desc && 'get' in desc) {
                 props.push(protoProp);
             }
@@ -212,15 +210,9 @@ function _valueProps(obj) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
+/** @type {?} */
 const COMPILER_PROVIDERS = [
     { provide: MockPipeResolver, deps: [CompileReflector] },
     { provide: PipeResolver, useExisting: MockPipeResolver },
@@ -243,8 +235,9 @@ class TestingCompilerFactoryImpl {
      * @return {?}
      */
     createTestingCompiler(options) {
-        const /** @type {?} */ compiler$$1 = /** @type {?} */ (this._compilerFactory.createCompiler(options));
-        return new TestingCompilerImpl(compiler$$1, compiler$$1.injector.get(MockDirectiveResolver), compiler$$1.injector.get(MockPipeResolver), compiler$$1.injector.get(MockNgModuleResolver));
+        /** @type {?} */
+        const compiler = /** @type {?} */ (this._compilerFactory.createCompiler(options));
+        return new TestingCompilerImpl(compiler, compiler.injector.get(MockDirectiveResolver), compiler.injector.get(MockPipeResolver), compiler.injector.get(MockNgModuleResolver));
     }
 }
 class TestingCompilerImpl {
@@ -321,7 +314,8 @@ class TestingCompilerImpl {
      */
     overrideModule(ngModule, override) {
         this.checkOverrideAllowed(ngModule);
-        const /** @type {?} */ oldMetadata = this._moduleResolver.resolve(ngModule, false);
+        /** @type {?} */
+        const oldMetadata = this._moduleResolver.resolve(ngModule, false);
         this._moduleResolver.setNgModule(ngModule, this._overrider.overrideMetadata(NgModule, oldMetadata, override));
         this.clearCacheFor(ngModule);
     }
@@ -332,7 +326,8 @@ class TestingCompilerImpl {
      */
     overrideDirective(directive, override) {
         this.checkOverrideAllowed(directive);
-        const /** @type {?} */ oldMetadata = this._directiveResolver.resolve(directive, false);
+        /** @type {?} */
+        const oldMetadata = this._directiveResolver.resolve(directive, false);
         this._directiveResolver.setDirective(directive, this._overrider.overrideMetadata(Directive, /** @type {?} */ ((oldMetadata)), override));
         this.clearCacheFor(directive);
     }
@@ -343,7 +338,8 @@ class TestingCompilerImpl {
      */
     overrideComponent(component, override) {
         this.checkOverrideAllowed(component);
-        const /** @type {?} */ oldMetadata = this._directiveResolver.resolve(component, false);
+        /** @type {?} */
+        const oldMetadata = this._directiveResolver.resolve(component, false);
         this._directiveResolver.setDirective(component, this._overrider.overrideMetadata(Component, /** @type {?} */ ((oldMetadata)), override));
         this.clearCacheFor(component);
     }
@@ -354,7 +350,8 @@ class TestingCompilerImpl {
      */
     overridePipe(pipe, override) {
         this.checkOverrideAllowed(pipe);
-        const /** @type {?} */ oldMetadata = this._pipeResolver.resolve(pipe, false);
+        /** @type {?} */
+        const oldMetadata = this._pipeResolver.resolve(pipe, false);
         this._pipeResolver.setPipe(pipe, this._overrider.overrideMetadata(Pipe, oldMetadata, override));
         this.clearCacheFor(pipe);
     }
@@ -377,24 +374,24 @@ class TestingCompilerImpl {
      * @return {?}
      */
     getComponentFromError(error) { return (/** @type {?} */ (error))[ERROR_COMPONENT_TYPE] || null; }
+    /**
+     * @param {?} moduleType
+     * @return {?}
+     */
+    getModuleId(moduleType) {
+        return this._moduleResolver.resolve(moduleType, true).id;
+    }
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
+/** *
  * Platform for dynamic tests
  *
  * \@experimental
- */
+  @type {?} */
 const platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 'coreDynamicTesting', [
     { provide: COMPILER_OPTIONS, useValue: { providers: COMPILER_PROVIDERS }, multi: true }, {
         provide: ɵTestingCompilerFactory,
@@ -405,30 +402,14 @@ const platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
- *
- */
+/** @type {?} */
 const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 /**
  * NgModule for testing.
@@ -445,41 +426,16 @@ BrowserDynamicTestingModule.decorators = [
                 ]
             },] }
 ];
-/** @nocollapse */
-BrowserDynamicTestingModule.ctorParameters = () => [];
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
- * @module
- * @description
- * Entry point for all public APIs of this package.
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-// This file is not used to build this module. It is only used during editing
-// by the TypeScript language service and during build for verification. `ngc`
-// replaces this file with production index.ts when it rewrites private symbol
-// names.
 
 /**
  * Generated bundle index. Do not edit.
