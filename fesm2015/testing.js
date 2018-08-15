@@ -1,11 +1,11 @@
 /**
- * @license Angular v7.0.0-beta.1+51.sha-01ec5fd
+ * @license Angular v7.0.0-beta.1+52.sha-1f11039
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 
 import { Inject, Injectable, Component, Directive, NgModule, Pipe, ɵstringify, COMPILER_OPTIONS, CompilerFactory, Injector, createPlatformFactory } from '@angular/core';
-import { TestComponentRenderer, MetadataOverrider, ɵTestingCompilerFactory } from '@angular/core/testing';
+import { TestComponentRenderer, ɵMetadataOverrider, ɵTestingCompilerFactory } from '@angular/core/testing';
 import { DOCUMENT, ɵgetDOM } from '@angular/platform-browser';
 import { CompileReflector, DirectiveResolver, ERROR_COMPONENT_TYPE, NgModuleResolver, PipeResolver } from '@angular/compiler';
 import { MockDirectiveResolver, MockNgModuleResolver, MockPipeResolver } from '@angular/compiler/testing';
@@ -99,7 +99,7 @@ class TestingCompilerImpl {
         this._directiveResolver = _directiveResolver;
         this._pipeResolver = _pipeResolver;
         this._moduleResolver = _moduleResolver;
-        this._overrider = new MetadataOverrider();
+        this._overrider = new ɵMetadataOverrider();
     }
     /**
      * @return {?}

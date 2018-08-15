@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.0.0-beta.1+51.sha-01ec5fd
+ * @license Angular v7.0.0-beta.1+52.sha-1f11039
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -115,7 +115,7 @@
             this._directiveResolver = _directiveResolver;
             this._pipeResolver = _pipeResolver;
             this._moduleResolver = _moduleResolver;
-            this._overrider = new testing.MetadataOverrider();
+            this._overrider = new testing.ɵMetadataOverrider();
         }
         Object.defineProperty(TestingCompilerImpl.prototype, "injector", {
             get: function () { return this._compiler.injector; },
