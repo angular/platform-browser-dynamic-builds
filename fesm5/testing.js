@@ -1,10 +1,10 @@
 /**
- * @license Angular v7.0.0-beta.3+30.sha-3d41739
+ * @license Angular v7.0.0-beta.3+39.sha-9bcd8c2
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 
-import { __extends } from 'tslib';
+import { __decorate, __extends, __param, __metadata } from 'tslib';
 import { Inject, Injectable, Component, Directive, NgModule, Pipe, ɵstringify, COMPILER_OPTIONS, CompilerFactory, Injector, createPlatformFactory } from '@angular/core';
 import { TestComponentRenderer, ɵMetadataOverrider, ɵTestingCompilerFactory } from '@angular/core/testing';
 import { DOCUMENT, ɵgetDOM } from '@angular/platform-browser';
@@ -39,13 +39,11 @@ var DOMTestComponentRenderer = /** @class */ (function (_super) {
         }
         ɵgetDOM().appendChild(this._doc.body, rootEl);
     };
-    DOMTestComponentRenderer.decorators = [
-        { type: Injectable }
-    ];
-    /** @nocollapse */
-    DOMTestComponentRenderer.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
-    ]; };
+    DOMTestComponentRenderer = __decorate([
+        Injectable(),
+        __param(0, Inject(DOCUMENT)),
+        __metadata("design:paramtypes", [Object])
+    ], DOMTestComponentRenderer);
     return DOMTestComponentRenderer;
 }(TestComponentRenderer));
 
@@ -194,14 +192,14 @@ var platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTes
 var BrowserDynamicTestingModule = /** @class */ (function () {
     function BrowserDynamicTestingModule() {
     }
-    BrowserDynamicTestingModule.decorators = [
-        { type: NgModule, args: [{
-                    exports: [BrowserTestingModule],
-                    providers: [
-                        { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
-                    ]
-                },] }
-    ];
+    BrowserDynamicTestingModule = __decorate([
+        NgModule({
+            exports: [BrowserTestingModule],
+            providers: [
+                { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
+            ]
+        })
+    ], BrowserDynamicTestingModule);
     return BrowserDynamicTestingModule;
 }());
 
