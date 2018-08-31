@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.0.0-beta.4
+ * @license Angular v7.0.0-beta.4+20.sha-00f1311
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -123,6 +123,7 @@
         map.set(compiler.Identifiers.NgModuleRef, core.NgModuleRef);
         map.set(compiler.Identifiers.ViewContainerRef, core.ViewContainerRef);
         map.set(compiler.Identifiers.ChangeDetectorRef, core.ChangeDetectorRef);
+        map.set(compiler.Identifiers.Renderer2, core.Renderer2);
         map.set(compiler.Identifiers.QueryList, core.QueryList);
         map.set(compiler.Identifiers.TemplateRef, core.TemplateRef);
         map.set(compiler.Identifiers.CodegenComponentFactoryResolver, core.ɵCodegenComponentFactoryResolver);
@@ -486,7 +487,7 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
-    var VERSION = new core.Version('7.0.0-beta.4');
+    var VERSION = new core.Version('7.0.0-beta.4+20.sha-00f1311');
 
     /**
      * @license
