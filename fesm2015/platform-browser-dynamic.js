@@ -1,11 +1,11 @@
 /**
- * @license Angular v7.0.0-beta.2+28.sha-21a1440
+ * @license Angular v7.0.0-beta.5+32.sha-47f4412
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 
 import { Identifiers, getUrlScheme, syntaxError, StaticSymbolCache, JitCompiler, ProviderMeta, I18NHtmlParser, ViewCompiler, CompileMetadataResolver, UrlResolver, TemplateParser, NgModuleCompiler, JitSummaryResolver, SummaryResolver, StyleCompiler, PipeResolver, ElementSchemaRegistry, DomElementSchemaRegistry, ResourceLoader, NgModuleResolver, HtmlParser, CompileReflector, CompilerConfig, DirectiveNormalizer, DirectiveResolver, Lexer, Parser } from '@angular/compiler';
-import { ANALYZE_FOR_ENTRY_COMPONENTS, ChangeDetectionStrategy, ChangeDetectorRef, ComponentFactory, ComponentFactoryResolver, ComponentRef, ElementRef, Injector, LOCALE_ID, NgModuleFactory, NgModuleRef, QueryList, Renderer, SecurityContext, TRANSLATIONS_FORMAT, TemplateRef, ViewContainerRef, ViewEncapsulation, ɵCodegenComponentFactoryResolver, ɵEMPTY_ARRAY, ɵEMPTY_MAP, ɵReflectionCapabilities, ɵand, ɵccf, ɵcmf, ɵcrt, ɵdid, ɵeld, ɵinlineInterpolate, ɵinterpolate, ɵmod, ɵmpd, ɵncd, ɵnov, ɵpad, ɵpid, ɵpod, ɵppd, ɵprd, ɵqud, ɵregisterModuleFactory, ɵstringify, ɵted, ɵunv, ɵvid, Compiler, Inject, InjectionToken, Optional, PACKAGE_ROOT_URL, TRANSLATIONS, isDevMode, ɵConsole, MissingTranslationStrategy, COMPILER_OPTIONS, CompilerFactory, createPlatformFactory, platformCore, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
+import { ANALYZE_FOR_ENTRY_COMPONENTS, ChangeDetectionStrategy, ChangeDetectorRef, ComponentFactory, ComponentFactoryResolver, ComponentRef, ElementRef, Injector, LOCALE_ID, NgModuleFactory, NgModuleRef, QueryList, Renderer, Renderer2, SecurityContext, TRANSLATIONS_FORMAT, TemplateRef, ViewContainerRef, ViewEncapsulation, ɵCodegenComponentFactoryResolver, ɵEMPTY_ARRAY, ɵEMPTY_MAP, ɵReflectionCapabilities, ɵand, ɵccf, ɵcmf, ɵcrt, ɵdid, ɵeld, ɵinlineInterpolate, ɵinterpolate, ɵmod, ɵmpd, ɵncd, ɵnov, ɵpad, ɵpid, ɵpod, ɵppd, ɵprd, ɵqud, ɵregisterModuleFactory, ɵstringify, ɵted, ɵunv, ɵvid, Compiler, Inject, InjectionToken, Optional, PACKAGE_ROOT_URL, TRANSLATIONS, isDevMode, ɵConsole, MissingTranslationStrategy, COMPILER_OPTIONS, CompilerFactory, createPlatformFactory, platformCore, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
 
@@ -105,6 +105,7 @@ function createBuiltinExternalReferencesMap() {
     map.set(Identifiers.NgModuleRef, NgModuleRef);
     map.set(Identifiers.ViewContainerRef, ViewContainerRef);
     map.set(Identifiers.ChangeDetectorRef, ChangeDetectorRef);
+    map.set(Identifiers.Renderer2, Renderer2);
     map.set(Identifiers.QueryList, QueryList);
     map.set(Identifiers.TemplateRef, TemplateRef);
     map.set(Identifiers.CodegenComponentFactoryResolver, ɵCodegenComponentFactoryResolver);
@@ -547,7 +548,7 @@ class CachedResourceLoader extends ResourceLoader {
  * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 /** @type {?} */
-const VERSION = new Version('7.0.0-beta.2+28.sha-21a1440');
+const VERSION = new Version('7.0.0-beta.5+32.sha-47f4412');
 
 /**
  * @fileoverview added by tsickle
