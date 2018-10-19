@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.0.0-rc.1+118.sha-31022cb
+ * @license Angular v7.0.0-rc.1+137.sha-4c2ce4e
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -235,7 +235,7 @@ const COMPILER_PROVIDERS = [
     { provide: NgModuleResolver, deps: [CompileReflector] },
 ];
 /**
- * @experimental
+ * @publicApi
  */
 class JitCompilerFactory {
     /* @internal */
@@ -305,7 +305,7 @@ function _mergeArrays(parts) {
 /**
  * A platform that included corePlatform and the compiler.
  *
- * @experimental
+ * @publicApi
  */
 const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
     { provide: COMPILER_OPTIONS, useValue: {}, multi: true },
@@ -359,6 +359,9 @@ ResourceLoaderImpl = __decorate([
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/**
+ * @publicApi
+ */
 const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
     ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
     {
@@ -382,6 +385,8 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
  *
  * The template cache needs to be built and loaded into window.$templateCache
  * via a separate mechanism.
+ *
+ * @publicApi
  */
 class CachedResourceLoader extends ResourceLoader {
     constructor() {
@@ -416,7 +421,10 @@ class CachedResourceLoader extends ResourceLoader {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-const VERSION = new Version('7.0.0-rc.1+118.sha-31022cb');
+/**
+ * @publicApi
+ */
+const VERSION = new Version('7.0.0-rc.1+137.sha-4c2ce4e');
 
 /**
  * @license
@@ -426,9 +434,12 @@ const VERSION = new Version('7.0.0-rc.1+118.sha-31022cb');
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * @experimental
+ * @publicApi
  */
 const RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedResourceLoader, deps: [] }];
+/**
+ * @publicApi
+ */
 const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 
 /**
