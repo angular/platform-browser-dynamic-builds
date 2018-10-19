@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.0.0+32.sha-3f94759
+ * @license Angular v7.0.0+52.sha-778e1c2
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -149,7 +149,7 @@ class TestingCompilerImpl {
 /**
  * Platform for dynamic tests
  *
- * @experimental
+ * @publicApi
  */
 const platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 'coreDynamicTesting', [
     { provide: COMPILER_OPTIONS, useValue: { providers: COMPILER_PROVIDERS }, multi: true }, {
@@ -174,11 +174,14 @@ const platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/**
+ * @publicApi
+ */
 const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 /**
  * NgModule for testing.
  *
- *
+ * @publicApi
  */
 let BrowserDynamicTestingModule = class BrowserDynamicTestingModule {
 };
