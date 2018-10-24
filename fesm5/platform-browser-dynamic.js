@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.0.0-rc.1+111.sha-5b4cf38
+ * @license Angular v7.0.0-rc.1+178.sha-ee0b857.with-local-changes
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -237,7 +237,7 @@ var COMPILER_PROVIDERS = [
     { provide: NgModuleResolver, deps: [CompileReflector] },
 ];
 /**
- * @experimental
+ * @publicApi
  */
 var JitCompilerFactory = /** @class */ (function () {
     /* @internal */
@@ -309,7 +309,7 @@ function _mergeArrays(parts) {
 /**
  * A platform that included corePlatform and the compiler.
  *
- * @experimental
+ * @publicApi
  */
 var platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
     { provide: COMPILER_OPTIONS, useValue: {}, multi: true },
@@ -368,6 +368,9 @@ var ResourceLoaderImpl = /** @class */ (function (_super) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/**
+ * @publicApi
+ */
 var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
     ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
     {
@@ -391,6 +394,8 @@ var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
  *
  * The template cache needs to be built and loaded into window.$templateCache
  * via a separate mechanism.
+ *
+ * @publicApi
  */
 var CachedResourceLoader = /** @class */ (function (_super) {
     __extends(CachedResourceLoader, _super);
@@ -428,7 +433,10 @@ var CachedResourceLoader = /** @class */ (function (_super) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var VERSION = new Version('7.0.0-rc.1+111.sha-5b4cf38');
+/**
+ * @publicApi
+ */
+var VERSION = new Version('7.0.0-rc.1+178.sha-ee0b857.with-local-changes');
 
 /**
  * @license
@@ -438,9 +446,12 @@ var VERSION = new Version('7.0.0-rc.1+111.sha-5b4cf38');
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * @experimental
+ * @publicApi
  */
 var RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedResourceLoader, deps: [] }];
+/**
+ * @publicApi
+ */
 var platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 
 /**
