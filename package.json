@@ -1,6 +1,6 @@
 {
   "name": "@angular/platform-browser-dynamic",
-  "version": "7.1.0-beta.0+37.sha-56f44be",
+  "version": "7.1.0-beta.0+41.sha-da4a28e",
   "description": "Angular - library for using Angular in a web browser with JIT compilation",
   "main": "./bundles/platform-browser-dynamic.umd.js",
   "module": "./fesm5/platform-browser-dynamic.js",
@@ -16,10 +16,10 @@
     "tslib": "^1.9.0"
   },
   "peerDependencies": {
-    "@angular/core": "7.1.0-beta.0+37.sha-56f44be",
-    "@angular/common": "7.1.0-beta.0+37.sha-56f44be",
-    "@angular/compiler": "7.1.0-beta.0+37.sha-56f44be",
-    "@angular/platform-browser": "7.1.0-beta.0+37.sha-56f44be"
+    "@angular/core": "7.1.0-beta.0+41.sha-da4a28e",
+    "@angular/common": "7.1.0-beta.0+41.sha-da4a28e",
+    "@angular/compiler": "7.1.0-beta.0+41.sha-da4a28e",
+    "@angular/platform-browser": "7.1.0-beta.0+41.sha-da4a28e"
   },
   "repository": {
     "type": "git",
