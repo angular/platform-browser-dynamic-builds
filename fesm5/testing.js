@@ -1,11 +1,11 @@
 /**
- * @license Angular v7.1.0-beta.0+60.sha-ede65db
+ * @license Angular v7.1.0-beta.0+59.sha-578e4c7
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 
 import { __extends } from 'tslib';
-import { NgModule, createPlatformFactory, COMPILER_OPTIONS, CompilerFactory, Injector, ɵdefineNgModule, defineInjector, defineInjectable, inject, ɵstringify, Directive, Component, Pipe } from '@angular/core';
+import { NgModule, createPlatformFactory, COMPILER_OPTIONS, CompilerFactory, Injector, ɵdefineNgModule, defineInjector, ɵstringify, Directive, Component, Pipe, defineInjectable, inject } from '@angular/core';
 import { TestComponentRenderer, ɵMetadataOverrider, ɵTestingCompilerFactory } from '@angular/core/testing';
 import { DOCUMENT, ɵgetDOM } from '@angular/platform-browser';
 import { CompileReflector, DirectiveResolver, ERROR_COMPONENT_TYPE, NgModuleResolver, PipeResolver } from '@angular/compiler';
