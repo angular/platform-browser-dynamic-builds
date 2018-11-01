@@ -1,10 +1,10 @@
 /**
- * @license Angular v7.1.0-beta.1+6.sha-4e9f2e5
+ * @license Angular v7.1.0-beta.1+14.sha-2e7b5c5
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 
-import { Inject, Injectable, NgModule, createPlatformFactory, COMPILER_OPTIONS, CompilerFactory, Injector, ɵdefineNgModule, defineInjector, defineInjectable, inject, ɵstringify, Directive, Component, Pipe } from '@angular/core';
+import { Inject, Injectable, NgModule, createPlatformFactory, COMPILER_OPTIONS, CompilerFactory, Injector, ɵdefineNgModule, defineInjector, ɵsetClassMetadata, defineInjectable, inject, ɵstringify, Directive, Component, Pipe } from '@angular/core';
 import { TestComponentRenderer, ɵMetadataOverrider, ɵTestingCompilerFactory } from '@angular/core/testing';
 import { DOCUMENT, ɵgetDOM } from '@angular/platform-browser';
 import { CompileReflector, DirectiveResolver, ERROR_COMPONENT_TYPE, NgModuleResolver, PipeResolver } from '@angular/compiler';
@@ -57,6 +57,15 @@ DOMTestComponentRenderer.ctorParameters = () => [
     { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
 ];
 DOMTestComponentRenderer.ngInjectableDef = defineInjectable({ token: DOMTestComponentRenderer, factory: function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(inject(DOCUMENT)); }, providedIn: null });
+/*@__PURE__*/ ɵsetClassMetadata(DOMTestComponentRenderer, [{
+        type: Injectable
+    }], [{
+        type: undefined,
+        decorators: [{
+                type: Inject,
+                args: [DOCUMENT]
+            }]
+    }], null);
 
 /**
  * @fileoverview added by tsickle
@@ -283,6 +292,15 @@ BrowserDynamicTestingModule.ngModuleDef = ɵdefineNgModule({ type: BrowserDynami
 BrowserDynamicTestingModule.ngInjectorDef = defineInjector({ factory: function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); }, providers: [
         { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
     ], imports: [[BrowserTestingModule]] });
+/*@__PURE__*/ ɵsetClassMetadata(BrowserDynamicTestingModule, [{
+        type: NgModule,
+        args: [{
+                exports: [BrowserTestingModule],
+                providers: [
+                    { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
+                ]
+            }]
+    }], null, null);
 
 /**
  * @fileoverview added by tsickle

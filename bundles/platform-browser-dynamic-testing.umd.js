@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.1.0-beta.1+6.sha-4e9f2e5
+ * @license Angular v7.1.0-beta.1+14.sha-2e7b5c5
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -61,6 +61,15 @@
         DOMTestComponentRenderer.ngInjectableDef = i0.defineInjectable({ token: DOMTestComponentRenderer, factory: function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(i0.inject(platformBrowser.DOCUMENT)); }, providedIn: null });
         return DOMTestComponentRenderer;
     }(testing.TestComponentRenderer));
+    /*@__PURE__*/ i0.ɵsetClassMetadata(DOMTestComponentRenderer, [{
+            type: i0.Injectable
+        }], [{
+            type: undefined,
+            decorators: [{
+                    type: i0.Inject,
+                    args: [platformBrowser.DOCUMENT]
+                }]
+        }], null);
 
     /**
      * @license
@@ -216,6 +225,15 @@
             ], imports: [[testing$2.BrowserTestingModule]] });
         return BrowserDynamicTestingModule;
     }());
+    /*@__PURE__*/ i0.ɵsetClassMetadata(BrowserDynamicTestingModule, [{
+            type: i0.NgModule,
+            args: [{
+                    exports: [testing$2.BrowserTestingModule],
+                    providers: [
+                        { provide: testing.TestComponentRenderer, useClass: DOMTestComponentRenderer },
+                    ]
+                }]
+        }], null, null);
 
     /**
      * @license
