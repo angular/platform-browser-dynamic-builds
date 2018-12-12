@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.2.0-beta.1+26.sha-3290fc3
+ * @license Angular v7.2.0-beta.2+10.sha-7fabe44
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -11,7 +11,7 @@ import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /** @type {?} */
 const MODULE_SUFFIX = '';
@@ -149,13 +149,14 @@ function createBuiltinExternalReferencesMap() {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /** @type {?} */
 const ERROR_COLLECTOR_TOKEN = new InjectionToken('ErrorCollector');
-/** *
+/**
  * A default provider for {\@link PACKAGE_ROOT_URL} that maps to '/'.
-  @type {?} */
+ * @type {?}
+ */
 const DEFAULT_PACKAGE_URL_PROVIDER = {
     provide: PACKAGE_ROOT_URL,
     useValue: '/'
@@ -202,7 +203,7 @@ class CompilerImpl {
      * @return {?}
      */
     compileModuleSync(moduleType) {
-        return /** @type {?} */ (this._delegate.compileModuleSync(moduleType));
+        return (/** @type {?} */ (this._delegate.compileModuleSync(moduleType)));
     }
     /**
      * @template T
@@ -210,7 +211,7 @@ class CompilerImpl {
      * @return {?}
      */
     compileModuleAsync(moduleType) {
-        return /** @type {?} */ (this._delegate.compileModuleAsync(moduleType));
+        return (/** @type {?} */ (this._delegate.compileModuleAsync(moduleType)));
     }
     /**
      * @template T
@@ -221,8 +222,8 @@ class CompilerImpl {
         /** @type {?} */
         const result = this._delegate.compileModuleAndAllComponentsSync(moduleType);
         return {
-            ngModuleFactory: /** @type {?} */ (result.ngModuleFactory),
-            componentFactories: /** @type {?} */ (result.componentFactories),
+            ngModuleFactory: (/** @type {?} */ (result.ngModuleFactory)),
+            componentFactories: (/** @type {?} */ (result.componentFactories)),
         };
     }
     /**
@@ -233,8 +234,8 @@ class CompilerImpl {
     compileModuleAndAllComponentsAsync(moduleType) {
         return this._delegate.compileModuleAndAllComponentsAsync(moduleType)
             .then((result) => ({
-            ngModuleFactory: /** @type {?} */ (result.ngModuleFactory),
-            componentFactories: /** @type {?} */ (result.componentFactories),
+            ngModuleFactory: (/** @type {?} */ (result.ngModuleFactory)),
+            componentFactories: (/** @type {?} */ (result.componentFactories)),
         }));
     }
     /**
@@ -253,7 +254,7 @@ class CompilerImpl {
      * @return {?}
      */
     getComponentFactory(component) {
-        return /** @type {?} */ (this._delegate.getComponentFactory(component));
+        return (/** @type {?} */ (this._delegate.getComponentFactory(component)));
     }
     /**
      * @return {?}
@@ -274,11 +275,12 @@ class CompilerImpl {
         return meta && meta.id || undefined;
     }
 }
-/** *
+/**
  * A set of providers that provide `JitCompiler` and its dependencies to use for
  * template compilation.
-  @type {?} */
-const COMPILER_PROVIDERS = /** @type {?} */ ([
+ * @type {?}
+ */
+const COMPILER_PROVIDERS = (/** @type {?} */ ([
     { provide: CompileReflector, useValue: new JitReflector() },
     { provide: ResourceLoader, useValue: _NO_RESOURCE_LOADER },
     { provide: JitSummaryResolver, deps: [] },
@@ -296,7 +298,7 @@ const COMPILER_PROVIDERS = /** @type {?} */ ([
         useFactory: (parser, translations, format, config, console) => {
             translations = translations || '';
             /** @type {?} */
-            const missingTranslation = translations ? /** @type {?} */ ((config.missingTranslation)) : MissingTranslationStrategy.Ignore;
+            const missingTranslation = translations ? (/** @type {?} */ (config.missingTranslation)) : MissingTranslationStrategy.Ignore;
             return new I18NHtmlParser(parser, translations, format, missingTranslation, console);
         },
         deps: [
@@ -341,11 +343,12 @@ const COMPILER_PROVIDERS = /** @type {?} */ ([
     { provide: DirectiveResolver, deps: [CompileReflector] },
     { provide: PipeResolver, deps: [CompileReflector] },
     { provide: NgModuleResolver, deps: [CompileReflector] },
-]);
+]));
 /**
  * \@publicApi
  */
 class JitCompilerFactory {
+    /* @internal */
     /**
      * @param {?} defaultOptions
      */
@@ -384,7 +387,7 @@ class JitCompilerFactory {
                 },
                 deps: []
             },
-            /** @type {?} */ ((opts.providers))
+            (/** @type {?} */ (opts.providers))
         ]);
         return injector.get(Compiler);
     }
@@ -397,7 +400,7 @@ function _mergeOptions(optionsArr) {
     return {
         useJit: _lastDefined(optionsArr.map(options => options.useJit)),
         defaultEncapsulation: _lastDefined(optionsArr.map(options => options.defaultEncapsulation)),
-        providers: _mergeArrays(optionsArr.map(options => /** @type {?} */ ((options.providers)))),
+        providers: _mergeArrays(optionsArr.map(options => (/** @type {?} */ (options.providers)))),
         missingTranslation: _lastDefined(optionsArr.map(options => options.missingTranslation)),
         preserveWhitespaces: _lastDefined(optionsArr.map(options => options.preserveWhitespaces)),
     };
@@ -428,13 +431,14 @@ function _mergeArrays(parts) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
-/** *
+/**
  * A platform that included corePlatform and the compiler.
  *
  * \@publicApi
-  @type {?} */
+ * @type {?}
+ */
 const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
     { provide: COMPILER_OPTIONS, useValue: {}, multi: true },
     { provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS] },
@@ -442,7 +446,7 @@ const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 class ResourceLoaderImpl extends ResourceLoader {
     /**
@@ -464,8 +468,12 @@ class ResourceLoaderImpl extends ResourceLoader {
         xhr.open('GET', url, true);
         xhr.responseType = 'text';
         xhr.onload = function () {
+            // responseText is the old-school way of retrieving response (supported by IE8 & 9)
+            // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
+            // by IE10)
             /** @type {?} */
             const response = xhr.response || xhr.responseText;
+            // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
             /** @type {?} */
             let status = xhr.status === 1223 ? 204 : xhr.status;
             // fix status code when it is 0 (0 status is undocumented).
@@ -492,11 +500,12 @@ ResourceLoaderImpl.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
-/** *
+/**
  * \@publicApi
-  @type {?} */
+ * @type {?}
+ */
 const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
     ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
     {
@@ -509,7 +518,7 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /**
  * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
@@ -523,7 +532,7 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
 class CachedResourceLoader extends ResourceLoader {
     constructor() {
         super();
-        this._cache = (/** @type {?} */ (ɵglobal)).$templateCache;
+        this._cache = ((/** @type {?} */ (ɵglobal))).$templateCache;
         if (this._cache == null) {
             throw new Error('CachedResourceLoader: Template cache was not found in $templateCache.');
         }
@@ -537,47 +546,49 @@ class CachedResourceLoader extends ResourceLoader {
             return Promise.resolve(this._cache[url]);
         }
         else {
-            return /** @type {?} */ (Promise.reject('CachedResourceLoader: Did not find cached template for ' + url));
+            return (/** @type {?} */ (Promise.reject('CachedResourceLoader: Did not find cached template for ' + url)));
         }
     }
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
-/** *
+/**
  * \@publicApi
-  @type {?} */
-const VERSION = new Version('7.2.0-beta.1+26.sha-3290fc3');
+ * @type {?}
+ */
+const VERSION = new Version('7.2.0-beta.2+10.sha-7fabe44');
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
-/** *
+/**
  * \@publicApi
-  @type {?} */
+ * @type {?}
+ */
 const RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedResourceLoader, deps: [] }];
-/** *
+/**
  * \@publicApi
-  @type {?} */
+ * @type {?}
+ */
 const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
-// This file only reexports content of the `src` folder. Keep it that way.
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 
 /**
