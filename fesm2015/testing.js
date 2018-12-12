@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.2.0-beta.2+6.sha-28ceca0
+ * @license Angular v7.2.0-beta.2+9.sha-37c05bd
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -14,7 +14,7 @@ import { BrowserTestingModule } from '@angular/platform-browser/testing';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /**
  * @license
@@ -40,7 +40,8 @@ class DOMTestComponentRenderer extends TestComponentRenderer {
      */
     insertRootElement(rootElId) {
         /** @type {?} */
-        const rootEl = /** @type {?} */ (ɵgetDOM().firstChild(ɵgetDOM().content(ɵgetDOM().createTemplate(`<div id="${rootElId}"></div>`))));
+        const rootEl = (/** @type {?} */ (ɵgetDOM().firstChild(ɵgetDOM().content(ɵgetDOM().createTemplate(`<div id="${rootElId}"></div>`)))));
+        // TODO(juliemr): can/should this be optional?
         /** @type {?} */
         const oldRoots = ɵgetDOM().querySelectorAll(this._doc, '[id^=root]');
         for (let i = 0; i < oldRoots.length; i++) {
@@ -69,12 +70,12 @@ DOMTestComponentRenderer.ngInjectableDef = defineInjectable({ token: DOMTestComp
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /** @type {?} */
 const COMPILER_PROVIDERS = [
@@ -100,7 +101,7 @@ class TestingCompilerFactoryImpl {
      */
     createTestingCompiler(options) {
         /** @type {?} */
-        const compiler = /** @type {?} */ (this._compilerFactory.createCompiler(options));
+        const compiler = (/** @type {?} */ (this._compilerFactory.createCompiler(options)));
         return new TestingCompilerImpl(compiler, compiler.injector.get(MockDirectiveResolver), compiler.injector.get(MockPipeResolver), compiler.injector.get(MockNgModuleResolver));
     }
 }
@@ -192,7 +193,7 @@ class TestingCompilerImpl {
         this.checkOverrideAllowed(directive);
         /** @type {?} */
         const oldMetadata = this._directiveResolver.resolve(directive, false);
-        this._directiveResolver.setDirective(directive, this._overrider.overrideMetadata(Directive, /** @type {?} */ ((oldMetadata)), override));
+        this._directiveResolver.setDirective(directive, this._overrider.overrideMetadata(Directive, (/** @type {?} */ (oldMetadata)), override));
         this.clearCacheFor(directive);
     }
     /**
@@ -204,7 +205,7 @@ class TestingCompilerImpl {
         this.checkOverrideAllowed(component);
         /** @type {?} */
         const oldMetadata = this._directiveResolver.resolve(component, false);
-        this._directiveResolver.setDirective(component, this._overrider.overrideMetadata(Component, /** @type {?} */ ((oldMetadata)), override));
+        this._directiveResolver.setDirective(component, this._overrider.overrideMetadata(Component, (/** @type {?} */ (oldMetadata)), override));
         this.clearCacheFor(component);
     }
     /**
@@ -237,7 +238,7 @@ class TestingCompilerImpl {
      * @param {?} error
      * @return {?}
      */
-    getComponentFromError(error) { return (/** @type {?} */ (error))[ERROR_COMPONENT_TYPE] || null; }
+    getComponentFromError(error) { return ((/** @type {?} */ (error)))[ERROR_COMPONENT_TYPE] || null; }
     /**
      * @param {?} moduleType
      * @return {?}
@@ -249,13 +250,14 @@ class TestingCompilerImpl {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
-/** *
+/**
  * Platform for dynamic tests
  *
  * \@publicApi
-  @type {?} */
+ * @type {?}
+ */
 const platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 'coreDynamicTesting', [
     { provide: COMPILER_OPTIONS, useValue: { providers: COMPILER_PROVIDERS }, multi: true }, {
         provide: ɵTestingCompilerFactory,
@@ -266,12 +268,13 @@ const platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 
-/** *
+/**
  * \@publicApi
-  @type {?} */
+ * @type {?}
+ */
 const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 /**
  * NgModule for testing.
@@ -304,12 +307,12 @@ BrowserDynamicTestingModule.ngInjectorDef = defineInjector({ factory: function B
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 
 export { platformBrowserDynamicTesting, BrowserDynamicTestingModule, DOMTestComponentRenderer as ɵDOMTestComponentRenderer, platformCoreDynamicTesting as ɵplatformCoreDynamicTesting };
