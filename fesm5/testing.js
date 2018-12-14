@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.2.0-beta.2+30.sha-c6ae729
+ * @license Angular v7.2.0-beta.2+41.sha-522919a
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -37,13 +37,13 @@ var DOMTestComponentRenderer = /** @class */ (function (_super) {
 }(TestComponentRenderer));
 /*@__PURE__*/ ɵsetClassMetadata(DOMTestComponentRenderer, [{
         type: Injectable
-    }], [{
+    }], function () { return [{
         type: undefined,
         decorators: [{
                 type: Inject,
                 args: [DOCUMENT]
             }]
-    }], null);
+    }]; }, null);
 
 /**
  * @license
