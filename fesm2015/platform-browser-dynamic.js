@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.2.0-beta.2+78.sha-01a5c74
+ * @license Angular v7.2.0-rc.0+28.sha-3be276c
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -11,7 +11,7 @@ import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const MODULE_SUFFIX = '';
@@ -149,7 +149,7 @@ function createBuiltinExternalReferencesMap() {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const ERROR_COLLECTOR_TOKEN = new InjectionToken('ErrorCollector');
@@ -192,6 +192,7 @@ class CompilerImpl {
         this.injector = injector;
     }
     /**
+     * @private
      * @return {?}
      */
     getExtraNgModuleProviders() {
@@ -431,7 +432,7 @@ function _mergeArrays(parts) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * A platform that included corePlatform and the compiler.
@@ -446,7 +447,7 @@ const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ResourceLoaderImpl extends ResourceLoader {
     /**
@@ -500,7 +501,7 @@ ResourceLoaderImpl.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * \@publicApi
@@ -518,7 +519,7 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
@@ -553,22 +554,22 @@ class CachedResourceLoader extends ResourceLoader {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('7.2.0-beta.2+78.sha-01a5c74');
+const VERSION = new Version('7.2.0-rc.0+28.sha-3be276c');
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * \@publicApi
@@ -583,12 +584,12 @@ const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'brows
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
