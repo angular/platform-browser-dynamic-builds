@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.2.0+126.sha-df292c2
+ * @license Angular v7.2.0+132.sha-0c6fa1d
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -505,7 +505,7 @@ class ResourceLoaderImpl extends ResourceLoader {
 ResourceLoaderImpl.decorators = [
     { type: Injectable },
 ];
-ResourceLoaderImpl.ngInjectableDef = defineInjectable({ token: ResourceLoaderImpl, factory: function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory((t || ResourceLoaderImpl)); }, providedIn: null });
+/** @nocollapse */ ResourceLoaderImpl.ngInjectableDef = defineInjectable({ token: ResourceLoaderImpl, factory: function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory((t || ResourceLoaderImpl)); }, providedIn: null });
 const ɵResourceLoaderImpl_BaseFactory = ɵgetInheritedFactory(ResourceLoaderImpl);
 /*@__PURE__*/ ɵsetClassMetadata(ResourceLoaderImpl, [{
         type: Injectable
@@ -577,7 +577,7 @@ class CachedResourceLoader extends ResourceLoader {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('7.2.0+126.sha-df292c2');
+const VERSION = new Version('7.2.0+132.sha-0c6fa1d');
 
 /**
  * @fileoverview added by tsickle
