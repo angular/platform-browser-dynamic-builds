@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.2.0+103.sha-7de7e1b
+ * @license Angular v7.2.0+112.sha-7a9e3ad
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -7,8 +7,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/compiler'), require('@angular/core'), require('@angular/common'), require('@angular/platform-browser')) :
     typeof define === 'function' && define.amd ? define('@angular/platform-browser-dynamic', ['exports', '@angular/compiler', '@angular/core', '@angular/common', '@angular/platform-browser'], factory) :
-    (factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = {}),global.ng.compiler,global.ng.core,global.ng.common,global.ng.platformBrowser));
-}(this, (function (exports,compiler,core,common,platformBrowser) { 'use strict';
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = {}), global.ng.compiler, global.ng.core, global.ng.common, global.ng.platformBrowser));
+}(this, function (exports, compiler, core, common, platformBrowser) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -495,7 +495,7 @@
     /**
      * @publicApi
      */
-    var VERSION = new core.Version('7.2.0+103.sha-7de7e1b');
+    var VERSION = new core.Version('7.2.0+112.sha-7a9e3ad');
 
     /**
      * @license
@@ -546,5 +546,5 @@
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=platform-browser-dynamic.umd.js.map
