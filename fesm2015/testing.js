@@ -1,16 +1,16 @@
 /**
- * @license Angular v7.2.0+103.sha-885f1af
+ * @license Angular v7.2.0+104.sha-b78351c
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 
-import { Inject, Injectable, NgModule, createPlatformFactory, COMPILER_OPTIONS, CompilerFactory, Injector, ɵdefineNgModule, defineInjector, ɵsetClassMetadata, defineInjectable, inject, ɵstringify, Directive, Component, Pipe } from '@angular/core';
+import { Injectable, Inject, defineInjectable, inject, ɵsetClassMetadata, ɵstringify, NgModule, Directive, Component, Pipe, createPlatformFactory, COMPILER_OPTIONS, Injector, CompilerFactory, ɵdefineNgModule, defineInjector } from '@angular/core';
 import { TestComponentRenderer, ɵMetadataOverrider, ɵTestingCompilerFactory } from '@angular/core/testing';
-import { DOCUMENT, ɵgetDOM } from '@angular/platform-browser';
-import { CompileReflector, DirectiveResolver, ERROR_COMPONENT_TYPE, NgModuleResolver, PipeResolver } from '@angular/compiler';
-import { MockDirectiveResolver, MockNgModuleResolver, MockPipeResolver } from '@angular/compiler/testing';
 import { ɵplatformCoreDynamic, ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
 import { BrowserTestingModule } from '@angular/platform-browser/testing';
+import { ɵgetDOM, DOCUMENT } from '@angular/platform-browser';
+import { CompileReflector, PipeResolver, DirectiveResolver, NgModuleResolver, ERROR_COMPONENT_TYPE } from '@angular/compiler';
+import { MockPipeResolver, MockDirectiveResolver, MockNgModuleResolver } from '@angular/compiler/testing';
 
 /**
  * @fileoverview added by tsickle

@@ -1,14 +1,14 @@
 /**
- * @license Angular v7.2.0+103.sha-885f1af
+ * @license Angular v7.2.0+104.sha-b78351c
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/core/testing'), require('@angular/platform-browser'), require('@angular/compiler'), require('@angular/compiler/testing'), require('@angular/platform-browser-dynamic'), require('@angular/platform-browser/testing')) :
-    typeof define === 'function' && define.amd ? define('@angular/platform-browser-dynamic/testing', ['exports', '@angular/core', '@angular/core/testing', '@angular/platform-browser', '@angular/compiler', '@angular/compiler/testing', '@angular/platform-browser-dynamic', '@angular/platform-browser/testing'], factory) :
-    (factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}, global.ng.platformBrowserDynamic.testing = {}),global.ng.core,global.ng.core.testing,global.ng.platformBrowser,global.ng.compiler,global.ng.compiler.testing,global.ng.platformBrowserDynamic,global.ng.platformBrowser.testing));
-}(this, (function (exports,i0,testing,platformBrowser,compiler,testing$1,platformBrowserDynamic,testing$2) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/core/testing'), require('@angular/platform-browser-dynamic'), require('@angular/platform-browser/testing'), require('@angular/platform-browser'), require('@angular/compiler'), require('@angular/compiler/testing')) :
+    typeof define === 'function' && define.amd ? define('@angular/platform-browser-dynamic/testing', ['exports', '@angular/core', '@angular/core/testing', '@angular/platform-browser-dynamic', '@angular/platform-browser/testing', '@angular/platform-browser', '@angular/compiler', '@angular/compiler/testing'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}, global.ng.platformBrowserDynamic.testing = {}), global.ng.core, global.ng.core.testing, global.ng.platformBrowserDynamic, global.ng.platformBrowser.testing, global.ng.platformBrowser, global.ng.compiler, global.ng.compiler.testing));
+}(this, function (exports, i0, testing, platformBrowserDynamic, testing$1, platformBrowser, compiler, testing$2) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -87,12 +87,12 @@
      * found in the LICENSE file at https://angular.io/license
      */
     var COMPILER_PROVIDERS = [
-        { provide: testing$1.MockPipeResolver, deps: [compiler.CompileReflector] },
-        { provide: compiler.PipeResolver, useExisting: testing$1.MockPipeResolver },
-        { provide: testing$1.MockDirectiveResolver, deps: [compiler.CompileReflector] },
-        { provide: compiler.DirectiveResolver, useExisting: testing$1.MockDirectiveResolver },
-        { provide: testing$1.MockNgModuleResolver, deps: [compiler.CompileReflector] },
-        { provide: compiler.NgModuleResolver, useExisting: testing$1.MockNgModuleResolver },
+        { provide: testing$2.MockPipeResolver, deps: [compiler.CompileReflector] },
+        { provide: compiler.PipeResolver, useExisting: testing$2.MockPipeResolver },
+        { provide: testing$2.MockDirectiveResolver, deps: [compiler.CompileReflector] },
+        { provide: compiler.DirectiveResolver, useExisting: testing$2.MockDirectiveResolver },
+        { provide: testing$2.MockNgModuleResolver, deps: [compiler.CompileReflector] },
+        { provide: compiler.NgModuleResolver, useExisting: testing$2.MockNgModuleResolver },
     ];
     var TestingCompilerFactoryImpl = /** @class */ (function () {
         function TestingCompilerFactoryImpl(_injector, _compilerFactory) {
@@ -101,7 +101,7 @@
         }
         TestingCompilerFactoryImpl.prototype.createTestingCompiler = function (options) {
             var compiler$$1 = this._compilerFactory.createCompiler(options);
-            return new TestingCompilerImpl(compiler$$1, compiler$$1.injector.get(testing$1.MockDirectiveResolver), compiler$$1.injector.get(testing$1.MockPipeResolver), compiler$$1.injector.get(testing$1.MockNgModuleResolver));
+            return new TestingCompilerImpl(compiler$$1, compiler$$1.injector.get(testing$2.MockDirectiveResolver), compiler$$1.injector.get(testing$2.MockPipeResolver), compiler$$1.injector.get(testing$2.MockNgModuleResolver));
         };
         return TestingCompilerFactoryImpl;
     }());
@@ -219,16 +219,16 @@
     var BrowserDynamicTestingModule = /** @class */ (function () {
         function BrowserDynamicTestingModule() {
         }
-        BrowserDynamicTestingModule.ngModuleDef = i0.ɵdefineNgModule({ type: BrowserDynamicTestingModule, bootstrap: [], declarations: [], imports: [], exports: [testing$2.BrowserTestingModule] });
+        BrowserDynamicTestingModule.ngModuleDef = i0.ɵdefineNgModule({ type: BrowserDynamicTestingModule, bootstrap: [], declarations: [], imports: [], exports: [testing$1.BrowserTestingModule] });
         BrowserDynamicTestingModule.ngInjectorDef = i0.defineInjector({ factory: function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); }, providers: [
                 { provide: testing.TestComponentRenderer, useClass: DOMTestComponentRenderer },
-            ], imports: [[testing$2.BrowserTestingModule]] });
+            ], imports: [[testing$1.BrowserTestingModule]] });
         return BrowserDynamicTestingModule;
     }());
     /*@__PURE__*/ i0.ɵsetClassMetadata(BrowserDynamicTestingModule, [{
             type: i0.NgModule,
             args: [{
-                    exports: [testing$2.BrowserTestingModule],
+                    exports: [testing$1.BrowserTestingModule],
                     providers: [
                         { provide: testing.TestComponentRenderer, useClass: DOMTestComponentRenderer },
                     ]
@@ -258,5 +258,5 @@
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=platform-browser-dynamic-testing.umd.js.map
