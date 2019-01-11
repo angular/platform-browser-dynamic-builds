@@ -47,7 +47,7 @@ DOMTestComponentRenderer.decorators = [
 DOMTestComponentRenderer.ctorParameters = () => [
     { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
 ];
-DOMTestComponentRenderer.ngInjectableDef = i0.defineInjectable({ token: DOMTestComponentRenderer, factory: function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(i0.inject(DOCUMENT)); }, providedIn: null });
+/** @nocollapse */ DOMTestComponentRenderer.ngInjectableDef = i0.defineInjectable({ token: DOMTestComponentRenderer, factory: function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(i0.inject(DOCUMENT)); }, providedIn: null });
 /*@__PURE__*/ i0.ɵsetClassMetadata(DOMTestComponentRenderer, [{
         type: Injectable
     }], function () { return [{

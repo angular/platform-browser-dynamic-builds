@@ -61,7 +61,7 @@ export class ResourceLoaderImpl extends ResourceLoader {
 ResourceLoaderImpl.decorators = [
     { type: Injectable },
 ];
-ResourceLoaderImpl.ngInjectableDef = i0.defineInjectable({ token: ResourceLoaderImpl, factory: function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory((t || ResourceLoaderImpl)); }, providedIn: null });
+/** @nocollapse */ ResourceLoaderImpl.ngInjectableDef = i0.defineInjectable({ token: ResourceLoaderImpl, factory: function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory((t || ResourceLoaderImpl)); }, providedIn: null });
 const ɵResourceLoaderImpl_BaseFactory = i0.ɵgetInheritedFactory(ResourceLoaderImpl);
 /*@__PURE__*/ i0.ɵsetClassMetadata(ResourceLoaderImpl, [{
         type: Injectable

@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.2.0+122.sha-8c3f98f
+ * @license Angular v7.2.0+128.sha-091a8a6
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -57,7 +57,7 @@ DOMTestComponentRenderer.decorators = [
 DOMTestComponentRenderer.ctorParameters = () => [
     { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
 ];
-DOMTestComponentRenderer.ngInjectableDef = defineInjectable({ token: DOMTestComponentRenderer, factory: function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(inject(DOCUMENT)); }, providedIn: null });
+/** @nocollapse */ DOMTestComponentRenderer.ngInjectableDef = defineInjectable({ token: DOMTestComponentRenderer, factory: function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(inject(DOCUMENT)); }, providedIn: null });
 /*@__PURE__*/ ɵsetClassMetadata(DOMTestComponentRenderer, [{
         type: Injectable
     }], function () { return [{
@@ -291,8 +291,8 @@ BrowserDynamicTestingModule.decorators = [
                 ]
             },] },
 ];
-BrowserDynamicTestingModule.ngModuleDef = ɵdefineNgModule({ type: BrowserDynamicTestingModule, bootstrap: [], declarations: [], imports: [], exports: [BrowserTestingModule] });
-BrowserDynamicTestingModule.ngInjectorDef = defineInjector({ factory: function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); }, providers: [
+/** @nocollapse */ BrowserDynamicTestingModule.ngModuleDef = ɵdefineNgModule({ type: BrowserDynamicTestingModule, bootstrap: [], declarations: [], imports: [], exports: [BrowserTestingModule] });
+/** @nocollapse */ BrowserDynamicTestingModule.ngInjectorDef = defineInjector({ factory: function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); }, providers: [
         { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
     ], imports: [[BrowserTestingModule]] });
 /*@__PURE__*/ ɵsetClassMetadata(BrowserDynamicTestingModule, [{
