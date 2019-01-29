@@ -1,5 +1,5 @@
 /**
- * @license Angular v8.0.0-beta.1+68.sha-6e16338
+ * @license Angular v8.0.0-beta.1+83.sha-e18a52e
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -219,7 +219,7 @@
     var BrowserDynamicTestingModule = /** @class */ (function () {
         function BrowserDynamicTestingModule() {
         }
-        BrowserDynamicTestingModule.ngModuleDef = i0.ɵdefineNgModule({ type: BrowserDynamicTestingModule, bootstrap: [], declarations: [], imports: [], exports: [testing$1.BrowserTestingModule] });
+        BrowserDynamicTestingModule.ngModuleDef = i0.ɵdefineNgModule({ type: BrowserDynamicTestingModule, exports: [testing$1.BrowserTestingModule] });
         BrowserDynamicTestingModule.ngInjectorDef = i0.defineInjector({ factory: function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); }, providers: [
                 { provide: testing.TestComponentRenderer, useClass: DOMTestComponentRenderer },
             ], imports: [[testing$1.BrowserTestingModule]] });
