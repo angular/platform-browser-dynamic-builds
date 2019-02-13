@@ -1,5 +1,5 @@
 /**
- * @license Angular v8.0.0-beta.3+108.sha-6050cd0
+ * @license Angular v8.0.0-beta.3+125.sha-d68a98f
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -187,9 +187,9 @@
     };
     var baseHtmlParser = new core.InjectionToken('HtmlParser');
     var CompilerImpl = /** @class */ (function () {
-        function CompilerImpl(injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
+        function CompilerImpl(injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, jitEvaluator, compilerConfig, console) {
             this._metadataResolver = _metadataResolver;
-            this._delegate = new compiler.JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
+            this._delegate = new compiler.JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, jitEvaluator, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
             this.injector = injector;
         }
         CompilerImpl.prototype.getExtraNgModuleProviders = function () {
@@ -269,6 +269,7 @@
                 compiler.Parser, compiler.ElementSchemaRegistry,
                 compiler.I18NHtmlParser, core.ɵConsole]
         },
+        { provide: compiler.JitEvaluator, useClass: compiler.JitEvaluator, deps: [] },
         { provide: compiler.DirectiveNormalizer, deps: [compiler.ResourceLoader, compiler.UrlResolver, compiler.HtmlParser, compiler.CompilerConfig] },
         { provide: compiler.CompileMetadataResolver, deps: [compiler.CompilerConfig, compiler.HtmlParser, compiler.NgModuleResolver,
                 compiler.DirectiveResolver, compiler.PipeResolver,
@@ -286,7 +287,7 @@
         { provide: core.Compiler, useClass: CompilerImpl, deps: [core.Injector, compiler.CompileMetadataResolver,
                 compiler.TemplateParser, compiler.StyleCompiler,
                 compiler.ViewCompiler, compiler.NgModuleCompiler,
-                compiler.SummaryResolver, compiler.CompileReflector, compiler.CompilerConfig,
+                compiler.SummaryResolver, compiler.CompileReflector, compiler.JitEvaluator, compiler.CompilerConfig,
                 core.ɵConsole] },
         { provide: compiler.DomElementSchemaRegistry, deps: [] },
         { provide: compiler.ElementSchemaRegistry, useExisting: compiler.DomElementSchemaRegistry },
@@ -495,7 +496,7 @@
     /**
      * @publicApi
      */
-    var VERSION = new core.Version('8.0.0-beta.3+108.sha-6050cd0');
+    var VERSION = new core.Version('8.0.0-beta.3+125.sha-d68a98f');
 
     /**
      * @license
