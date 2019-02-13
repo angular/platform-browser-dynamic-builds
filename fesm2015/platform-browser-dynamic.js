@@ -1,10 +1,10 @@
 /**
- * @license Angular v8.0.0-beta.3+108.sha-6050cd0
+ * @license Angular v8.0.0-beta.3+125.sha-d68a98f
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
 
-import { Identifiers, getUrlScheme, syntaxError, JitCompiler, ProviderMeta, CompileReflector, ResourceLoader, JitSummaryResolver, SummaryResolver, Lexer, Parser, HtmlParser, I18NHtmlParser, CompilerConfig, TemplateParser, ElementSchemaRegistry, DirectiveNormalizer, UrlResolver, CompileMetadataResolver, NgModuleResolver, DirectiveResolver, PipeResolver, StaticSymbolCache, StyleCompiler, ViewCompiler, NgModuleCompiler, DomElementSchemaRegistry } from '@angular/compiler';
+import { Identifiers, getUrlScheme, syntaxError, JitCompiler, ProviderMeta, CompileReflector, ResourceLoader, JitSummaryResolver, SummaryResolver, Lexer, Parser, HtmlParser, I18NHtmlParser, CompilerConfig, TemplateParser, ElementSchemaRegistry, JitEvaluator, DirectiveNormalizer, UrlResolver, CompileMetadataResolver, NgModuleResolver, DirectiveResolver, PipeResolver, StaticSymbolCache, StyleCompiler, ViewCompiler, NgModuleCompiler, DomElementSchemaRegistry } from '@angular/compiler';
 import { ANALYZE_FOR_ENTRY_COMPONENTS, ElementRef, NgModuleRef, ViewContainerRef, ChangeDetectorRef, Renderer2, QueryList, TemplateRef, ɵCodegenComponentFactoryResolver, ComponentFactoryResolver, ComponentFactory, ComponentRef, NgModuleFactory, ɵcmf, ɵmod, ɵmpd, ɵregisterModuleFactory, Injector, ViewEncapsulation, ChangeDetectionStrategy, SecurityContext, LOCALE_ID, TRANSLATIONS_FORMAT, ɵinlineInterpolate, ɵinterpolate, ɵEMPTY_ARRAY, ɵEMPTY_MAP, Renderer, ɵvid, ɵeld, ɵand, ɵted, ɵdid, ɵprd, ɵqud, ɵpad, ɵpod, ɵppd, ɵpid, ɵnov, ɵncd, ɵunv, ɵcrt, ɵccf, ɵReflectionCapabilities, ɵstringify, InjectionToken, Compiler, ɵConsole, MissingTranslationStrategy, Optional, Inject, TRANSLATIONS, PACKAGE_ROOT_URL, isDevMode, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, defineInjectable, ɵgetInheritedFactory, ɵsetClassMetadata, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
@@ -183,12 +183,13 @@ class CompilerImpl {
      * @param {?} ngModuleCompiler
      * @param {?} summaryResolver
      * @param {?} compileReflector
+     * @param {?} jitEvaluator
      * @param {?} compilerConfig
      * @param {?} console
      */
-    constructor(injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console) {
+    constructor(injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, jitEvaluator, compilerConfig, console) {
         this._metadataResolver = _metadataResolver;
-        this._delegate = new JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
+        this._delegate = new JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, jitEvaluator, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
         this.injector = injector;
     }
     /**
@@ -319,6 +320,7 @@ const COMPILER_PROVIDERS = (/** @type {?} */ ([
             Parser, ElementSchemaRegistry,
             I18NHtmlParser, ɵConsole]
     },
+    { provide: JitEvaluator, useClass: JitEvaluator, deps: [] },
     { provide: DirectiveNormalizer, deps: [ResourceLoader, UrlResolver, HtmlParser, CompilerConfig] },
     { provide: CompileMetadataResolver, deps: [CompilerConfig, HtmlParser, NgModuleResolver,
             DirectiveResolver, PipeResolver,
@@ -336,7 +338,7 @@ const COMPILER_PROVIDERS = (/** @type {?} */ ([
     { provide: Compiler, useClass: CompilerImpl, deps: [Injector, CompileMetadataResolver,
             TemplateParser, StyleCompiler,
             ViewCompiler, NgModuleCompiler,
-            SummaryResolver, CompileReflector, CompilerConfig,
+            SummaryResolver, CompileReflector, JitEvaluator, CompilerConfig,
             ɵConsole] },
     { provide: DomElementSchemaRegistry, deps: [] },
     { provide: ElementSchemaRegistry, useExisting: DomElementSchemaRegistry },
@@ -577,7 +579,7 @@ class CachedResourceLoader extends ResourceLoader {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('8.0.0-beta.3+108.sha-6050cd0');
+const VERSION = new Version('8.0.0-beta.3+125.sha-d68a98f');
 
 /**
  * @fileoverview added by tsickle
