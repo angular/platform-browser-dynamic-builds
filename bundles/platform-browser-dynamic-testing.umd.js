@@ -1,5 +1,5 @@
 /**
- * @license Angular v8.0.0-beta.6+85.sha-20a9dbe.with-local-changes
+ * @license Angular v8.0.0-beta.6+86.sha-881807d.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -63,13 +63,10 @@
     }(testing.TestComponentRenderer));
     /*@__PURE__*/ i0.ɵsetClassMetadata(DOMTestComponentRenderer, [{
             type: i0.Injectable
-        }], function () { return [{
-            type: undefined,
-            decorators: [{
+        }], function () { return [{ type: undefined, decorators: [{
                     type: i0.Inject,
                     args: [platformBrowser.DOCUMENT]
-                }]
-        }]; }, null);
+                }] }]; }, null);
 
     /**
      * @license
