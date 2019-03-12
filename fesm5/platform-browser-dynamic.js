@@ -1,5 +1,5 @@
 /**
- * @license Angular v7.2.8+12.sha-67444e7.with-local-changes
+ * @license Angular v7.2.8+11.sha-09e55ea.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -436,7 +436,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * @publicApi
  */
-var VERSION = new Version('7.2.8+12.sha-67444e7.with-local-changes');
+var VERSION = new Version('7.2.8+11.sha-09e55ea.with-local-changes');
 
 /**
  * @license
