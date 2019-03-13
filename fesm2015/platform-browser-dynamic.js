@@ -1,5 +1,5 @@
 /**
- * @license Angular v8.0.0-beta.8+8.sha-9a7f560.with-local-changes
+ * @license Angular v8.0.0-beta.8+11.sha-7b20cec.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -11,7 +11,7 @@ import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const MODULE_SUFFIX = '';
@@ -149,7 +149,7 @@ function createBuiltinExternalReferencesMap() {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const ERROR_COLLECTOR_TOKEN = new InjectionToken('ErrorCollector');
@@ -235,10 +235,14 @@ class CompilerImpl {
      */
     compileModuleAndAllComponentsAsync(moduleType) {
         return this._delegate.compileModuleAndAllComponentsAsync(moduleType)
-            .then((result) => ({
+            .then((/**
+         * @param {?} result
+         * @return {?}
+         */
+        (result) => ({
             ngModuleFactory: (/** @type {?} */ (result.ngModuleFactory)),
             componentFactories: (/** @type {?} */ (result.componentFactories)),
-        }));
+        })));
     }
     /**
      * @param {?} summaries
@@ -297,12 +301,20 @@ const COMPILER_PROVIDERS = (/** @type {?} */ ([
     },
     {
         provide: I18NHtmlParser,
-        useFactory: (parser, translations, format, config, console) => {
+        useFactory: (/**
+         * @param {?} parser
+         * @param {?} translations
+         * @param {?} format
+         * @param {?} config
+         * @param {?} console
+         * @return {?}
+         */
+        (parser, translations, format, config, console) => {
             translations = translations || '';
             /** @type {?} */
             const missingTranslation = translations ? (/** @type {?} */ (config.missingTranslation)) : MissingTranslationStrategy.Ignore;
             return new I18NHtmlParser(parser, translations, format, missingTranslation, console);
-        },
+        }),
         deps: [
             baseHtmlParser,
             [new Optional(), new Inject(TRANSLATIONS)],
@@ -375,7 +387,10 @@ class JitCompilerFactory {
         const injector = Injector.create([
             COMPILER_PROVIDERS, {
                 provide: CompilerConfig,
-                useFactory: () => {
+                useFactory: (/**
+                 * @return {?}
+                 */
+                () => {
                     return new CompilerConfig({
                         // let explicit values from the compiler options overwrite options
                         // from the app providers
@@ -387,7 +402,7 @@ class JitCompilerFactory {
                         missingTranslation: opts.missingTranslation,
                         preserveWhitespaces: opts.preserveWhitespaces,
                     });
-                },
+                }),
                 deps: []
             },
             (/** @type {?} */ (opts.providers))
@@ -401,11 +416,31 @@ class JitCompilerFactory {
  */
 function _mergeOptions(optionsArr) {
     return {
-        useJit: _lastDefined(optionsArr.map(options => options.useJit)),
-        defaultEncapsulation: _lastDefined(optionsArr.map(options => options.defaultEncapsulation)),
-        providers: _mergeArrays(optionsArr.map(options => (/** @type {?} */ (options.providers)))),
-        missingTranslation: _lastDefined(optionsArr.map(options => options.missingTranslation)),
-        preserveWhitespaces: _lastDefined(optionsArr.map(options => options.preserveWhitespaces)),
+        useJit: _lastDefined(optionsArr.map((/**
+         * @param {?} options
+         * @return {?}
+         */
+        options => options.useJit))),
+        defaultEncapsulation: _lastDefined(optionsArr.map((/**
+         * @param {?} options
+         * @return {?}
+         */
+        options => options.defaultEncapsulation))),
+        providers: _mergeArrays(optionsArr.map((/**
+         * @param {?} options
+         * @return {?}
+         */
+        options => (/** @type {?} */ (options.providers))))),
+        missingTranslation: _lastDefined(optionsArr.map((/**
+         * @param {?} options
+         * @return {?}
+         */
+        options => options.missingTranslation))),
+        preserveWhitespaces: _lastDefined(optionsArr.map((/**
+         * @param {?} options
+         * @return {?}
+         */
+        options => options.preserveWhitespaces))),
     };
 }
 /**
@@ -428,13 +463,17 @@ function _lastDefined(args) {
 function _mergeArrays(parts) {
     /** @type {?} */
     const result = [];
-    parts.forEach((part) => part && result.push(...part));
+    parts.forEach((/**
+     * @param {?} part
+     * @return {?}
+     */
+    (part) => part && result.push(...part)));
     return result;
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * A platform that included corePlatform and the compiler.
@@ -449,7 +488,7 @@ const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ResourceLoaderImpl extends ResourceLoader {
     /**
@@ -462,15 +501,23 @@ class ResourceLoaderImpl extends ResourceLoader {
         /** @type {?} */
         let reject;
         /** @type {?} */
-        const promise = new Promise((res, rej) => {
+        const promise = new Promise((/**
+         * @param {?} res
+         * @param {?} rej
+         * @return {?}
+         */
+        (res, rej) => {
             resolve = res;
             reject = rej;
-        });
+        }));
         /** @type {?} */
         const xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'text';
-        xhr.onload = function () {
+        xhr.onload = (/**
+         * @return {?}
+         */
+        function () {
             // responseText is the old-school way of retrieving response (supported by IE8 & 9)
             // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
             // by IE10)
@@ -491,8 +538,11 @@ class ResourceLoaderImpl extends ResourceLoader {
             else {
                 reject(`Failed to load ${url}`);
             }
-        };
-        xhr.onerror = function () { reject(`Failed to load ${url}`); };
+        });
+        xhr.onerror = (/**
+         * @return {?}
+         */
+        function () { reject(`Failed to load ${url}`); });
         xhr.send();
         return promise;
     }
@@ -508,7 +558,7 @@ const ɵResourceLoaderImpl_BaseFactory = ɵgetInheritedFactory(ResourceLoaderImp
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * \@publicApi
@@ -526,7 +576,7 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
@@ -561,22 +611,22 @@ class CachedResourceLoader extends ResourceLoader {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('8.0.0-beta.8+8.sha-9a7f560.with-local-changes');
+const VERSION = new Version('8.0.0-beta.8+11.sha-7b20cec.with-local-changes');
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * \@publicApi
@@ -591,12 +641,12 @@ const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'brows
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 export { VERSION, JitCompilerFactory, RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, CompilerImpl as ɵCompilerImpl, platformCoreDynamic as ɵplatformCoreDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl };
