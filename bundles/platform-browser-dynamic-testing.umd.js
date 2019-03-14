@@ -1,14 +1,14 @@
 /**
- * @license Angular v8.0.0-beta.8+26.sha-a5c747f.with-local-changes
+ * @license Angular v8.0.0-beta.8+29.sha-7b70760.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
 
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/core/testing'), require('@angular/platform-browser-dynamic'), require('@angular/platform-browser/testing'), require('@angular/platform-browser'), require('@angular/compiler'), require('@angular/compiler/testing')) :
-    typeof define === 'function' && define.amd ? define('@angular/platform-browser-dynamic/testing', ['exports', '@angular/core', '@angular/core/testing', '@angular/platform-browser-dynamic', '@angular/platform-browser/testing', '@angular/platform-browser', '@angular/compiler', '@angular/compiler/testing'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}, global.ng.platformBrowserDynamic.testing = {}), global.ng.core, global.ng.core.testing, global.ng.platformBrowserDynamic, global.ng.platformBrowser.testing, global.ng.platformBrowser, global.ng.compiler, global.ng.compiler.testing));
-}(this, function (exports, i0, testing, platformBrowserDynamic, testing$1, platformBrowser, compiler, testing$2) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/core/testing'), require('@angular/platform-browser-dynamic'), require('@angular/platform-browser/testing'), require('@angular/common'), require('@angular/platform-browser'), require('@angular/compiler'), require('@angular/compiler/testing')) :
+    typeof define === 'function' && define.amd ? define('@angular/platform-browser-dynamic/testing', ['exports', '@angular/core', '@angular/core/testing', '@angular/platform-browser-dynamic', '@angular/platform-browser/testing', '@angular/common', '@angular/platform-browser', '@angular/compiler', '@angular/compiler/testing'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}, global.ng.platformBrowserDynamic.testing = {}), global.ng.core, global.ng.core.testing, global.ng.platformBrowserDynamic, global.ng.platformBrowser.testing, global.ng.common, global.ng.platformBrowser, global.ng.compiler, global.ng.compiler.testing));
+}(this, function (exports, i0, testing, platformBrowserDynamic, testing$1, common, platformBrowser, compiler, testing$2) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -58,14 +58,14 @@
             }
             platformBrowser.ɵgetDOM().appendChild(this._doc.body, rootEl);
         };
-        DOMTestComponentRenderer.ngInjectableDef = i0.defineInjectable({ token: DOMTestComponentRenderer, factory: function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(i0.inject(platformBrowser.DOCUMENT)); }, providedIn: null });
+        DOMTestComponentRenderer.ngInjectableDef = i0.defineInjectable({ token: DOMTestComponentRenderer, factory: function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(i0.inject(common.DOCUMENT)); }, providedIn: null });
         return DOMTestComponentRenderer;
     }(testing.TestComponentRenderer));
     /*@__PURE__*/ i0.ɵsetClassMetadata(DOMTestComponentRenderer, [{
             type: i0.Injectable
         }], function () { return [{ type: undefined, decorators: [{
                     type: i0.Inject,
-                    args: [platformBrowser.DOCUMENT]
+                    args: [common.DOCUMENT]
                 }] }]; }, null);
 
     /**

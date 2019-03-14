@@ -1,5 +1,5 @@
 /**
- * @license Angular v8.0.0-beta.8+26.sha-a5c747f.with-local-changes
+ * @license Angular v8.0.0-beta.8+29.sha-7b70760.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -9,7 +9,8 @@ import { TestComponentRenderer, ɵMetadataOverrider, ɵTestingCompilerFactory } 
 import { ɵplatformCoreDynamic, ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
 import { BrowserTestingModule } from '@angular/platform-browser/testing';
 import { __extends } from 'tslib';
-import { ɵgetDOM, DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
+import { ɵgetDOM } from '@angular/platform-browser';
 import { ERROR_COMPONENT_TYPE, CompileReflector, PipeResolver, DirectiveResolver, NgModuleResolver } from '@angular/compiler';
 import { MockDirectiveResolver, MockPipeResolver, MockNgModuleResolver } from '@angular/compiler/testing';
 
