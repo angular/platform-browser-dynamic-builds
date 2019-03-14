@@ -1,5 +1,5 @@
 /**
- * @license Angular v8.0.0-beta.8+9.sha-75748d6.with-local-changes
+ * @license Angular v8.0.0-beta.8+33.sha-7c297e0.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -8,7 +8,8 @@ import { Injectable, Inject, ɵstringify, NgModule, Directive, Component, Pipe, 
 import { TestComponentRenderer, ɵMetadataOverrider, ɵTestingCompilerFactory } from '@angular/core/testing';
 import { ɵplatformCoreDynamic, ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
 import { BrowserTestingModule } from '@angular/platform-browser/testing';
-import { ɵgetDOM, DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
+import { ɵgetDOM } from '@angular/platform-browser';
 import { CompileReflector, PipeResolver, DirectiveResolver, NgModuleResolver, ERROR_COMPONENT_TYPE } from '@angular/compiler';
 import { MockPipeResolver, MockDirectiveResolver, MockNgModuleResolver } from '@angular/compiler/testing';
 
