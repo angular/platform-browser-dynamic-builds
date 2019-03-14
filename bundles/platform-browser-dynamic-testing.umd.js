@@ -1,5 +1,5 @@
 /**
- * @license Angular v8.0.0-beta.8+20.sha-a3e1054.with-local-changes
+ * @license Angular v8.0.0-beta.8+25.sha-410ccac.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -117,8 +117,8 @@
             this._compilerFactory = _compilerFactory;
         }
         TestingCompilerFactoryImpl.prototype.createTestingCompiler = function (options) {
-            var compiler$$1 = this._compilerFactory.createCompiler(options);
-            return new TestingCompilerImpl(compiler$$1, compiler$$1.injector.get(testing$2.MockDirectiveResolver), compiler$$1.injector.get(testing$2.MockPipeResolver), compiler$$1.injector.get(testing$2.MockNgModuleResolver));
+            var compiler = this._compilerFactory.createCompiler(options);
+            return new TestingCompilerImpl(compiler, compiler.injector.get(testing$2.MockDirectiveResolver), compiler.injector.get(testing$2.MockPipeResolver), compiler.injector.get(testing$2.MockNgModuleResolver));
         };
         return TestingCompilerFactoryImpl;
     }());
