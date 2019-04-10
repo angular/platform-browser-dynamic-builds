@@ -9,5 +9,5 @@ import { ResourceLoader } from '@angular/compiler';
 import * as i0 from "@angular/core";
 export declare class ResourceLoaderImpl extends ResourceLoader {
     get(url: string): Promise<string>;
-    static ngInjectableDef: i0.ɵInjectableDef<ResourceLoaderImpl>;
+    static ngInjectableDef: i0.ΔInjectableDef<ResourceLoaderImpl>;
 }

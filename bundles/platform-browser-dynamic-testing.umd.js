@@ -1,5 +1,5 @@
 /**
- * @license Angular v8.0.0-beta.11+55.sha-db62ccf.with-local-changes
+ * @license Angular v8.0.0-beta.11+57.sha-ef85336.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -58,7 +58,7 @@
             }
             platformBrowser.ɵgetDOM().appendChild(this._doc.body, rootEl);
         };
-        DOMTestComponentRenderer.ngInjectableDef = i0.defineInjectable({ token: DOMTestComponentRenderer, factory: function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(i0.inject(common.DOCUMENT)); }, providedIn: null });
+        DOMTestComponentRenderer.ngInjectableDef = i0.ΔdefineInjectable({ token: DOMTestComponentRenderer, factory: function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(i0.Δinject(common.DOCUMENT)); }, providedIn: null });
         return DOMTestComponentRenderer;
     }(testing.TestComponentRenderer));
     /*@__PURE__*/ i0.ɵsetClassMetadata(DOMTestComponentRenderer, [{
@@ -216,13 +216,13 @@
     var BrowserDynamicTestingModule = /** @class */ (function () {
         function BrowserDynamicTestingModule() {
         }
-        BrowserDynamicTestingModule.ngModuleDef = i0.ɵdefineNgModule({ type: BrowserDynamicTestingModule });
-        BrowserDynamicTestingModule.ngInjectorDef = i0.defineInjector({ factory: function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); }, providers: [
+        BrowserDynamicTestingModule.ngModuleDef = i0.ΔdefineNgModule({ type: BrowserDynamicTestingModule });
+        BrowserDynamicTestingModule.ngInjectorDef = i0.ΔdefineInjector({ factory: function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); }, providers: [
                 { provide: testing.TestComponentRenderer, useClass: DOMTestComponentRenderer },
             ], imports: [testing$1.BrowserTestingModule] });
         return BrowserDynamicTestingModule;
     }());
-    /*@__PURE__*/ i0.ɵsetNgModuleScope(BrowserDynamicTestingModule, { exports: [testing$1.BrowserTestingModule] });
+    /*@__PURE__*/ i0.ΔsetNgModuleScope(BrowserDynamicTestingModule, { exports: [testing$1.BrowserTestingModule] });
     /*@__PURE__*/ i0.ɵsetClassMetadata(BrowserDynamicTestingModule, [{
             type: i0.NgModule,
             args: [{

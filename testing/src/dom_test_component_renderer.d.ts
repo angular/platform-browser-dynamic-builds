@@ -7,5 +7,5 @@ export declare class DOMTestComponentRenderer extends TestComponentRenderer {
     private _doc;
     constructor(_doc: any);
     insertRootElement(rootElId: string): void;
-    static ngInjectableDef: i0.ɵInjectableDef<DOMTestComponentRenderer>;
+    static ngInjectableDef: i0.ΔInjectableDef<DOMTestComponentRenderer>;
 }
