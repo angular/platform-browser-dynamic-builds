@@ -19,6 +19,6 @@ export declare const platformBrowserDynamicTesting: (extraProviders?: StaticProv
  * @publicApi
  */
 export declare class BrowserDynamicTestingModule {
-    static ngModuleDef: i0.ΔNgModuleDefWithMeta<BrowserDynamicTestingModule, never, never, [typeof i1.BrowserTestingModule]>;
-    static ngInjectorDef: i0.ΔInjectorDef<BrowserDynamicTestingModule>;
+    static ngModuleDef: i0.ɵɵNgModuleDefWithMeta<BrowserDynamicTestingModule, never, never, [typeof i1.BrowserTestingModule]>;
+    static ngInjectorDef: i0.ɵɵInjectorDef<BrowserDynamicTestingModule>;
 }

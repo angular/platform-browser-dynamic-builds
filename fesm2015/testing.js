@@ -1,10 +1,10 @@
 /**
- * @license Angular v8.0.0-beta.11+84.sha-54058ba.with-local-changes
+ * @license Angular v8.0.0-beta.11+85.sha-b057806.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
 
-import { Injectable, Inject, ΔdefineInjectable, Δinject, ɵsetClassMetadata, ɵstringify, NgModule, Directive, Component, Pipe, createPlatformFactory, COMPILER_OPTIONS, Injector, CompilerFactory, ΔdefineNgModule, ΔdefineInjector, ΔsetNgModuleScope } from '@angular/core';
+import { Injectable, Inject, ɵɵdefineInjectable, ɵɵinject, ɵsetClassMetadata, ɵstringify, NgModule, Directive, Component, Pipe, createPlatformFactory, COMPILER_OPTIONS, Injector, CompilerFactory, ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope } from '@angular/core';
 import { TestComponentRenderer, ɵMetadataOverrider, ɵTestingCompilerFactory } from '@angular/core/testing';
 import { ɵplatformCoreDynamic, ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
 import { BrowserTestingModule } from '@angular/platform-browser/testing';
@@ -58,7 +58,7 @@ DOMTestComponentRenderer.decorators = [
 DOMTestComponentRenderer.ctorParameters = () => [
     { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
 ];
-/** @nocollapse */ DOMTestComponentRenderer.ngInjectableDef = ΔdefineInjectable({ token: DOMTestComponentRenderer, factory: function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(Δinject(DOCUMENT)); }, providedIn: null });
+/** @nocollapse */ DOMTestComponentRenderer.ngInjectableDef = ɵɵdefineInjectable({ token: DOMTestComponentRenderer, factory: function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(ɵɵinject(DOCUMENT)); }, providedIn: null });
 /*@__PURE__*/ ɵsetClassMetadata(DOMTestComponentRenderer, [{
         type: Injectable
     }], function () { return [{ type: undefined, decorators: [{
@@ -293,11 +293,11 @@ BrowserDynamicTestingModule.decorators = [
                 ]
             },] },
 ];
-/** @nocollapse */ BrowserDynamicTestingModule.ngModuleDef = ΔdefineNgModule({ type: BrowserDynamicTestingModule });
-/** @nocollapse */ BrowserDynamicTestingModule.ngInjectorDef = ΔdefineInjector({ factory: function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); }, providers: [
+/** @nocollapse */ BrowserDynamicTestingModule.ngModuleDef = ɵɵdefineNgModule({ type: BrowserDynamicTestingModule });
+/** @nocollapse */ BrowserDynamicTestingModule.ngInjectorDef = ɵɵdefineInjector({ factory: function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); }, providers: [
         { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
     ], imports: [BrowserTestingModule] });
-/*@__PURE__*/ ΔsetNgModuleScope(BrowserDynamicTestingModule, { exports: [BrowserTestingModule] });
+/*@__PURE__*/ ɵɵsetNgModuleScope(BrowserDynamicTestingModule, { exports: [BrowserTestingModule] });
 /*@__PURE__*/ ɵsetClassMetadata(BrowserDynamicTestingModule, [{
         type: NgModule,
         args: [{

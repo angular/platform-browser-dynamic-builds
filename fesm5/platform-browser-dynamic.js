@@ -1,11 +1,11 @@
 /**
- * @license Angular v8.0.0-beta.11+84.sha-54058ba.with-local-changes
+ * @license Angular v8.0.0-beta.11+85.sha-b057806.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
 
 import { Identifiers, getUrlScheme, syntaxError, ProviderMeta, CompileReflector, ResourceLoader, JitSummaryResolver, SummaryResolver, Lexer, Parser, HtmlParser, I18NHtmlParser, CompilerConfig, TemplateParser, ElementSchemaRegistry, JitEvaluator, DirectiveNormalizer, UrlResolver, CompileMetadataResolver, NgModuleResolver, DirectiveResolver, PipeResolver, StaticSymbolCache, StyleCompiler, ViewCompiler, NgModuleCompiler, DomElementSchemaRegistry, JitCompiler } from '@angular/compiler';
-import { ANALYZE_FOR_ENTRY_COMPONENTS, ElementRef, NgModuleRef, ViewContainerRef, ChangeDetectorRef, Renderer2, QueryList, TemplateRef, ɵCodegenComponentFactoryResolver, ComponentFactoryResolver, ComponentFactory, ComponentRef, NgModuleFactory, ɵcmf, ɵmod, ɵmpd, ɵregisterModuleFactory, Injector, ViewEncapsulation, ChangeDetectionStrategy, SecurityContext, LOCALE_ID, TRANSLATIONS_FORMAT, ɵinlineInterpolate, ɵinterpolate, ɵEMPTY_ARRAY, ɵEMPTY_MAP, Renderer, ɵvid, ɵeld, ɵand, ɵted, ɵdid, ɵprd, ɵqud, ɵpad, ɵpod, ɵppd, ɵpid, ɵnov, ɵncd, ɵunv, ɵcrt, ɵccf, ɵReflectionCapabilities, ɵstringify, InjectionToken, Compiler, ɵConsole, MissingTranslationStrategy, Optional, Inject, TRANSLATIONS, PACKAGE_ROOT_URL, isDevMode, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, ΔdefineInjectable, ΔgetInheritedFactory, ɵsetClassMetadata, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
+import { ANALYZE_FOR_ENTRY_COMPONENTS, ElementRef, NgModuleRef, ViewContainerRef, ChangeDetectorRef, Renderer2, QueryList, TemplateRef, ɵCodegenComponentFactoryResolver, ComponentFactoryResolver, ComponentFactory, ComponentRef, NgModuleFactory, ɵcmf, ɵmod, ɵmpd, ɵregisterModuleFactory, Injector, ViewEncapsulation, ChangeDetectionStrategy, SecurityContext, LOCALE_ID, TRANSLATIONS_FORMAT, ɵinlineInterpolate, ɵinterpolate, ɵEMPTY_ARRAY, ɵEMPTY_MAP, Renderer, ɵvid, ɵeld, ɵand, ɵted, ɵdid, ɵprd, ɵqud, ɵpad, ɵpod, ɵppd, ɵpid, ɵnov, ɵncd, ɵunv, ɵcrt, ɵccf, ɵReflectionCapabilities, ɵstringify, InjectionToken, Compiler, ɵConsole, MissingTranslationStrategy, Optional, Inject, TRANSLATIONS, PACKAGE_ROOT_URL, isDevMode, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, ɵɵdefineInjectable, ɵɵgetInheritedFactory, ɵsetClassMetadata, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
 import { __spread, __extends } from 'tslib';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
@@ -356,10 +356,10 @@ var ResourceLoaderImpl = /** @class */ (function (_super) {
         xhr.send();
         return promise;
     };
-    ResourceLoaderImpl.ngInjectableDef = ΔdefineInjectable({ token: ResourceLoaderImpl, factory: function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory((t || ResourceLoaderImpl)); }, providedIn: null });
+    ResourceLoaderImpl.ngInjectableDef = ɵɵdefineInjectable({ token: ResourceLoaderImpl, factory: function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory((t || ResourceLoaderImpl)); }, providedIn: null });
     return ResourceLoaderImpl;
 }(ResourceLoader));
-var ɵResourceLoaderImpl_BaseFactory = ΔgetInheritedFactory(ResourceLoaderImpl);
+var ɵResourceLoaderImpl_BaseFactory = ɵɵgetInheritedFactory(ResourceLoaderImpl);
 /*@__PURE__*/ ɵsetClassMetadata(ResourceLoaderImpl, [{
         type: Injectable
     }], null, null);
@@ -439,7 +439,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * @publicApi
  */
-var VERSION = new Version('8.0.0-beta.11+84.sha-54058ba.with-local-changes');
+var VERSION = new Version('8.0.0-beta.11+85.sha-b057806.with-local-changes');
 
 /**
  * @license
