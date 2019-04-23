@@ -1,5 +1,5 @@
 /**
- * @license Angular v8.0.0-beta.13+62.sha-5c8d156.with-local-changes
+ * @license Angular v8.0.0-beta.13+91.sha-b61c9df.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -366,13 +366,14 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
+    var ɵ0 = {};
     /**
      * A platform that included corePlatform and the compiler.
      *
      * @publicApi
      */
     var platformCoreDynamic = core.createPlatformFactory(core.platformCore, 'coreDynamic', [
-        { provide: core.COMPILER_OPTIONS, useValue: {}, multi: true },
+        { provide: core.COMPILER_OPTIONS, useValue: ɵ0, multi: true },
         { provide: core.CompilerFactory, useClass: JitCompilerFactory, deps: [core.COMPILER_OPTIONS] },
     ]);
 
@@ -428,6 +429,7 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
+    var ɵ0$1 = { providers: [{ provide: compiler.ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] }, ɵ1 = common.ɵPLATFORM_BROWSER_ID;
     /**
      * @publicApi
      */
@@ -435,10 +437,10 @@
         platformBrowser.ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
         {
             provide: core.COMPILER_OPTIONS,
-            useValue: { providers: [{ provide: compiler.ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] },
+            useValue: ɵ0$1,
             multi: true
         },
-        { provide: core.PLATFORM_ID, useValue: common.ɵPLATFORM_BROWSER_ID },
+        { provide: core.PLATFORM_ID, useValue: ɵ1 },
     ];
 
     /**
@@ -496,7 +498,7 @@
     /**
      * @publicApi
      */
-    var VERSION = new core.Version('8.0.0-beta.13+62.sha-5c8d156.with-local-changes');
+    var VERSION = new core.Version('8.0.0-beta.13+91.sha-b61c9df.with-local-changes');
 
     /**
      * @license
