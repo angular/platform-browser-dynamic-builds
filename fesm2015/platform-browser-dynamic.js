@@ -1,5 +1,5 @@
 /**
- * @license Angular v8.0.0-beta.13+80.sha-9873356.with-local-changes
+ * @license Angular v8.0.0-beta.13+82.sha-8e73f9b.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -475,6 +475,7 @@ function _mergeArrays(parts) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+const ɵ0 = {};
 /**
  * A platform that included corePlatform and the compiler.
  *
@@ -482,7 +483,7 @@ function _mergeArrays(parts) {
  * @type {?}
  */
 const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
-    { provide: COMPILER_OPTIONS, useValue: {}, multi: true },
+    { provide: COMPILER_OPTIONS, useValue: ɵ0, multi: true },
     { provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS] },
 ]);
 
@@ -555,6 +556,7 @@ ResourceLoaderImpl.decorators = [
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+const ɵ0$1 = { providers: [{ provide: ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] }, ɵ1 = ɵPLATFORM_BROWSER_ID;
 /**
  * \@publicApi
  * @type {?}
@@ -563,10 +565,10 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
     ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
     {
         provide: COMPILER_OPTIONS,
-        useValue: { providers: [{ provide: ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] },
+        useValue: ɵ0$1,
         multi: true
     },
-    { provide: PLATFORM_ID, useValue: ɵPLATFORM_BROWSER_ID },
+    { provide: PLATFORM_ID, useValue: ɵ1 },
 ];
 
 /**
@@ -617,7 +619,7 @@ class CachedResourceLoader extends ResourceLoader {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('8.0.0-beta.13+80.sha-9873356.with-local-changes');
+const VERSION = new Version('8.0.0-beta.13+82.sha-8e73f9b.with-local-changes');
 
 /**
  * @fileoverview added by tsickle

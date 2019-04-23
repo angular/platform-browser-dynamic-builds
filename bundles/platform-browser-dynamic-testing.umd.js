@@ -1,5 +1,5 @@
 /**
- * @license Angular v8.0.0-beta.13+80.sha-9873356.with-local-changes
+ * @license Angular v8.0.0-beta.13+82.sha-8e73f9b.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -196,13 +196,14 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
+    var ɵ0 = { providers: COMPILER_PROVIDERS };
     /**
      * Platform for dynamic tests
      *
      * @publicApi
      */
     var platformCoreDynamicTesting = core.createPlatformFactory(platformBrowserDynamic.ɵplatformCoreDynamic, 'coreDynamicTesting', [
-        { provide: core.COMPILER_OPTIONS, useValue: { providers: COMPILER_PROVIDERS }, multi: true }, {
+        { provide: core.COMPILER_OPTIONS, useValue: ɵ0, multi: true }, {
             provide: testing.ɵTestingCompilerFactory,
             useClass: TestingCompilerFactoryImpl,
             deps: [core.Injector, core.CompilerFactory]

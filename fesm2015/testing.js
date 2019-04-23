@@ -1,5 +1,5 @@
 /**
- * @license Angular v8.0.0-beta.13+80.sha-9873356.with-local-changes
+ * @license Angular v8.0.0-beta.13+82.sha-8e73f9b.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -236,6 +236,7 @@ class TestingCompilerImpl {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+const ɵ0 = { providers: COMPILER_PROVIDERS };
 /**
  * Platform for dynamic tests
  *
@@ -243,7 +244,7 @@ class TestingCompilerImpl {
  * @type {?}
  */
 const platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 'coreDynamicTesting', [
-    { provide: COMPILER_OPTIONS, useValue: { providers: COMPILER_PROVIDERS }, multi: true }, {
+    { provide: COMPILER_OPTIONS, useValue: ɵ0, multi: true }, {
         provide: ɵTestingCompilerFactory,
         useClass: TestingCompilerFactoryImpl,
         deps: [Injector, CompilerFactory]
