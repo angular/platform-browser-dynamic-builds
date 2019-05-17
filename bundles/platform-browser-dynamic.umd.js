@@ -1,5 +1,5 @@
 /**
- * @license Angular v8.0.0-rc.0+243.sha-0937062.with-local-changes
+ * @license Angular v8.0.0-rc.0+244.sha-eda09e6.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -408,7 +408,7 @@
             xhr.send();
             return promise;
         };
-        ResourceLoaderImpl.ngInjectableDef = i0.ΔdefineInjectable({ token: ResourceLoaderImpl, factory: function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory((t || ResourceLoaderImpl)); }, providedIn: null });
+        ResourceLoaderImpl.ngInjectableDef = i0.ΔdefineInjectable({ token: ResourceLoaderImpl, factory: function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory(t || ResourceLoaderImpl); }, providedIn: null });
         return ResourceLoaderImpl;
     }(compiler.ResourceLoader));
     var ɵResourceLoaderImpl_BaseFactory = i0.ΔgetInheritedFactory(ResourceLoaderImpl);
@@ -491,7 +491,7 @@
     /**
      * @publicApi
      */
-    var VERSION = new i0.Version('8.0.0-rc.0+243.sha-0937062.with-local-changes');
+    var VERSION = new i0.Version('8.0.0-rc.0+244.sha-eda09e6.with-local-changes');
 
     /**
      * @license
