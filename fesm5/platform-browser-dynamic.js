@@ -1,5 +1,5 @@
 /**
- * @license Angular v8.0.0-rc.5+3.sha-9fd2295.with-local-changes
+ * @license Angular v8.0.0-rc.5+4.sha-60f0462.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -439,7 +439,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * @publicApi
  */
-var VERSION = new Version('8.0.0-rc.5+3.sha-9fd2295.with-local-changes');
+var VERSION = new Version('8.0.0-rc.5+4.sha-60f0462.with-local-changes');
 
 /**
  * @license
