@@ -7,7 +7,7 @@
  */
 import { Compiler, CompilerFactory, ComponentFactory, CompilerOptions, ModuleWithComponentFactories, InjectionToken, StaticProvider, Type, ɵConsole as Console, Injector, NgModuleFactory } from '@angular/core';
 import { ViewCompiler, CompileMetadataResolver, TemplateParser, NgModuleCompiler, JitEvaluator, SummaryResolver, StyleCompiler, CompileReflector, CompilerConfig } from '@angular/compiler';
-export declare const ERROR_COLLECTOR_TOKEN: InjectionToken<{}>;
+export declare const ERROR_COLLECTOR_TOKEN: InjectionToken<unknown>;
 /**
  * A default provider for {@link PACKAGE_ROOT_URL} that maps to '/'.
  */
