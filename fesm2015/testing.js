@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.1+11.sha-0ddf0c4.with-local-changes
+ * @license Angular v9.0.0-next.1+13.sha-c198a27.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -65,6 +65,13 @@ DOMTestComponentRenderer.ctorParameters = () => [
                 type: Inject,
                 args: [DOCUMENT]
             }] }]; }, null);
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    DOMTestComponentRenderer.prototype._doc;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -102,6 +109,18 @@ class TestingCompilerFactoryImpl {
         const compiler = (/** @type {?} */ (this._compilerFactory.createCompiler(options)));
         return new TestingCompilerImpl(compiler, compiler.injector.get(MockDirectiveResolver), compiler.injector.get(MockPipeResolver), compiler.injector.get(MockNgModuleResolver));
     }
+}
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TestingCompilerFactoryImpl.prototype._injector;
+    /**
+     * @type {?}
+     * @private
+     */
+    TestingCompilerFactoryImpl.prototype._compilerFactory;
 }
 class TestingCompilerImpl {
     /**
@@ -244,6 +263,33 @@ class TestingCompilerImpl {
     getModuleId(moduleType) {
         return this._moduleResolver.resolve(moduleType, true).id;
     }
+}
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TestingCompilerImpl.prototype._overrider;
+    /**
+     * @type {?}
+     * @private
+     */
+    TestingCompilerImpl.prototype._compiler;
+    /**
+     * @type {?}
+     * @private
+     */
+    TestingCompilerImpl.prototype._directiveResolver;
+    /**
+     * @type {?}
+     * @private
+     */
+    TestingCompilerImpl.prototype._pipeResolver;
+    /**
+     * @type {?}
+     * @private
+     */
+    TestingCompilerImpl.prototype._moduleResolver;
 }
 
 /**

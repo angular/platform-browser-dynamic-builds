@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.1+11.sha-0ddf0c4.with-local-changes
+ * @license Angular v9.0.0-next.1+13.sha-c198a27.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -11,8 +11,8 @@ import { BrowserTestingModule } from '@angular/platform-browser/testing';
 import { __extends } from 'tslib';
 import { DOCUMENT } from '@angular/common';
 import { ɵgetDOM } from '@angular/platform-browser';
-import { ERROR_COMPONENT_TYPE, CompileReflector, PipeResolver, DirectiveResolver, NgModuleResolver } from '@angular/compiler';
-import { MockDirectiveResolver, MockPipeResolver, MockNgModuleResolver } from '@angular/compiler/testing';
+import { CompileReflector, PipeResolver, DirectiveResolver, NgModuleResolver, ERROR_COMPONENT_TYPE } from '@angular/compiler';
+import { MockPipeResolver, MockDirectiveResolver, MockNgModuleResolver } from '@angular/compiler/testing';
 
 /**
  * A DOM based implementation of the TestComponentRenderer.
