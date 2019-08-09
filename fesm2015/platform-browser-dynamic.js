@@ -1,11 +1,11 @@
 /**
- * @license Angular v8.2.1+4.sha-6ec91dd.with-local-changes
+ * @license Angular v8.2.1+6.sha-eccb60c.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
 
-import { Identifiers, getUrlScheme, syntaxError, JitCompiler, ProviderMeta, CompileReflector, ResourceLoader, JitSummaryResolver, SummaryResolver, Lexer, Parser, HtmlParser, I18NHtmlParser, CompilerConfig, TemplateParser, ElementSchemaRegistry, JitEvaluator, DirectiveNormalizer, UrlResolver, CompileMetadataResolver, NgModuleResolver, DirectiveResolver, PipeResolver, StaticSymbolCache, StyleCompiler, ViewCompiler, NgModuleCompiler, DomElementSchemaRegistry } from '@angular/compiler';
-import { ANALYZE_FOR_ENTRY_COMPONENTS, ElementRef, NgModuleRef, ViewContainerRef, ChangeDetectorRef, Renderer2, QueryList, TemplateRef, ɵCodegenComponentFactoryResolver, ComponentFactoryResolver, ComponentFactory, ComponentRef, NgModuleFactory, ɵcmf, ɵmod, ɵmpd, ɵregisterModuleFactory, Injector, ViewEncapsulation, ChangeDetectionStrategy, SecurityContext, LOCALE_ID, TRANSLATIONS_FORMAT, ɵinlineInterpolate, ɵinterpolate, ɵEMPTY_ARRAY, ɵEMPTY_MAP, Renderer, ɵvid, ɵeld, ɵand, ɵted, ɵdid, ɵprd, ɵqud, ɵpad, ɵpod, ɵppd, ɵpid, ɵnov, ɵncd, ɵunv, ɵcrt, ɵccf, ɵReflectionCapabilities, ɵstringify, InjectionToken, Compiler, ɵConsole, MissingTranslationStrategy, Optional, Inject, TRANSLATIONS, PACKAGE_ROOT_URL, isDevMode, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
+import { getUrlScheme, syntaxError, Identifiers, JitCompiler, ProviderMeta, CompileReflector, ResourceLoader, JitSummaryResolver, SummaryResolver, Lexer, Parser, HtmlParser, I18NHtmlParser, CompilerConfig, TemplateParser, ElementSchemaRegistry, JitEvaluator, DirectiveNormalizer, UrlResolver, CompileMetadataResolver, NgModuleResolver, DirectiveResolver, PipeResolver, StaticSymbolCache, StyleCompiler, ViewCompiler, NgModuleCompiler, DomElementSchemaRegistry } from '@angular/compiler';
+import { ɵReflectionCapabilities, ɵstringify, ANALYZE_FOR_ENTRY_COMPONENTS, ElementRef, NgModuleRef, ViewContainerRef, ChangeDetectorRef, Renderer2, QueryList, TemplateRef, ɵCodegenComponentFactoryResolver, ComponentFactoryResolver, ComponentFactory, ComponentRef, NgModuleFactory, ɵcmf, ɵmod, ɵmpd, ɵregisterModuleFactory, Injector, ViewEncapsulation, ChangeDetectionStrategy, SecurityContext, LOCALE_ID, TRANSLATIONS_FORMAT, ɵinlineInterpolate, ɵinterpolate, ɵEMPTY_ARRAY, ɵEMPTY_MAP, Renderer, ɵvid, ɵeld, ɵand, ɵted, ɵdid, ɵprd, ɵqud, ɵpad, ɵpod, ɵppd, ɵpid, ɵnov, ɵncd, ɵunv, ɵcrt, ɵccf, InjectionToken, PACKAGE_ROOT_URL, Compiler, ɵConsole, MissingTranslationStrategy, Optional, Inject, TRANSLATIONS, isDevMode, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
 
@@ -93,6 +93,13 @@ class JitReflector {
     resolveExternalReference(ref) {
         return builtinExternalReferences.get(ref) || ref.runtime;
     }
+}
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    JitReflector.prototype.reflectionCapabilities;
 }
 /**
  * @return {?}
@@ -281,6 +288,20 @@ class CompilerImpl {
         return meta && meta.id || undefined;
     }
 }
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    CompilerImpl.prototype._delegate;
+    /** @type {?} */
+    CompilerImpl.prototype.injector;
+    /**
+     * @type {?}
+     * @private
+     */
+    CompilerImpl.prototype._metadataResolver;
+}
 /**
  * A set of providers that provide `JitCompiler` and its dependencies to use for
  * template compilation.
@@ -409,6 +430,13 @@ class JitCompilerFactory {
         ]);
         return injector.get(Compiler);
     }
+}
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    JitCompilerFactory.prototype._defaultOptions;
 }
 /**
  * @param {?} optionsArr
@@ -605,6 +633,13 @@ class CachedResourceLoader extends ResourceLoader {
         }
     }
 }
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    CachedResourceLoader.prototype._cache;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -619,7 +654,7 @@ class CachedResourceLoader extends ResourceLoader {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('8.2.1+4.sha-6ec91dd.with-local-changes');
+const VERSION = new Version('8.2.1+6.sha-eccb60c.with-local-changes');
 
 /**
  * @fileoverview added by tsickle
