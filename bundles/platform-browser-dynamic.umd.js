@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.2+38.sha-40b2874.with-local-changes
+ * @license Angular v9.0.0-next.2+40.sha-3cf2005.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -356,13 +356,18 @@
         };
         return CompilerImpl;
     }());
+    var ɵ0 = new JitReflector(), ɵ1 = _NO_RESOURCE_LOADER, ɵ2 = function (parser, translations, format, config, console) {
+        translations = translations || '';
+        var missingTranslation = translations ? config.missingTranslation : core.MissingTranslationStrategy.Ignore;
+        return new compiler.I18NHtmlParser(parser, translations, format, missingTranslation, console);
+    }, ɵ3 = new compiler.CompilerConfig();
     /**
      * A set of providers that provide `JitCompiler` and its dependencies to use for
      * template compilation.
      */
-    var COMPILER_PROVIDERS = [
-        { provide: compiler.CompileReflector, useValue: new JitReflector() },
-        { provide: compiler.ResourceLoader, useValue: _NO_RESOURCE_LOADER },
+    var COMPILER_PROVIDERS__PRE_R3__ = [
+        { provide: compiler.CompileReflector, useValue: ɵ0 },
+        { provide: compiler.ResourceLoader, useValue: ɵ1 },
         { provide: compiler.JitSummaryResolver, deps: [] },
         { provide: compiler.SummaryResolver, useExisting: compiler.JitSummaryResolver },
         { provide: core.ɵConsole, deps: [] },
@@ -375,11 +380,7 @@
         },
         {
             provide: compiler.I18NHtmlParser,
-            useFactory: function (parser, translations, format, config, console) {
-                translations = translations || '';
-                var missingTranslation = translations ? config.missingTranslation : core.MissingTranslationStrategy.Ignore;
-                return new compiler.I18NHtmlParser(parser, translations, format, missingTranslation, console);
-            },
+            useFactory: ɵ2,
             deps: [
                 baseHtmlParser,
                 [new core.Optional(), new core.Inject(core.TRANSLATIONS)],
@@ -411,7 +412,7 @@
         { provide: compiler.StyleCompiler, deps: [compiler.UrlResolver] },
         { provide: compiler.ViewCompiler, deps: [compiler.CompileReflector] },
         { provide: compiler.NgModuleCompiler, deps: [compiler.CompileReflector] },
-        { provide: compiler.CompilerConfig, useValue: new compiler.CompilerConfig() },
+        { provide: compiler.CompilerConfig, useValue: ɵ3 },
         { provide: core.Compiler, useClass: CompilerImpl, deps: [core.Injector, compiler.CompileMetadataResolver,
                 compiler.TemplateParser, compiler.StyleCompiler,
                 compiler.ViewCompiler, compiler.NgModuleCompiler,
@@ -424,6 +425,8 @@
         { provide: compiler.PipeResolver, deps: [compiler.CompileReflector] },
         { provide: compiler.NgModuleResolver, deps: [compiler.CompileReflector] },
     ];
+    var COMPILER_PROVIDERS__POST_R3__ = [{ provide: core.Compiler, useFactory: function () { return new core.Compiler(); } }];
+    var COMPILER_PROVIDERS = COMPILER_PROVIDERS__PRE_R3__;
     /**
      * @publicApi
      */
@@ -494,14 +497,14 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
-    var ɵ0 = {};
+    var ɵ0$1 = {};
     /**
      * A platform that included corePlatform and the compiler.
      *
      * @publicApi
      */
     var platformCoreDynamic = core.createPlatformFactory(core.platformCore, 'coreDynamic', [
-        { provide: core.COMPILER_OPTIONS, useValue: ɵ0, multi: true },
+        { provide: core.COMPILER_OPTIONS, useValue: ɵ0$1, multi: true },
         { provide: core.CompilerFactory, useClass: JitCompilerFactory, deps: [core.COMPILER_OPTIONS] },
     ]);
 
@@ -557,7 +560,7 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
-    var ɵ0$1 = { providers: [{ provide: compiler.ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] }, ɵ1 = common.ɵPLATFORM_BROWSER_ID;
+    var ɵ0$2 = { providers: [{ provide: compiler.ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] }, ɵ1$1 = common.ɵPLATFORM_BROWSER_ID;
     /**
      * @publicApi
      */
@@ -565,10 +568,10 @@
         platformBrowser.ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
         {
             provide: core.COMPILER_OPTIONS,
-            useValue: ɵ0$1,
+            useValue: ɵ0$2,
             multi: true
         },
-        { provide: core.PLATFORM_ID, useValue: ɵ1 },
+        { provide: core.PLATFORM_ID, useValue: ɵ1$1 },
     ];
 
     /**
@@ -626,7 +629,7 @@
     /**
      * @publicApi
      */
-    var VERSION = new core.Version('9.0.0-next.2+38.sha-40b2874.with-local-changes');
+    var VERSION = new core.Version('9.0.0-next.2+40.sha-3cf2005.with-local-changes');
 
     /**
      * @license
@@ -670,6 +673,7 @@
     exports.platformBrowserDynamic = platformBrowserDynamic;
     exports.VERSION = VERSION;
     exports.JitCompilerFactory = JitCompilerFactory;
+    exports.ɵCOMPILER_PROVIDERS__POST_R3__ = COMPILER_PROVIDERS__POST_R3__;
     exports.ɵCompilerImpl = CompilerImpl;
     exports.ɵplatformCoreDynamic = platformCoreDynamic;
     exports.ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS;
