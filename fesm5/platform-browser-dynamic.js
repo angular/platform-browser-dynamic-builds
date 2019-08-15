@@ -1,11 +1,11 @@
 /**
- * @license Angular v9.0.0-next.2+13.sha-628b0c1.with-local-changes
+ * @license Angular v9.0.0-next.2+39.sha-2e4d17f.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
 
-import { getUrlScheme, syntaxError, Identifiers, JitCompiler, ProviderMeta, CompileReflector, ResourceLoader, JitSummaryResolver, SummaryResolver, Lexer, Parser, HtmlParser, I18NHtmlParser, CompilerConfig, TemplateParser, ElementSchemaRegistry, JitEvaluator, DirectiveNormalizer, UrlResolver, CompileMetadataResolver, NgModuleResolver, DirectiveResolver, PipeResolver, StaticSymbolCache, StyleCompiler, ViewCompiler, NgModuleCompiler, DomElementSchemaRegistry } from '@angular/compiler';
-import { ɵReflectionCapabilities, ɵstringify, ANALYZE_FOR_ENTRY_COMPONENTS, ElementRef, NgModuleRef, ViewContainerRef, ChangeDetectorRef, Renderer2, QueryList, TemplateRef, ɵCodegenComponentFactoryResolver, ComponentFactoryResolver, ComponentFactory, ComponentRef, NgModuleFactory, ɵcmf, ɵmod, ɵmpd, ɵregisterModuleFactory, Injector, ViewEncapsulation, ChangeDetectionStrategy, SecurityContext, LOCALE_ID, TRANSLATIONS_FORMAT, ɵinlineInterpolate, ɵinterpolate, ɵEMPTY_ARRAY, ɵEMPTY_MAP, Renderer, ɵvid, ɵeld, ɵand, ɵted, ɵdid, ɵprd, ɵqud, ɵpad, ɵpod, ɵppd, ɵpid, ɵnov, ɵncd, ɵunv, ɵcrt, ɵccf, InjectionToken, PACKAGE_ROOT_URL, Compiler, ɵConsole, MissingTranslationStrategy, Optional, Inject, TRANSLATIONS, isDevMode, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
+import { getUrlScheme, syntaxError, Identifiers, JitCompiler, ProviderMeta, I18NHtmlParser, CompilerConfig, CompileReflector, ResourceLoader, JitSummaryResolver, SummaryResolver, Lexer, Parser, HtmlParser, TemplateParser, ElementSchemaRegistry, JitEvaluator, DirectiveNormalizer, UrlResolver, CompileMetadataResolver, NgModuleResolver, DirectiveResolver, PipeResolver, StaticSymbolCache, StyleCompiler, ViewCompiler, NgModuleCompiler, DomElementSchemaRegistry } from '@angular/compiler';
+import { ɵReflectionCapabilities, ɵstringify, ANALYZE_FOR_ENTRY_COMPONENTS, ElementRef, NgModuleRef, ViewContainerRef, ChangeDetectorRef, Renderer2, QueryList, TemplateRef, ɵCodegenComponentFactoryResolver, ComponentFactoryResolver, ComponentFactory, ComponentRef, NgModuleFactory, ɵcmf, ɵmod, ɵmpd, ɵregisterModuleFactory, Injector, ViewEncapsulation, ChangeDetectionStrategy, SecurityContext, LOCALE_ID, TRANSLATIONS_FORMAT, ɵinlineInterpolate, ɵinterpolate, ɵEMPTY_ARRAY, ɵEMPTY_MAP, Renderer, ɵvid, ɵeld, ɵand, ɵted, ɵdid, ɵprd, ɵqud, ɵpad, ɵpod, ɵppd, ɵpid, ɵnov, ɵncd, ɵunv, ɵcrt, ɵccf, InjectionToken, PACKAGE_ROOT_URL, Compiler, MissingTranslationStrategy, ɵConsole, Optional, Inject, TRANSLATIONS, isDevMode, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
 import { __spread, __extends, __decorate } from 'tslib';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
@@ -169,13 +169,18 @@ var CompilerImpl = /** @class */ (function () {
     };
     return CompilerImpl;
 }());
+var ɵ0 = new JitReflector(), ɵ1 = _NO_RESOURCE_LOADER, ɵ2 = function (parser, translations, format, config, console) {
+    translations = translations || '';
+    var missingTranslation = translations ? config.missingTranslation : MissingTranslationStrategy.Ignore;
+    return new I18NHtmlParser(parser, translations, format, missingTranslation, console);
+}, ɵ3 = new CompilerConfig();
 /**
  * A set of providers that provide `JitCompiler` and its dependencies to use for
  * template compilation.
  */
-var COMPILER_PROVIDERS = [
-    { provide: CompileReflector, useValue: new JitReflector() },
-    { provide: ResourceLoader, useValue: _NO_RESOURCE_LOADER },
+var COMPILER_PROVIDERS__PRE_R3__ = [
+    { provide: CompileReflector, useValue: ɵ0 },
+    { provide: ResourceLoader, useValue: ɵ1 },
     { provide: JitSummaryResolver, deps: [] },
     { provide: SummaryResolver, useExisting: JitSummaryResolver },
     { provide: ɵConsole, deps: [] },
@@ -188,11 +193,7 @@ var COMPILER_PROVIDERS = [
     },
     {
         provide: I18NHtmlParser,
-        useFactory: function (parser, translations, format, config, console) {
-            translations = translations || '';
-            var missingTranslation = translations ? config.missingTranslation : MissingTranslationStrategy.Ignore;
-            return new I18NHtmlParser(parser, translations, format, missingTranslation, console);
-        },
+        useFactory: ɵ2,
         deps: [
             baseHtmlParser,
             [new Optional(), new Inject(TRANSLATIONS)],
@@ -224,7 +225,7 @@ var COMPILER_PROVIDERS = [
     { provide: StyleCompiler, deps: [UrlResolver] },
     { provide: ViewCompiler, deps: [CompileReflector] },
     { provide: NgModuleCompiler, deps: [CompileReflector] },
-    { provide: CompilerConfig, useValue: new CompilerConfig() },
+    { provide: CompilerConfig, useValue: ɵ3 },
     { provide: Compiler, useClass: CompilerImpl, deps: [Injector, CompileMetadataResolver,
             TemplateParser, StyleCompiler,
             ViewCompiler, NgModuleCompiler,
@@ -237,6 +238,8 @@ var COMPILER_PROVIDERS = [
     { provide: PipeResolver, deps: [CompileReflector] },
     { provide: NgModuleResolver, deps: [CompileReflector] },
 ];
+var COMPILER_PROVIDERS__POST_R3__ = [{ provide: Compiler, useFactory: function () { return new Compiler(); } }];
+var COMPILER_PROVIDERS = COMPILER_PROVIDERS__PRE_R3__;
 /**
  * @publicApi
  */
@@ -307,14 +310,14 @@ function _mergeArrays(parts) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var ɵ0 = {};
+var ɵ0$1 = {};
 /**
  * A platform that included corePlatform and the compiler.
  *
  * @publicApi
  */
 var platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
-    { provide: COMPILER_OPTIONS, useValue: ɵ0, multi: true },
+    { provide: COMPILER_OPTIONS, useValue: ɵ0$1, multi: true },
     { provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS] },
 ]);
 
@@ -370,7 +373,7 @@ var ResourceLoaderImpl = /** @class */ (function (_super) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var ɵ0$1 = { providers: [{ provide: ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] }, ɵ1 = ɵPLATFORM_BROWSER_ID;
+var ɵ0$2 = { providers: [{ provide: ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] }, ɵ1$1 = ɵPLATFORM_BROWSER_ID;
 /**
  * @publicApi
  */
@@ -378,10 +381,10 @@ var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
     ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
     {
         provide: COMPILER_OPTIONS,
-        useValue: ɵ0$1,
+        useValue: ɵ0$2,
         multi: true
     },
-    { provide: PLATFORM_ID, useValue: ɵ1 },
+    { provide: PLATFORM_ID, useValue: ɵ1$1 },
 ];
 
 /**
@@ -439,7 +442,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * @publicApi
  */
-var VERSION = new Version('9.0.0-next.2+13.sha-628b0c1.with-local-changes');
+var VERSION = new Version('9.0.0-next.2+39.sha-2e4d17f.with-local-changes');
 
 /**
  * @license
@@ -478,5 +481,5 @@ var platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browser
  * Generated bundle index. Do not edit.
  */
 
-export { CachedResourceLoader as ɵangular_packages_platform_browser_dynamic_platform_browser_dynamic_a, RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, VERSION, JitCompilerFactory, CompilerImpl as ɵCompilerImpl, platformCoreDynamic as ɵplatformCoreDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl };
+export { CachedResourceLoader as ɵangular_packages_platform_browser_dynamic_platform_browser_dynamic_a, RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, VERSION, JitCompilerFactory, COMPILER_PROVIDERS__POST_R3__ as ɵCOMPILER_PROVIDERS__POST_R3__, CompilerImpl as ɵCompilerImpl, platformCoreDynamic as ɵplatformCoreDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl };
 //# sourceMappingURL=platform-browser-dynamic.js.map

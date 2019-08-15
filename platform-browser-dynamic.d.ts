@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.2+13.sha-628b0c1.with-local-changes
+ * @license Angular v9.0.0-next.2+39.sha-2e4d17f.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -65,6 +65,8 @@ export declare class ɵangular_packages_platform_browser_dynamic_platform_browse
     constructor();
     get(url: string): Promise<string>;
 }
+
+export declare const ɵCOMPILER_PROVIDERS__POST_R3__: StaticProvider[];
 
 export declare class ɵCompilerImpl implements Compiler {
     private _metadataResolver;
