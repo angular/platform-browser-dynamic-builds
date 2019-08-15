@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.2+38.sha-40b2874.with-local-changes
+ * @license Angular v9.0.0-next.2+40.sha-3cf2005.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -293,13 +293,6 @@
         return map;
     }
 
-    /**
-     * @license
-     * Copyright Google Inc. All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
     var ERROR_COLLECTOR_TOKEN = new i0.InjectionToken('ErrorCollector');
     /**
      * A default provider for {@link PACKAGE_ROOT_URL} that maps to '/'.
@@ -360,7 +353,7 @@
      * A set of providers that provide `JitCompiler` and its dependencies to use for
      * template compilation.
      */
-    var COMPILER_PROVIDERS = [
+    var COMPILER_PROVIDERS__PRE_R3__ = [
         { provide: compiler.CompileReflector, useValue: new JitReflector() },
         { provide: compiler.ResourceLoader, useValue: _NO_RESOURCE_LOADER },
         { provide: compiler.JitSummaryResolver, deps: [] },
@@ -424,6 +417,8 @@
         { provide: compiler.PipeResolver, deps: [compiler.CompileReflector] },
         { provide: compiler.NgModuleResolver, deps: [compiler.CompileReflector] },
     ];
+    var COMPILER_PROVIDERS__POST_R3__ = [{ provide: i0.Compiler, useFactory: function () { return new i0.Compiler(); } }];
+    var COMPILER_PROVIDERS = COMPILER_PROVIDERS__POST_R3__;
     /**
      * @publicApi
      */
@@ -626,7 +621,7 @@
     /**
      * @publicApi
      */
-    var VERSION = new i0.Version('9.0.0-next.2+38.sha-40b2874.with-local-changes');
+    var VERSION = new i0.Version('9.0.0-next.2+40.sha-3cf2005.with-local-changes');
 
     /**
      * @license
@@ -665,6 +660,7 @@
     exports.platformBrowserDynamic = platformBrowserDynamic;
     exports.VERSION = VERSION;
     exports.JitCompilerFactory = JitCompilerFactory;
+    exports.ɵCOMPILER_PROVIDERS__POST_R3__ = COMPILER_PROVIDERS__POST_R3__;
     exports.ɵCompilerImpl = CompilerImpl;
     exports.ɵplatformCoreDynamic = platformCoreDynamic;
     exports.ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS;

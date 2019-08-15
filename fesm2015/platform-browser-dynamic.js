@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.2+38.sha-40b2874.with-local-changes
+ * @license Angular v9.0.0-next.2+40.sha-3cf2005.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -307,7 +307,7 @@ if (false) {
  * template compilation.
  * @type {?}
  */
-const COMPILER_PROVIDERS = (/** @type {?} */ ([
+const COMPILER_PROVIDERS__PRE_R3__ = (/** @type {?} */ ([
     { provide: CompileReflector, useValue: new JitReflector() },
     { provide: ResourceLoader, useValue: _NO_RESOURCE_LOADER },
     { provide: JitSummaryResolver, deps: [] },
@@ -380,6 +380,13 @@ const COMPILER_PROVIDERS = (/** @type {?} */ ([
     { provide: PipeResolver, deps: [CompileReflector] },
     { provide: NgModuleResolver, deps: [CompileReflector] },
 ]));
+/** @type {?} */
+const COMPILER_PROVIDERS__POST_R3__ = (/** @type {?} */ ([{ provide: Compiler, useFactory: (/**
+         * @return {?}
+         */
+        () => new Compiler()) }]));
+/** @type {?} */
+const COMPILER_PROVIDERS = COMPILER_PROVIDERS__POST_R3__;
 /**
  * \@publicApi
  */
@@ -657,7 +664,7 @@ if (false) {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('9.0.0-next.2+38.sha-40b2874.with-local-changes');
+const VERSION = new Version('9.0.0-next.2+40.sha-3cf2005.with-local-changes');
 
 /**
  * @fileoverview added by tsickle
@@ -684,5 +691,5 @@ const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'brows
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { VERSION, JitCompilerFactory, RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, CompilerImpl as ɵCompilerImpl, platformCoreDynamic as ɵplatformCoreDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl };
+export { VERSION, JitCompilerFactory, RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, COMPILER_PROVIDERS__POST_R3__ as ɵCOMPILER_PROVIDERS__POST_R3__, CompilerImpl as ɵCompilerImpl, platformCoreDynamic as ɵplatformCoreDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl };
 //# sourceMappingURL=platform-browser-dynamic.js.map

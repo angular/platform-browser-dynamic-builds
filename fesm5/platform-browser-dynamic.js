@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.2+38.sha-40b2874.with-local-changes
+ * @license Angular v9.0.0-next.2+40.sha-3cf2005.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -106,13 +106,6 @@ function createBuiltinExternalReferencesMap() {
     return map;
 }
 
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 var ERROR_COLLECTOR_TOKEN = new InjectionToken('ErrorCollector');
 /**
  * A default provider for {@link PACKAGE_ROOT_URL} that maps to '/'.
@@ -173,7 +166,7 @@ var CompilerImpl = /** @class */ (function () {
  * A set of providers that provide `JitCompiler` and its dependencies to use for
  * template compilation.
  */
-var COMPILER_PROVIDERS = [
+var COMPILER_PROVIDERS__PRE_R3__ = [
     { provide: CompileReflector, useValue: new JitReflector() },
     { provide: ResourceLoader, useValue: _NO_RESOURCE_LOADER },
     { provide: JitSummaryResolver, deps: [] },
@@ -237,6 +230,8 @@ var COMPILER_PROVIDERS = [
     { provide: PipeResolver, deps: [CompileReflector] },
     { provide: NgModuleResolver, deps: [CompileReflector] },
 ];
+var COMPILER_PROVIDERS__POST_R3__ = [{ provide: Compiler, useFactory: function () { return new Compiler(); } }];
+var COMPILER_PROVIDERS = COMPILER_PROVIDERS__POST_R3__;
 /**
  * @publicApi
  */
@@ -439,7 +434,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * @publicApi
  */
-var VERSION = new Version('9.0.0-next.2+38.sha-40b2874.with-local-changes');
+var VERSION = new Version('9.0.0-next.2+40.sha-3cf2005.with-local-changes');
 
 /**
  * @license
@@ -474,5 +469,5 @@ var platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browser
  * found in the LICENSE file at https://angular.io/license
  */
 
-export { RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, VERSION, JitCompilerFactory, CompilerImpl as ɵCompilerImpl, platformCoreDynamic as ɵplatformCoreDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl };
+export { RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, VERSION, JitCompilerFactory, COMPILER_PROVIDERS__POST_R3__ as ɵCOMPILER_PROVIDERS__POST_R3__, CompilerImpl as ɵCompilerImpl, platformCoreDynamic as ɵplatformCoreDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl };
 //# sourceMappingURL=platform-browser-dynamic.js.map

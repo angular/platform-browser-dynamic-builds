@@ -32,10 +32,7 @@ export declare class CompilerImpl implements Compiler {
     clearCacheFor(type: Type<any>): void;
     getModuleId(moduleType: Type<any>): string | undefined;
 }
-/**
- * A set of providers that provide `JitCompiler` and its dependencies to use for
- * template compilation.
- */
+export declare const COMPILER_PROVIDERS__POST_R3__: StaticProvider[];
 export declare const COMPILER_PROVIDERS: StaticProvider[];
 /**
  * @publicApi
