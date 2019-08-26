@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.3+30.sha-e79ba19.with-local-changes
+ * @license Angular v9.0.0-next.3+39.sha-cf4b944.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -32,7 +32,7 @@ var DOMTestComponentRenderer = /** @class */ (function (_super) {
         return _this;
     }
     DOMTestComponentRenderer.prototype.insertRootElement = function (rootElId) {
-        var rootEl = ɵgetDOM().firstChild(ɵgetDOM().content(ɵgetDOM().createTemplate("<div id=\"" + rootElId + "\"></div>")));
+        var rootEl = ɵgetDOM().firstChild(getContent(ɵgetDOM().createTemplate("<div id=\"" + rootElId + "\"></div>")));
         // TODO(juliemr): can/should this be optional?
         var oldRoots = ɵgetDOM().querySelectorAll(this._doc, '[id^=root]');
         for (var i = 0; i < oldRoots.length; i++) {
@@ -47,6 +47,14 @@ var DOMTestComponentRenderer = /** @class */ (function (_super) {
     ], DOMTestComponentRenderer);
     return DOMTestComponentRenderer;
 }(TestComponentRenderer));
+function getContent(node) {
+    if ('content' in node) {
+        return node.content;
+    }
+    else {
+        return node;
+    }
+}
 
 /**
  * @license
