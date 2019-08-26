@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.3+30.sha-e79ba19.with-local-changes
+ * @license Angular v9.0.0-next.3+39.sha-cf4b944.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -41,7 +41,7 @@ class DOMTestComponentRenderer extends TestComponentRenderer {
      */
     insertRootElement(rootElId) {
         /** @type {?} */
-        const rootEl = (/** @type {?} */ (ɵgetDOM().firstChild(ɵgetDOM().content(ɵgetDOM().createTemplate(`<div id="${rootElId}"></div>`)))));
+        const rootEl = (/** @type {?} */ (ɵgetDOM().firstChild(getContent(ɵgetDOM().createTemplate(`<div id="${rootElId}"></div>`)))));
         // TODO(juliemr): can/should this be optional?
         /** @type {?} */
         const oldRoots = ɵgetDOM().querySelectorAll(this._doc, '[id^=root]');
@@ -71,6 +71,18 @@ if (false) {
      * @private
      */
     DOMTestComponentRenderer.prototype._doc;
+}
+/**
+ * @param {?} node
+ * @return {?}
+ */
+function getContent(node) {
+    if ('content' in node) {
+        return ((/** @type {?} */ (node))).content;
+    }
+    else {
+        return node;
+    }
 }
 
 /**
