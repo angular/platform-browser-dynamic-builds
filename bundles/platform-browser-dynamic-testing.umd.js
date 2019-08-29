@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.4+7.sha-b094936.with-local-changes
+ * @license Angular v9.0.0-next.4+1.sha-46caf88.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -208,9 +208,7 @@
             return _this;
         }
         DOMTestComponentRenderer.prototype.insertRootElement = function (rootElId) {
-            var template = platformBrowser.ɵgetDOM().getDefaultDocument().createElement('template');
-            template.innerHTML = "<div id=\"" + rootElId + "\"></div>";
-            var rootEl = getContent(template).firstChild;
+            var rootEl = platformBrowser.ɵgetDOM().firstChild(getContent(platformBrowser.ɵgetDOM().createTemplate("<div id=\"" + rootElId + "\"></div>")));
             // TODO(juliemr): can/should this be optional?
             var oldRoots = platformBrowser.ɵgetDOM().querySelectorAll(this._doc, '[id^=root]');
             for (var i = 0; i < oldRoots.length; i++) {
