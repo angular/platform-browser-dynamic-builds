@@ -1,14 +1,14 @@
 /**
- * @license Angular v9.0.0-next.4+39.sha-3758978.with-local-changes
+ * @license Angular v9.0.0-next.4+44.sha-1537791.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
 
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/core/testing'), require('@angular/platform-browser-dynamic'), require('@angular/platform-browser/testing'), require('@angular/common'), require('@angular/platform-browser'), require('@angular/compiler'), require('@angular/compiler/testing')) :
-    typeof define === 'function' && define.amd ? define('@angular/platform-browser-dynamic/testing', ['exports', '@angular/core', '@angular/core/testing', '@angular/platform-browser-dynamic', '@angular/platform-browser/testing', '@angular/common', '@angular/platform-browser', '@angular/compiler', '@angular/compiler/testing'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}, global.ng.platformBrowserDynamic.testing = {}), global.ng.core, global.ng.core.testing, global.ng.platformBrowserDynamic, global.ng.platformBrowser.testing, global.ng.common, global.ng.platformBrowser, global.ng.compiler, global.ng.compiler.testing));
-}(this, function (exports, core, testing, platformBrowserDynamic, testing$1, common, platformBrowser, compiler, testing$2) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/core/testing'), require('@angular/platform-browser-dynamic'), require('@angular/platform-browser/testing'), require('@angular/common'), require('@angular/compiler'), require('@angular/compiler/testing')) :
+    typeof define === 'function' && define.amd ? define('@angular/platform-browser-dynamic/testing', ['exports', '@angular/core', '@angular/core/testing', '@angular/platform-browser-dynamic', '@angular/platform-browser/testing', '@angular/common', '@angular/compiler', '@angular/compiler/testing'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}, global.ng.platformBrowserDynamic.testing = {}), global.ng.core, global.ng.core.testing, global.ng.platformBrowserDynamic, global.ng.platformBrowser.testing, global.ng.common, global.ng.compiler, global.ng.compiler.testing));
+}(this, function (exports, core, testing, platformBrowserDynamic, testing$1, common, compiler, testing$2) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -215,15 +215,15 @@
             return _this;
         }
         DOMTestComponentRenderer.prototype.insertRootElement = function (rootElId) {
-            var template = platformBrowser.ɵgetDOM().getDefaultDocument().createElement('template');
+            var template = common.ɵgetDOM().getDefaultDocument().createElement('template');
             template.innerHTML = "<div id=\"" + rootElId + "\"></div>";
             var rootEl = getContent(template).firstChild;
             // TODO(juliemr): can/should this be optional?
-            var oldRoots = platformBrowser.ɵgetDOM().querySelectorAll(this._doc, '[id^=root]');
+            var oldRoots = common.ɵgetDOM().querySelectorAll(this._doc, '[id^=root]');
             for (var i = 0; i < oldRoots.length; i++) {
-                platformBrowser.ɵgetDOM().remove(oldRoots[i]);
+                common.ɵgetDOM().remove(oldRoots[i]);
             }
-            platformBrowser.ɵgetDOM().appendChild(this._doc.body, rootEl);
+            common.ɵgetDOM().appendChild(this._doc.body, rootEl);
         };
         DOMTestComponentRenderer = __decorate([
             core.Injectable(),
