@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.4+71.sha-e8f9ba4.with-local-changes
+ * @license Angular v9.0.0-next.4+78.sha-89434e0.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -46,11 +46,11 @@ class DOMTestComponentRenderer extends TestComponentRenderer {
         const rootEl = (/** @type {?} */ (getContent(template).firstChild));
         // TODO(juliemr): can/should this be optional?
         /** @type {?} */
-        const oldRoots = ɵgetDOM().querySelectorAll(this._doc, '[id^=root]');
+        const oldRoots = this._doc.querySelectorAll('[id^=root]');
         for (let i = 0; i < oldRoots.length; i++) {
             ɵgetDOM().remove(oldRoots[i]);
         }
-        ɵgetDOM().appendChild(this._doc.body, rootEl);
+        this._doc.body.appendChild(rootEl);
     }
 }
 DOMTestComponentRenderer.decorators = [
