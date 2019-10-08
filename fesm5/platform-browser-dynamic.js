@@ -1,11 +1,11 @@
 /**
- * @license Angular v9.0.0-next.9+64.sha-c507dda.with-local-changes
+ * @license Angular v9.0.0-next.9+65.sha-2265cb5.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
 
 import { getUrlScheme, syntaxError, Identifiers, JitCompiler, ProviderMeta, I18NHtmlParser, CompilerConfig, CompileReflector, ResourceLoader, JitSummaryResolver, SummaryResolver, Lexer, Parser, HtmlParser, TemplateParser, ElementSchemaRegistry, JitEvaluator, DirectiveNormalizer, UrlResolver, CompileMetadataResolver, NgModuleResolver, DirectiveResolver, PipeResolver, StaticSymbolCache, StyleCompiler, ViewCompiler, NgModuleCompiler, DomElementSchemaRegistry } from '@angular/compiler';
-import { ɵReflectionCapabilities, ɵstringify, ANALYZE_FOR_ENTRY_COMPONENTS, ElementRef, NgModuleRef, ViewContainerRef, ChangeDetectorRef, Renderer2, QueryList, TemplateRef, ɵCodegenComponentFactoryResolver, ComponentFactoryResolver, ComponentFactory, ComponentRef, NgModuleFactory, ɵcmf, ɵmod, ɵmpd, ɵregisterModuleFactory, Injector, ViewEncapsulation, ChangeDetectionStrategy, SecurityContext, LOCALE_ID, TRANSLATIONS_FORMAT, ɵinlineInterpolate, ɵinterpolate, ɵEMPTY_ARRAY, ɵEMPTY_MAP, Renderer, ɵvid, ɵeld, ɵand, ɵted, ɵdid, ɵprd, ɵqud, ɵpad, ɵpod, ɵppd, ɵpid, ɵnov, ɵncd, ɵunv, ɵcrt, ɵccf, InjectionToken, PACKAGE_ROOT_URL, Compiler, MissingTranslationStrategy, ɵConsole, Optional, Inject, TRANSLATIONS, isDevMode, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
+import { ɵReflectionCapabilities, ɵstringify, ANALYZE_FOR_ENTRY_COMPONENTS, ElementRef, NgModuleRef, ViewContainerRef, ChangeDetectorRef, Renderer2, QueryList, TemplateRef, ɵCodegenComponentFactoryResolver, ComponentFactoryResolver, ComponentFactory, ComponentRef, NgModuleFactory, ɵcmf, ɵmod, ɵmpd, ɵregisterModuleFactory, Injector, ViewEncapsulation, ChangeDetectionStrategy, SecurityContext, LOCALE_ID, TRANSLATIONS_FORMAT, ɵinlineInterpolate, ɵinterpolate, ɵEMPTY_ARRAY, ɵEMPTY_MAP, ɵvid, ɵeld, ɵand, ɵted, ɵdid, ɵprd, ɵqud, ɵpad, ɵpod, ɵppd, ɵpid, ɵnov, ɵncd, ɵunv, ɵcrt, ɵccf, InjectionToken, PACKAGE_ROOT_URL, Compiler, MissingTranslationStrategy, ɵConsole, Optional, Inject, TRANSLATIONS, isDevMode, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
 import { __spread, __extends, __decorate } from 'tslib';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
@@ -86,7 +86,6 @@ function createBuiltinExternalReferencesMap() {
     map.set(Identifiers.interpolate, ɵinterpolate);
     map.set(Identifiers.EMPTY_ARRAY, ɵEMPTY_ARRAY);
     map.set(Identifiers.EMPTY_MAP, ɵEMPTY_MAP);
-    map.set(Identifiers.Renderer, Renderer);
     map.set(Identifiers.viewDef, ɵvid);
     map.set(Identifiers.elementDef, ɵeld);
     map.set(Identifiers.anchorDef, ɵand);
@@ -442,7 +441,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * @publicApi
  */
-var VERSION = new Version('9.0.0-next.9+64.sha-c507dda.with-local-changes');
+var VERSION = new Version('9.0.0-next.9+65.sha-2265cb5.with-local-changes');
 
 /**
  * @license
