@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.10+66.sha-cd7b199.with-local-changes
+ * @license Angular v9.0.0-next.10+73.sha-f433d66.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -584,8 +584,8 @@ class ResourceLoaderImpl extends ResourceLoader {
 ResourceLoaderImpl.decorators = [
     { type: Injectable },
 ];
-/** @nocollapse */ ResourceLoaderImpl.ngFactoryDef = function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory(t || ResourceLoaderImpl); };
-/** @nocollapse */ ResourceLoaderImpl.ngInjectableDef = ɵɵdefineInjectable({ token: ResourceLoaderImpl, factory: function (t) { return ResourceLoaderImpl.ngFactoryDef(t); }, providedIn: null });
+/** @nocollapse */ ResourceLoaderImpl.ɵfac = function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory(t || ResourceLoaderImpl); };
+/** @nocollapse */ ResourceLoaderImpl.ngInjectableDef = ɵɵdefineInjectable({ token: ResourceLoaderImpl, factory: function (t) { return ResourceLoaderImpl.ɵfac(t); }, providedIn: null });
 const ɵResourceLoaderImpl_BaseFactory = ɵɵgetInheritedFactory(ResourceLoaderImpl);
 /*@__PURE__*/ ɵsetClassMetadata(ResourceLoaderImpl, [{
         type: Injectable
@@ -664,7 +664,7 @@ if (false) {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('9.0.0-next.10+66.sha-cd7b199.with-local-changes');
+const VERSION = new Version('9.0.0-next.10+73.sha-f433d66.with-local-changes');
 
 /**
  * @fileoverview added by tsickle
