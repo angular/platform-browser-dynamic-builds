@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.10+73.sha-f433d66.with-local-changes
+ * @license Angular v9.0.0-next.10+75.sha-fc93daf.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -385,7 +385,7 @@
     var BrowserDynamicTestingModule = /** @class */ (function () {
         function BrowserDynamicTestingModule() {
         }
-        BrowserDynamicTestingModule.ngModuleDef = i0.ɵɵdefineNgModule({ type: BrowserDynamicTestingModule });
+        BrowserDynamicTestingModule.ɵmod = i0.ɵɵdefineNgModule({ type: BrowserDynamicTestingModule });
         BrowserDynamicTestingModule.ngInjectorDef = i0.ɵɵdefineInjector({ factory: function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); }, providers: [
                 { provide: testing.TestComponentRenderer, useClass: DOMTestComponentRenderer },
             ], imports: [testing$1.BrowserTestingModule] });
