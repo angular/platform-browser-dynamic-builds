@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.11+8.sha-3e14c2d.with-local-changes
+ * @license Angular v9.0.0-next.11+10.sha-86104b8.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -585,7 +585,7 @@ ResourceLoaderImpl.decorators = [
     { type: Injectable },
 ];
 /** @nocollapse */ ResourceLoaderImpl.ɵfac = function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory(t || ResourceLoaderImpl); };
-/** @nocollapse */ ResourceLoaderImpl.ngInjectableDef = ɵɵdefineInjectable({ token: ResourceLoaderImpl, factory: function (t) { return ResourceLoaderImpl.ɵfac(t); }, providedIn: null });
+/** @nocollapse */ ResourceLoaderImpl.ɵprov = ɵɵdefineInjectable({ token: ResourceLoaderImpl, factory: function (t) { return ResourceLoaderImpl.ɵfac(t); }, providedIn: null });
 const ɵResourceLoaderImpl_BaseFactory = ɵɵgetInheritedFactory(ResourceLoaderImpl);
 /*@__PURE__*/ ɵsetClassMetadata(ResourceLoaderImpl, [{
         type: Injectable
@@ -664,7 +664,7 @@ if (false) {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('9.0.0-next.11+8.sha-3e14c2d.with-local-changes');
+const VERSION = new Version('9.0.0-next.11+10.sha-86104b8.with-local-changes');
 
 /**
  * @fileoverview added by tsickle

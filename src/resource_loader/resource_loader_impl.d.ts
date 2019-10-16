@@ -10,5 +10,5 @@ import * as i0 from "@angular/core";
 export declare class ResourceLoaderImpl extends ResourceLoader {
     get(url: string): Promise<string>;
     static ɵfac: i0.ɵɵFactoryDef<ResourceLoaderImpl>;
-    static ngInjectableDef: i0.ɵɵInjectableDef<ResourceLoaderImpl>;
+    static ɵprov: i0.ɵɵInjectableDef<ResourceLoaderImpl>;
 }

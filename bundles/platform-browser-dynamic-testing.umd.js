@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-next.11+8.sha-3e14c2d.with-local-changes
+ * @license Angular v9.0.0-next.11+10.sha-86104b8.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -219,7 +219,7 @@
             this._doc.body.appendChild(rootEl);
         };
         DOMTestComponentRenderer.ɵfac = function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(i0.ɵɵinject(common.DOCUMENT)); };
-        DOMTestComponentRenderer.ngInjectableDef = i0.ɵɵdefineInjectable({ token: DOMTestComponentRenderer, factory: function (t) { return DOMTestComponentRenderer.ɵfac(t); }, providedIn: null });
+        DOMTestComponentRenderer.ɵprov = i0.ɵɵdefineInjectable({ token: DOMTestComponentRenderer, factory: function (t) { return DOMTestComponentRenderer.ɵfac(t); }, providedIn: null });
         return DOMTestComponentRenderer;
     }(testing.TestComponentRenderer));
     /*@__PURE__*/ i0.ɵsetClassMetadata(DOMTestComponentRenderer, [{
@@ -386,7 +386,7 @@
         function BrowserDynamicTestingModule() {
         }
         BrowserDynamicTestingModule.ɵmod = i0.ɵɵdefineNgModule({ type: BrowserDynamicTestingModule });
-        BrowserDynamicTestingModule.ngInjectorDef = i0.ɵɵdefineInjector({ factory: function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); }, providers: [
+        BrowserDynamicTestingModule.ɵinj = i0.ɵɵdefineInjector({ factory: function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); }, providers: [
                 { provide: testing.TestComponentRenderer, useClass: DOMTestComponentRenderer },
             ], imports: [testing$1.BrowserTestingModule] });
         return BrowserDynamicTestingModule;
