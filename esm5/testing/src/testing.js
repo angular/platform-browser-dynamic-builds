@@ -5,7 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { NgModule, createPlatformFactory } from '@angular/core';
 import { TestComponentRenderer } from '@angular/core/testing';
 import { ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
@@ -25,7 +25,7 @@ export var platformBrowserDynamicTesting = createPlatformFactory(platformCoreDyn
 var BrowserDynamicTestingModule = /** @class */ (function () {
     function BrowserDynamicTestingModule() {
     }
-    BrowserDynamicTestingModule = tslib_1.__decorate([
+    BrowserDynamicTestingModule = __decorate([
         NgModule({
             exports: [BrowserTestingModule],
             providers: [
