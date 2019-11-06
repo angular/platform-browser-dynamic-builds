@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-rc.0+69.sha-41560b4.with-local-changes
+ * @license Angular v9.0.0-rc.0+77.sha-2ed04ff.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -434,7 +434,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * @publicApi
  */
-var VERSION = new Version('9.0.0-rc.0+69.sha-41560b4.with-local-changes');
+var VERSION = new Version('9.0.0-rc.0+77.sha-2ed04ff.with-local-changes');
 
 /**
  * @license
@@ -469,5 +469,5 @@ var platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browser
  * found in the LICENSE file at https://angular.io/license
  */
 
-export { RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, VERSION, JitCompilerFactory, COMPILER_PROVIDERS__POST_R3__ as ɵCOMPILER_PROVIDERS__POST_R3__, CompilerImpl as ɵCompilerImpl, platformCoreDynamic as ɵplatformCoreDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl };
+export { JitCompilerFactory, RESOURCE_CACHE_PROVIDER, VERSION, platformBrowserDynamic, COMPILER_PROVIDERS__POST_R3__ as ɵCOMPILER_PROVIDERS__POST_R3__, CompilerImpl as ɵCompilerImpl, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl, platformCoreDynamic as ɵplatformCoreDynamic };
 //# sourceMappingURL=platform-browser-dynamic.js.map
