@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-rc.0+77.sha-2ed04ff.with-local-changes
+ * @license Angular v9.0.0-rc.0+69.sha-41560b4.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -664,7 +664,7 @@ if (false) {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('9.0.0-rc.0+77.sha-2ed04ff.with-local-changes');
+const VERSION = new Version('9.0.0-rc.0+69.sha-41560b4.with-local-changes');
 
 /**
  * @fileoverview added by tsickle
@@ -691,5 +691,5 @@ const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'brows
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { JitCompilerFactory, RESOURCE_CACHE_PROVIDER, VERSION, platformBrowserDynamic, COMPILER_PROVIDERS__POST_R3__ as ɵCOMPILER_PROVIDERS__POST_R3__, CompilerImpl as ɵCompilerImpl, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl, platformCoreDynamic as ɵplatformCoreDynamic };
+export { VERSION, JitCompilerFactory, RESOURCE_CACHE_PROVIDER, platformBrowserDynamic, COMPILER_PROVIDERS__POST_R3__ as ɵCOMPILER_PROVIDERS__POST_R3__, CompilerImpl as ɵCompilerImpl, platformCoreDynamic as ɵplatformCoreDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl };
 //# sourceMappingURL=platform-browser-dynamic.js.map

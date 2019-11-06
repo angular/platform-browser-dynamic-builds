@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-rc.0+77.sha-2ed04ff.with-local-changes
+ * @license Angular v9.0.0-rc.0+69.sha-41560b4.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -8,7 +8,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/compiler'), require('@angular/core'), require('@angular/common'), require('@angular/platform-browser')) :
     typeof define === 'function' && define.amd ? define('@angular/platform-browser-dynamic', ['exports', '@angular/compiler', '@angular/core', '@angular/common', '@angular/platform-browser'], factory) :
     (global = global || self, factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = {}), global.ng.compiler, global.ng.core, global.ng.common, global.ng.platformBrowser));
-}(this, (function (exports, compiler, i0, common, platformBrowser) { 'use strict';
+}(this, function (exports, compiler, i0, common, platformBrowser) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -631,7 +631,7 @@
     /**
      * @publicApi
      */
-    var VERSION = new i0.Version('9.0.0-rc.0+77.sha-2ed04ff.with-local-changes');
+    var VERSION = new i0.Version('9.0.0-rc.0+69.sha-41560b4.with-local-changes');
 
     /**
      * @license
@@ -666,17 +666,17 @@
      * found in the LICENSE file at https://angular.io/license
      */
 
-    exports.JitCompilerFactory = JitCompilerFactory;
     exports.RESOURCE_CACHE_PROVIDER = RESOURCE_CACHE_PROVIDER;
-    exports.VERSION = VERSION;
     exports.platformBrowserDynamic = platformBrowserDynamic;
+    exports.VERSION = VERSION;
+    exports.JitCompilerFactory = JitCompilerFactory;
     exports.ɵCOMPILER_PROVIDERS__POST_R3__ = COMPILER_PROVIDERS__POST_R3__;
     exports.ɵCompilerImpl = CompilerImpl;
+    exports.ɵplatformCoreDynamic = platformCoreDynamic;
     exports.ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS;
     exports.ɵResourceLoaderImpl = ResourceLoaderImpl;
-    exports.ɵplatformCoreDynamic = platformCoreDynamic;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=platform-browser-dynamic.umd.js.map
