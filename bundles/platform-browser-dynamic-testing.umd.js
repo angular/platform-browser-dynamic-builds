@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-rc.0+77.sha-2ed04ff.with-local-changes
+ * @license Angular v9.0.0-rc.0+69.sha-41560b4.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -8,7 +8,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/core/testing'), require('@angular/platform-browser-dynamic'), require('@angular/platform-browser/testing'), require('@angular/common'), require('@angular/compiler'), require('@angular/compiler/testing')) :
     typeof define === 'function' && define.amd ? define('@angular/platform-browser-dynamic/testing', ['exports', '@angular/core', '@angular/core/testing', '@angular/platform-browser-dynamic', '@angular/platform-browser/testing', '@angular/common', '@angular/compiler', '@angular/compiler/testing'], factory) :
     (global = global || self, factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}, global.ng.platformBrowserDynamic.testing = {}), global.ng.core, global.ng.core.testing, global.ng.platformBrowserDynamic, global.ng.platformBrowser.testing, global.ng.common, global.ng.compiler, global.ng.compiler.testing));
-}(this, (function (exports, core, testing, platformBrowserDynamic, testing$1, common, compiler, testing$2) { 'use strict';
+}(this, function (exports, core, testing, platformBrowserDynamic, testing$1, common, compiler, testing$2) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -431,14 +431,14 @@
      * Generated bundle index. Do not edit.
      */
 
-    exports.BrowserDynamicTestingModule = BrowserDynamicTestingModule;
-    exports.platformBrowserDynamicTesting = platformBrowserDynamicTesting;
-    exports.ɵDOMTestComponentRenderer = DOMTestComponentRenderer;
     exports.ɵangular_packages_platform_browser_dynamic_testing_testing_a = COMPILER_PROVIDERS;
     exports.ɵangular_packages_platform_browser_dynamic_testing_testing_b = TestingCompilerFactoryImpl;
+    exports.platformBrowserDynamicTesting = platformBrowserDynamicTesting;
+    exports.BrowserDynamicTestingModule = BrowserDynamicTestingModule;
+    exports.ɵDOMTestComponentRenderer = DOMTestComponentRenderer;
     exports.ɵplatformCoreDynamicTesting = platformCoreDynamicTesting;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=platform-browser-dynamic-testing.umd.js.map
