@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-rc.1+186.sha-97fbdab.with-local-changes
+ * @license Angular v9.0.0-rc.1+188.sha-b54ed98.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -358,7 +358,7 @@ BrowserDynamicTestingModule.decorators = [
 /** @nocollapse */ BrowserDynamicTestingModule.ɵinj = ɵɵdefineInjector({ factory: function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); }, providers: [
         { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
     ], imports: [BrowserTestingModule] });
-/*@__PURE__*/ ɵɵsetNgModuleScope(BrowserDynamicTestingModule, { exports: [BrowserTestingModule] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(BrowserDynamicTestingModule, { exports: [BrowserTestingModule] }); })();
 /*@__PURE__*/ ɵsetClassMetadata(BrowserDynamicTestingModule, [{
         type: NgModule,
         args: [{
