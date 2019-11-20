@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-rc.1+188.sha-b54ed98.with-local-changes
+ * @license Angular v9.0.0-rc.1+197.sha-55748db.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -552,9 +552,9 @@
         return ResourceLoaderImpl;
     }(compiler.ResourceLoader));
     var ɵResourceLoaderImpl_BaseFactory = i0.ɵɵgetInheritedFactory(ResourceLoaderImpl);
-    /*@__PURE__*/ i0.ɵsetClassMetadata(ResourceLoaderImpl, [{
+    /*@__PURE__*/ (function () { i0.ɵsetClassMetadata(ResourceLoaderImpl, [{
             type: i0.Injectable
-        }], null, null);
+        }], null, null); })();
 
     /**
      * @license
@@ -631,7 +631,7 @@
     /**
      * @publicApi
      */
-    var VERSION = new i0.Version('9.0.0-rc.1+188.sha-b54ed98.with-local-changes');
+    var VERSION = new i0.Version('9.0.0-rc.1+197.sha-55748db.with-local-changes');
 
     /**
      * @license

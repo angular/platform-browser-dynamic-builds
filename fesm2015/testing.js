@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-rc.1+188.sha-b54ed98.with-local-changes
+ * @license Angular v9.0.0-rc.1+197.sha-55748db.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -62,12 +62,12 @@ DOMTestComponentRenderer.ctorParameters = () => [
 ];
 /** @nocollapse */ DOMTestComponentRenderer.ɵfac = function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(ɵɵinject(DOCUMENT)); };
 /** @nocollapse */ DOMTestComponentRenderer.ɵprov = ɵɵdefineInjectable({ token: DOMTestComponentRenderer, factory: function (t) { return DOMTestComponentRenderer.ɵfac(t); }, providedIn: null });
-/*@__PURE__*/ ɵsetClassMetadata(DOMTestComponentRenderer, [{
+/*@__PURE__*/ (function () { ɵsetClassMetadata(DOMTestComponentRenderer, [{
         type: Injectable
     }], function () { return [{ type: undefined, decorators: [{
                 type: Inject,
                 args: [DOCUMENT]
-            }] }]; }, null);
+            }] }]; }, null); })();
 if (false) {
     /**
      * @type {?}
@@ -359,7 +359,7 @@ BrowserDynamicTestingModule.decorators = [
         { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
     ], imports: [BrowserTestingModule] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(BrowserDynamicTestingModule, { exports: [BrowserTestingModule] }); })();
-/*@__PURE__*/ ɵsetClassMetadata(BrowserDynamicTestingModule, [{
+/*@__PURE__*/ (function () { ɵsetClassMetadata(BrowserDynamicTestingModule, [{
         type: NgModule,
         args: [{
                 exports: [BrowserTestingModule],
@@ -367,7 +367,7 @@ BrowserDynamicTestingModule.decorators = [
                     { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
                 ]
             }]
-    }], null, null);
+    }], null, null); })();
 
 /**
  * @fileoverview added by tsickle
