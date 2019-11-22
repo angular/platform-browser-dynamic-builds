@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-rc.1+226.sha-a37bf9a.with-local-changes
+ * @license Angular v9.0.0-rc.1+227.sha-3c335c3.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -11,6 +11,7 @@ import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/src/compiler_reflector.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
@@ -155,6 +156,7 @@ function createBuiltinExternalReferencesMap() {
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/src/compiler_factory.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
@@ -507,6 +509,7 @@ function _mergeArrays(parts) {
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/src/platform_core_dynamic.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
@@ -522,6 +525,7 @@ const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/src/resource_loader/resource_loader_impl.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ResourceLoaderImpl extends ResourceLoader {
@@ -593,6 +597,7 @@ const ɵResourceLoaderImpl_BaseFactory = ɵɵgetInheritedFactory(ResourceLoaderI
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/src/platform_providers.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
@@ -611,6 +616,7 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/src/resource_loader/resource_loader_cache.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
@@ -653,21 +659,24 @@ if (false) {
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/src/private_export.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/src/version.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('9.0.0-rc.1+226.sha-a37bf9a.with-local-changes');
+const VERSION = new Version('9.0.0-rc.1+227.sha-3c335c3.with-local-changes');
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/src/platform-browser-dynamic.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
@@ -683,11 +692,13 @@ const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'brows
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/public_api.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/index.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
