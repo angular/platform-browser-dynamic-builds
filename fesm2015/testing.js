@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-rc.1+226.sha-a37bf9a.with-local-changes
+ * @license Angular v9.0.0-rc.1+227.sha-3c335c3.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -14,6 +14,7 @@ import { MockPipeResolver, MockDirectiveResolver, MockNgModuleResolver } from '@
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/testing/src/dom_test_component_renderer.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
@@ -75,11 +76,13 @@ function getContent(node) {
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/testing/src/metadata_overrider.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/testing/src/compiler_factory.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
@@ -294,6 +297,7 @@ if (false) {
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/testing/src/platform_core_dynamic_testing.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 const ɵ0 = { providers: COMPILER_PROVIDERS };
@@ -313,11 +317,13 @@ const platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/testing/src/private_export_testing.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/testing/src/testing.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
@@ -343,11 +349,13 @@ BrowserDynamicTestingModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/testing/public_api.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser-dynamic/testing/index.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
