@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-rc.1+329.sha-02958c0.with-local-changes
+ * @license Angular v9.0.0-rc.1+330.sha-755d2d5.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -351,7 +351,7 @@ var ResourceLoaderImpl = /** @class */ (function (_super) {
         return promise;
     };
     ResourceLoaderImpl.ɵfac = function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory(t || ResourceLoaderImpl); };
-    ResourceLoaderImpl.ɵprov = ɵɵdefineInjectable({ token: ResourceLoaderImpl, factory: function (t) { return ResourceLoaderImpl.ɵfac(t); }, providedIn: null });
+    ResourceLoaderImpl.ɵprov = ɵɵdefineInjectable({ token: ResourceLoaderImpl, factory: ResourceLoaderImpl.ɵfac, providedIn: null });
     return ResourceLoaderImpl;
 }(ResourceLoader));
 var ɵResourceLoaderImpl_BaseFactory = ɵɵgetInheritedFactory(ResourceLoaderImpl);
@@ -434,7 +434,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * @publicApi
  */
-var VERSION = new Version('9.0.0-rc.1+329.sha-02958c0.with-local-changes');
+var VERSION = new Version('9.0.0-rc.1+330.sha-755d2d5.with-local-changes');
 
 /**
  * @license
