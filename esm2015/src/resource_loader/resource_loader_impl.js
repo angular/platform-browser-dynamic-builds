@@ -74,7 +74,7 @@ ResourceLoaderImpl.decorators = [
     { type: Injectable },
 ];
 /** @nocollapse */ ResourceLoaderImpl.ɵfac = function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory(t || ResourceLoaderImpl); };
-/** @nocollapse */ ResourceLoaderImpl.ɵprov = i0.ɵɵdefineInjectable({ token: ResourceLoaderImpl, factory: ResourceLoaderImpl.ɵfac, providedIn: null });
+/** @nocollapse */ ResourceLoaderImpl.ɵprov = i0.ɵɵdefineInjectable({ token: ResourceLoaderImpl, factory: ResourceLoaderImpl.ɵfac });
 const ɵResourceLoaderImpl_BaseFactory = i0.ɵɵgetInheritedFactory(ResourceLoaderImpl);
 /*@__PURE__*/ (function () { i0.ɵsetClassMetadata(ResourceLoaderImpl, [{
         type: Injectable

@@ -49,7 +49,7 @@ var ResourceLoaderImpl = /** @class */ (function (_super) {
         return promise;
     };
     ResourceLoaderImpl.ɵfac = function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory(t || ResourceLoaderImpl); };
-    ResourceLoaderImpl.ɵprov = i0.ɵɵdefineInjectable({ token: ResourceLoaderImpl, factory: ResourceLoaderImpl.ɵfac, providedIn: null });
+    ResourceLoaderImpl.ɵprov = i0.ɵɵdefineInjectable({ token: ResourceLoaderImpl, factory: ResourceLoaderImpl.ɵfac });
     return ResourceLoaderImpl;
 }(ResourceLoader));
 export { ResourceLoaderImpl };

@@ -32,7 +32,7 @@ var DOMTestComponentRenderer = /** @class */ (function (_super) {
         this._doc.body.appendChild(rootEl);
     };
     DOMTestComponentRenderer.ɵfac = function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(i0.ɵɵinject(DOCUMENT)); };
-    DOMTestComponentRenderer.ɵprov = i0.ɵɵdefineInjectable({ token: DOMTestComponentRenderer, factory: DOMTestComponentRenderer.ɵfac, providedIn: null });
+    DOMTestComponentRenderer.ɵprov = i0.ɵɵdefineInjectable({ token: DOMTestComponentRenderer, factory: DOMTestComponentRenderer.ɵfac });
     return DOMTestComponentRenderer;
 }(TestComponentRenderer));
 export { DOMTestComponentRenderer };

@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.0.0-rc.1+335.sha-56f4e56.with-local-changes
+ * @license Angular v9.0.0-rc.1+336.sha-67eac73.with-local-changes
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -35,7 +35,7 @@ var DOMTestComponentRenderer = /** @class */ (function (_super) {
         this._doc.body.appendChild(rootEl);
     };
     DOMTestComponentRenderer.ɵfac = function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(ɵɵinject(DOCUMENT)); };
-    DOMTestComponentRenderer.ɵprov = ɵɵdefineInjectable({ token: DOMTestComponentRenderer, factory: DOMTestComponentRenderer.ɵfac, providedIn: null });
+    DOMTestComponentRenderer.ɵprov = ɵɵdefineInjectable({ token: DOMTestComponentRenderer, factory: DOMTestComponentRenderer.ɵfac });
     return DOMTestComponentRenderer;
 }(TestComponentRenderer));
 /*@__PURE__*/ (function () { ɵsetClassMetadata(DOMTestComponentRenderer, [{
