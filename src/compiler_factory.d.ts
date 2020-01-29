@@ -5,8 +5,8 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { Compiler, CompilerFactory, ComponentFactory, CompilerOptions, ModuleWithComponentFactories, InjectionToken, StaticProvider, Type, ɵConsole as Console, Injector, NgModuleFactory } from '@angular/core';
-import { ViewCompiler, CompileMetadataResolver, TemplateParser, NgModuleCompiler, JitEvaluator, SummaryResolver, StyleCompiler, CompileReflector, CompilerConfig } from '@angular/compiler';
+import { CompileMetadataResolver, CompileReflector, CompilerConfig, JitEvaluator, NgModuleCompiler, StyleCompiler, SummaryResolver, TemplateParser, ViewCompiler } from '@angular/compiler';
+import { Compiler, CompilerFactory, CompilerOptions, ComponentFactory, InjectionToken, Injector, ModuleWithComponentFactories, NgModuleFactory, StaticProvider, Type, ɵConsole as Console } from '@angular/core';
 export declare const ERROR_COLLECTOR_TOKEN: InjectionToken<unknown>;
 /**
  * A default provider for {@link PACKAGE_ROOT_URL} that maps to '/'.
