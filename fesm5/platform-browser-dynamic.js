@@ -1,5 +1,5 @@
 /**
- * @license Angular v9.1.1+19.sha-66724fd
+ * @license Angular v9.1.1+25.sha-e06512b
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -441,7 +441,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
 /**
  * @publicApi
  */
-var VERSION = new Version('9.1.1+19.sha-66724fd');
+var VERSION = new Version('9.1.1+25.sha-e06512b');
 
 /**
  * @license
