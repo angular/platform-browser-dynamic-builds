@@ -1,5 +1,5 @@
 /**
- * @license Angular v10.0.0-next.1+32.sha-5e80e7e
+ * @license Angular v10.0.0-next.1+33.sha-698b028
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -311,7 +311,9 @@
             this._overrider = new testing.ɵMetadataOverrider();
         }
         Object.defineProperty(TestingCompilerImpl.prototype, "injector", {
-            get: function () { return this._compiler.injector; },
+            get: function () {
+                return this._compiler.injector;
+            },
             enumerable: true,
             configurable: true
         });
@@ -359,10 +361,18 @@
             this._pipeResolver.setPipe(pipe, this._overrider.overrideMetadata(core.Pipe, oldMetadata, override));
             this.clearCacheFor(pipe);
         };
-        TestingCompilerImpl.prototype.loadAotSummaries = function (summaries) { this._compiler.loadAotSummaries(summaries); };
-        TestingCompilerImpl.prototype.clearCache = function () { this._compiler.clearCache(); };
-        TestingCompilerImpl.prototype.clearCacheFor = function (type) { this._compiler.clearCacheFor(type); };
-        TestingCompilerImpl.prototype.getComponentFromError = function (error) { return error[compiler.ERROR_COMPONENT_TYPE] || null; };
+        TestingCompilerImpl.prototype.loadAotSummaries = function (summaries) {
+            this._compiler.loadAotSummaries(summaries);
+        };
+        TestingCompilerImpl.prototype.clearCache = function () {
+            this._compiler.clearCache();
+        };
+        TestingCompilerImpl.prototype.clearCacheFor = function (type) {
+            this._compiler.clearCacheFor(type);
+        };
+        TestingCompilerImpl.prototype.getComponentFromError = function (error) {
+            return error[compiler.ERROR_COMPONENT_TYPE] || null;
+        };
         TestingCompilerImpl.prototype.getModuleId = function (moduleType) {
             return this._moduleResolver.resolve(moduleType, true).id;
         };

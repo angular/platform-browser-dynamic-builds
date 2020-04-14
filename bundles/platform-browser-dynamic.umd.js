@@ -1,5 +1,5 @@
 /**
- * @license Angular v10.0.0-next.1+32.sha-5e80e7e
+ * @license Angular v10.0.0-next.1+33.sha-698b028
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -252,7 +252,9 @@
         JitReflector.prototype.parameters = function (typeOrFunc) {
             return this.reflectionCapabilities.parameters(typeOrFunc);
         };
-        JitReflector.prototype.tryAnnotations = function (typeOrFunc) { return this.annotations(typeOrFunc); };
+        JitReflector.prototype.tryAnnotations = function (typeOrFunc) {
+            return this.annotations(typeOrFunc);
+        };
         JitReflector.prototype.annotations = function (typeOrFunc) {
             return this.reflectionCapabilities.annotations(typeOrFunc);
         };
@@ -265,7 +267,9 @@
         JitReflector.prototype.hasLifecycleHook = function (type, lcProperty) {
             return this.reflectionCapabilities.hasLifecycleHook(type, lcProperty);
         };
-        JitReflector.prototype.guards = function (type) { return this.reflectionCapabilities.guards(type); };
+        JitReflector.prototype.guards = function (type) {
+            return this.reflectionCapabilities.guards(type);
+        };
         JitReflector.prototype.resolveExternalReference = function (ref) {
             return builtinExternalReferences.get(ref) || ref.runtime;
         };
@@ -369,13 +373,21 @@
                 componentFactories: result.componentFactories,
             }); });
         };
-        CompilerImpl.prototype.loadAotSummaries = function (summaries) { this._delegate.loadAotSummaries(summaries); };
-        CompilerImpl.prototype.hasAotSummary = function (ref) { return this._delegate.hasAotSummary(ref); };
+        CompilerImpl.prototype.loadAotSummaries = function (summaries) {
+            this._delegate.loadAotSummaries(summaries);
+        };
+        CompilerImpl.prototype.hasAotSummary = function (ref) {
+            return this._delegate.hasAotSummary(ref);
+        };
         CompilerImpl.prototype.getComponentFactory = function (component) {
             return this._delegate.getComponentFactory(component);
         };
-        CompilerImpl.prototype.clearCache = function () { this._delegate.clearCache(); };
-        CompilerImpl.prototype.clearCacheFor = function (type) { this._delegate.clearCacheFor(type); };
+        CompilerImpl.prototype.clearCache = function () {
+            this._delegate.clearCache();
+        };
+        CompilerImpl.prototype.clearCacheFor = function (type) {
+            this._delegate.clearCacheFor(type);
+        };
         CompilerImpl.prototype.getModuleId = function (moduleType) {
             var meta = this._metadataResolver.getNgModuleMetadata(moduleType);
             return meta && meta.id || undefined;
@@ -420,30 +432,32 @@
             useExisting: compiler.I18NHtmlParser,
         },
         {
-            provide: compiler.TemplateParser, deps: [compiler.CompilerConfig, compiler.CompileReflector,
-                compiler.Parser, compiler.ElementSchemaRegistry,
-                compiler.I18NHtmlParser, core.ɵConsole]
+            provide: compiler.TemplateParser,
+            deps: [compiler.CompilerConfig, compiler.CompileReflector, compiler.Parser, compiler.ElementSchemaRegistry, compiler.I18NHtmlParser, core.ɵConsole]
         },
         { provide: compiler.JitEvaluator, useClass: compiler.JitEvaluator, deps: [] },
         { provide: compiler.DirectiveNormalizer, deps: [compiler.ResourceLoader, compiler.UrlResolver, compiler.HtmlParser, compiler.CompilerConfig] },
-        { provide: compiler.CompileMetadataResolver, deps: [compiler.CompilerConfig, compiler.HtmlParser, compiler.NgModuleResolver,
-                compiler.DirectiveResolver, compiler.PipeResolver,
-                compiler.SummaryResolver,
-                compiler.ElementSchemaRegistry,
-                compiler.DirectiveNormalizer, core.ɵConsole,
-                [core.Optional, compiler.StaticSymbolCache],
-                compiler.CompileReflector,
-                [core.Optional, ERROR_COLLECTOR_TOKEN]] },
+        {
+            provide: compiler.CompileMetadataResolver,
+            deps: [
+                compiler.CompilerConfig, compiler.HtmlParser, compiler.NgModuleResolver, compiler.DirectiveResolver, compiler.PipeResolver,
+                compiler.SummaryResolver, compiler.ElementSchemaRegistry, compiler.DirectiveNormalizer, core.ɵConsole,
+                [core.Optional, compiler.StaticSymbolCache], compiler.CompileReflector, [core.Optional, ERROR_COLLECTOR_TOKEN]
+            ]
+        },
         DEFAULT_PACKAGE_URL_PROVIDER,
         { provide: compiler.StyleCompiler, deps: [compiler.UrlResolver] },
         { provide: compiler.ViewCompiler, deps: [compiler.CompileReflector] },
         { provide: compiler.NgModuleCompiler, deps: [compiler.CompileReflector] },
         { provide: compiler.CompilerConfig, useValue: ɵ3 },
-        { provide: core.Compiler, useClass: CompilerImpl, deps: [core.Injector, compiler.CompileMetadataResolver,
-                compiler.TemplateParser, compiler.StyleCompiler,
-                compiler.ViewCompiler, compiler.NgModuleCompiler,
-                compiler.SummaryResolver, compiler.CompileReflector, compiler.JitEvaluator, compiler.CompilerConfig,
-                core.ɵConsole] },
+        {
+            provide: core.Compiler,
+            useClass: CompilerImpl,
+            deps: [
+                core.Injector, compiler.CompileMetadataResolver, compiler.TemplateParser, compiler.StyleCompiler, compiler.ViewCompiler,
+                compiler.NgModuleCompiler, compiler.SummaryResolver, compiler.CompileReflector, compiler.JitEvaluator, compiler.CompilerConfig, core.ɵConsole
+            ]
+        },
         { provide: compiler.DomElementSchemaRegistry, deps: [] },
         { provide: compiler.ElementSchemaRegistry, useExisting: compiler.DomElementSchemaRegistry },
         { provide: compiler.UrlResolver, deps: [core.PACKAGE_ROOT_URL] },
@@ -569,7 +583,9 @@
                     reject("Failed to load " + url);
                 }
             };
-            xhr.onerror = function () { reject("Failed to load " + url); };
+            xhr.onerror = function () {
+                reject("Failed to load " + url);
+            };
             xhr.send();
             return promise;
         };
@@ -655,7 +671,7 @@
     /**
      * @publicApi
      */
-    var VERSION = new core.Version('10.0.0-next.1+32.sha-5e80e7e');
+    var VERSION = new core.Version('10.0.0-next.1+33.sha-698b028');
 
     /**
      * @license

@@ -1,5 +1,5 @@
 /**
- * @license Angular v10.0.0-next.1+32.sha-5e80e7e
+ * @license Angular v10.0.0-next.1+33.sha-698b028
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -142,7 +142,9 @@ class TestingCompilerImpl {
     /**
      * @return {?}
      */
-    get injector() { return this._compiler.injector; }
+    get injector() {
+        return this._compiler.injector;
+    }
     /**
      * @template T
      * @param {?} moduleType
@@ -244,21 +246,29 @@ class TestingCompilerImpl {
      * @param {?} summaries
      * @return {?}
      */
-    loadAotSummaries(summaries) { this._compiler.loadAotSummaries(summaries); }
+    loadAotSummaries(summaries) {
+        this._compiler.loadAotSummaries(summaries);
+    }
     /**
      * @return {?}
      */
-    clearCache() { this._compiler.clearCache(); }
+    clearCache() {
+        this._compiler.clearCache();
+    }
     /**
      * @param {?} type
      * @return {?}
      */
-    clearCacheFor(type) { this._compiler.clearCacheFor(type); }
+    clearCacheFor(type) {
+        this._compiler.clearCacheFor(type);
+    }
     /**
      * @param {?} error
      * @return {?}
      */
-    getComponentFromError(error) { return ((/** @type {?} */ (error)))[ERROR_COMPONENT_TYPE] || null; }
+    getComponentFromError(error) {
+        return ((/** @type {?} */ (error)))[ERROR_COMPONENT_TYPE] || null;
+    }
     /**
      * @param {?} moduleType
      * @return {?}
