@@ -1,5 +1,5 @@
 /**
- * @license Angular v10.0.0-next.7+17.sha-2418c6a
+ * @license Angular v10.0.0-next.7+43.sha-f16ca1c
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -20,40 +20,46 @@ import { MockPipeResolver, MockDirectiveResolver, MockNgModuleResolver } from '@
 /**
  * A DOM based implementation of the TestComponentRenderer.
  */
-class DOMTestComponentRenderer extends TestComponentRenderer {
+let DOMTestComponentRenderer = /** @class */ (() => {
     /**
-     * @param {?} _doc
+     * A DOM based implementation of the TestComponentRenderer.
      */
-    constructor(_doc) {
-        super();
-        this._doc = _doc;
-    }
-    /**
-     * @param {?} rootElId
-     * @return {?}
-     */
-    insertRootElement(rootElId) {
-        /** @type {?} */
-        const template = ɵgetDOM().getDefaultDocument().createElement('template');
-        template.innerHTML = `<div id="${rootElId}"></div>`;
-        /** @type {?} */
-        const rootEl = (/** @type {?} */ (getContent(template).firstChild));
-        // TODO(juliemr): can/should this be optional?
-        /** @type {?} */
-        const oldRoots = this._doc.querySelectorAll('[id^=root]');
-        for (let i = 0; i < oldRoots.length; i++) {
-            ɵgetDOM().remove(oldRoots[i]);
+    class DOMTestComponentRenderer extends TestComponentRenderer {
+        /**
+         * @param {?} _doc
+         */
+        constructor(_doc) {
+            super();
+            this._doc = _doc;
         }
-        this._doc.body.appendChild(rootEl);
+        /**
+         * @param {?} rootElId
+         * @return {?}
+         */
+        insertRootElement(rootElId) {
+            /** @type {?} */
+            const template = ɵgetDOM().getDefaultDocument().createElement('template');
+            template.innerHTML = `<div id="${rootElId}"></div>`;
+            /** @type {?} */
+            const rootEl = (/** @type {?} */ (getContent(template).firstChild));
+            // TODO(juliemr): can/should this be optional?
+            /** @type {?} */
+            const oldRoots = this._doc.querySelectorAll('[id^=root]');
+            for (let i = 0; i < oldRoots.length; i++) {
+                ɵgetDOM().remove(oldRoots[i]);
+            }
+            this._doc.body.appendChild(rootEl);
+        }
     }
-}
-DOMTestComponentRenderer.decorators = [
-    { type: Injectable }
-];
-/** @nocollapse */
-DOMTestComponentRenderer.ctorParameters = () => [
-    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
-];
+    DOMTestComponentRenderer.decorators = [
+        { type: Injectable }
+    ];
+    /** @nocollapse */
+    DOMTestComponentRenderer.ctorParameters = () => [
+        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
+    ];
+    return DOMTestComponentRenderer;
+})();
 if (false) {
     /**
      * @type {?}
@@ -318,7 +324,8 @@ const ɵ0 = { providers: COMPILER_PROVIDERS };
  * @type {?}
  */
 const platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 'coreDynamicTesting', [
-    { provide: COMPILER_OPTIONS, useValue: ɵ0, multi: true }, {
+    { provide: COMPILER_OPTIONS, useValue: ɵ0, multi: true },
+    {
         provide: ɵTestingCompilerFactory,
         useClass: TestingCompilerFactoryImpl,
         deps: [Injector, CompilerFactory]
@@ -346,16 +353,24 @@ const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicT
  *
  * \@publicApi
  */
-class BrowserDynamicTestingModule {
-}
-BrowserDynamicTestingModule.decorators = [
-    { type: NgModule, args: [{
-                exports: [BrowserTestingModule],
-                providers: [
-                    { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
-                ]
-            },] }
-];
+let BrowserDynamicTestingModule = /** @class */ (() => {
+    /**
+     * NgModule for testing.
+     *
+     * \@publicApi
+     */
+    class BrowserDynamicTestingModule {
+    }
+    BrowserDynamicTestingModule.decorators = [
+        { type: NgModule, args: [{
+                    exports: [BrowserTestingModule],
+                    providers: [
+                        { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
+                    ]
+                },] }
+    ];
+    return BrowserDynamicTestingModule;
+})();
 
 /**
  * @fileoverview added by tsickle

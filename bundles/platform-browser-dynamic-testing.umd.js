@@ -1,5 +1,5 @@
 /**
- * @license Angular v10.0.0-next.7+17.sha-2418c6a
+ * @license Angular v10.0.0-next.7+43.sha-f16ca1c
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -314,7 +314,7 @@
             get: function () {
                 return this._compiler.injector;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         TestingCompilerImpl.prototype.compileModuleSync = function (moduleType) {
@@ -393,7 +393,8 @@
      * @publicApi
      */
     var platformCoreDynamicTesting = core.createPlatformFactory(platformBrowserDynamic.ɵplatformCoreDynamic, 'coreDynamicTesting', [
-        { provide: core.COMPILER_OPTIONS, useValue: ɵ0, multi: true }, {
+        { provide: core.COMPILER_OPTIONS, useValue: ɵ0, multi: true },
+        {
             provide: testing.ɵTestingCompilerFactory,
             useClass: TestingCompilerFactoryImpl,
             deps: [core.Injector, core.CompilerFactory]

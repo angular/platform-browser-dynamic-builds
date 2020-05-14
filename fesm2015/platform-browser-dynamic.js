@@ -1,5 +1,5 @@
 /**
- * @license Angular v10.0.0-next.7+17.sha-2418c6a
+ * @license Angular v10.0.0-next.7+43.sha-f16ca1c
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -429,7 +429,8 @@ class JitCompilerFactory {
         const opts = _mergeOptions(this._defaultOptions.concat(options));
         /** @type {?} */
         const injector = Injector.create([
-            COMPILER_PROVIDERS, {
+            COMPILER_PROVIDERS,
+            {
                 provide: CompilerConfig,
                 useFactory: (/**
                  * @return {?}
@@ -544,68 +545,71 @@ const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
  * Generated from: packages/platform-browser-dynamic/src/resource_loader/resource_loader_impl.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-class ResourceLoaderImpl extends ResourceLoader {
-    /**
-     * @param {?} url
-     * @return {?}
-     */
-    get(url) {
-        /** @type {?} */
-        let resolve;
-        /** @type {?} */
-        let reject;
-        /** @type {?} */
-        const promise = new Promise((/**
-         * @param {?} res
-         * @param {?} rej
+let ResourceLoaderImpl = /** @class */ (() => {
+    class ResourceLoaderImpl extends ResourceLoader {
+        /**
+         * @param {?} url
          * @return {?}
          */
-        (res, rej) => {
-            resolve = res;
-            reject = rej;
-        }));
-        /** @type {?} */
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-        xhr.responseType = 'text';
-        xhr.onload = (/**
-         * @return {?}
-         */
-        function () {
-            // responseText is the old-school way of retrieving response (supported by IE8 & 9)
-            // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
-            // by IE10)
+        get(url) {
             /** @type {?} */
-            const response = xhr.response || xhr.responseText;
-            // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
+            let resolve;
             /** @type {?} */
-            let status = xhr.status === 1223 ? 204 : xhr.status;
-            // fix status code when it is 0 (0 status is undocumented).
-            // Occurs when accessing file resources or on Android 4.1 stock browser
-            // while retrieving files from application cache.
-            if (status === 0) {
-                status = response ? 200 : 0;
-            }
-            if (200 <= status && status <= 300) {
-                resolve(response);
-            }
-            else {
+            let reject;
+            /** @type {?} */
+            const promise = new Promise((/**
+             * @param {?} res
+             * @param {?} rej
+             * @return {?}
+             */
+            (res, rej) => {
+                resolve = res;
+                reject = rej;
+            }));
+            /** @type {?} */
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.responseType = 'text';
+            xhr.onload = (/**
+             * @return {?}
+             */
+            function () {
+                // responseText is the old-school way of retrieving response (supported by IE8 & 9)
+                // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
+                // by IE10)
+                /** @type {?} */
+                const response = xhr.response || xhr.responseText;
+                // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
+                /** @type {?} */
+                let status = xhr.status === 1223 ? 204 : xhr.status;
+                // fix status code when it is 0 (0 status is undocumented).
+                // Occurs when accessing file resources or on Android 4.1 stock browser
+                // while retrieving files from application cache.
+                if (status === 0) {
+                    status = response ? 200 : 0;
+                }
+                if (200 <= status && status <= 300) {
+                    resolve(response);
+                }
+                else {
+                    reject(`Failed to load ${url}`);
+                }
+            });
+            xhr.onerror = (/**
+             * @return {?}
+             */
+            function () {
                 reject(`Failed to load ${url}`);
-            }
-        });
-        xhr.onerror = (/**
-         * @return {?}
-         */
-        function () {
-            reject(`Failed to load ${url}`);
-        });
-        xhr.send();
-        return promise;
+            });
+            xhr.send();
+            return promise;
+        }
     }
-}
-ResourceLoaderImpl.decorators = [
-    { type: Injectable }
-];
+    ResourceLoaderImpl.decorators = [
+        { type: Injectable }
+    ];
+    return ResourceLoaderImpl;
+})();
 
 /**
  * @fileoverview added by tsickle
@@ -685,7 +689,7 @@ if (false) {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('10.0.0-next.7+17.sha-2418c6a');
+const VERSION = new Version('10.0.0-next.7+43.sha-f16ca1c');
 
 /**
  * @fileoverview added by tsickle
