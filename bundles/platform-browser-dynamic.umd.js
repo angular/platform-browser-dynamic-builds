@@ -1,5 +1,5 @@
 /**
- * @license Angular v10.0.0-next.7+17.sha-2418c6a
+ * @license Angular v10.0.0-next.7+43.sha-f16ca1c
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -476,7 +476,8 @@
             if (options === void 0) { options = []; }
             var opts = _mergeOptions(this._defaultOptions.concat(options));
             var injector = i0.Injector.create([
-                COMPILER_PROVIDERS, {
+                COMPILER_PROVIDERS,
+                {
                     provide: compiler.CompilerConfig,
                     useFactory: function () {
                         return new compiler.CompilerConfig({
@@ -664,7 +665,7 @@
     /**
      * @publicApi
      */
-    var VERSION = new i0.Version('10.0.0-next.7+17.sha-2418c6a');
+    var VERSION = new i0.Version('10.0.0-next.7+43.sha-f16ca1c');
 
     /**
      * @license
