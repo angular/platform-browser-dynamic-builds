@@ -1,5 +1,5 @@
 /**
- * @license Angular v10.0.0-rc.0+34.sha-bd7393f
+ * @license Angular v10.0.0-rc.0+35.sha-4d0e175
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -266,11 +266,13 @@
             }
             this._doc.body.appendChild(rootEl);
         };
-        DOMTestComponentRenderer = __decorate([
-            core.Injectable(),
-            __param(0, core.Inject(common.DOCUMENT)),
-            __metadata("design:paramtypes", [Object])
-        ], DOMTestComponentRenderer);
+        DOMTestComponentRenderer.decorators = [
+            { type: core.Injectable }
+        ];
+        /** @nocollapse */
+        DOMTestComponentRenderer.ctorParameters = function () { return [
+            { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] }
+        ]; };
         return DOMTestComponentRenderer;
     }(testing.TestComponentRenderer));
     function getContent(node) {
@@ -442,14 +444,14 @@
     var BrowserDynamicTestingModule = /** @class */ (function () {
         function BrowserDynamicTestingModule() {
         }
-        BrowserDynamicTestingModule = __decorate([
-            core.NgModule({
-                exports: [testing$1.BrowserTestingModule],
-                providers: [
-                    { provide: testing.TestComponentRenderer, useClass: DOMTestComponentRenderer },
-                ]
-            })
-        ], BrowserDynamicTestingModule);
+        BrowserDynamicTestingModule.decorators = [
+            { type: core.NgModule, args: [{
+                        exports: [testing$1.BrowserTestingModule],
+                        providers: [
+                            { provide: testing.TestComponentRenderer, useClass: DOMTestComponentRenderer },
+                        ]
+                    },] }
+        ];
         return BrowserDynamicTestingModule;
     }());
 

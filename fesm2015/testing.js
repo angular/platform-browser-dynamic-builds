@@ -1,10 +1,9 @@
 /**
- * @license Angular v10.0.0-rc.0+34.sha-bd7393f
+ * @license Angular v10.0.0-rc.0+35.sha-4d0e175
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
 
-import { __decorate, __param, __metadata } from 'tslib';
 import { Injectable, Inject, ɵstringify, NgModule, Directive, Component, Pipe, createPlatformFactory, COMPILER_OPTIONS, Injector, CompilerFactory } from '@angular/core';
 import { TestComponentRenderer, ɵMetadataOverrider, ɵTestingCompilerFactory } from '@angular/core/testing';
 import { ɵplatformCoreDynamic, ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
@@ -24,7 +23,7 @@ import { MockPipeResolver, MockDirectiveResolver, MockNgModuleResolver } from '@
  * A DOM based implementation of the TestComponentRenderer.
  */
 let DOMTestComponentRenderer = /** @class */ (() => {
-    let DOMTestComponentRenderer = class DOMTestComponentRenderer extends TestComponentRenderer {
+    class DOMTestComponentRenderer extends TestComponentRenderer {
         constructor(_doc) {
             super();
             this._doc = _doc;
@@ -40,12 +39,14 @@ let DOMTestComponentRenderer = /** @class */ (() => {
             }
             this._doc.body.appendChild(rootEl);
         }
-    };
-    DOMTestComponentRenderer = __decorate([
-        Injectable(),
-        __param(0, Inject(DOCUMENT)),
-        __metadata("design:paramtypes", [Object])
-    ], DOMTestComponentRenderer);
+    }
+    DOMTestComponentRenderer.decorators = [
+        { type: Injectable }
+    ];
+    /** @nocollapse */
+    DOMTestComponentRenderer.ctorParameters = () => [
+        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
+    ];
     return DOMTestComponentRenderer;
 })();
 function getContent(node) {
@@ -209,16 +210,16 @@ const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicT
  * @publicApi
  */
 let BrowserDynamicTestingModule = /** @class */ (() => {
-    let BrowserDynamicTestingModule = class BrowserDynamicTestingModule {
-    };
-    BrowserDynamicTestingModule = __decorate([
-        NgModule({
-            exports: [BrowserTestingModule],
-            providers: [
-                { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
-            ]
-        })
-    ], BrowserDynamicTestingModule);
+    class BrowserDynamicTestingModule {
+    }
+    BrowserDynamicTestingModule.decorators = [
+        { type: NgModule, args: [{
+                    exports: [BrowserTestingModule],
+                    providers: [
+                        { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
+                    ]
+                },] }
+    ];
     return BrowserDynamicTestingModule;
 })();
 
