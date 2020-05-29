@@ -1,5 +1,5 @@
 /**
- * @license Angular v10.0.0-rc.0+22.sha-82761ec
+ * @license Angular v10.0.0-rc.0+23.sha-d16a7f3
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -8,7 +8,6 @@ import { getUrlScheme, syntaxError, Identifiers, JitCompiler, ProviderMeta, I18N
 import { ɵReflectionCapabilities, ɵstringify, ANALYZE_FOR_ENTRY_COMPONENTS, ElementRef, NgModuleRef, ViewContainerRef, ChangeDetectorRef, Renderer2, QueryList, TemplateRef, ɵCodegenComponentFactoryResolver, ComponentFactoryResolver, ComponentFactory, ComponentRef, NgModuleFactory, ɵcmf, ɵmod, ɵmpd, ɵregisterModuleFactory, Injector, ViewEncapsulation, ChangeDetectionStrategy, SecurityContext, LOCALE_ID, TRANSLATIONS_FORMAT, ɵinlineInterpolate, ɵinterpolate, ɵEMPTY_ARRAY, ɵEMPTY_MAP, ɵvid, ɵeld, ɵand, ɵted, ɵdid, ɵprd, ɵqud, ɵpad, ɵpod, ɵppd, ɵpid, ɵnov, ɵncd, ɵunv, ɵcrt, ɵccf, InjectionToken, PACKAGE_ROOT_URL, Compiler, MissingTranslationStrategy, ɵConsole, Optional, Inject, TRANSLATIONS, isDevMode, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
-import { __decorate } from 'tslib';
 
 /**
  * @license
@@ -330,8 +329,15 @@ const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
     { provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS] },
 ]);
 
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 let ResourceLoaderImpl = /** @class */ (() => {
-    let ResourceLoaderImpl = class ResourceLoaderImpl extends ResourceLoader {
+    class ResourceLoaderImpl extends ResourceLoader {
         get(url) {
             let resolve;
             let reject;
@@ -368,10 +374,10 @@ let ResourceLoaderImpl = /** @class */ (() => {
             xhr.send();
             return promise;
         }
-    };
-    ResourceLoaderImpl = __decorate([
-        Injectable()
-    ], ResourceLoaderImpl);
+    }
+    ResourceLoaderImpl.decorators = [
+        { type: Injectable }
+    ];
     return ResourceLoaderImpl;
 })();
 
@@ -448,7 +454,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @publicApi
  */
-const VERSION = new Version('10.0.0-rc.0+22.sha-82761ec');
+const VERSION = new Version('10.0.0-rc.0+23.sha-d16a7f3');
 
 /**
  * @license
