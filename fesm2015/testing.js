@@ -1,5 +1,5 @@
 /**
- * @license Angular v10.0.0-rc.0+130.sha-8c682c5
+ * @license Angular v10.0.0-rc.0+134.sha-a937889
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -22,32 +22,29 @@ import { MockPipeResolver, MockDirectiveResolver, MockNgModuleResolver } from '@
 /**
  * A DOM based implementation of the TestComponentRenderer.
  */
-let DOMTestComponentRenderer = /** @class */ (() => {
-    class DOMTestComponentRenderer extends TestComponentRenderer {
-        constructor(_doc) {
-            super();
-            this._doc = _doc;
-        }
-        insertRootElement(rootElId) {
-            const template = ɵgetDOM().getDefaultDocument().createElement('template');
-            template.innerHTML = `<div id="${rootElId}"></div>`;
-            const rootEl = getContent(template).firstChild;
-            // TODO(juliemr): can/should this be optional?
-            const oldRoots = this._doc.querySelectorAll('[id^=root]');
-            for (let i = 0; i < oldRoots.length; i++) {
-                ɵgetDOM().remove(oldRoots[i]);
-            }
-            this._doc.body.appendChild(rootEl);
-        }
+class DOMTestComponentRenderer extends TestComponentRenderer {
+    constructor(_doc) {
+        super();
+        this._doc = _doc;
     }
-    DOMTestComponentRenderer.decorators = [
-        { type: Injectable }
-    ];
-    DOMTestComponentRenderer.ctorParameters = () => [
-        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
-    ];
-    return DOMTestComponentRenderer;
-})();
+    insertRootElement(rootElId) {
+        const template = ɵgetDOM().getDefaultDocument().createElement('template');
+        template.innerHTML = `<div id="${rootElId}"></div>`;
+        const rootEl = getContent(template).firstChild;
+        // TODO(juliemr): can/should this be optional?
+        const oldRoots = this._doc.querySelectorAll('[id^=root]');
+        for (let i = 0; i < oldRoots.length; i++) {
+            ɵgetDOM().remove(oldRoots[i]);
+        }
+        this._doc.body.appendChild(rootEl);
+    }
+}
+DOMTestComponentRenderer.decorators = [
+    { type: Injectable }
+];
+DOMTestComponentRenderer.ctorParameters = () => [
+    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
+];
 function getContent(node) {
     if ('content' in node) {
         return node.content;
@@ -208,19 +205,16 @@ const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicT
  *
  * @publicApi
  */
-let BrowserDynamicTestingModule = /** @class */ (() => {
-    class BrowserDynamicTestingModule {
-    }
-    BrowserDynamicTestingModule.decorators = [
-        { type: NgModule, args: [{
-                    exports: [BrowserTestingModule],
-                    providers: [
-                        { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
-                    ]
-                },] }
-    ];
-    return BrowserDynamicTestingModule;
-})();
+class BrowserDynamicTestingModule {
+}
+BrowserDynamicTestingModule.decorators = [
+    { type: NgModule, args: [{
+                exports: [BrowserTestingModule],
+                providers: [
+                    { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
+                ]
+            },] }
+];
 
 /**
  * @license
