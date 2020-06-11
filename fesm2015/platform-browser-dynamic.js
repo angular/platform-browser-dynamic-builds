@@ -1,5 +1,5 @@
 /**
- * @license Angular v10.0.0-rc.4+6.sha-c2f4a9b
+ * @license Angular v10.0.0-rc.4+14.sha-38c48be
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -336,50 +336,47 @@ const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-let ResourceLoaderImpl = /** @class */ (() => {
-    class ResourceLoaderImpl extends ResourceLoader {
-        get(url) {
-            let resolve;
-            let reject;
-            const promise = new Promise((res, rej) => {
-                resolve = res;
-                reject = rej;
-            });
-            const xhr = new XMLHttpRequest();
-            xhr.open('GET', url, true);
-            xhr.responseType = 'text';
-            xhr.onload = function () {
-                // responseText is the old-school way of retrieving response (supported by IE8 & 9)
-                // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
-                // by IE10)
-                const response = xhr.response || xhr.responseText;
-                // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
-                let status = xhr.status === 1223 ? 204 : xhr.status;
-                // fix status code when it is 0 (0 status is undocumented).
-                // Occurs when accessing file resources or on Android 4.1 stock browser
-                // while retrieving files from application cache.
-                if (status === 0) {
-                    status = response ? 200 : 0;
-                }
-                if (200 <= status && status <= 300) {
-                    resolve(response);
-                }
-                else {
-                    reject(`Failed to load ${url}`);
-                }
-            };
-            xhr.onerror = function () {
+class ResourceLoaderImpl extends ResourceLoader {
+    get(url) {
+        let resolve;
+        let reject;
+        const promise = new Promise((res, rej) => {
+            resolve = res;
+            reject = rej;
+        });
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'text';
+        xhr.onload = function () {
+            // responseText is the old-school way of retrieving response (supported by IE8 & 9)
+            // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
+            // by IE10)
+            const response = xhr.response || xhr.responseText;
+            // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
+            let status = xhr.status === 1223 ? 204 : xhr.status;
+            // fix status code when it is 0 (0 status is undocumented).
+            // Occurs when accessing file resources or on Android 4.1 stock browser
+            // while retrieving files from application cache.
+            if (status === 0) {
+                status = response ? 200 : 0;
+            }
+            if (200 <= status && status <= 300) {
+                resolve(response);
+            }
+            else {
                 reject(`Failed to load ${url}`);
-            };
-            xhr.send();
-            return promise;
-        }
+            }
+        };
+        xhr.onerror = function () {
+            reject(`Failed to load ${url}`);
+        };
+        xhr.send();
+        return promise;
     }
-    ResourceLoaderImpl.decorators = [
-        { type: Injectable }
-    ];
-    return ResourceLoaderImpl;
-})();
+}
+ResourceLoaderImpl.decorators = [
+    { type: Injectable }
+];
 
 /**
  * @license
@@ -454,7 +451,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @publicApi
  */
-const VERSION = new Version('10.0.0-rc.4+6.sha-c2f4a9b');
+const VERSION = new Version('10.0.0-rc.4+14.sha-38c48be');
 
 /**
  * @license
