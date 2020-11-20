@@ -1,5 +1,5 @@
 /**
- * @license Angular v11.1.0-next.0+46.sha-ff0a90e
+ * @license Angular v11.1.0-next.0+51.sha-3e1e5a1
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -350,7 +350,7 @@ class ResourceLoaderImpl extends ResourceLoader {
             // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
             // by IE10)
             const response = xhr.response || xhr.responseText;
-            // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
+            // normalize IE9 bug (https://bugs.jquery.com/ticket/1450)
             let status = xhr.status === 1223 ? 204 : xhr.status;
             // fix status code when it is 0 (0 status is undocumented).
             // Occurs when accessing file resources or on Android 4.1 stock browser
@@ -451,7 +451,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @publicApi
  */
-const VERSION = new Version('11.1.0-next.0+46.sha-ff0a90e');
+const VERSION = new Version('11.1.0-next.0+51.sha-3e1e5a1');
 
 /**
  * @license
