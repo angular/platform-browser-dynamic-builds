@@ -1,5 +1,5 @@
 /**
- * @license Angular v11.1.0-next.2+8.sha-85b07ad
+ * @license Angular v11.1.0-next.2+9.sha-1f73af7
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -336,8 +336,8 @@
     }(testing.TestComponentRenderer));
     DOMTestComponentRenderer.ɵfac = function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(i0.ɵɵinject(common.DOCUMENT)); };
     DOMTestComponentRenderer.ɵprov = i0.ɵɵdefineInjectable({ token: DOMTestComponentRenderer, factory: DOMTestComponentRenderer.ɵfac });
-    /*@__PURE__*/ (function () {
-        i0.ɵsetClassMetadata(DOMTestComponentRenderer, [{
+    (function () {
+        (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(DOMTestComponentRenderer, [{
                 type: i0.Injectable
             }], function () {
             return [{ type: undefined, decorators: [{
@@ -520,8 +520,8 @@
             { provide: testing.TestComponentRenderer, useClass: DOMTestComponentRenderer },
         ], imports: [testing$1.BrowserTestingModule] });
     (function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(BrowserDynamicTestingModule, { exports: [testing$1.BrowserTestingModule] }); })();
-    /*@__PURE__*/ (function () {
-        i0.ɵsetClassMetadata(BrowserDynamicTestingModule, [{
+    (function () {
+        (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(BrowserDynamicTestingModule, [{
                 type: i0.NgModule,
                 args: [{
                         exports: [testing$1.BrowserTestingModule],
