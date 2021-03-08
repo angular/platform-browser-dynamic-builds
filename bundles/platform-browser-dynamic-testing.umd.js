@@ -1,5 +1,5 @@
 /**
- * @license Angular v12.0.0-next.3+27.sha-32dd3c5
+ * @license Angular v12.0.0-next.3+29.sha-fed6a7c
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -322,15 +322,14 @@
             return _this;
         }
         DOMTestComponentRenderer.prototype.insertRootElement = function (rootElId) {
-            var template = common.ɵgetDOM().getDefaultDocument().createElement('template');
-            template.innerHTML = "<div id=\"" + rootElId + "\"></div>";
-            var rootEl = getContent(template).firstChild;
+            var rootElement = common.ɵgetDOM().getDefaultDocument().createElement('div');
+            rootElement.setAttribute('id', rootElId);
             // TODO(juliemr): can/should this be optional?
             var oldRoots = this._doc.querySelectorAll('[id^=root]');
             for (var i = 0; i < oldRoots.length; i++) {
                 common.ɵgetDOM().remove(oldRoots[i]);
             }
-            this._doc.body.appendChild(rootEl);
+            this._doc.body.appendChild(rootElement);
         };
         return DOMTestComponentRenderer;
     }(testing.TestComponentRenderer));
@@ -346,14 +345,6 @@
                         }] }];
         }, null);
     })();
-    function getContent(node) {
-        if ('content' in node) {
-            return node.content;
-        }
-        else {
-            return node;
-        }
-    }
 
     /**
      * @license

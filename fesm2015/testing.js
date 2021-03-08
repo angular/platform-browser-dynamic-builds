@@ -1,5 +1,5 @@
 /**
- * @license Angular v12.0.0-next.3+27.sha-32dd3c5
+ * @license Angular v12.0.0-next.3+29.sha-fed6a7c
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -28,15 +28,14 @@ class DOMTestComponentRenderer extends TestComponentRenderer {
         this._doc = _doc;
     }
     insertRootElement(rootElId) {
-        const template = ɵgetDOM().getDefaultDocument().createElement('template');
-        template.innerHTML = `<div id="${rootElId}"></div>`;
-        const rootEl = getContent(template).firstChild;
+        const rootElement = ɵgetDOM().getDefaultDocument().createElement('div');
+        rootElement.setAttribute('id', rootElId);
         // TODO(juliemr): can/should this be optional?
         const oldRoots = this._doc.querySelectorAll('[id^=root]');
         for (let i = 0; i < oldRoots.length; i++) {
             ɵgetDOM().remove(oldRoots[i]);
         }
-        this._doc.body.appendChild(rootEl);
+        this._doc.body.appendChild(rootElement);
     }
 }
 DOMTestComponentRenderer.ɵfac = function DOMTestComponentRenderer_Factory(t) { return new (t || DOMTestComponentRenderer)(ɵɵinject(DOCUMENT)); };
@@ -47,14 +46,6 @@ DOMTestComponentRenderer.ɵprov = ɵɵdefineInjectable({ token: DOMTestComponent
                 type: Inject,
                 args: [DOCUMENT]
             }] }]; }, null); })();
-function getContent(node) {
-    if ('content' in node) {
-        return node.content;
-    }
-    else {
-        return node;
-    }
-}
 
 /**
  * @license
