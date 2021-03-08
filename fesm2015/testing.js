@@ -1,5 +1,5 @@
 /**
- * @license Angular v12.0.0-next.3+40.sha-bdf13fe
+ * @license Angular v12.0.0-next.3+42.sha-2ebe2bc
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -198,8 +198,9 @@ const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicT
  */
 class BrowserDynamicTestingModule {
 }
+BrowserDynamicTestingModule.ɵfac = function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); };
 BrowserDynamicTestingModule.ɵmod = /*@__PURE__*/ ɵɵdefineNgModule({ type: BrowserDynamicTestingModule });
-BrowserDynamicTestingModule.ɵinj = /*@__PURE__*/ ɵɵdefineInjector({ factory: function BrowserDynamicTestingModule_Factory(t) { return new (t || BrowserDynamicTestingModule)(); }, providers: [
+BrowserDynamicTestingModule.ɵinj = /*@__PURE__*/ ɵɵdefineInjector({ providers: [
         { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
     ], imports: [BrowserTestingModule] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(BrowserDynamicTestingModule, { exports: [BrowserTestingModule] }); })();
