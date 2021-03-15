@@ -1,5 +1,5 @@
 /**
- * @license Angular v12.0.0-next.4+26.sha-cc75e1d
+ * @license Angular v12.0.0-next.4+34.sha-1a9f526
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -203,7 +203,6 @@ BrowserDynamicTestingModule.ɵmod = /*@__PURE__*/ ɵɵdefineNgModule({ type: Bro
 BrowserDynamicTestingModule.ɵinj = /*@__PURE__*/ ɵɵdefineInjector({ providers: [
         { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
     ], imports: [BrowserTestingModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(BrowserDynamicTestingModule, { exports: [BrowserTestingModule] }); })();
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(BrowserDynamicTestingModule, [{
         type: NgModule,
         args: [{
@@ -213,6 +212,7 @@ BrowserDynamicTestingModule.ɵinj = /*@__PURE__*/ ɵɵdefineInjector({ providers
                 ]
             }]
     }], null, null); })();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(BrowserDynamicTestingModule, { exports: [BrowserTestingModule] }); })();
 
 /**
  * @license
