@@ -1,5 +1,5 @@
 /**
- * @license Angular v12.0.0-next.6+3.sha-b61c009
+ * @license Angular v12.0.0-next.6+36.sha-18bc9ff
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -678,9 +678,8 @@
         };
         return ResourceLoaderImpl;
     }(compiler.ResourceLoader));
-    ResourceLoaderImpl.ɵfac = function ResourceLoaderImpl_Factory(t) { return ɵResourceLoaderImpl_BaseFactory(t || ResourceLoaderImpl); };
+    ResourceLoaderImpl.ɵfac = /*@__PURE__*/ function () { var ɵResourceLoaderImpl_BaseFactory; return function ResourceLoaderImpl_Factory(t) { return (ɵResourceLoaderImpl_BaseFactory || (ɵResourceLoaderImpl_BaseFactory = i0.ɵɵgetInheritedFactory(ResourceLoaderImpl)))(t || ResourceLoaderImpl); }; }();
     ResourceLoaderImpl.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: ResourceLoaderImpl, factory: ResourceLoaderImpl.ɵfac });
-    var ɵResourceLoaderImpl_BaseFactory = /*@__PURE__*/ i0.ɵɵgetInheritedFactory(ResourceLoaderImpl);
     (function () {
         (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ResourceLoaderImpl, [{
                 type: i0.Injectable
@@ -755,7 +754,7 @@
     /**
      * @publicApi
      */
-    var VERSION = new i0.Version('12.0.0-next.6+3.sha-b61c009');
+    var VERSION = new i0.Version('12.0.0-next.6+36.sha-18bc9ff');
 
     /**
      * @license
