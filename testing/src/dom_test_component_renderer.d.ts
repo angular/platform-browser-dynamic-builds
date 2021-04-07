@@ -8,5 +8,5 @@ export declare class DOMTestComponentRenderer extends TestComponentRenderer {
     constructor(_doc: any);
     insertRootElement(rootElId: string): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<DOMTestComponentRenderer, never>;
-    static ɵprov: i0.ɵɵInjectableDef<DOMTestComponentRenderer>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<DOMTestComponentRenderer>;
 }
