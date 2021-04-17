@@ -1,6 +1,6 @@
 /**
- * @license Angular v9.0.0-rc.1+246.sha-d3cfad7.with-local-changes
- * (c) 2010-2019 Google LLC. https://angular.io/
+ * @license Angular v12.0.0-next.8+77.sha-917664e
+ * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
 
@@ -10,28 +10,21 @@ import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
 
 /**
- * @fileoverview added by tsickle
- * Generated from: packages/platform-browser-dynamic/src/compiler_reflector.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
-/** @type {?} */
 const MODULE_SUFFIX = '';
-/** @type {?} */
 const builtinExternalReferences = createBuiltinExternalReferencesMap();
 class JitReflector {
     constructor() {
         this.reflectionCapabilities = new ɵReflectionCapabilities();
     }
-    /**
-     * @param {?} type
-     * @param {?} cmpMetadata
-     * @return {?}
-     */
     componentModuleUrl(type, cmpMetadata) {
-        /** @type {?} */
         const moduleId = cmpMetadata.moduleId;
         if (typeof moduleId === 'string') {
-            /** @type {?} */
             const scheme = getUrlScheme(moduleId);
             return scheme ? moduleId : `package:${moduleId}${MODULE_SUFFIX}`;
         }
@@ -41,72 +34,32 @@ class JitReflector {
         }
         return `./${ɵstringify(type)}`;
     }
-    /**
-     * @param {?} typeOrFunc
-     * @return {?}
-     */
     parameters(typeOrFunc) {
         return this.reflectionCapabilities.parameters(typeOrFunc);
     }
-    /**
-     * @param {?} typeOrFunc
-     * @return {?}
-     */
-    tryAnnotations(typeOrFunc) { return this.annotations(typeOrFunc); }
-    /**
-     * @param {?} typeOrFunc
-     * @return {?}
-     */
+    tryAnnotations(typeOrFunc) {
+        return this.annotations(typeOrFunc);
+    }
     annotations(typeOrFunc) {
         return this.reflectionCapabilities.annotations(typeOrFunc);
     }
-    /**
-     * @param {?} typeOrFunc
-     * @return {?}
-     */
     shallowAnnotations(typeOrFunc) {
         throw new Error('Not supported in JIT mode');
     }
-    /**
-     * @param {?} typeOrFunc
-     * @return {?}
-     */
     propMetadata(typeOrFunc) {
         return this.reflectionCapabilities.propMetadata(typeOrFunc);
     }
-    /**
-     * @param {?} type
-     * @param {?} lcProperty
-     * @return {?}
-     */
     hasLifecycleHook(type, lcProperty) {
         return this.reflectionCapabilities.hasLifecycleHook(type, lcProperty);
     }
-    /**
-     * @param {?} type
-     * @return {?}
-     */
-    guards(type) { return this.reflectionCapabilities.guards(type); }
-    /**
-     * @param {?} ref
-     * @return {?}
-     */
+    guards(type) {
+        return this.reflectionCapabilities.guards(type);
+    }
     resolveExternalReference(ref) {
         return builtinExternalReferences.get(ref) || ref.runtime;
     }
 }
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    JitReflector.prototype.reflectionCapabilities;
-}
-/**
- * @return {?}
- */
 function createBuiltinExternalReferencesMap() {
-    /** @type {?} */
     const map = new Map();
     map.set(Identifiers.ANALYZE_FOR_ENTRY_COMPONENTS, ANALYZE_FOR_ENTRY_COMPONENTS);
     map.set(Identifiers.ElementRef, ElementRef);
@@ -155,174 +108,85 @@ function createBuiltinExternalReferencesMap() {
 }
 
 /**
- * @fileoverview added by tsickle
- * Generated from: packages/platform-browser-dynamic/src/compiler_factory.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
-/** @type {?} */
 const ERROR_COLLECTOR_TOKEN = new InjectionToken('ErrorCollector');
 /**
- * A default provider for {\@link PACKAGE_ROOT_URL} that maps to '/'.
- * @type {?}
+ * A default provider for {@link PACKAGE_ROOT_URL} that maps to '/'.
  */
 const DEFAULT_PACKAGE_URL_PROVIDER = {
     provide: PACKAGE_ROOT_URL,
     useValue: '/'
 };
-/** @type {?} */
 const _NO_RESOURCE_LOADER = {
-    /**
-     * @param {?} url
-     * @return {?}
-     */
     get(url) {
         throw new Error(`No ResourceLoader implementation has been provided. Can't read the url "${url}"`);
     }
 };
-/** @type {?} */
 const baseHtmlParser = new InjectionToken('HtmlParser');
 class CompilerImpl {
-    /**
-     * @param {?} injector
-     * @param {?} _metadataResolver
-     * @param {?} templateParser
-     * @param {?} styleCompiler
-     * @param {?} viewCompiler
-     * @param {?} ngModuleCompiler
-     * @param {?} summaryResolver
-     * @param {?} compileReflector
-     * @param {?} jitEvaluator
-     * @param {?} compilerConfig
-     * @param {?} console
-     */
     constructor(injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, jitEvaluator, compilerConfig, console) {
         this._metadataResolver = _metadataResolver;
         this._delegate = new JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, jitEvaluator, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
         this.injector = injector;
     }
-    /**
-     * @private
-     * @return {?}
-     */
     getExtraNgModuleProviders() {
         return [this._metadataResolver.getProviderMetadata(new ProviderMeta(Compiler, { useValue: this }))];
     }
-    /**
-     * @template T
-     * @param {?} moduleType
-     * @return {?}
-     */
     compileModuleSync(moduleType) {
-        return (/** @type {?} */ (this._delegate.compileModuleSync(moduleType)));
+        return this._delegate.compileModuleSync(moduleType);
     }
-    /**
-     * @template T
-     * @param {?} moduleType
-     * @return {?}
-     */
     compileModuleAsync(moduleType) {
-        return (/** @type {?} */ (this._delegate.compileModuleAsync(moduleType)));
+        return this._delegate.compileModuleAsync(moduleType);
     }
-    /**
-     * @template T
-     * @param {?} moduleType
-     * @return {?}
-     */
     compileModuleAndAllComponentsSync(moduleType) {
-        /** @type {?} */
         const result = this._delegate.compileModuleAndAllComponentsSync(moduleType);
         return {
-            ngModuleFactory: (/** @type {?} */ (result.ngModuleFactory)),
-            componentFactories: (/** @type {?} */ (result.componentFactories)),
+            ngModuleFactory: result.ngModuleFactory,
+            componentFactories: result.componentFactories,
         };
     }
-    /**
-     * @template T
-     * @param {?} moduleType
-     * @return {?}
-     */
     compileModuleAndAllComponentsAsync(moduleType) {
         return this._delegate.compileModuleAndAllComponentsAsync(moduleType)
-            .then((/**
-         * @param {?} result
-         * @return {?}
-         */
-        (result) => ({
-            ngModuleFactory: (/** @type {?} */ (result.ngModuleFactory)),
-            componentFactories: (/** @type {?} */ (result.componentFactories)),
-        })));
+            .then((result) => ({
+            ngModuleFactory: result.ngModuleFactory,
+            componentFactories: result.componentFactories,
+        }));
     }
-    /**
-     * @param {?} summaries
-     * @return {?}
-     */
-    loadAotSummaries(summaries) { this._delegate.loadAotSummaries(summaries); }
-    /**
-     * @param {?} ref
-     * @return {?}
-     */
-    hasAotSummary(ref) { return this._delegate.hasAotSummary(ref); }
-    /**
-     * @template T
-     * @param {?} component
-     * @return {?}
-     */
+    loadAotSummaries(summaries) {
+        this._delegate.loadAotSummaries(summaries);
+    }
+    hasAotSummary(ref) {
+        return this._delegate.hasAotSummary(ref);
+    }
     getComponentFactory(component) {
-        return (/** @type {?} */ (this._delegate.getComponentFactory(component)));
+        return this._delegate.getComponentFactory(component);
     }
-    /**
-     * @return {?}
-     */
-    clearCache() { this._delegate.clearCache(); }
-    /**
-     * @param {?} type
-     * @return {?}
-     */
-    clearCacheFor(type) { this._delegate.clearCacheFor(type); }
-    /**
-     * @param {?} moduleType
-     * @return {?}
-     */
+    clearCache() {
+        this._delegate.clearCache();
+    }
+    clearCacheFor(type) {
+        this._delegate.clearCacheFor(type);
+    }
     getModuleId(moduleType) {
-        /** @type {?} */
         const meta = this._metadataResolver.getNgModuleMetadata(moduleType);
         return meta && meta.id || undefined;
     }
 }
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    CompilerImpl.prototype._delegate;
-    /** @type {?} */
-    CompilerImpl.prototype.injector;
-    /**
-     * @type {?}
-     * @private
-     */
-    CompilerImpl.prototype._metadataResolver;
-}
-const ɵ0 = new JitReflector(), ɵ1 = _NO_RESOURCE_LOADER, ɵ2 = /**
- * @param {?} parser
- * @param {?} translations
- * @param {?} format
- * @param {?} config
- * @param {?} console
- * @return {?}
- */
-(parser, translations, format, config, console) => {
+const ɵ0 = new JitReflector(), ɵ1 = _NO_RESOURCE_LOADER, ɵ2 = (parser, translations, format, config, console) => {
     translations = translations || '';
-    /** @type {?} */
-    const missingTranslation = translations ? (/** @type {?} */ (config.missingTranslation)) : MissingTranslationStrategy.Ignore;
+    const missingTranslation = translations ? config.missingTranslation : MissingTranslationStrategy.Ignore;
     return new I18NHtmlParser(parser, translations, format, missingTranslation, console);
 }, ɵ3 = new CompilerConfig();
 /**
  * A set of providers that provide `JitCompiler` and its dependencies to use for
  * template compilation.
- * @type {?}
  */
-const COMPILER_PROVIDERS__PRE_R3__ = (/** @type {?} */ ([
+const COMPILER_PROVIDERS__PRE_R3__ = [
     { provide: CompileReflector, useValue: ɵ0 },
     { provide: ResourceLoader, useValue: ɵ1 },
     { provide: JitSummaryResolver, deps: [] },
@@ -337,7 +201,7 @@ const COMPILER_PROVIDERS__PRE_R3__ = (/** @type {?} */ ([
     },
     {
         provide: I18NHtmlParser,
-        useFactory: (ɵ2),
+        useFactory: ɵ2,
         deps: [
             baseHtmlParser,
             [new Optional(), new Inject(TRANSLATIONS)],
@@ -351,54 +215,47 @@ const COMPILER_PROVIDERS__PRE_R3__ = (/** @type {?} */ ([
         useExisting: I18NHtmlParser,
     },
     {
-        provide: TemplateParser, deps: [CompilerConfig, CompileReflector,
-            Parser, ElementSchemaRegistry,
-            I18NHtmlParser, ɵConsole]
+        provide: TemplateParser,
+        deps: [CompilerConfig, CompileReflector, Parser, ElementSchemaRegistry, I18NHtmlParser, ɵConsole]
     },
     { provide: JitEvaluator, useClass: JitEvaluator, deps: [] },
     { provide: DirectiveNormalizer, deps: [ResourceLoader, UrlResolver, HtmlParser, CompilerConfig] },
-    { provide: CompileMetadataResolver, deps: [CompilerConfig, HtmlParser, NgModuleResolver,
-            DirectiveResolver, PipeResolver,
-            SummaryResolver,
-            ElementSchemaRegistry,
-            DirectiveNormalizer, ɵConsole,
-            [Optional, StaticSymbolCache],
-            CompileReflector,
-            [Optional, ERROR_COLLECTOR_TOKEN]] },
+    {
+        provide: CompileMetadataResolver,
+        deps: [
+            CompilerConfig, HtmlParser, NgModuleResolver, DirectiveResolver, PipeResolver,
+            SummaryResolver, ElementSchemaRegistry, DirectiveNormalizer, ɵConsole,
+            [Optional, StaticSymbolCache], CompileReflector, [Optional, ERROR_COLLECTOR_TOKEN]
+        ]
+    },
     DEFAULT_PACKAGE_URL_PROVIDER,
     { provide: StyleCompiler, deps: [UrlResolver] },
     { provide: ViewCompiler, deps: [CompileReflector] },
     { provide: NgModuleCompiler, deps: [CompileReflector] },
     { provide: CompilerConfig, useValue: ɵ3 },
-    { provide: Compiler, useClass: CompilerImpl, deps: [Injector, CompileMetadataResolver,
-            TemplateParser, StyleCompiler,
-            ViewCompiler, NgModuleCompiler,
-            SummaryResolver, CompileReflector, JitEvaluator, CompilerConfig,
-            ɵConsole] },
+    {
+        provide: Compiler,
+        useClass: CompilerImpl,
+        deps: [
+            Injector, CompileMetadataResolver, TemplateParser, StyleCompiler, ViewCompiler,
+            NgModuleCompiler, SummaryResolver, CompileReflector, JitEvaluator, CompilerConfig, ɵConsole
+        ]
+    },
     { provide: DomElementSchemaRegistry, deps: [] },
     { provide: ElementSchemaRegistry, useExisting: DomElementSchemaRegistry },
     { provide: UrlResolver, deps: [PACKAGE_ROOT_URL] },
     { provide: DirectiveResolver, deps: [CompileReflector] },
     { provide: PipeResolver, deps: [CompileReflector] },
     { provide: NgModuleResolver, deps: [CompileReflector] },
-]));
-/** @type {?} */
-const COMPILER_PROVIDERS__POST_R3__ = (/** @type {?} */ ([{ provide: Compiler, useFactory: (/**
-         * @return {?}
-         */
-        () => new Compiler()) }]));
-/** @type {?} */
+];
+const COMPILER_PROVIDERS__POST_R3__ = [{ provide: Compiler, useFactory: () => new Compiler() }];
 const COMPILER_PROVIDERS = COMPILER_PROVIDERS__PRE_R3__;
 /**
- * \@publicApi
+ * @publicApi
  */
 class JitCompilerFactory {
     /* @internal */
-    /**
-     * @param {?} defaultOptions
-     */
     constructor(defaultOptions) {
-        /** @type {?} */
         const compilerOptions = {
             useJit: true,
             defaultEncapsulation: ViewEncapsulation.Emulated,
@@ -406,21 +263,12 @@ class JitCompilerFactory {
         };
         this._defaultOptions = [compilerOptions, ...defaultOptions];
     }
-    /**
-     * @param {?=} options
-     * @return {?}
-     */
     createCompiler(options = []) {
-        /** @type {?} */
         const opts = _mergeOptions(this._defaultOptions.concat(options));
-        /** @type {?} */
         const injector = Injector.create([
             COMPILER_PROVIDERS, {
                 provide: CompilerConfig,
-                useFactory: (/**
-                 * @return {?}
-                 */
-                () => {
+                useFactory: () => {
                     return new CompilerConfig({
                         // let explicit values from the compiler options overwrite options
                         // from the app providers
@@ -432,59 +280,23 @@ class JitCompilerFactory {
                         missingTranslation: opts.missingTranslation,
                         preserveWhitespaces: opts.preserveWhitespaces,
                     });
-                }),
+                },
                 deps: []
             },
-            (/** @type {?} */ (opts.providers))
+            opts.providers
         ]);
         return injector.get(Compiler);
     }
 }
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    JitCompilerFactory.prototype._defaultOptions;
-}
-/**
- * @param {?} optionsArr
- * @return {?}
- */
 function _mergeOptions(optionsArr) {
     return {
-        useJit: _lastDefined(optionsArr.map((/**
-         * @param {?} options
-         * @return {?}
-         */
-        options => options.useJit))),
-        defaultEncapsulation: _lastDefined(optionsArr.map((/**
-         * @param {?} options
-         * @return {?}
-         */
-        options => options.defaultEncapsulation))),
-        providers: _mergeArrays(optionsArr.map((/**
-         * @param {?} options
-         * @return {?}
-         */
-        options => (/** @type {?} */ (options.providers))))),
-        missingTranslation: _lastDefined(optionsArr.map((/**
-         * @param {?} options
-         * @return {?}
-         */
-        options => options.missingTranslation))),
-        preserveWhitespaces: _lastDefined(optionsArr.map((/**
-         * @param {?} options
-         * @return {?}
-         */
-        options => options.preserveWhitespaces))),
+        useJit: _lastDefined(optionsArr.map(options => options.useJit)),
+        defaultEncapsulation: _lastDefined(optionsArr.map(options => options.defaultEncapsulation)),
+        providers: _mergeArrays(optionsArr.map(options => options.providers)),
+        missingTranslation: _lastDefined(optionsArr.map(options => options.missingTranslation)),
+        preserveWhitespaces: _lastDefined(optionsArr.map(options => options.preserveWhitespaces)),
     };
 }
-/**
- * @template T
- * @param {?} args
- * @return {?}
- */
 function _lastDefined(args) {
     for (let i = args.length - 1; i >= 0; i--) {
         if (args[i] !== undefined) {
@@ -493,32 +305,24 @@ function _lastDefined(args) {
     }
     return undefined;
 }
-/**
- * @param {?} parts
- * @return {?}
- */
 function _mergeArrays(parts) {
-    /** @type {?} */
     const result = [];
-    parts.forEach((/**
-     * @param {?} part
-     * @return {?}
-     */
-    (part) => part && result.push(...part)));
+    parts.forEach((part) => part && result.push(...part));
     return result;
 }
 
 /**
- * @fileoverview added by tsickle
- * Generated from: packages/platform-browser-dynamic/src/platform_core_dynamic.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 const ɵ0$1 = {};
 /**
  * A platform that included corePlatform and the compiler.
  *
- * \@publicApi
- * @type {?}
+ * @publicApi
  */
 const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
     { provide: COMPILER_OPTIONS, useValue: ɵ0$1, multi: true },
@@ -526,45 +330,29 @@ const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
 ]);
 
 /**
- * @fileoverview added by tsickle
- * Generated from: packages/platform-browser-dynamic/src/resource_loader/resource_loader_impl.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 class ResourceLoaderImpl extends ResourceLoader {
-    /**
-     * @param {?} url
-     * @return {?}
-     */
     get(url) {
-        /** @type {?} */
         let resolve;
-        /** @type {?} */
         let reject;
-        /** @type {?} */
-        const promise = new Promise((/**
-         * @param {?} res
-         * @param {?} rej
-         * @return {?}
-         */
-        (res, rej) => {
+        const promise = new Promise((res, rej) => {
             resolve = res;
             reject = rej;
-        }));
-        /** @type {?} */
+        });
         const xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'text';
-        xhr.onload = (/**
-         * @return {?}
-         */
-        function () {
+        xhr.onload = function () {
             // responseText is the old-school way of retrieving response (supported by IE8 & 9)
             // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
             // by IE10)
-            /** @type {?} */
             const response = xhr.response || xhr.responseText;
-            // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
-            /** @type {?} */
+            // normalize IE9 bug (https://bugs.jquery.com/ticket/1450)
             let status = xhr.status === 1223 ? 204 : xhr.status;
             // fix status code when it is 0 (0 status is undocumented).
             // Occurs when accessing file resources or on Android 4.1 stock browser
@@ -578,11 +366,10 @@ class ResourceLoaderImpl extends ResourceLoader {
             else {
                 reject(`Failed to load ${url}`);
             }
-        });
-        xhr.onerror = (/**
-         * @return {?}
-         */
-        function () { reject(`Failed to load ${url}`); });
+        };
+        xhr.onerror = function () {
+            reject(`Failed to load ${url}`);
+        };
         xhr.send();
         return promise;
     }
@@ -592,14 +379,15 @@ ResourceLoaderImpl.decorators = [
 ];
 
 /**
- * @fileoverview added by tsickle
- * Generated from: packages/platform-browser-dynamic/src/platform_providers.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 const ɵ0$2 = { providers: [{ provide: ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] }, ɵ1$1 = ɵPLATFORM_BROWSER_ID;
 /**
- * \@publicApi
- * @type {?}
+ * @publicApi
  */
 const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
     ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
@@ -612,9 +400,11 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
 ];
 
 /**
- * @fileoverview added by tsickle
- * Generated from: packages/platform-browser-dynamic/src/resource_loader/resource_loader_cache.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 /**
  * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
@@ -623,80 +413,77 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
  * The template cache needs to be built and loaded into window.$templateCache
  * via a separate mechanism.
  *
- * \@publicApi
+ * @publicApi
  */
 class CachedResourceLoader extends ResourceLoader {
     constructor() {
         super();
-        this._cache = ((/** @type {?} */ (ɵglobal))).$templateCache;
+        this._cache = ɵglobal.$templateCache;
         if (this._cache == null) {
             throw new Error('CachedResourceLoader: Template cache was not found in $templateCache.');
         }
     }
-    /**
-     * @param {?} url
-     * @return {?}
-     */
     get(url) {
         if (this._cache.hasOwnProperty(url)) {
             return Promise.resolve(this._cache[url]);
         }
         else {
-            return (/** @type {?} */ (Promise.reject('CachedResourceLoader: Did not find cached template for ' + url)));
+            return Promise.reject('CachedResourceLoader: Did not find cached template for ' + url);
         }
     }
 }
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    CachedResourceLoader.prototype._cache;
-}
 
 /**
- * @fileoverview added by tsickle
- * Generated from: packages/platform-browser-dynamic/src/private_export.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 
 /**
- * @fileoverview added by tsickle
- * Generated from: packages/platform-browser-dynamic/src/version.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 /**
- * \@publicApi
- * @type {?}
+ * @publicApi
  */
-const VERSION = new Version('9.0.0-rc.1+246.sha-d3cfad7.with-local-changes');
+const VERSION = new Version('12.0.0-next.8+77.sha-917664e');
 
 /**
- * @fileoverview added by tsickle
- * Generated from: packages/platform-browser-dynamic/src/platform-browser-dynamic.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 /**
- * \@publicApi
- * @type {?}
+ * @publicApi
  */
 const RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedResourceLoader, deps: [] }];
 /**
- * \@publicApi
- * @type {?}
+ * @publicApi
  */
 const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 
 /**
- * @fileoverview added by tsickle
- * Generated from: packages/platform-browser-dynamic/public_api.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
+// This file only reexports content of the `src` folder. Keep it that way.
 
 /**
- * @fileoverview added by tsickle
- * Generated from: packages/platform-browser-dynamic/index.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 
 /**
