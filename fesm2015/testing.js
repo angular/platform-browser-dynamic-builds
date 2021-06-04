@@ -1,5 +1,5 @@
 /**
- * @license Angular v12.1.0-next.4+41.sha-6929625
+ * @license Angular v12.1.0-next.4+43.sha-71e14a7
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -164,8 +164,7 @@ const ɵ0 = { providers: COMPILER_PROVIDERS };
  * @publicApi
  */
 const platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 'coreDynamicTesting', [
-    { provide: COMPILER_OPTIONS, useValue: ɵ0, multi: true },
-    {
+    { provide: COMPILER_OPTIONS, useValue: ɵ0, multi: true }, {
         provide: ɵTestingCompilerFactory,
         useClass: TestingCompilerFactoryImpl,
         deps: [Injector, CompilerFactory]
