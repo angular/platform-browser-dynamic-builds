@@ -1,5 +1,5 @@
 /**
- * @license Angular v12.1.0-next.5+49.sha-18fe044
+ * @license Angular v12.1.0-next.6+60.sha-d71d521
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -42,6 +42,7 @@ export declare class ɵDOMTestComponentRenderer extends TestComponentRenderer {
     private _doc;
     constructor(_doc: any);
     insertRootElement(rootElId: string): void;
+    removeAllRootElements(): void;
 }
 
 /**
