@@ -1,5 +1,5 @@
 /**
- * @license Angular v12.1.1+12.sha-6da24e6
+ * @license Angular v12.1.1+16.sha-9557e87
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -451,7 +451,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @publicApi
  */
-const VERSION = new Version('12.1.1+12.sha-6da24e6');
+const VERSION = new Version('12.1.1+16.sha-9557e87');
 
 /**
  * @license
