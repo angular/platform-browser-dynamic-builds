@@ -1,5 +1,5 @@
 /**
- * @license Angular v13.0.0-next.7+10.sha-cc427d1.with-local-changes
+ * @license Angular v13.0.0-next.7+11.sha-ea61ec2.with-local-changes
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -575,7 +575,7 @@
                 defaultEncapsulation: core.ViewEncapsulation.Emulated,
                 missingTranslation: core.MissingTranslationStrategy.Warning,
             };
-            this._defaultOptions = __spreadArray([compilerOptions], __read(defaultOptions));
+            this._defaultOptions = __spreadArray([compilerOptions], __read(defaultOptions), false);
         }
         JitCompilerFactory.prototype.createCompiler = function (options) {
             if (options === void 0) { options = []; }
@@ -623,7 +623,7 @@
     }
     function _mergeArrays(parts) {
         var result = [];
-        parts.forEach(function (part) { return part && result.push.apply(result, __spreadArray([], __read(part))); });
+        parts.forEach(function (part) { return part && result.push.apply(result, __spreadArray([], __read(part), false)); });
         return result;
     }
 
@@ -761,7 +761,7 @@
     /**
      * @publicApi
      */
-    var VERSION = new core.Version('13.0.0-next.7+10.sha-cc427d1.with-local-changes');
+    var VERSION = new core.Version('13.0.0-next.7+11.sha-ea61ec2.with-local-changes');
 
     /**
      * @license
