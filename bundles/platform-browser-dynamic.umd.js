@@ -1,5 +1,5 @@
 /**
- * @license Angular v13.0.0-next.9+6.sha-74ca3c5.with-local-changes
+ * @license Angular v13.0.0-next.9+10.sha-9eba260.with-local-changes
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -421,7 +421,6 @@
         map.set(compiler.Identifiers.pipeDef, core.ɵpid);
         map.set(compiler.Identifiers.nodeValue, core.ɵnov);
         map.set(compiler.Identifiers.ngContentDef, core.ɵncd);
-        map.set(compiler.Identifiers.unwrapValue, core.ɵunv);
         map.set(compiler.Identifiers.createRendererType2, core.ɵcrt);
         map.set(compiler.Identifiers.createComponentFactory, core.ɵccf);
         return map;
@@ -761,7 +760,7 @@
     /**
      * @publicApi
      */
-    var VERSION = new core.Version('13.0.0-next.9+6.sha-74ca3c5.with-local-changes');
+    var VERSION = new core.Version('13.0.0-next.9+10.sha-9eba260.with-local-changes');
 
     /**
      * @license
