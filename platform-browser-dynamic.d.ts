@@ -1,5 +1,5 @@
 /**
- * @license Angular v13.0.0-next.9+10.sha-9eba260.with-local-changes
+ * @license Angular v13.0.0-next.9+84.sha-c15b8c7.with-local-changes
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -11,6 +11,7 @@ import { CompileReflector } from '@angular/compiler';
 import { CompilerFactory } from '@angular/core';
 import { CompilerOptions } from '@angular/core';
 import { ComponentFactory } from '@angular/core';
+import * as i0 from '@angular/core';
 import { Injector } from '@angular/core';
 import { JitEvaluator } from '@angular/compiler';
 import { ModuleWithComponentFactories } from '@angular/core';
@@ -51,21 +52,6 @@ export declare const RESOURCE_CACHE_PROVIDER: Provider[];
  */
 export declare const VERSION: Version;
 
-/**
- * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
- * ResourceLoader.
- *
- * The template cache needs to be built and loaded into window.$templateCache
- * via a separate mechanism.
- *
- * @publicApi
- */
-export declare class ɵangular_packages_platform_browser_dynamic_platform_browser_dynamic_a extends ResourceLoader {
-    private _cache;
-    constructor();
-    get(url: string): Promise<string>;
-}
-
 export declare const ɵCOMPILER_PROVIDERS__POST_R3__: StaticProvider[];
 
 export declare class ɵCompilerImpl implements Compiler {
@@ -100,6 +86,8 @@ export declare const ɵplatformCoreDynamic: (extraProviders?: StaticProvider[] |
 
 export declare class ɵResourceLoaderImpl extends ResourceLoader {
     get(url: string): Promise<string>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<ɵResourceLoaderImpl, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<ɵResourceLoaderImpl>;
 }
 
 export { }

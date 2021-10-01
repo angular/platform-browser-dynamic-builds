@@ -1,9 +1,10 @@
 /**
- * @license Angular v13.0.0-next.9+10.sha-9eba260.with-local-changes
+ * @license Angular v13.0.0-next.9+84.sha-c15b8c7.with-local-changes
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
 
+import * as i0 from '@angular/core';
 import { Injectable, Inject, ɵstringify, NgModule, Directive, Component, Pipe, createPlatformFactory, COMPILER_OPTIONS, Injector, CompilerFactory } from '@angular/core';
 import { TestComponentRenderer, ɵMetadataOverrider, ɵTestingCompilerFactory } from '@angular/core/testing';
 import { ɵplatformCoreDynamic, ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
@@ -41,12 +42,16 @@ class DOMTestComponentRenderer extends TestComponentRenderer {
         }
     }
 }
-DOMTestComponentRenderer.decorators = [
-    { type: Injectable }
-];
-DOMTestComponentRenderer.ctorParameters = () => [
-    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
-];
+DOMTestComponentRenderer.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.9+84.sha-c15b8c7.with-local-changes", ngImport: i0, type: DOMTestComponentRenderer, deps: [{ token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Injectable });
+DOMTestComponentRenderer.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.0.0-next.9+84.sha-c15b8c7.with-local-changes", ngImport: i0, type: DOMTestComponentRenderer });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.9+84.sha-c15b8c7.with-local-changes", ngImport: i0, type: DOMTestComponentRenderer, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () {
+        return [{ type: undefined, decorators: [{
+                        type: Inject,
+                        args: [DOCUMENT]
+                    }] }];
+    } });
 
 /**
  * @license
@@ -160,14 +165,13 @@ class TestingCompilerImpl {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-const ɵ0 = { providers: COMPILER_PROVIDERS };
 /**
  * Platform for dynamic tests
  *
  * @publicApi
  */
 const platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 'coreDynamicTesting', [
-    { provide: COMPILER_OPTIONS, useValue: ɵ0, multi: true }, {
+    { provide: COMPILER_OPTIONS, useValue: { providers: COMPILER_PROVIDERS }, multi: true }, {
         provide: ɵTestingCompilerFactory,
         useClass: TestingCompilerFactoryImpl,
         deps: [Injector, CompilerFactory]
@@ -200,14 +204,20 @@ const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicT
  */
 class BrowserDynamicTestingModule {
 }
-BrowserDynamicTestingModule.decorators = [
-    { type: NgModule, args: [{
-                exports: [BrowserTestingModule],
-                providers: [
-                    { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
-                ]
-            },] }
-];
+BrowserDynamicTestingModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.9+84.sha-c15b8c7.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+BrowserDynamicTestingModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0-next.9+84.sha-c15b8c7.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, exports: [BrowserTestingModule] });
+BrowserDynamicTestingModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.9+84.sha-c15b8c7.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, providers: [
+        { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
+    ], imports: [BrowserTestingModule] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.9+84.sha-c15b8c7.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, decorators: [{
+            type: NgModule,
+            args: [{
+                    exports: [BrowserTestingModule],
+                    providers: [
+                        { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
+                    ]
+                }]
+        }] });
 
 /**
  * @license
@@ -229,5 +239,5 @@ BrowserDynamicTestingModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { BrowserDynamicTestingModule, platformBrowserDynamicTesting, DOMTestComponentRenderer as ɵDOMTestComponentRenderer, COMPILER_PROVIDERS as ɵangular_packages_platform_browser_dynamic_testing_testing_a, TestingCompilerFactoryImpl as ɵangular_packages_platform_browser_dynamic_testing_testing_b, platformCoreDynamicTesting as ɵplatformCoreDynamicTesting };
-//# sourceMappingURL=testing.js.map
+export { BrowserDynamicTestingModule, platformBrowserDynamicTesting, DOMTestComponentRenderer as ɵDOMTestComponentRenderer, platformCoreDynamicTesting as ɵplatformCoreDynamicTesting };
+//# sourceMappingURL=testing.mjs.map

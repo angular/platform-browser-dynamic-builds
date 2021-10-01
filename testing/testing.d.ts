@@ -1,17 +1,14 @@
 /**
- * @license Angular v13.0.0-next.9+10.sha-9eba260.with-local-changes
+ * @license Angular v13.0.0-next.9+84.sha-c15b8c7.with-local-changes
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
 
-import { CompilerFactory } from '@angular/core';
-import { CompilerOptions } from '@angular/core';
-import { Injector } from '@angular/core';
+import * as i0 from '@angular/core';
+import * as i1 from '@angular/platform-browser/testing';
 import { PlatformRef } from '@angular/core';
 import { StaticProvider } from '@angular/core';
 import { TestComponentRenderer } from '@angular/core/testing';
-import { ɵTestingCompiler } from '@angular/core/testing';
-import { ɵTestingCompilerFactory } from '@angular/core/testing';
 
 /**
  * NgModule for testing.
@@ -19,21 +16,15 @@ import { ɵTestingCompilerFactory } from '@angular/core/testing';
  * @publicApi
  */
 export declare class BrowserDynamicTestingModule {
+    static ɵfac: i0.ɵɵFactoryDeclaration<BrowserDynamicTestingModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<BrowserDynamicTestingModule, never, never, [typeof i1.BrowserTestingModule]>;
+    static ɵinj: i0.ɵɵInjectorDeclaration<BrowserDynamicTestingModule>;
 }
 
 /**
  * @publicApi
  */
 export declare const platformBrowserDynamicTesting: (extraProviders?: StaticProvider[] | undefined) => PlatformRef;
-
-export declare const ɵangular_packages_platform_browser_dynamic_testing_testing_a: StaticProvider[];
-
-export declare class ɵangular_packages_platform_browser_dynamic_testing_testing_b implements ɵTestingCompilerFactory {
-    private _injector;
-    private _compilerFactory;
-    constructor(_injector: Injector, _compilerFactory: CompilerFactory);
-    createTestingCompiler(options: CompilerOptions[]): ɵTestingCompiler;
-}
 
 /**
  * A DOM based implementation of the TestComponentRenderer.
@@ -43,6 +34,8 @@ export declare class ɵDOMTestComponentRenderer extends TestComponentRenderer {
     constructor(_doc: any);
     insertRootElement(rootElId: string): void;
     removeAllRootElements(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<ɵDOMTestComponentRenderer, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<ɵDOMTestComponentRenderer>;
 }
 
 /**
