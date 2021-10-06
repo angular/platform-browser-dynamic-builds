@@ -1,0 +1,243 @@
+/**
+ * @license Angular v13.0.0-next.13+5.sha-48aa003.with-local-changes
+ * (c) 2010-2021 Google LLC. https://angular.io/
+ * License: MIT
+ */
+
+import * as i0 from '@angular/core';
+import { Injectable, Inject, ɵstringify, NgModule, Directive, Component, Pipe, createPlatformFactory, COMPILER_OPTIONS, Injector, CompilerFactory } from '@angular/core';
+import { TestComponentRenderer, ɵMetadataOverrider, ɵTestingCompilerFactory } from '@angular/core/testing';
+import { ɵplatformCoreDynamic, ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
+import { BrowserTestingModule } from '@angular/platform-browser/testing';
+import { ɵgetDOM, DOCUMENT } from '@angular/common';
+import { CompileReflector, PipeResolver, DirectiveResolver, NgModuleResolver, ERROR_COMPONENT_TYPE } from '@angular/compiler';
+import { MockPipeResolver, MockDirectiveResolver, MockNgModuleResolver } from '@angular/compiler/testing';
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * A DOM based implementation of the TestComponentRenderer.
+ */
+class DOMTestComponentRenderer extends TestComponentRenderer {
+    constructor(_doc) {
+        super();
+        this._doc = _doc;
+    }
+    insertRootElement(rootElId) {
+        this.removeAllRootElements();
+        const rootElement = ɵgetDOM().getDefaultDocument().createElement('div');
+        rootElement.setAttribute('id', rootElId);
+        this._doc.body.appendChild(rootElement);
+    }
+    removeAllRootElements() {
+        // TODO(juliemr): can/should this be optional?
+        const oldRoots = this._doc.querySelectorAll('[id^=root]');
+        for (let i = 0; i < oldRoots.length; i++) {
+            ɵgetDOM().remove(oldRoots[i]);
+        }
+    }
+}
+DOMTestComponentRenderer.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.13+5.sha-48aa003.with-local-changes", ngImport: i0, type: DOMTestComponentRenderer, deps: [{ token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Injectable });
+DOMTestComponentRenderer.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.0.0-next.13+5.sha-48aa003.with-local-changes", ngImport: i0, type: DOMTestComponentRenderer });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.13+5.sha-48aa003.with-local-changes", ngImport: i0, type: DOMTestComponentRenderer, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () {
+        return [{ type: undefined, decorators: [{
+                        type: Inject,
+                        args: [DOCUMENT]
+                    }] }];
+    } });
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+const COMPILER_PROVIDERS = [
+    { provide: MockPipeResolver, deps: [CompileReflector] },
+    { provide: PipeResolver, useExisting: MockPipeResolver },
+    { provide: MockDirectiveResolver, deps: [CompileReflector] },
+    { provide: DirectiveResolver, useExisting: MockDirectiveResolver },
+    { provide: MockNgModuleResolver, deps: [CompileReflector] },
+    { provide: NgModuleResolver, useExisting: MockNgModuleResolver },
+];
+class TestingCompilerFactoryImpl {
+    constructor(_injector, _compilerFactory) {
+        this._injector = _injector;
+        this._compilerFactory = _compilerFactory;
+    }
+    createTestingCompiler(options) {
+        const compiler = this._compilerFactory.createCompiler(options);
+        return new TestingCompilerImpl(compiler, compiler.injector.get(MockDirectiveResolver), compiler.injector.get(MockPipeResolver), compiler.injector.get(MockNgModuleResolver));
+    }
+}
+class TestingCompilerImpl {
+    constructor(_compiler, _directiveResolver, _pipeResolver, _moduleResolver) {
+        this._compiler = _compiler;
+        this._directiveResolver = _directiveResolver;
+        this._pipeResolver = _pipeResolver;
+        this._moduleResolver = _moduleResolver;
+        this._overrider = new ɵMetadataOverrider();
+    }
+    get injector() {
+        return this._compiler.injector;
+    }
+    compileModuleSync(moduleType) {
+        return this._compiler.compileModuleSync(moduleType);
+    }
+    compileModuleAsync(moduleType) {
+        return this._compiler.compileModuleAsync(moduleType);
+    }
+    compileModuleAndAllComponentsSync(moduleType) {
+        return this._compiler.compileModuleAndAllComponentsSync(moduleType);
+    }
+    compileModuleAndAllComponentsAsync(moduleType) {
+        return this._compiler.compileModuleAndAllComponentsAsync(moduleType);
+    }
+    getComponentFactory(component) {
+        return this._compiler.getComponentFactory(component);
+    }
+    checkOverrideAllowed(type) {
+        if (this._compiler.hasAotSummary(type)) {
+            throw new Error(`${ɵstringify(type)} was AOT compiled, so its metadata cannot be changed.`);
+        }
+    }
+    overrideModule(ngModule, override) {
+        this.checkOverrideAllowed(ngModule);
+        const oldMetadata = this._moduleResolver.resolve(ngModule, false);
+        this._moduleResolver.setNgModule(ngModule, this._overrider.overrideMetadata(NgModule, oldMetadata, override));
+        this.clearCacheFor(ngModule);
+    }
+    overrideDirective(directive, override) {
+        this.checkOverrideAllowed(directive);
+        const oldMetadata = this._directiveResolver.resolve(directive, false);
+        this._directiveResolver.setDirective(directive, this._overrider.overrideMetadata(Directive, oldMetadata, override));
+        this.clearCacheFor(directive);
+    }
+    overrideComponent(component, override) {
+        this.checkOverrideAllowed(component);
+        const oldMetadata = this._directiveResolver.resolve(component, false);
+        this._directiveResolver.setDirective(component, this._overrider.overrideMetadata(Component, oldMetadata, override));
+        this.clearCacheFor(component);
+    }
+    overridePipe(pipe, override) {
+        this.checkOverrideAllowed(pipe);
+        const oldMetadata = this._pipeResolver.resolve(pipe, false);
+        this._pipeResolver.setPipe(pipe, this._overrider.overrideMetadata(Pipe, oldMetadata, override));
+        this.clearCacheFor(pipe);
+    }
+    loadAotSummaries(summaries) {
+        this._compiler.loadAotSummaries(summaries);
+    }
+    clearCache() {
+        this._compiler.clearCache();
+    }
+    clearCacheFor(type) {
+        this._compiler.clearCacheFor(type);
+    }
+    getComponentFromError(error) {
+        return error[ERROR_COMPONENT_TYPE] || null;
+    }
+    getModuleId(moduleType) {
+        return this._moduleResolver.resolve(moduleType, true).id;
+    }
+}
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Platform for dynamic tests
+ *
+ * @publicApi
+ */
+const platformCoreDynamicTesting = createPlatformFactory(ɵplatformCoreDynamic, 'coreDynamicTesting', [
+    { provide: COMPILER_OPTIONS, useValue: { providers: COMPILER_PROVIDERS }, multi: true }, {
+        provide: ɵTestingCompilerFactory,
+        useClass: TestingCompilerFactoryImpl,
+        deps: [Injector, CompilerFactory]
+    }
+]);
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @publicApi
+ */
+const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
+/**
+ * NgModule for testing.
+ *
+ * @publicApi
+ */
+class BrowserDynamicTestingModule {
+}
+BrowserDynamicTestingModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.13+5.sha-48aa003.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+BrowserDynamicTestingModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0-next.13+5.sha-48aa003.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, exports: [BrowserTestingModule] });
+BrowserDynamicTestingModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.13+5.sha-48aa003.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, providers: [
+        { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
+    ], imports: [BrowserTestingModule] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.13+5.sha-48aa003.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, decorators: [{
+            type: NgModule,
+            args: [{
+                    exports: [BrowserTestingModule],
+                    providers: [
+                        { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
+                    ]
+                }]
+        }] });
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+export { BrowserDynamicTestingModule, platformBrowserDynamicTesting, DOMTestComponentRenderer as ɵDOMTestComponentRenderer, platformCoreDynamicTesting as ɵplatformCoreDynamicTesting };
+//# sourceMappingURL=testing.mjs.map
