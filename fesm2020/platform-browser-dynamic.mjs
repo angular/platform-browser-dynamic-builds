@@ -1,111 +1,14 @@
 /**
- * @license Angular v13.0.2+32.sha-d265d0d.with-local-changes
+ * @license Angular v13.0.2+35.sha-84ef01d.with-local-changes
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
 
-import { getUrlScheme, syntaxError, Identifiers, JitCompiler, ProviderMeta, CompileReflector, ResourceLoader, JitSummaryResolver, SummaryResolver, Lexer, Parser, HtmlParser, I18NHtmlParser, CompilerConfig, TemplateParser, ElementSchemaRegistry, JitEvaluator, DirectiveNormalizer, UrlResolver, CompileMetadataResolver, NgModuleResolver, DirectiveResolver, PipeResolver, StaticSymbolCache, StyleCompiler, ViewCompiler, NgModuleCompiler, DomElementSchemaRegistry } from '@angular/compiler';
+import { CompilerConfig, ResourceLoader } from '@angular/compiler';
 import * as i0 from '@angular/core';
-import { ɵReflectionCapabilities, ɵstringify, ANALYZE_FOR_ENTRY_COMPONENTS, ElementRef, NgModuleRef, ViewContainerRef, ChangeDetectorRef, Renderer2, QueryList, TemplateRef, ɵCodegenComponentFactoryResolver, ComponentFactoryResolver, ComponentFactory, ComponentRef, NgModuleFactory, ɵcmf, ɵmod, ɵmpd, ɵregisterModuleFactory, Injector, ViewEncapsulation, ChangeDetectionStrategy, SecurityContext, LOCALE_ID, TRANSLATIONS_FORMAT, ɵinlineInterpolate, ɵinterpolate, ɵEMPTY_ARRAY, ɵEMPTY_MAP, ɵvid, ɵeld, ɵand, ɵted, ɵdid, ɵprd, ɵqud, ɵpad, ɵpod, ɵppd, ɵpid, ɵnov, ɵncd, ɵcrt, ɵccf, InjectionToken, PACKAGE_ROOT_URL, Compiler, ɵConsole, MissingTranslationStrategy, Optional, Inject, TRANSLATIONS, isDevMode, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
+import { InjectionToken, PACKAGE_ROOT_URL, Compiler, ViewEncapsulation, MissingTranslationStrategy, Injector, isDevMode, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
-
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-const MODULE_SUFFIX = '';
-const builtinExternalReferences = createBuiltinExternalReferencesMap();
-class JitReflector {
-    constructor() {
-        this.reflectionCapabilities = new ɵReflectionCapabilities();
-    }
-    componentModuleUrl(type, cmpMetadata) {
-        const moduleId = cmpMetadata.moduleId;
-        if (typeof moduleId === 'string') {
-            const scheme = getUrlScheme(moduleId);
-            return scheme ? moduleId : `package:${moduleId}${MODULE_SUFFIX}`;
-        }
-        else if (moduleId !== null && moduleId !== void 0) {
-            throw syntaxError(`moduleId should be a string in "${ɵstringify(type)}". See https://goo.gl/wIDDiL for more information.\n` +
-                `If you're using Webpack you should inline the template and the styles, see https://goo.gl/X2J8zc.`);
-        }
-        return `./${ɵstringify(type)}`;
-    }
-    parameters(typeOrFunc) {
-        return this.reflectionCapabilities.parameters(typeOrFunc);
-    }
-    tryAnnotations(typeOrFunc) {
-        return this.annotations(typeOrFunc);
-    }
-    annotations(typeOrFunc) {
-        return this.reflectionCapabilities.annotations(typeOrFunc);
-    }
-    shallowAnnotations(typeOrFunc) {
-        throw new Error('Not supported in JIT mode');
-    }
-    propMetadata(typeOrFunc) {
-        return this.reflectionCapabilities.propMetadata(typeOrFunc);
-    }
-    hasLifecycleHook(type, lcProperty) {
-        return this.reflectionCapabilities.hasLifecycleHook(type, lcProperty);
-    }
-    guards(type) {
-        return this.reflectionCapabilities.guards(type);
-    }
-    resolveExternalReference(ref) {
-        return builtinExternalReferences.get(ref) || ref.runtime;
-    }
-}
-function createBuiltinExternalReferencesMap() {
-    const map = new Map();
-    map.set(Identifiers.ANALYZE_FOR_ENTRY_COMPONENTS, ANALYZE_FOR_ENTRY_COMPONENTS);
-    map.set(Identifiers.ElementRef, ElementRef);
-    map.set(Identifiers.NgModuleRef, NgModuleRef);
-    map.set(Identifiers.ViewContainerRef, ViewContainerRef);
-    map.set(Identifiers.ChangeDetectorRef, ChangeDetectorRef);
-    map.set(Identifiers.Renderer2, Renderer2);
-    map.set(Identifiers.QueryList, QueryList);
-    map.set(Identifiers.TemplateRef, TemplateRef);
-    map.set(Identifiers.CodegenComponentFactoryResolver, ɵCodegenComponentFactoryResolver);
-    map.set(Identifiers.ComponentFactoryResolver, ComponentFactoryResolver);
-    map.set(Identifiers.ComponentFactory, ComponentFactory);
-    map.set(Identifiers.ComponentRef, ComponentRef);
-    map.set(Identifiers.NgModuleFactory, NgModuleFactory);
-    map.set(Identifiers.createModuleFactory, ɵcmf);
-    map.set(Identifiers.moduleDef, ɵmod);
-    map.set(Identifiers.moduleProviderDef, ɵmpd);
-    map.set(Identifiers.RegisterModuleFactoryFn, ɵregisterModuleFactory);
-    map.set(Identifiers.Injector, Injector);
-    map.set(Identifiers.ViewEncapsulation, ViewEncapsulation);
-    map.set(Identifiers.ChangeDetectionStrategy, ChangeDetectionStrategy);
-    map.set(Identifiers.SecurityContext, SecurityContext);
-    map.set(Identifiers.LOCALE_ID, LOCALE_ID);
-    map.set(Identifiers.TRANSLATIONS_FORMAT, TRANSLATIONS_FORMAT);
-    map.set(Identifiers.inlineInterpolate, ɵinlineInterpolate);
-    map.set(Identifiers.interpolate, ɵinterpolate);
-    map.set(Identifiers.EMPTY_ARRAY, ɵEMPTY_ARRAY);
-    map.set(Identifiers.EMPTY_MAP, ɵEMPTY_MAP);
-    map.set(Identifiers.viewDef, ɵvid);
-    map.set(Identifiers.elementDef, ɵeld);
-    map.set(Identifiers.anchorDef, ɵand);
-    map.set(Identifiers.textDef, ɵted);
-    map.set(Identifiers.directiveDef, ɵdid);
-    map.set(Identifiers.providerDef, ɵprd);
-    map.set(Identifiers.queryDef, ɵqud);
-    map.set(Identifiers.pureArrayDef, ɵpad);
-    map.set(Identifiers.pureObjectDef, ɵpod);
-    map.set(Identifiers.purePipeDef, ɵppd);
-    map.set(Identifiers.pipeDef, ɵpid);
-    map.set(Identifiers.nodeValue, ɵnov);
-    map.set(Identifiers.ngContentDef, ɵncd);
-    map.set(Identifiers.createRendererType2, ɵcrt);
-    map.set(Identifiers.createComponentFactory, ɵccf);
-    return map;
-}
 
 /**
  * @license
@@ -122,133 +25,7 @@ const DEFAULT_PACKAGE_URL_PROVIDER = {
     provide: PACKAGE_ROOT_URL,
     useValue: '/'
 };
-const _NO_RESOURCE_LOADER = {
-    get(url) {
-        throw new Error(`No ResourceLoader implementation has been provided. Can't read the url "${url}"`);
-    }
-};
-const baseHtmlParser = new InjectionToken('HtmlParser');
-class CompilerImpl {
-    constructor(injector, _metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, jitEvaluator, compilerConfig, console) {
-        this._metadataResolver = _metadataResolver;
-        this._delegate = new JitCompiler(_metadataResolver, templateParser, styleCompiler, viewCompiler, ngModuleCompiler, summaryResolver, compileReflector, jitEvaluator, compilerConfig, console, this.getExtraNgModuleProviders.bind(this));
-        this.injector = injector;
-    }
-    getExtraNgModuleProviders() {
-        return [this._metadataResolver.getProviderMetadata(new ProviderMeta(Compiler, { useValue: this }))];
-    }
-    compileModuleSync(moduleType) {
-        return this._delegate.compileModuleSync(moduleType);
-    }
-    compileModuleAsync(moduleType) {
-        return this._delegate.compileModuleAsync(moduleType);
-    }
-    compileModuleAndAllComponentsSync(moduleType) {
-        const result = this._delegate.compileModuleAndAllComponentsSync(moduleType);
-        return {
-            ngModuleFactory: result.ngModuleFactory,
-            componentFactories: result.componentFactories,
-        };
-    }
-    compileModuleAndAllComponentsAsync(moduleType) {
-        return this._delegate.compileModuleAndAllComponentsAsync(moduleType)
-            .then((result) => ({
-            ngModuleFactory: result.ngModuleFactory,
-            componentFactories: result.componentFactories,
-        }));
-    }
-    loadAotSummaries(summaries) {
-        this._delegate.loadAotSummaries(summaries);
-    }
-    hasAotSummary(ref) {
-        return this._delegate.hasAotSummary(ref);
-    }
-    getComponentFactory(component) {
-        return this._delegate.getComponentFactory(component);
-    }
-    clearCache() {
-        this._delegate.clearCache();
-    }
-    clearCacheFor(type) {
-        this._delegate.clearCacheFor(type);
-    }
-    getModuleId(moduleType) {
-        const meta = this._metadataResolver.getNgModuleMetadata(moduleType);
-        return meta && meta.id || undefined;
-    }
-}
-/**
- * A set of providers that provide `JitCompiler` and its dependencies to use for
- * template compilation.
- */
-const COMPILER_PROVIDERS__PRE_R3__ = [
-    { provide: CompileReflector, useValue: new JitReflector() },
-    { provide: ResourceLoader, useValue: _NO_RESOURCE_LOADER },
-    { provide: JitSummaryResolver, deps: [] },
-    { provide: SummaryResolver, useExisting: JitSummaryResolver },
-    { provide: ɵConsole, deps: [] },
-    { provide: Lexer, deps: [] },
-    { provide: Parser, deps: [Lexer] },
-    {
-        provide: baseHtmlParser,
-        useClass: HtmlParser,
-        deps: [],
-    },
-    {
-        provide: I18NHtmlParser,
-        useFactory: (parser, translations, format, config, console) => {
-            translations = translations || '';
-            const missingTranslation = translations ? config.missingTranslation : MissingTranslationStrategy.Ignore;
-            return new I18NHtmlParser(parser, translations, format, missingTranslation, console);
-        },
-        deps: [
-            baseHtmlParser,
-            [new Optional(), new Inject(TRANSLATIONS)],
-            [new Optional(), new Inject(TRANSLATIONS_FORMAT)],
-            [CompilerConfig],
-            [ɵConsole],
-        ]
-    },
-    {
-        provide: HtmlParser,
-        useExisting: I18NHtmlParser,
-    },
-    {
-        provide: TemplateParser,
-        deps: [CompilerConfig, CompileReflector, Parser, ElementSchemaRegistry, I18NHtmlParser, ɵConsole]
-    },
-    { provide: JitEvaluator, useClass: JitEvaluator, deps: [] },
-    { provide: DirectiveNormalizer, deps: [ResourceLoader, UrlResolver, HtmlParser, CompilerConfig] },
-    {
-        provide: CompileMetadataResolver,
-        deps: [
-            CompilerConfig, HtmlParser, NgModuleResolver, DirectiveResolver, PipeResolver,
-            SummaryResolver, ElementSchemaRegistry, DirectiveNormalizer, ɵConsole,
-            [Optional, StaticSymbolCache], CompileReflector, [Optional, ERROR_COLLECTOR_TOKEN]
-        ]
-    },
-    DEFAULT_PACKAGE_URL_PROVIDER,
-    { provide: StyleCompiler, deps: [UrlResolver] },
-    { provide: ViewCompiler, deps: [CompileReflector] },
-    { provide: NgModuleCompiler, deps: [CompileReflector] },
-    { provide: CompilerConfig, useValue: new CompilerConfig() },
-    {
-        provide: Compiler,
-        useClass: CompilerImpl,
-        deps: [
-            Injector, CompileMetadataResolver, TemplateParser, StyleCompiler, ViewCompiler,
-            NgModuleCompiler, SummaryResolver, CompileReflector, JitEvaluator, CompilerConfig, ɵConsole
-        ]
-    },
-    { provide: DomElementSchemaRegistry, deps: [] },
-    { provide: ElementSchemaRegistry, useExisting: DomElementSchemaRegistry },
-    { provide: UrlResolver, deps: [PACKAGE_ROOT_URL] },
-    { provide: DirectiveResolver, deps: [CompileReflector] },
-    { provide: PipeResolver, deps: [CompileReflector] },
-    { provide: NgModuleResolver, deps: [CompileReflector] },
-];
-const COMPILER_PROVIDERS__POST_R3__ = [{ provide: Compiler, useFactory: () => new Compiler() }];
-const COMPILER_PROVIDERS = COMPILER_PROVIDERS__POST_R3__;
+const COMPILER_PROVIDERS = [{ provide: Compiler, useFactory: () => new Compiler() }];
 /**
  * @publicApi
  *
@@ -377,9 +154,9 @@ class ResourceLoaderImpl extends ResourceLoader {
         return promise;
     }
 }
-ResourceLoaderImpl.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.2+32.sha-d265d0d.with-local-changes", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-ResourceLoaderImpl.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.0.2+32.sha-d265d0d.with-local-changes", ngImport: i0, type: ResourceLoaderImpl });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.2+32.sha-d265d0d.with-local-changes", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
+ResourceLoaderImpl.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.2+35.sha-84ef01d.with-local-changes", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
+ResourceLoaderImpl.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.0.2+35.sha-84ef01d.with-local-changes", ngImport: i0, type: ResourceLoaderImpl });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.2+35.sha-84ef01d.with-local-changes", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
             type: Injectable
         }] });
 
@@ -455,7 +232,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @publicApi
  */
-const VERSION = new Version('13.0.2+32.sha-d265d0d.with-local-changes');
+const VERSION = new Version('13.0.2+35.sha-84ef01d.with-local-changes');
 
 /**
  * @license
@@ -494,5 +271,5 @@ const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'brows
  * Generated bundle index. Do not edit.
  */
 
-export { JitCompilerFactory, RESOURCE_CACHE_PROVIDER, VERSION, platformBrowserDynamic, COMPILER_PROVIDERS__POST_R3__ as ɵCOMPILER_PROVIDERS__POST_R3__, CompilerImpl as ɵCompilerImpl, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl, platformCoreDynamic as ɵplatformCoreDynamic };
+export { JitCompilerFactory, RESOURCE_CACHE_PROVIDER, VERSION, platformBrowserDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, ResourceLoaderImpl as ɵResourceLoaderImpl, platformCoreDynamic as ɵplatformCoreDynamic };
 //# sourceMappingURL=platform-browser-dynamic.mjs.map
