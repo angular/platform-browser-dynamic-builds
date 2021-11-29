@@ -1,5 +1,5 @@
 /**
- * @license Angular v13.1.0-next.2+56.sha-47f1c0f.with-local-changes
+ * @license Angular v13.1.0-next.2+66.sha-708eb8c.with-local-changes
  * (c) 2010-2021 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -7,10 +7,8 @@
 import { Compiler } from '@angular/core';
 import { CompilerFactory } from '@angular/core';
 import { CompilerOptions } from '@angular/core';
-import * as i0 from '@angular/core';
 import { PlatformRef } from '@angular/core';
 import { Provider } from '@angular/core';
-import { ResourceLoader } from '@angular/compiler';
 import { StaticProvider } from '@angular/core';
 import { Version } from '@angular/core';
 
@@ -53,11 +51,5 @@ export declare const ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: StaticProvid
  * @publicApi
  */
 export declare const ɵplatformCoreDynamic: (extraProviders?: StaticProvider[] | undefined) => PlatformRef;
-
-export declare class ɵResourceLoaderImpl extends ResourceLoader {
-    get(url: string): Promise<string>;
-    static ɵfac: i0.ɵɵFactoryDeclaration<ɵResourceLoaderImpl, never>;
-    static ɵprov: i0.ɵɵInjectableDeclaration<ɵResourceLoaderImpl>;
-}
 
 export { }
