@@ -24,12 +24,12 @@ export const platformBrowserDynamicTesting = createPlatformFactory(platformCoreD
  */
 export class BrowserDynamicTestingModule {
 }
-BrowserDynamicTestingModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.3+3.sha-5624dc6.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-BrowserDynamicTestingModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.3+3.sha-5624dc6.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, exports: [BrowserTestingModule] });
-BrowserDynamicTestingModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.3+3.sha-5624dc6.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, providers: [
+BrowserDynamicTestingModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.3+4.sha-7fb4309.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+BrowserDynamicTestingModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.3+4.sha-7fb4309.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, exports: [BrowserTestingModule] });
+BrowserDynamicTestingModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.3+4.sha-7fb4309.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, providers: [
         { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
     ], imports: [BrowserTestingModule] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.3+3.sha-5624dc6.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.3+4.sha-7fb4309.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, decorators: [{
             type: NgModule,
             args: [{
                     exports: [BrowserTestingModule],
