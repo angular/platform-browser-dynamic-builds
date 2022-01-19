@@ -1,5 +1,5 @@
 /**
- * @license Angular v13.2.0-next.2+29.sha-2b01e17.with-local-changes
+ * @license Angular v13.2.0-next.2+32.sha-4e95a31.with-local-changes
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -32,6 +32,10 @@ export declare const platformBrowserDynamic: (extraProviders?: StaticProvider[] 
 
 /**
  * @publicApi
+ *
+ * @deprecated This was previously necessary in some cases to test AOT-compiled components with View
+ *     Engine, but is no longer since Ivy.
+
  */
 export declare const RESOURCE_CACHE_PROVIDER: Provider[];
 

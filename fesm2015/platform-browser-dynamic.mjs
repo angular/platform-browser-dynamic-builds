@@ -1,5 +1,5 @@
 /**
- * @license Angular v13.2.0-next.2+29.sha-2b01e17.with-local-changes
+ * @license Angular v13.2.0-next.2+32.sha-4e95a31.with-local-changes
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -154,9 +154,9 @@ class ResourceLoaderImpl extends ResourceLoader {
         return promise;
     }
 }
-ResourceLoaderImpl.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.0-next.2+29.sha-2b01e17.with-local-changes", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-ResourceLoaderImpl.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.2.0-next.2+29.sha-2b01e17.with-local-changes", ngImport: i0, type: ResourceLoaderImpl });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.0-next.2+29.sha-2b01e17.with-local-changes", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
+ResourceLoaderImpl.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.0-next.2+32.sha-4e95a31.with-local-changes", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
+ResourceLoaderImpl.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.2.0-next.2+32.sha-4e95a31.with-local-changes", ngImport: i0, type: ResourceLoaderImpl });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.0-next.2+32.sha-4e95a31.with-local-changes", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
             type: Injectable
         }] });
 
@@ -195,6 +195,9 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
  * via a separate mechanism.
  *
  * @publicApi
+ *
+ * @deprecated This was previously necessary in some cases to test AOT-compiled components with View
+ *     Engine, but is no longer since Ivy.
  */
 class CachedResourceLoader extends ResourceLoader {
     constructor() {
@@ -232,7 +235,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @publicApi
  */
-const VERSION = new Version('13.2.0-next.2+29.sha-2b01e17.with-local-changes');
+const VERSION = new Version('13.2.0-next.2+32.sha-4e95a31.with-local-changes');
 
 /**
  * @license
@@ -243,6 +246,10 @@ const VERSION = new Version('13.2.0-next.2+29.sha-2b01e17.with-local-changes');
  */
 /**
  * @publicApi
+ *
+ * @deprecated This was previously necessary in some cases to test AOT-compiled components with View
+ *     Engine, but is no longer since Ivy.
+
  */
 const RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedResourceLoader, deps: [] }];
 /**
