@@ -31,9 +31,9 @@ export class DOMTestComponentRenderer extends TestComponentRenderer {
         }
     }
 }
-DOMTestComponentRenderer.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.0-next.2+56.sha-215db7f.with-local-changes", ngImport: i0, type: DOMTestComponentRenderer, deps: [{ token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Injectable });
-DOMTestComponentRenderer.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.2.0-next.2+56.sha-215db7f.with-local-changes", ngImport: i0, type: DOMTestComponentRenderer });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.0-next.2+56.sha-215db7f.with-local-changes", ngImport: i0, type: DOMTestComponentRenderer, decorators: [{
+DOMTestComponentRenderer.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.0-next.2+58.sha-a534a78.with-local-changes", ngImport: i0, type: DOMTestComponentRenderer, deps: [{ token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Injectable });
+DOMTestComponentRenderer.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.2.0-next.2+58.sha-a534a78.with-local-changes", ngImport: i0, type: DOMTestComponentRenderer });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.0-next.2+58.sha-a534a78.with-local-changes", ngImport: i0, type: DOMTestComponentRenderer, decorators: [{
             type: Injectable
         }], ctorParameters: function () { return [{ type: undefined, decorators: [{
                     type: Inject,
