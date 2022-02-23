@@ -24,12 +24,12 @@ export const platformBrowserDynamicTesting = createPlatformFactory(platformCoreD
  */
 export class BrowserDynamicTestingModule {
 }
-BrowserDynamicTestingModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.0-next.3+15.sha-ff6be32.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-BrowserDynamicTestingModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "14.0.0-next.3+15.sha-ff6be32.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, exports: [BrowserTestingModule] });
-BrowserDynamicTestingModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.0.0-next.3+15.sha-ff6be32.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, providers: [
+BrowserDynamicTestingModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.0-next.3+18.sha-4fa5307.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+BrowserDynamicTestingModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "14.0.0-next.3+18.sha-4fa5307.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, exports: [BrowserTestingModule] });
+BrowserDynamicTestingModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.0.0-next.3+18.sha-4fa5307.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, providers: [
         { provide: TestComponentRenderer, useClass: DOMTestComponentRenderer },
     ], imports: [BrowserTestingModule] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-next.3+15.sha-ff6be32.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-next.3+18.sha-4fa5307.with-local-changes", ngImport: i0, type: BrowserDynamicTestingModule, decorators: [{
             type: NgModule,
             args: [{
                     exports: [BrowserTestingModule],
