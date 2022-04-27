@@ -1,5 +1,5 @@
 /**
- * @license Angular v13.3.4+4.sha-3a645c6
+ * @license Angular v13.3.4+9.sha-8cfb53d
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -154,9 +154,9 @@ class ResourceLoaderImpl extends ResourceLoader {
         return promise;
     }
 }
-ResourceLoaderImpl.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.4+4.sha-3a645c6", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-ResourceLoaderImpl.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.3.4+4.sha-3a645c6", ngImport: i0, type: ResourceLoaderImpl });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.3.4+4.sha-3a645c6", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
+ResourceLoaderImpl.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.4+9.sha-8cfb53d", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
+ResourceLoaderImpl.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.3.4+9.sha-8cfb53d", ngImport: i0, type: ResourceLoaderImpl });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.3.4+9.sha-8cfb53d", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
             type: Injectable
         }] });
 
@@ -235,7 +235,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @publicApi
  */
-const VERSION = new Version('13.3.4+4.sha-3a645c6');
+const VERSION = new Version('13.3.4+9.sha-8cfb53d');
 
 /**
  * @license
