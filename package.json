@@ -1,6 +1,6 @@
 {
   "name": "@angular/platform-browser-dynamic",
-  "version": "15.0.2+sha-2131c55",
+  "version": "15.0.2+sha-dd4fd1f",
   "description": "Angular - library for using Angular in a web browser with JIT compilation",
   "author": "angular",
   "license": "MIT",
@@ -11,10 +11,10 @@
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "@angular/core": "15.0.2+sha-2131c55",
-    "@angular/common": "15.0.2+sha-2131c55",
-    "@angular/compiler": "15.0.2+sha-2131c55",
-    "@angular/platform-browser": "15.0.2+sha-2131c55"
+    "@angular/core": "15.0.2+sha-dd4fd1f",
+    "@angular/common": "15.0.2+sha-dd4fd1f",
+    "@angular/compiler": "15.0.2+sha-dd4fd1f",
+    "@angular/platform-browser": "15.0.2+sha-dd4fd1f"
   },
   "repository": {
     "type": "git",
