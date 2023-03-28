@@ -1,5 +1,5 @@
 /**
- * @license Angular v16.0.0-next.4+sha-48eff1e
+ * @license Angular v16.0.0-next.4+sha-74adf81
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -39,25 +39,27 @@ class JitCompilerFactory {
     }
     createCompiler(options = []) {
         const opts = _mergeOptions(this._defaultOptions.concat(options));
-        const injector = Injector.create([
-            COMPILER_PROVIDERS, {
-                provide: CompilerConfig,
-                useFactory: () => {
-                    return new CompilerConfig({
-                        // let explicit values from the compiler options overwrite options
-                        // from the app providers
-                        useJit: opts.useJit,
-                        // let explicit values from the compiler options overwrite options
-                        // from the app providers
-                        defaultEncapsulation: opts.defaultEncapsulation,
-                        missingTranslation: opts.missingTranslation,
-                        preserveWhitespaces: opts.preserveWhitespaces,
-                    });
+        const injector = Injector.create({
+            providers: [
+                COMPILER_PROVIDERS, {
+                    provide: CompilerConfig,
+                    useFactory: () => {
+                        return new CompilerConfig({
+                            // let explicit values from the compiler options overwrite options
+                            // from the app providers
+                            useJit: opts.useJit,
+                            // let explicit values from the compiler options overwrite options
+                            // from the app providers
+                            defaultEncapsulation: opts.defaultEncapsulation,
+                            missingTranslation: opts.missingTranslation,
+                            preserveWhitespaces: opts.preserveWhitespaces,
+                        });
+                    },
+                    deps: []
                 },
-                deps: []
-            },
-            opts.providers
-        ]);
+                opts.providers
+            ]
+        });
         return injector.get(Compiler);
     }
 }
@@ -131,10 +133,10 @@ class ResourceLoaderImpl extends ResourceLoader {
         xhr.send();
         return promise;
     }
-    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.0.0-next.4+sha-48eff1e", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable }); }
-    static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.0.0-next.4+sha-48eff1e", ngImport: i0, type: ResourceLoaderImpl }); }
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.0.0-next.4+sha-74adf81", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable }); }
+    static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.0.0-next.4+sha-74adf81", ngImport: i0, type: ResourceLoaderImpl }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.4+sha-48eff1e", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.4+sha-74adf81", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
             type: Injectable
         }] });
 
@@ -189,7 +191,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @publicApi
  */
-const VERSION = new Version('16.0.0-next.4+sha-48eff1e');
+const VERSION = new Version('16.0.0-next.4+sha-74adf81');
 
 /**
  * @publicApi
