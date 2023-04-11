@@ -1,5 +1,5 @@
 /**
- * @license Angular v16.1.0-next.0+sha-8020347
+ * @license Angular v16.1.0-next.0+sha-7ee542d
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -108,12 +108,8 @@ class ResourceLoaderImpl extends ResourceLoader {
         xhr.open('GET', url, true);
         xhr.responseType = 'text';
         xhr.onload = function () {
-            // responseText is the old-school way of retrieving response (supported by IE8 & 9)
-            // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
-            // by IE10)
-            const response = xhr.response || xhr.responseText;
-            // normalize IE9 bug (https://bugs.jquery.com/ticket/1450)
-            let status = xhr.status === 1223 ? 204 : xhr.status;
+            const response = xhr.response;
+            let status = xhr.status;
             // fix status code when it is 0 (0 status is undocumented).
             // Occurs when accessing file resources or on Android 4.1 stock browser
             // while retrieving files from application cache.
@@ -133,10 +129,10 @@ class ResourceLoaderImpl extends ResourceLoader {
         xhr.send();
         return promise;
     }
-    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.1.0-next.0+sha-8020347", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable }); }
-    static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.1.0-next.0+sha-8020347", ngImport: i0, type: ResourceLoaderImpl }); }
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.1.0-next.0+sha-7ee542d", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable }); }
+    static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.1.0-next.0+sha-7ee542d", ngImport: i0, type: ResourceLoaderImpl }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.1.0-next.0+sha-8020347", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.1.0-next.0+sha-7ee542d", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
             type: Injectable
         }] });
 
@@ -191,7 +187,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @publicApi
  */
-const VERSION = new Version('16.1.0-next.0+sha-8020347');
+const VERSION = new Version('16.1.0-next.0+sha-7ee542d');
 
 /**
  * @publicApi
