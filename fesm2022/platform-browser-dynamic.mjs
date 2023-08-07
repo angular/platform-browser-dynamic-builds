@@ -1,23 +1,15 @@
 /**
- * @license Angular v16.2.0-rc.0+sha-e01549b
+ * @license Angular v16.2.0-rc.0+sha-0ba2b5e
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
 
 import { CompilerConfig, ResourceLoader } from '@angular/compiler';
 import * as i0 from '@angular/core';
-import { InjectionToken, PACKAGE_ROOT_URL, Compiler, ViewEncapsulation, MissingTranslationStrategy, Injector, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
+import { Compiler, ViewEncapsulation, MissingTranslationStrategy, Injector, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
 
-const ERROR_COLLECTOR_TOKEN = new InjectionToken('ErrorCollector');
-/**
- * A default provider for {@link PACKAGE_ROOT_URL} that maps to '/'.
- */
-const DEFAULT_PACKAGE_URL_PROVIDER = {
-    provide: PACKAGE_ROOT_URL,
-    useValue: '/'
-};
 const COMPILER_PROVIDERS = [{ provide: Compiler, useFactory: () => new Compiler() }];
 /**
  * @publicApi
@@ -129,10 +121,10 @@ class ResourceLoaderImpl extends ResourceLoader {
         xhr.send();
         return promise;
     }
-    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.0-rc.0+sha-e01549b", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable }); }
-    static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.0-rc.0+sha-e01549b", ngImport: i0, type: ResourceLoaderImpl }); }
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.0-rc.0+sha-0ba2b5e", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable }); }
+    static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.0-rc.0+sha-0ba2b5e", ngImport: i0, type: ResourceLoaderImpl }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.0-rc.0+sha-e01549b", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.0-rc.0+sha-0ba2b5e", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
             type: Injectable
         }] });
 
@@ -187,7 +179,7 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @publicApi
  */
-const VERSION = new Version('16.2.0-rc.0+sha-e01549b');
+const VERSION = new Version('16.2.0-rc.0+sha-0ba2b5e');
 
 /**
  * @publicApi
