@@ -1,5 +1,5 @@
 /**
- * @license Angular v18.0.0-next.0+sha-89eca1d
+ * @license Angular v18.0.0-next.0+sha-314112d
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -9,7 +9,6 @@ import { Compiler } from '@angular/core';
 import { CompilerFactory } from '@angular/core';
 import { CompilerOptions } from '@angular/core';
 import { PlatformRef } from '@angular/core';
-import { Provider } from '@angular/core';
 import { StaticProvider } from '@angular/core';
 import { Version } from '@angular/core';
 
@@ -30,15 +29,6 @@ export declare class JitCompilerFactory implements CompilerFactory {
  * @publicApi
  */
 export declare const platformBrowserDynamic: (extraProviders?: StaticProvider[] | undefined) => PlatformRef;
-
-/**
- * @publicApi
- *
- * @deprecated This was previously necessary in some cases to test AOT-compiled components with View
- *     Engine, but is no longer since Ivy.
-
- */
-export declare const RESOURCE_CACHE_PROVIDER: Provider[];
 
 /**
  * @publicApi

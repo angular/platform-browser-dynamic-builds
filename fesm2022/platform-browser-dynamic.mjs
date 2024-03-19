@@ -1,12 +1,12 @@
 /**
- * @license Angular v18.0.0-next.0+sha-89eca1d
+ * @license Angular v18.0.0-next.0+sha-314112d
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
 
-import { CompilerConfig, ResourceLoader } from '@angular/compiler';
 import * as i0 from '@angular/core';
-import { Compiler, ViewEncapsulation, Injector, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, ɵglobal, Version } from '@angular/core';
+import { Compiler, ViewEncapsulation, Injector, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, Version } from '@angular/core';
+import { CompilerConfig, ResourceLoader } from '@angular/compiler';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
 
@@ -111,10 +111,10 @@ class ResourceLoaderImpl extends ResourceLoader {
         xhr.send();
         return promise;
     }
-    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-next.0+sha-89eca1d", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable }); }
-    static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.0.0-next.0+sha-89eca1d", ngImport: i0, type: ResourceLoaderImpl }); }
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-next.0+sha-314112d", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable }); }
+    static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.0.0-next.0+sha-314112d", ngImport: i0, type: ResourceLoaderImpl }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-next.0+sha-89eca1d", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-next.0+sha-314112d", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
             type: Injectable
         }] });
 
@@ -132,36 +132,6 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
 ];
 
 /**
- * An implementation of ResourceLoader that uses a template cache to avoid doing an actual
- * ResourceLoader.
- *
- * The template cache needs to be built and loaded into window.$templateCache
- * via a separate mechanism.
- *
- * @publicApi
- *
- * @deprecated This was previously necessary in some cases to test AOT-compiled components with View
- *     Engine, but is no longer since Ivy.
- */
-class CachedResourceLoader extends ResourceLoader {
-    constructor() {
-        super();
-        this._cache = ɵglobal.$templateCache;
-        if (this._cache == null) {
-            throw new Error('CachedResourceLoader: Template cache was not found in $templateCache.');
-        }
-    }
-    get(url) {
-        if (this._cache.hasOwnProperty(url)) {
-            return Promise.resolve(this._cache[url]);
-        }
-        else {
-            return Promise.reject('CachedResourceLoader: Did not find cached template for ' + url);
-        }
-    }
-}
-
-/**
  * @module
  * @description
  * Entry point for all public APIs of the platform-browser-dynamic package.
@@ -169,16 +139,8 @@ class CachedResourceLoader extends ResourceLoader {
 /**
  * @publicApi
  */
-const VERSION = new Version('18.0.0-next.0+sha-89eca1d');
+const VERSION = new Version('18.0.0-next.0+sha-314112d');
 
-/**
- * @publicApi
- *
- * @deprecated This was previously necessary in some cases to test AOT-compiled components with View
- *     Engine, but is no longer since Ivy.
-
- */
-const RESOURCE_CACHE_PROVIDER = [{ provide: ResourceLoader, useClass: CachedResourceLoader, deps: [] }];
 /**
  * @publicApi
  */
@@ -197,5 +159,5 @@ const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'brows
  * Generated bundle index. Do not edit.
  */
 
-export { JitCompilerFactory, RESOURCE_CACHE_PROVIDER, VERSION, platformBrowserDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, platformCoreDynamic as ɵplatformCoreDynamic };
+export { JitCompilerFactory, VERSION, platformBrowserDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, platformCoreDynamic as ɵplatformCoreDynamic };
 //# sourceMappingURL=platform-browser-dynamic.mjs.map
