@@ -1,5 +1,5 @@
 /**
- * @license Angular v18.0.0-next.5+sha-a743d37
+ * @license Angular v18.0.0-next.5+sha-b1dffa4
  * (c) 2010-2024 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -10,7 +10,9 @@ import { CompilerConfig, ResourceLoader } from '@angular/compiler';
 import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
 
-const COMPILER_PROVIDERS = [{ provide: Compiler, useFactory: () => new Compiler() }];
+const COMPILER_PROVIDERS = [
+    { provide: Compiler, useFactory: () => new Compiler() },
+];
 /**
  * @publicApi
  *
@@ -29,7 +31,8 @@ class JitCompilerFactory {
         const opts = _mergeOptions(this._defaultOptions.concat(options));
         const injector = Injector.create({
             providers: [
-                COMPILER_PROVIDERS, {
+                COMPILER_PROVIDERS,
+                {
                     provide: CompilerConfig,
                     useFactory: () => {
                         return new CompilerConfig({
@@ -37,19 +40,19 @@ class JitCompilerFactory {
                             preserveWhitespaces: opts.preserveWhitespaces,
                         });
                     },
-                    deps: []
+                    deps: [],
                 },
-                opts.providers
-            ]
+                opts.providers,
+            ],
         });
         return injector.get(Compiler);
     }
 }
 function _mergeOptions(optionsArr) {
     return {
-        defaultEncapsulation: _lastDefined(optionsArr.map(options => options.defaultEncapsulation)),
-        providers: _mergeArrays(optionsArr.map(options => options.providers)),
-        preserveWhitespaces: _lastDefined(optionsArr.map(options => options.preserveWhitespaces)),
+        defaultEncapsulation: _lastDefined(optionsArr.map((options) => options.defaultEncapsulation)),
+        providers: _mergeArrays(optionsArr.map((options) => options.providers)),
+        preserveWhitespaces: _lastDefined(optionsArr.map((options) => options.preserveWhitespaces)),
     };
 }
 function _lastDefined(args) {
@@ -109,10 +112,10 @@ class ResourceLoaderImpl extends ResourceLoader {
         xhr.send();
         return promise;
     }
-    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-next.5+sha-a743d37", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable }); }
-    static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.0.0-next.5+sha-a743d37", ngImport: i0, type: ResourceLoaderImpl }); }
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-next.5+sha-b1dffa4", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable }); }
+    static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.0.0-next.5+sha-b1dffa4", ngImport: i0, type: ResourceLoaderImpl }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-next.5+sha-a743d37", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-next.5+sha-b1dffa4", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
             type: Injectable
         }] });
 
@@ -124,7 +127,7 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
     {
         provide: COMPILER_OPTIONS,
         useValue: { providers: [{ provide: ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] },
-        multi: true
+        multi: true,
     },
     { provide: PLATFORM_ID, useValue: ɵPLATFORM_BROWSER_ID },
 ];
@@ -137,7 +140,7 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
 /**
  * @publicApi
  */
-const VERSION = new Version('18.0.0-next.5+sha-a743d37');
+const VERSION = new Version('18.0.0-next.5+sha-b1dffa4');
 
 /**
  * @publicApi
