@@ -1,5 +1,5 @@
 /**
- * @license Angular v18.1.0-next.2+sha-ee8ecfa
+ * @license Angular v18.1.0-next.2+sha-89ec195
  * (c) 2010-2024 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -35,6 +35,7 @@ export declare class ɵDOMTestComponentRenderer extends TestComponentRenderer {
     constructor(_doc: any);
     insertRootElement(rootElId: string): void;
     removeAllRootElements(): void;
+    private removeAllRootElementsImpl;
     static ɵfac: i0.ɵɵFactoryDeclaration<ɵDOMTestComponentRenderer, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<ɵDOMTestComponentRenderer>;
 }
