@@ -1,5 +1,5 @@
 /**
- * @license Angular v18.1.0-next.3+sha-5be16d0
+ * @license Angular v18.1.0-next.3+sha-ccc8c80
  * (c) 2010-2024 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -25,7 +25,7 @@ export declare class BrowserDynamicTestingModule {
 /**
  * @publicApi
  */
-export declare const platformBrowserDynamicTesting: (extraProviders?: StaticProvider[] | undefined) => PlatformRef;
+export declare const platformBrowserDynamicTesting: (extraProviders?: StaticProvider[]) => PlatformRef;
 
 /**
  * A DOM based implementation of the TestComponentRenderer.

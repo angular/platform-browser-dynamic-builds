@@ -1,5 +1,5 @@
 /**
- * @license Angular v18.1.0-next.3+sha-5be16d0
+ * @license Angular v18.1.0-next.3+sha-ccc8c80
  * (c) 2010-2024 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -26,7 +26,7 @@ export declare class JitCompilerFactory implements CompilerFactory {
 /**
  * @publicApi
  */
-export declare const platformBrowserDynamic: (extraProviders?: StaticProvider[] | undefined) => PlatformRef;
+export declare const platformBrowserDynamic: (extraProviders?: StaticProvider[]) => PlatformRef;
 
 /**
  * @publicApi
@@ -43,6 +43,6 @@ export declare const ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: StaticProvid
  *
  * @publicApi
  */
-export declare const ɵplatformCoreDynamic: (extraProviders?: StaticProvider[] | undefined) => PlatformRef;
+export declare const ɵplatformCoreDynamic: (extraProviders?: StaticProvider[]) => PlatformRef;
 
 export { }
