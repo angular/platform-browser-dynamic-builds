@@ -1,43 +1,25 @@
 /**
- * @license Angular v19.2.1+sha-56b551d
+ * @license Angular v19.2.1+sha-044dac9
  * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
 
-
 import * as i0 from '@angular/core';
+import { PlatformRef, StaticProvider } from '@angular/core';
 import * as i1 from '@angular/platform-browser/testing';
-import { PlatformRef } from '@angular/core';
-import { StaticProvider } from '@angular/core';
 import { TestComponentRenderer } from '@angular/core/testing';
-
-/**
- * NgModule for testing.
- *
- * @publicApi
- */
-export declare class BrowserDynamicTestingModule {
-    static ɵfac: i0.ɵɵFactoryDeclaration<BrowserDynamicTestingModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<BrowserDynamicTestingModule, never, never, [typeof i1.BrowserTestingModule]>;
-    static ɵinj: i0.ɵɵInjectorDeclaration<BrowserDynamicTestingModule>;
-}
-
-/**
- * @publicApi
- */
-export declare const platformBrowserDynamicTesting: (extraProviders?: StaticProvider[]) => PlatformRef;
 
 /**
  * A DOM based implementation of the TestComponentRenderer.
  */
-export declare class ɵDOMTestComponentRenderer extends TestComponentRenderer {
+declare class DOMTestComponentRenderer extends TestComponentRenderer {
     private _doc;
     constructor(_doc: any);
     insertRootElement(rootElId: string): void;
     removeAllRootElements(): void;
     private removeAllRootElementsImpl;
-    static ɵfac: i0.ɵɵFactoryDeclaration<ɵDOMTestComponentRenderer, never>;
-    static ɵprov: i0.ɵɵInjectableDeclaration<ɵDOMTestComponentRenderer>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<DOMTestComponentRenderer, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<DOMTestComponentRenderer>;
 }
 
 /**
@@ -45,6 +27,21 @@ export declare class ɵDOMTestComponentRenderer extends TestComponentRenderer {
  *
  * @publicApi
  */
-export declare const ɵplatformCoreDynamicTesting: (extraProviders?: any[]) => PlatformRef;
+declare const platformCoreDynamicTesting: (extraProviders?: any[]) => PlatformRef;
 
-export { }
+/**
+ * @publicApi
+ */
+declare const platformBrowserDynamicTesting: (extraProviders?: StaticProvider[]) => PlatformRef;
+/**
+ * NgModule for testing.
+ *
+ * @publicApi
+ */
+declare class BrowserDynamicTestingModule {
+    static ɵfac: i0.ɵɵFactoryDeclaration<BrowserDynamicTestingModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<BrowserDynamicTestingModule, never, never, [typeof i1.BrowserTestingModule]>;
+    static ɵinj: i0.ɵɵInjectorDeclaration<BrowserDynamicTestingModule>;
+}
+
+export { BrowserDynamicTestingModule, platformBrowserDynamicTesting, DOMTestComponentRenderer as ɵDOMTestComponentRenderer, platformCoreDynamicTesting as ɵplatformCoreDynamicTesting };

@@ -1,14 +1,14 @@
 /**
- * @license Angular v19.2.1+sha-56b551d
+ * @license Angular v19.2.1+sha-044dac9
  * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
 
 import * as i0 from '@angular/core';
-import { Injector, Compiler, ViewEncapsulation, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, Version } from '@angular/core';
+import { ViewEncapsulation, Injector, Compiler, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, Version } from '@angular/core';
 import { CompilerConfig, ResourceLoader } from '@angular/compiler';
-import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
-import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
+import { ɵPLATFORM_BROWSER_ID as _PLATFORM_BROWSER_ID } from '@angular/common';
+import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS as _INTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
 
 const COMPILER_PROVIDERS = [
     { provide: Compiler, useFactory: () => new Compiler() },
@@ -113,10 +113,10 @@ class ResourceLoaderImpl extends ResourceLoader {
         xhr.send();
         return promise;
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.2.1+sha-56b551d", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "19.2.1+sha-56b551d", ngImport: i0, type: ResourceLoaderImpl });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.2.1+sha-044dac9", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
+    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "19.2.1+sha-044dac9", ngImport: i0, type: ResourceLoaderImpl });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.2.1+sha-56b551d", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.2.1+sha-044dac9", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
             type: Injectable
         }] });
 
@@ -124,13 +124,13 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.2.1+sha-56b55
  * @publicApi
  */
 const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
-    ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
+    _INTERNAL_BROWSER_PLATFORM_PROVIDERS,
     {
         provide: COMPILER_OPTIONS,
         useValue: { providers: [{ provide: ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] },
         multi: true,
     },
-    { provide: PLATFORM_ID, useValue: ɵPLATFORM_BROWSER_ID },
+    { provide: PLATFORM_ID, useValue: _PLATFORM_BROWSER_ID },
 ];
 
 /**
@@ -141,7 +141,7 @@ const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
 /**
  * @publicApi
  */
-const VERSION = new Version('19.2.1+sha-56b551d');
+const VERSION = new Version('19.2.1+sha-044dac9');
 
 /**
  * @publicApi
