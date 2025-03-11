@@ -1,16 +1,34 @@
 /**
- * @license Angular v20.0.0-next.1+sha-8be6e38
+ * @license Angular v20.0.0-next.1+sha-4fa5d18
  * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
 
+import * as i0 from '@angular/core';
+import { StaticProvider, Version, CompilerFactory, CompilerOptions, Compiler } from '@angular/core';
 
-import { Compiler } from '@angular/core';
-import { CompilerFactory } from '@angular/core';
-import { CompilerOptions } from '@angular/core';
-import { PlatformRef } from '@angular/core';
-import { StaticProvider } from '@angular/core';
-import { Version } from '@angular/core';
+/**
+ * A platform that included corePlatform and the compiler.
+ *
+ * @publicApi
+ */
+declare const platformCoreDynamic: (extraProviders?: i0.StaticProvider[]) => i0.PlatformRef;
+
+/**
+ * @publicApi
+ */
+declare const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: StaticProvider[];
+
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the platform-browser-dynamic package.
+ */
+
+/**
+ * @publicApi
+ */
+declare const VERSION: Version;
 
 /**
  * @publicApi
@@ -18,7 +36,7 @@ import { Version } from '@angular/core';
  * @deprecated
  * Ivy JIT mode doesn't require accessing this symbol.
  */
-export declare class JitCompilerFactory implements CompilerFactory {
+declare class JitCompilerFactory implements CompilerFactory {
     private _defaultOptions;
     createCompiler(options?: CompilerOptions[]): Compiler;
 }
@@ -26,23 +44,6 @@ export declare class JitCompilerFactory implements CompilerFactory {
 /**
  * @publicApi
  */
-export declare const platformBrowserDynamic: (extraProviders?: StaticProvider[]) => PlatformRef;
+declare const platformBrowserDynamic: (extraProviders?: i0.StaticProvider[]) => i0.PlatformRef;
 
-/**
- * @publicApi
- */
-export declare const VERSION: Version;
-
-/**
- * @publicApi
- */
-export declare const ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: StaticProvider[];
-
-/**
- * A platform that included corePlatform and the compiler.
- *
- * @publicApi
- */
-export declare const ɵplatformCoreDynamic: (extraProviders?: StaticProvider[]) => PlatformRef;
-
-export { }
+export { JitCompilerFactory, VERSION, platformBrowserDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, platformCoreDynamic as ɵplatformCoreDynamic };
