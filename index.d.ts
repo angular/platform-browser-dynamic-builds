@@ -1,10 +1,10 @@
 /**
- * @license Angular v19.2.2+sha-d306e31
+ * @license Angular v19.2.2+sha-2466fc9
  * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
 
-import * as i0 from '@angular/core';
+import * as _angular_core from '@angular/core';
 import { StaticProvider, Version, CompilerFactory, CompilerOptions, Compiler } from '@angular/core';
 
 /**
@@ -12,7 +12,7 @@ import { StaticProvider, Version, CompilerFactory, CompilerOptions, Compiler } f
  *
  * @publicApi
  */
-declare const platformCoreDynamic: (extraProviders?: i0.StaticProvider[]) => i0.PlatformRef;
+declare const platformCoreDynamic: (extraProviders?: _angular_core.StaticProvider[]) => _angular_core.PlatformRef;
 
 /**
  * @publicApi
@@ -44,6 +44,6 @@ declare class JitCompilerFactory implements CompilerFactory {
 /**
  * @publicApi
  */
-declare const platformBrowserDynamic: (extraProviders?: i0.StaticProvider[]) => i0.PlatformRef;
+declare const platformBrowserDynamic: (extraProviders?: _angular_core.StaticProvider[]) => _angular_core.PlatformRef;
 
 export { JitCompilerFactory, VERSION, platformBrowserDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, platformCoreDynamic as ɵplatformCoreDynamic };
