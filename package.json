@@ -1,6 +1,6 @@
 {
   "name": "@angular/platform-browser-dynamic",
-  "version": "19.2.2+sha-13a8709",
+  "version": "19.2.2+sha-1e06c8e",
   "description": "Angular - library for using Angular in a web browser with JIT compilation",
   "author": "angular",
   "license": "MIT",
@@ -11,10 +11,10 @@
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "@angular/core": "19.2.2+sha-13a8709",
-    "@angular/common": "19.2.2+sha-13a8709",
-    "@angular/compiler": "19.2.2+sha-13a8709",
-    "@angular/platform-browser": "19.2.2+sha-13a8709"
+    "@angular/core": "19.2.2+sha-1e06c8e",
+    "@angular/common": "19.2.2+sha-1e06c8e",
+    "@angular/compiler": "19.2.2+sha-1e06c8e",
+    "@angular/platform-browser": "19.2.2+sha-1e06c8e"
   },
   "repository": {
     "type": "git",
@@ -41,7 +41,10 @@
       "@angular/service-worker"
     ]
   },
-  "sideEffects": false,
+  "sideEffects": [
+    "./fesm2022/platform-browser-dynamic.mjs",
+    "./fesm2022/testing.mjs"
+  ],
   "module": "./fesm2022/platform-browser-dynamic.mjs",
   "typings": "./index.d.ts",
   "type": "module",
