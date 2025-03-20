@@ -1,14 +1,23 @@
 /**
- * @license Angular v20.0.0-next.3+sha-911ad40
+ * @license Angular v20.0.0-next.3+sha-70bdb88
  * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
 
 import * as i0 from '@angular/core';
-import { ViewEncapsulation, Injector, Compiler, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, Version } from '@angular/core';
+import { Version, ViewEncapsulation, Injector, Compiler, Injectable, createPlatformFactory, COMPILER_OPTIONS, CompilerFactory } from '@angular/core';
 import { CompilerConfig, ResourceLoader } from '@angular/compiler';
-import { ɵPLATFORM_BROWSER_ID as _PLATFORM_BROWSER_ID } from '@angular/common';
-import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS as _INTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
+import { platformBrowser } from '@angular/platform-browser';
+
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the platform-browser-dynamic package.
+ */
+/**
+ * @publicApi
+ */
+const VERSION = new Version('20.0.0-next.3+sha-70bdb88');
 
 const COMPILER_PROVIDERS = [
     { provide: Compiler, useFactory: () => new Compiler() },
@@ -70,16 +79,6 @@ function _mergeArrays(parts) {
     return result;
 }
 
-/**
- * A platform that included corePlatform and the compiler.
- *
- * @publicApi
- */
-const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
-    { provide: COMPILER_OPTIONS, useValue: {}, multi: true },
-    { provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS] },
-]);
-
 class ResourceLoaderImpl extends ResourceLoader {
     get(url) {
         let resolve;
@@ -113,40 +112,25 @@ class ResourceLoaderImpl extends ResourceLoader {
         xhr.send();
         return promise;
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.0-next.3+sha-911ad40", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "20.0.0-next.3+sha-911ad40", ngImport: i0, type: ResourceLoaderImpl });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.0-next.3+sha-70bdb88", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
+    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "20.0.0-next.3+sha-70bdb88", ngImport: i0, type: ResourceLoaderImpl });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.0-next.3+sha-911ad40", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.0-next.3+sha-70bdb88", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
             type: Injectable
         }] });
 
-/**
- * @publicApi
- */
 const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
-    _INTERNAL_BROWSER_PLATFORM_PROVIDERS,
     {
         provide: COMPILER_OPTIONS,
         useValue: { providers: [{ provide: ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] },
         multi: true,
     },
-    { provide: PLATFORM_ID, useValue: _PLATFORM_BROWSER_ID },
+    { provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS] },
 ];
-
-/**
- * @module
- * @description
- * Entry point for all public APIs of the platform-browser-dynamic package.
- */
 /**
  * @publicApi
  */
-const VERSION = new Version('20.0.0-next.3+sha-911ad40');
+const platformBrowserDynamic = createPlatformFactory(platformBrowser, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 
-/**
- * @publicApi
- */
-const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
-
-export { JitCompilerFactory, VERSION, platformBrowserDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, platformCoreDynamic as ɵplatformCoreDynamic };
+export { JitCompilerFactory, VERSION, platformBrowserDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS };
 //# sourceMappingURL=platform-browser-dynamic.mjs.map
