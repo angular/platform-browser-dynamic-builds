@@ -1,42 +1,34 @@
 /**
- * @license Angular v19.2.3+sha-c13c53f
+ * @license Angular v19.2.3+sha-8e8ccc7
  * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
 
 import * as i0 from '@angular/core';
 import { createPlatformFactory, NgModule } from '@angular/core';
-import { ɵplatformCoreDynamic as _platformCoreDynamic, ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as _INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserTestingModule } from '@angular/platform-browser/testing';
-export { ɵDOMTestComponentRenderer } from '@angular/platform-browser/testing';
-
-/**
- * Platform for dynamic tests
- *
- * @publicApi
- */
-const platformCoreDynamicTesting = createPlatformFactory(_platformCoreDynamic, 'coreDynamicTesting', []);
 
 /**
  * @publicApi
  */
-const platformBrowserDynamicTesting = createPlatformFactory(platformCoreDynamicTesting, 'browserDynamicTesting', _INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
+const platformBrowserDynamicTesting = createPlatformFactory(platformBrowserDynamic, 'browserDynamicTesting');
 /**
  * NgModule for testing.
  *
  * @publicApi
  */
 class BrowserDynamicTestingModule {
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.2.3+sha-c13c53f", ngImport: i0, type: BrowserDynamicTestingModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "19.2.3+sha-c13c53f", ngImport: i0, type: BrowserDynamicTestingModule, exports: [BrowserTestingModule] });
-    static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "19.2.3+sha-c13c53f", ngImport: i0, type: BrowserDynamicTestingModule, imports: [BrowserTestingModule] });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.2.3+sha-8e8ccc7", ngImport: i0, type: BrowserDynamicTestingModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "19.2.3+sha-8e8ccc7", ngImport: i0, type: BrowserDynamicTestingModule, exports: [BrowserTestingModule] });
+    static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "19.2.3+sha-8e8ccc7", ngImport: i0, type: BrowserDynamicTestingModule, imports: [BrowserTestingModule] });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.2.3+sha-c13c53f", ngImport: i0, type: BrowserDynamicTestingModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.2.3+sha-8e8ccc7", ngImport: i0, type: BrowserDynamicTestingModule, decorators: [{
             type: NgModule,
             args: [{
                     exports: [BrowserTestingModule],
                 }]
         }] });
 
-export { BrowserDynamicTestingModule, platformBrowserDynamicTesting, platformCoreDynamicTesting as ɵplatformCoreDynamicTesting };
+export { BrowserDynamicTestingModule, platformBrowserDynamicTesting };
 //# sourceMappingURL=testing.mjs.map
