@@ -1,13 +1,15 @@
 /**
- * @license Angular v19.2.4+sha-3bc8fe4
+ * @license Angular v19.2.4+sha-b53220a
  * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
 
 import * as i0 from '@angular/core';
 import { createPlatformFactory, NgModule } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { platformBrowserDynamic } from './platform-browser-dynamic.mjs';
 import { BrowserTestingModule } from '@angular/platform-browser/testing';
+import '@angular/compiler';
+import '@angular/platform-browser';
 
 /**
  * @publicApi
@@ -19,11 +21,11 @@ const platformBrowserDynamicTesting = createPlatformFactory(platformBrowserDynam
  * @publicApi
  */
 class BrowserDynamicTestingModule {
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.2.4+sha-3bc8fe4", ngImport: i0, type: BrowserDynamicTestingModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "19.2.4+sha-3bc8fe4", ngImport: i0, type: BrowserDynamicTestingModule, exports: [BrowserTestingModule] });
-    static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "19.2.4+sha-3bc8fe4", ngImport: i0, type: BrowserDynamicTestingModule, imports: [BrowserTestingModule] });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.2.4+sha-b53220a", ngImport: i0, type: BrowserDynamicTestingModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "19.2.4+sha-b53220a", ngImport: i0, type: BrowserDynamicTestingModule, exports: [BrowserTestingModule] });
+    static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "19.2.4+sha-b53220a", ngImport: i0, type: BrowserDynamicTestingModule, imports: [BrowserTestingModule] });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.2.4+sha-3bc8fe4", ngImport: i0, type: BrowserDynamicTestingModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.2.4+sha-b53220a", ngImport: i0, type: BrowserDynamicTestingModule, decorators: [{
             type: NgModule,
             args: [{
                     exports: [BrowserTestingModule],
