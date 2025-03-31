@@ -1,5 +1,5 @@
 /**
- * @license Angular v20.0.0-next.4+sha-1fed7dc
+ * @license Angular v20.0.0-next.4+sha-97556e6
  * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -17,7 +17,7 @@ import { platformBrowser } from '@angular/platform-browser';
 /**
  * @publicApi
  */
-const VERSION = new Version('20.0.0-next.4+sha-1fed7dc');
+const VERSION = new Version('20.0.0-next.4+sha-97556e6');
 
 const COMPILER_PROVIDERS = [
     { provide: Compiler, useFactory: () => new Compiler() },
@@ -112,10 +112,10 @@ class ResourceLoaderImpl extends ResourceLoader {
         xhr.send();
         return promise;
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.0-next.4+sha-1fed7dc", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "20.0.0-next.4+sha-1fed7dc", ngImport: i0, type: ResourceLoaderImpl });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.0-next.4+sha-97556e6", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
+    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "20.0.0-next.4+sha-97556e6", ngImport: i0, type: ResourceLoaderImpl });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.0-next.4+sha-1fed7dc", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.0-next.4+sha-97556e6", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
             type: Injectable
         }] });
 
