@@ -1,16 +1,22 @@
 /**
- * @license Angular v18.1.0-next.0+sha-87c5f3c
- * (c) 2010-2024 Google LLC. https://angular.io/
+ * @license Angular v20.0.0-next.9+sha-f4d60ff
+ * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
 
+import * as i0 from '@angular/core';
+import { Version, CompilerFactory, CompilerOptions, Compiler, StaticProvider } from '@angular/core';
 
-import { Compiler } from '@angular/core';
-import { CompilerFactory } from '@angular/core';
-import { CompilerOptions } from '@angular/core';
-import { PlatformRef } from '@angular/core';
-import { StaticProvider } from '@angular/core';
-import { Version } from '@angular/core';
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the platform-browser-dynamic package.
+ */
+
+/**
+ * @publicApi
+ */
+declare const VERSION: Version;
 
 /**
  * @publicApi
@@ -18,31 +24,15 @@ import { Version } from '@angular/core';
  * @deprecated
  * Ivy JIT mode doesn't require accessing this symbol.
  */
-export declare class JitCompilerFactory implements CompilerFactory {
+declare class JitCompilerFactory implements CompilerFactory {
     private _defaultOptions;
     createCompiler(options?: CompilerOptions[]): Compiler;
 }
 
+declare const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: StaticProvider[];
 /**
  * @publicApi
  */
-export declare const platformBrowserDynamic: (extraProviders?: StaticProvider[] | undefined) => PlatformRef;
+declare const platformBrowserDynamic: (extraProviders?: StaticProvider[]) => i0.PlatformRef;
 
-/**
- * @publicApi
- */
-export declare const VERSION: Version;
-
-/**
- * @publicApi
- */
-export declare const ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: StaticProvider[];
-
-/**
- * A platform that included corePlatform and the compiler.
- *
- * @publicApi
- */
-export declare const ɵplatformCoreDynamic: (extraProviders?: StaticProvider[] | undefined) => PlatformRef;
-
-export { }
+export { JitCompilerFactory, VERSION, platformBrowserDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS };

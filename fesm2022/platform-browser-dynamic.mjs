@@ -1,14 +1,23 @@
 /**
- * @license Angular v18.1.0-next.0+sha-87c5f3c
- * (c) 2010-2024 Google LLC. https://angular.io/
+ * @license Angular v20.0.0-next.9+sha-f4d60ff
+ * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
 
 import * as i0 from '@angular/core';
-import { Compiler, ViewEncapsulation, Injector, createPlatformFactory, platformCore, COMPILER_OPTIONS, CompilerFactory, Injectable, PLATFORM_ID, Version } from '@angular/core';
+import { Version, ViewEncapsulation, Injector, Compiler, Injectable, createPlatformFactory, COMPILER_OPTIONS, CompilerFactory } from '@angular/core';
 import { CompilerConfig, ResourceLoader } from '@angular/compiler';
-import { ɵPLATFORM_BROWSER_ID } from '@angular/common';
-import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
+import { platformBrowser } from '@angular/platform-browser';
+
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the platform-browser-dynamic package.
+ */
+/**
+ * @publicApi
+ */
+const VERSION = new Version('20.0.0-next.9+sha-f4d60ff');
 
 const COMPILER_PROVIDERS = [
     { provide: Compiler, useFactory: () => new Compiler() },
@@ -20,6 +29,7 @@ const COMPILER_PROVIDERS = [
  * Ivy JIT mode doesn't require accessing this symbol.
  */
 class JitCompilerFactory {
+    _defaultOptions;
     /** @internal */
     constructor(defaultOptions) {
         const compilerOptions = {
@@ -69,16 +79,6 @@ function _mergeArrays(parts) {
     return result;
 }
 
-/**
- * A platform that included corePlatform and the compiler.
- *
- * @publicApi
- */
-const platformCoreDynamic = createPlatformFactory(platformCore, 'coreDynamic', [
-    { provide: COMPILER_OPTIONS, useValue: {}, multi: true },
-    { provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS] },
-]);
-
 class ResourceLoaderImpl extends ResourceLoader {
     get(url) {
         let resolve;
@@ -112,53 +112,25 @@ class ResourceLoaderImpl extends ResourceLoader {
         xhr.send();
         return promise;
     }
-    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.0+sha-87c5f3c", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable }); }
-    static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.1.0-next.0+sha-87c5f3c", ngImport: i0, type: ResourceLoaderImpl }); }
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.0-next.9+sha-f4d60ff", ngImport: i0, type: ResourceLoaderImpl, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
+    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "20.0.0-next.9+sha-f4d60ff", ngImport: i0, type: ResourceLoaderImpl });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.0+sha-87c5f3c", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.0-next.9+sha-f4d60ff", ngImport: i0, type: ResourceLoaderImpl, decorators: [{
             type: Injectable
         }] });
 
-/**
- * @publicApi
- */
 const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
-    ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
     {
         provide: COMPILER_OPTIONS,
         useValue: { providers: [{ provide: ResourceLoader, useClass: ResourceLoaderImpl, deps: [] }] },
         multi: true,
     },
-    { provide: PLATFORM_ID, useValue: ɵPLATFORM_BROWSER_ID },
+    { provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS] },
 ];
-
-/**
- * @module
- * @description
- * Entry point for all public APIs of the platform-browser-dynamic package.
- */
 /**
  * @publicApi
  */
-const VERSION = new Version('18.1.0-next.0+sha-87c5f3c');
+const platformBrowserDynamic = createPlatformFactory(platformBrowser, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 
-/**
- * @publicApi
- */
-const platformBrowserDynamic = createPlatformFactory(platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
-
-/**
- * @module
- * @description
- * Entry point for all public APIs of this package.
- */
-// This file only reexports content of the `src` folder. Keep it that way.
-
-// This file is not used to build this module. It is only used during editing
-
-/**
- * Generated bundle index. Do not edit.
- */
-
-export { JitCompilerFactory, VERSION, platformBrowserDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, platformCoreDynamic as ɵplatformCoreDynamic };
+export { JitCompilerFactory, VERSION, platformBrowserDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS };
 //# sourceMappingURL=platform-browser-dynamic.mjs.map
