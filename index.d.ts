@@ -1,11 +1,10 @@
 /**
- * @license Angular v20.0.0-rc.0+sha-c1b9d3e
+ * @license Angular v20.0.0-rc.0+sha-1b4b44e
  * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
 
-import * as i0 from '@angular/core';
-import { Version, CompilerFactory, CompilerOptions, Compiler, StaticProvider } from '@angular/core';
+import { Version, CompilerFactory, CompilerOptions, Compiler, StaticProvider, PlatformRef } from '@angular/core';
 
 /**
  * @module
@@ -33,6 +32,6 @@ declare const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: StaticProvider[];
 /**
  * @publicApi
  */
-declare const platformBrowserDynamic: (extraProviders?: StaticProvider[]) => i0.PlatformRef;
+declare const platformBrowserDynamic: (extraProviders?: StaticProvider[]) => PlatformRef;
 
 export { JitCompilerFactory, VERSION, platformBrowserDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS };
