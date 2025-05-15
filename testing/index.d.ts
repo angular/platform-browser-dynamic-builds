@@ -1,5 +1,5 @@
 /**
- * @license Angular v20.1.0-next.0+sha-b2a74aa
+ * @license Angular v20.1.0-next.0+sha-a4e2139
  * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -9,13 +9,14 @@ import { StaticProvider, PlatformRef } from '@angular/core';
 import * as i1 from '@angular/platform-browser/testing';
 
 /**
- * @publicApi
+ * @deprecated Use the `platformBrowserTesting` function instead from `@angular/platform-browser/testing`.
+ * In case you are not in a CLI app and rely on JIT compilation, you might also need to import `@angular/compiler`
  */
 declare const platformBrowserDynamicTesting: (extraProviders?: StaticProvider[]) => PlatformRef;
 /**
  * NgModule for testing.
  *
- * @publicApi
+ * @deprecated Use the `BrowserTestingModule` from `@angular/platform-browser/testing` instead.
  */
 declare class BrowserDynamicTestingModule {
     static ɵfac: i0.ɵɵFactoryDeclaration<BrowserDynamicTestingModule, never>;
