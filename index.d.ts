@@ -1,5 +1,5 @@
 /**
- * @license Angular v20.1.0-next.0+sha-1123b31
+ * @license Angular v20.1.0-next.0+sha-dba912d
  * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -28,11 +28,10 @@ declare class JitCompilerFactory implements CompilerFactory {
     createCompiler(options?: CompilerOptions[]): Compiler;
 }
 
-declare const INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: StaticProvider[];
 /**
  * @deprecated Use the `platformBrowser` function instead from `@angular/platform-browser`.
  * In case you are not in a CLI app and rely on JIT compilation, you will also need to import `@angular/compiler`
  */
 declare const platformBrowserDynamic: (extraProviders?: StaticProvider[]) => PlatformRef;
 
-export { JitCompilerFactory, VERSION, platformBrowserDynamic, INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS };
+export { JitCompilerFactory, VERSION, platformBrowserDynamic };
