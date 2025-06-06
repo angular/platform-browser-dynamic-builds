@@ -1,5 +1,5 @@
 /**
- * @license Angular v20.1.0-next.0+sha-ae1afc1
+ * @license Angular v20.1.0-next.0+sha-e01b4c2
  * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -22,11 +22,11 @@ const platformBrowserDynamicTesting = createPlatformFactory(platformBrowserDynam
  * @deprecated Use the `BrowserTestingModule` from `@angular/platform-browser/testing` instead.
  */
 class BrowserDynamicTestingModule {
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.1.0-next.0+sha-ae1afc1", ngImport: i0, type: BrowserDynamicTestingModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "20.1.0-next.0+sha-ae1afc1", ngImport: i0, type: BrowserDynamicTestingModule, exports: [BrowserTestingModule] });
-    static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "20.1.0-next.0+sha-ae1afc1", ngImport: i0, type: BrowserDynamicTestingModule, imports: [BrowserTestingModule] });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.1.0-next.0+sha-e01b4c2", ngImport: i0, type: BrowserDynamicTestingModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "20.1.0-next.0+sha-e01b4c2", ngImport: i0, type: BrowserDynamicTestingModule, exports: [BrowserTestingModule] });
+    static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "20.1.0-next.0+sha-e01b4c2", ngImport: i0, type: BrowserDynamicTestingModule, imports: [BrowserTestingModule] });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.1.0-next.0+sha-ae1afc1", ngImport: i0, type: BrowserDynamicTestingModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.1.0-next.0+sha-e01b4c2", ngImport: i0, type: BrowserDynamicTestingModule, decorators: [{
             type: NgModule,
             args: [{
                     exports: [BrowserTestingModule],
