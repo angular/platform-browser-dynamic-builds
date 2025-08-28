@@ -1,5 +1,5 @@
 /**
- * @license Angular v20.2.2+sha-2e05dea
+ * @license Angular v20.2.2+sha-114906d
  * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -17,7 +17,7 @@ import { platformBrowser } from '@angular/platform-browser';
 /**
  * @publicApi
  */
-const VERSION = new Version('20.2.2+sha-2e05dea');
+const VERSION = new Version('20.2.2+sha-114906d');
 
 const COMPILER_PROVIDERS = [
     { provide: Compiler, useFactory: () => new Compiler() },
