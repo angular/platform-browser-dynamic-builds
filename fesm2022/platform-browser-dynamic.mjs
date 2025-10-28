@@ -1,5 +1,5 @@
 /**
- * @license Angular v21.0.0-next.9+sha-b41a070
+ * @license Angular v21.0.0-next.9+sha-6e004ca
  * (c) 2010-2025 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -9,7 +9,7 @@ import { Version, Injector, Compiler, ViewEncapsulation, Injectable, createPlatf
 import { CompilerConfig, ResourceLoader } from '@angular/compiler';
 import { platformBrowser } from '@angular/platform-browser';
 
-const VERSION = new Version('21.0.0-next.9+sha-b41a070');
+const VERSION = new Version('21.0.0-next.9+sha-6e004ca');
 
 const COMPILER_PROVIDERS = [{
   provide: Compiler,
@@ -92,7 +92,7 @@ class ResourceLoaderImpl extends ResourceLoader {
   }
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "21.0.0-next.9+sha-b41a070",
+    version: "21.0.0-next.9+sha-6e004ca",
     ngImport: i0,
     type: ResourceLoaderImpl,
     deps: null,
@@ -100,14 +100,14 @@ class ResourceLoaderImpl extends ResourceLoader {
   });
   static ɵprov = i0.ɵɵngDeclareInjectable({
     minVersion: "12.0.0",
-    version: "21.0.0-next.9+sha-b41a070",
+    version: "21.0.0-next.9+sha-6e004ca",
     ngImport: i0,
     type: ResourceLoaderImpl
   });
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "21.0.0-next.9+sha-b41a070",
+  version: "21.0.0-next.9+sha-6e004ca",
   ngImport: i0,
   type: ResourceLoaderImpl,
   decorators: [{
