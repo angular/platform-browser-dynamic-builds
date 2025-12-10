@@ -1,5 +1,5 @@
 /**
- * @license Angular v21.1.0-next.1+sha-d355205
+ * @license Angular v21.1.0-next.1+sha-d0a34a6
  * (c) 2010-2025 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -15,7 +15,7 @@ const platformBrowserDynamicTesting = createPlatformFactory(platformBrowserDynam
 class BrowserDynamicTestingModule {
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "21.1.0-next.1+sha-d355205",
+    version: "21.1.0-next.1+sha-d0a34a6",
     ngImport: i0,
     type: BrowserDynamicTestingModule,
     deps: [],
@@ -23,14 +23,14 @@ class BrowserDynamicTestingModule {
   });
   static ɵmod = i0.ɵɵngDeclareNgModule({
     minVersion: "14.0.0",
-    version: "21.1.0-next.1+sha-d355205",
+    version: "21.1.0-next.1+sha-d0a34a6",
     ngImport: i0,
     type: BrowserDynamicTestingModule,
     exports: [BrowserTestingModule]
   });
   static ɵinj = i0.ɵɵngDeclareInjector({
     minVersion: "12.0.0",
-    version: "21.1.0-next.1+sha-d355205",
+    version: "21.1.0-next.1+sha-d0a34a6",
     ngImport: i0,
     type: BrowserDynamicTestingModule,
     imports: [BrowserTestingModule]
@@ -38,7 +38,7 @@ class BrowserDynamicTestingModule {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "21.1.0-next.1+sha-d355205",
+  version: "21.1.0-next.1+sha-d0a34a6",
   ngImport: i0,
   type: BrowserDynamicTestingModule,
   decorators: [{
